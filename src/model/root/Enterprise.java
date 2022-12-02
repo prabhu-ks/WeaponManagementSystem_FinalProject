@@ -10,10 +10,4 @@ package model.root;
  */
 public class Enterprise {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
-    }
 }

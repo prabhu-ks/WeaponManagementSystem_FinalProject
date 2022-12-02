@@ -4,11 +4,13 @@
  */
 package model.regulator;
 
+import model.root.Enterprise;
+
 /**
  *
  * @author manavhirey
  */
-public class sample {
+public class Regulator extends Enterprise {
 
     
 }
