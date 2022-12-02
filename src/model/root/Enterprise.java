@@ -24,5 +24,4 @@ public class Enterprise {
     public void setEnterpriseType(EnterpriseType enterpriseType) {
         this.enterpriseType = enterpriseType;
     }
-    
 }
