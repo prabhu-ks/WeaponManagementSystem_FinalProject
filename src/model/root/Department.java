@@ -9,11 +9,29 @@ package model.root;
  * @author manavhirey
  */
 public class Department {
+      private String Dept_name;
+    private long Dept_ID;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        // TODO code application logic here
+    public Department(String Dept_name, long Dept_ID) {
+        this.Dept_name = Dept_name;
+        this.Dept_ID = Dept_ID;
     }
+
+    public String getDept_name() {
+        return Dept_name;
+    }
+
+    public void setDept_name(String Dept_name) {
+        this.Dept_name = Dept_name;
+    }
+
+    public long getDept_ID() {
+        return Dept_ID;
+    }
+
+    public void setDept_ID(long Dept_ID) {
+        this.Dept_ID = Dept_ID;
+    }
+
+   
 }
