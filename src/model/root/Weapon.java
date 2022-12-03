@@ -43,8 +43,6 @@ public class Weapon {
         this.id = id;
     }
 
-    
-
     public String getType() {
         return type;
     }
