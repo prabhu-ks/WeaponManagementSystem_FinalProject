@@ -6,10 +6,10 @@ package model.root;
 
 /**
  *
- * @author manavhirey
+ * @author kshitijprabhu
  */
 public class Department {
-      private String Dept_name;
+    private String Dept_name;
     private long Dept_ID;
 
     public Department(String Dept_name, long Dept_ID) {
