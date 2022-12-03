@@ -12,16 +12,16 @@ public class Person {
     
     public enum UserRole{
         TESTER,
-        APP_OFF,
-        EMP,
-        FUL_OFF,
-        ASSEM,
-        ORD_MAN,
-        SHIP_MAN,
-        IN_MAN,
-        ACC_VERIFY,
-        REG_MAN,
-        STR_MAN,
+        APPROVAL_OFFICER,
+        EMPLOYEE,
+        FULFILMENT_OFFICER,
+        ASSEMBLER,
+        ORDER_MANAGER,
+        SHIPMENT_MANAGER,
+        INVENTORY_MANAGER,
+        ACCOUNT_VERIFYER,
+        REGIONAL_MANAGER,
+        STORE_MANAGER,
         CUSTOMER
     }
     
@@ -35,6 +35,10 @@ public class Person {
     private String username;
     private String password;
     private UserRole role;
+    
+    public Person(){
+        
+    }
 
     public Person(long ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         this.ssn = ssn;
