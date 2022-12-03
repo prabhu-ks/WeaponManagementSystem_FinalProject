@@ -4,6 +4,7 @@
  */
 package model.supplier;
 
+import java.util.UUID;
 import model.root.Department;
 
 /**
@@ -12,9 +13,11 @@ import model.root.Department;
  */
 public class ShippingDepartment extends Department {
 
-    public ShippingDepartment(String Dept_name, long Dept_ID) {
+    public ShippingDepartment(String Dept_name, UUID Dept_ID) {
         super(Dept_name, Dept_ID);
     }
+
+
     
     
     
