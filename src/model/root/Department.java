@@ -13,6 +13,10 @@ public class Department {
 
    private String Dept_name;
    private UUID Dept_ID;
+   
+   public Department(){
+    
+}
 
     public Department(String Dept_name, UUID Dept_ID) {
         this.Dept_name = Dept_name;
