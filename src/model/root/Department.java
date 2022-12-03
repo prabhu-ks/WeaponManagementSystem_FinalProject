@@ -4,15 +4,19 @@
  */
 package model.root;
 
+import java.util.UUID;
 /**
  *
  * @author manavhirey
  */
 public class Department {
       private String Dept_name;
-    private long Dept_ID;
+      private UUID Dept_ID;
 
-    public Department(String Dept_name, long Dept_ID) {
+    public Department() {
+    }
+      
+    public Department(String Dept_name, UUID Dept_ID) {
         this.Dept_name = Dept_name;
         this.Dept_ID = Dept_ID;
     }
@@ -25,11 +29,11 @@ public class Department {
         this.Dept_name = Dept_name;
     }
 
-    public long getDept_ID() {
+    public UUID getDept_ID() {
         return Dept_ID;
     }
 
-    public void setDept_ID(long Dept_ID) {
+    public void setDept_ID(UUID Dept_ID) {
         this.Dept_ID = Dept_ID;
     }
 
