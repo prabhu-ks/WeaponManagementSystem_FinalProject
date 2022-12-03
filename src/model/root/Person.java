@@ -24,6 +24,7 @@ public class Person {
         ACCOUNT_VERIFYER,
         REGIONAL_MANAGER,
         STORE_MANAGER,
+        CASHIER,
         CUSTOMER
     }
     
