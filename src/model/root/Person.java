@@ -15,7 +15,7 @@ public class Person {
     public enum UserRole{
         TESTER,
         APPROVAL_OFFICER,
-        EMPLOYEE,
+        APPROVAL_EMPLOYEE,
         FULFILMENT_OFFICER,
         ASSEMBLER,
         ORDER_MANAGER,
