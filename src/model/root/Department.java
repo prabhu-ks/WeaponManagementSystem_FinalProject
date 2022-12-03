@@ -11,9 +11,13 @@ import java.util.UUID;
  */
 public class Department {
 
-    public Department() {
-    }
-      
+   private String Dept_name;
+   private UUID Dept_ID;
+   
+   public Department(){
+    
+}
+
     public Department(String Dept_name, UUID Dept_ID) {
         this.Dept_name = Dept_name;
         this.Dept_ID = Dept_ID;
