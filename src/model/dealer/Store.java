@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.root;
+package model.dealer;
 
 /**
  *
@@ -11,12 +11,22 @@ package model.root;
 public class Store {
     private long  id;
     private String name;
-    
+    private Inventory inventory;
 
-    public Store(long id, String name, long zip) {
+    public Store(long id, String name, Inventory inventory) {
         this.id = id;
         this.name = name;
-       
+        this.inventory = inventory;
+    }
+
+    
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
     public long getId() {
