@@ -4,6 +4,7 @@
  */
 package model.supplier;
 
+import java.util.UUID;
 import model.root.Person;
 
 /**
@@ -12,10 +13,11 @@ import model.root.Person;
  */
 public class OrderManager extends Person {
 
-    public OrderManager(long ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public OrderManager(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.ORDER_MANAGER);
     }
-    
+
+   
     
     
 }
