@@ -4,6 +4,7 @@
  */
 package model.regulator;
 
+import java.util.UUID;
 import model.root.Person;
 
 /**
@@ -11,6 +12,9 @@ import model.root.Person;
  * @author manavhirey
  */
 public class Tester extends Person {
-
+    
+    public Tester(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(UUID.randomUUID(), name, gender, dob, phoneNo, email, address, username, password, UserRole.TESTER);
+    }  
     
 }

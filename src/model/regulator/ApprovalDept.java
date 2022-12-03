@@ -4,16 +4,16 @@
  */
 package model.regulator;
 
-import model.root.Department;
 import java.util.UUID;
+import model.root.Department;
 
 /**
  *
  * @author manavhirey
  */
-public class TestingDept extends Department{
-
-    public TestingDept(String Dept_name, UUID Dept_ID) {
+public class ApprovalDept extends Department {
+    
+    public ApprovalDept(String Dept_name, UUID Dept_ID) {
         super(Dept_name, Dept_ID);
     }
     
