@@ -15,12 +15,18 @@ import model.root.Person;
 public class StoreManager extends Person {
     private UUID managingStoreId;
 
-    public StoreManager(UUID managingStoreId) {
+    
+
+    public StoreManager(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password,UUID managingStoreId) {
+        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.STORE_MANAGER);
         this.managingStoreId = managingStoreId;
     }
 
-    public StoreManager(UUID managingStoreId, long ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.STORE_MANAGER);
+    public UUID getManagingStoreId() {
+        return managingStoreId;
+    }
+
+    public void setManagingStoreId(UUID managingStoreId) {
         this.managingStoreId = managingStoreId;
     }
     
