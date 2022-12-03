@@ -4,24 +4,28 @@
  */
 package model.root;
 
+import java.util.UUID;
+
 /**
  *
  * @author manavmalavia
  */
 public class Weapon {
     private String name;
-    private long id;
+    private UUID id;
     private String type;
     private long price;
     private boolean approval;
 
-    public Weapon(String name, long id, String type, long price, boolean approval) {
+    public Weapon(String name, UUID id, String type, long price, boolean approval) {
         this.name = name;
         this.id = id;
         this.type = type;
         this.price = price;
         this.approval = approval;
     }
+
+    
 
     public String getName() {
         return name;
@@ -31,13 +35,15 @@ public class Weapon {
         this.name = name;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
+
+    
 
     public String getType() {
         return type;
