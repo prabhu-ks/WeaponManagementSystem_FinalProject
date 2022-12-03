@@ -4,6 +4,8 @@
  */
 package model.root;
 
+import java.util.UUID;
+
 /**
  *
  * @author manavhirey
@@ -25,7 +27,7 @@ public class Person {
         CUSTOMER
     }
     
-    private long ssn;
+    private UUID ssn;
     private String name;
     private String gender;
     private String dob;
@@ -40,7 +42,7 @@ public class Person {
         
     }
 
-    public Person(long ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Person(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         this.ssn = ssn;
         this.name = name;
         this.gender = gender;
@@ -53,11 +55,11 @@ public class Person {
         this.role = role;
     }
 
-    public long getSsn() {
+    public UUID getSsn() {
         return ssn;
     }
 
-    public void setSsn(long ssn) {
+    public void setSsn(UUID ssn) {
         this.ssn = ssn;
     }
 
