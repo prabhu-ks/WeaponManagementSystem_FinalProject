@@ -5,6 +5,7 @@
 package model.regulator;
 
 import java.util.UUID;
+import model.root.Weapon;
 
 /**
  *
@@ -14,14 +15,16 @@ public class Test {
     
     private String testName;
     private Tester testerName;
-    private boolean completed;
     private UUID testID;
+    private String selectedWeaponType;
+    private String testInfo;
 
-    public Test(String testName, Tester testerName, boolean completed, UUID testID) {
+    public Test(UUID testID, String testName, Tester testerName, String testInfo, String selectedWeaponType) {
         this.testName = testName;
         this.testerName = testerName;
-        this.completed = completed;
         this.testID = testID;
+        this.selectedWeaponType = selectedWeaponType;
+        this.testInfo = testInfo;
     }
 
     public String getTestName() {
@@ -40,14 +43,6 @@ public class Test {
         this.testerName = testerName;
     }
 
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
     public UUID getTestID() {
         return testID;
     }
@@ -55,7 +50,5 @@ public class Test {
     public void setTestID(UUID testID) {
         this.testID = testID;
     }
-    
-    
-    
+ 
 }
