@@ -10,4 +10,6 @@ package model.root;
  */
 public class Seller {
     
+    
+    
 }

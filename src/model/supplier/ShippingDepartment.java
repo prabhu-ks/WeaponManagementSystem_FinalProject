@@ -13,9 +13,11 @@ import model.root.Department;
  */
 public class ShippingDepartment extends Department {
 
-    public ShippingDepartment(String Dept_name, UUID Dept_ID) {
-        super(Dept_name, Dept_ID);
+    public ShippingDepartment(String dept_Name, UUID dept_ID) {
+        super(dept_Name, dept_ID);
     }
+
+   
 
 
     

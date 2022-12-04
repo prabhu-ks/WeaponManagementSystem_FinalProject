@@ -4,10 +4,12 @@
  */
 package model.supplier;
 
+import model.root.Enterprise;
+
 /**
  *
  * @author pho3nix28
  */
-public class Supplier {
+public class Supplier extends Enterprise {
     
 }
