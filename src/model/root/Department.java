@@ -11,33 +11,31 @@ import java.util.UUID;
  */
 public class Department {
 
-   private String Dept_name;
-   private UUID Dept_ID;
+   private String deptName;
+   private UUID deptId;
+
+    public Department(String deptName, UUID deptId) {
+        this.deptName = deptName;
+        this.deptId = deptId;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public UUID getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(UUID deptId) {
+        this.deptId = deptId;
+    }
    
-   public Department(){
+
     
-}
-
-    public Department(String Dept_name, UUID Dept_ID) {
-        this.Dept_name = Dept_name;
-        this.Dept_ID = Dept_ID;
-    }
-
-    public String getDept_name() {
-        return Dept_name;
-    }
-
-    public void setDept_name(String Dept_name) {
-        this.Dept_name = Dept_name;
-    }
-
-    public UUID getDept_ID() {
-        return Dept_ID;
-    }
-
-    public void setDept_ID(UUID Dept_ID) {
-        this.Dept_ID = Dept_ID;
-    }
-
    
 }
