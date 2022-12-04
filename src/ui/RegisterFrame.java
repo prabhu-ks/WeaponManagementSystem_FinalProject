@@ -4,7 +4,11 @@
  */
 package ui;
 
+import java.awt.event.KeyEvent;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +17,7 @@ import javax.swing.JFrame;
 public class RegisterFrame extends javax.swing.JFrame {
     
     public static JFrame registerFrame;
+    String gender;
 
     /**
      * Creates new form RegisterFrame
@@ -105,6 +110,23 @@ public class RegisterFrame extends javax.swing.JFrame {
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Weapon Management System");
 
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameFocusLost(evt);
+            }
+        });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNameKeyPressed(evt);
+            }
+        });
+
+        txtSSN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSSNKeyPressed(evt);
+            }
+        });
+
         rbtMale.setForeground(new java.awt.Color(255, 255, 255));
         rbtMale.setText("Male");
         rbtMale.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +145,28 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         rbtOther.setForeground(new java.awt.Color(255, 255, 255));
         rbtOther.setText("Other");
+        rbtOther.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtOtherActionPerformed(evt);
+            }
+        });
+
+        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneActionPerformed(evt);
+            }
+        });
+        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPhoneKeyPressed(evt);
+            }
+        });
+
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
 
         btnCreate.setBackground(new java.awt.Color(126, 87, 194));
         btnCreate.setFont(new java.awt.Font("Copperplate", 0, 13)); // NOI18N
@@ -192,23 +236,22 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(lblTitle1)
                 .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(rbtMale)
-                            .addComponent(rbtFemale)
-                            .addComponent(rbtOther))
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel9))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(rbtMale)
+                    .addComponent(rbtFemale)
+                    .addComponent(rbtOther))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
                     .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -234,7 +277,7 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,6 +296,11 @@ public class RegisterFrame extends javax.swing.JFrame {
 
     private void rbtMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtMaleActionPerformed
         // TODO add your handling code here:
+         if(rbtMale.isSelected()){
+            gender = "Male";
+            rbtFemale.setSelected(false);
+            rbtOther.setSelected(false);
+        }
     }//GEN-LAST:event_rbtMaleActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -263,7 +311,104 @@ public class RegisterFrame extends javax.swing.JFrame {
 
     private void rbtFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFemaleActionPerformed
         // TODO add your handling code here:
+        if(rbtFemale.isSelected()){
+            gender = "Male";
+            rbtMale.setSelected(false);
+            rbtOther.setSelected(false);
+        }
     }//GEN-LAST:event_rbtFemaleActionPerformed
+
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneActionPerformed
+
+    private void txtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyPressed
+        // TODO add your handling code here:
+        
+           String phoneNumber = txtPhone.getText();
+        int lengthOfNumber = phoneNumber.length();
+        char checkChar = evt.getKeyChar();
+        if (checkChar >= '0' && checkChar <= '9') {
+            if (lengthOfNumber < 10) {
+                txtPhone.setEditable(true);
+            } else {
+                txtPhone.setEditable(false);
+                JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
+            }
+        } else {
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                txtPhone.setEditable(true);
+            } else {
+                txtPhone.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtPhoneKeyPressed
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+        // TODO add your handling code here:
+        
+      
+    }//GEN-LAST:event_txtNameKeyPressed
+
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+        // TODO add your handling code here:
+        
+          Pattern p = Pattern.compile("[^A-Za-z ]");
+        Matcher m = p.matcher(txtName.getText());
+        // boolean b = m.matches();
+        boolean b = m.find();
+        if (b){
+            JOptionPane.showMessageDialog(null,"Special Characters are not allowed.");
+            txtName.setText("");
+        }
+    }//GEN-LAST:event_txtNameFocusLost
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        
+        String emailFormat ="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\."+ "[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"; 
+        Pattern employeeEmail = Pattern.compile(emailFormat) ;
+        Matcher employeeEmailMatch = employeeEmail.matcher(txtEmail.getText());
+        
+        if (!employeeEmailMatch.matches()){
+            JOptionPane.showMessageDialog(null,"Invalid Email!");
+            txtEmail.setText("");
+        } 
+    }//GEN-LAST:event_txtEmailFocusLost
+
+    private void txtSSNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSSNKeyPressed
+        // TODO add your handling code here:
+        
+         String ssn = txtSSN.getText();
+        int lengthOfNumber = ssn.length();
+        char checkChar = evt.getKeyChar();
+        if (checkChar >= '0' && checkChar <= '9') {
+            if (lengthOfNumber < 9) {
+                txtSSN.setEditable(true);
+            } else {
+                txtSSN.setEditable(false);
+                JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
+            }
+        } else {
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                txtSSN.setEditable(true);
+            } else {
+                txtSSN.setEditable(false);
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_txtSSNKeyPressed
+
+    private void rbtOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOtherActionPerformed
+        // TODO add your handling code here:
+        if(rbtOther.isSelected()){
+            gender = "Male";
+            rbtMale.setSelected(false);
+            rbtFemale.setSelected(false);
+        }
+    }//GEN-LAST:event_rbtOtherActionPerformed
 
     /**
      * @param args the command line arguments
