@@ -20,7 +20,9 @@ public class Cashier extends Person {
     
     public Cashier(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password) {
         super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.CASHIER);
+
     }
+    
     
     
     

@@ -10,6 +10,7 @@ import java.util.UUID;
  * @author kshitijprabhu
  */
 public class Department {
+    
 
    private String deptName;
    private UUID deptId;
@@ -33,9 +34,7 @@ public class Department {
 
     public void setDeptId(UUID deptId) {
         this.deptId = deptId;
-    }
-   
 
-    
+    }
    
 }
