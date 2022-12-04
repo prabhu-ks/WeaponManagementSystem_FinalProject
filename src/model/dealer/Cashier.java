@@ -4,6 +4,7 @@
  */
 package model.dealer;
 
+import java.util.UUID;
 import model.root.Person;
 
 /**
@@ -16,10 +17,11 @@ public class Cashier extends Person {
     public Cashier(long workingStoreId) {
         this.workingStoreId = workingStoreId;
     }
-    
-    public Cashier(long ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.CASHIER);
+
+    public Cashier(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, name, gender, dob, phoneNo, email, address, username, password, role);
     }
+    
     
     
     

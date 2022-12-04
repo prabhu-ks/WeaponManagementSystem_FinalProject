@@ -10,59 +10,61 @@ package model.supplier;
  */
 public class Order {
     
-    private long Order_id;
-    private String Order_status;
-    private String Test_status;
-    private long Manf_id;
-    private long Supp_id;
+    private long order_Id;
+    private String order_Status;
+    private String test_Status;
+    private long manf_Id;
+    private long supp_Id;
 
-    public Order(long Order_id, String Order_status, String Test_status, long Manf_id, long Supp_id) {
-        this.Order_id = Order_id;
-        this.Order_status = Order_status;
-        this.Test_status = Test_status;
-        this.Manf_id = Manf_id;
-        this.Supp_id = Supp_id;
+    public Order(long order_Id, String order_Status, String test_Status, long manf_Id, long supp_Id) {
+        this.order_Id = order_Id;
+        this.order_Status = order_Status;
+        this.test_Status = test_Status;
+        this.manf_Id = manf_Id;
+        this.supp_Id = supp_Id;
     }
 
-    public long getOrder_id() {
-        return Order_id;
+    public long getOrder_Id() {
+        return order_Id;
     }
 
-    public void setOrder_id(long Order_id) {
-        this.Order_id = Order_id;
+    public void setOrder_Id(long order_Id) {
+        this.order_Id = order_Id;
     }
 
-    public String getOrder_status() {
-        return Order_status;
+    public String getOrder_Status() {
+        return order_Status;
     }
 
-    public void setOrder_status(String Order_status) {
-        this.Order_status = Order_status;
+    public void setOrder_Status(String order_Status) {
+        this.order_Status = order_Status;
     }
 
-    public String getTest_status() {
-        return Test_status;
+    public String getTest_Status() {
+        return test_Status;
     }
 
-    public void setTest_status(String Test_status) {
-        this.Test_status = Test_status;
+    public void setTest_Status(String test_Status) {
+        this.test_Status = test_Status;
     }
 
-    public long getManf_id() {
-        return Manf_id;
+    public long getManf_Id() {
+        return manf_Id;
     }
 
-    public void setManf_id(long Manf_id) {
-        this.Manf_id = Manf_id;
+    public void setManf_Id(long manf_Id) {
+        this.manf_Id = manf_Id;
     }
 
-    public long getSupp_id() {
-        return Supp_id;
+    public long getSupp_Id() {
+        return supp_Id;
     }
 
-    public void setSupp_id(long Supp_id) {
-        this.Supp_id = Supp_id;
+    public void setSupp_Id(long supp_Id) {
+        this.supp_Id = supp_Id;
     }
+
+   
     
     
 }
