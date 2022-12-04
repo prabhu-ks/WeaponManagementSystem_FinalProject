@@ -12,14 +12,15 @@ import model.root.Person;
  * @author manavmalavia
  */
 public class Cashier extends Person {
-    private long workingStoreId;
+    private UUID workingStoreId;
 
-    public Cashier(long workingStoreId) {
+    public Cashier(UUID workingStoreId) {
         this.workingStoreId = workingStoreId;
     }
+    
+    public Cashier(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password) {
+        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.CASHIER);
 
-    public Cashier(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, role);
     }
     
     

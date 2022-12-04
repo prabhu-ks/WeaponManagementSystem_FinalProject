@@ -4,64 +4,80 @@
  */
 package model.supplier;
 
+import java.util.ArrayList;
+import model.root.Weapon;
+
 /**
  *
  * @author pho3nix28
  */
 public class Order {
     
-    private long order_Id;
-    private String order_Status;
-    private String test_Status;
-    private long manf_Id;
-    private long supp_Id;
+    private long order_id;
+    private String order_status;
+    private String test_status;
+    private long manf_id;
+    private long supp_id;
+    private ArrayList<Weapon> weaponList;
 
-    public Order(long order_Id, String order_Status, String test_Status, long manf_Id, long supp_Id) {
-        this.order_Id = order_Id;
-        this.order_Status = order_Status;
-        this.test_Status = test_Status;
-        this.manf_Id = manf_Id;
-        this.supp_Id = supp_Id;
+    public Order(long order_id, String order_status, String test_status, long manf_id, long supp_id, ArrayList<Weapon> weaponList) {
+        this.order_id = order_id;
+        this.order_status = order_status;
+        this.test_status = test_status;
+        this.manf_id = manf_id;
+        this.supp_id = supp_id;
+        this.weaponList = weaponList;
+    }
+    
+    
+    
+    public ArrayList<Weapon> getWeaponList() {
+        return weaponList;
     }
 
-    public long getOrder_Id() {
-        return order_Id;
+    public void setWeaponList(ArrayList<Weapon> weaponList) {
+        this.weaponList = weaponList;
     }
 
-    public void setOrder_Id(long order_Id) {
-        this.order_Id = order_Id;
+    public long getOrder_id() {
+        return order_id;
     }
 
-    public String getOrder_Status() {
-        return order_Status;
+    public void setOrder_id(long order_id) {
+        this.order_id = order_id;
     }
 
-    public void setOrder_Status(String order_Status) {
-        this.order_Status = order_Status;
+    public String getOrder_status() {
+        return order_status;
     }
 
-    public String getTest_Status() {
-        return test_Status;
+    public void setOrder_status(String order_status) {
+        this.order_status = order_status;
     }
 
-    public void setTest_Status(String test_Status) {
-        this.test_Status = test_Status;
+    public String getTest_status() {
+        return test_status;
     }
 
-    public long getManf_Id() {
-        return manf_Id;
+    public void setTest_status(String test_status) {
+        this.test_status = test_status;
     }
 
-    public void setManf_Id(long manf_Id) {
-        this.manf_Id = manf_Id;
+    public long getManf_id() {
+        return manf_id;
     }
 
-    public long getSupp_Id() {
-        return supp_Id;
+    public void setManf_id(long manf_id) {
+        this.manf_id = manf_id;
     }
 
-    public void setSupp_Id(long supp_Id) {
-        this.supp_Id = supp_Id;
+    public long getSupp_id() {
+        return supp_id;
+    }
+
+    public void setSupp_id(long supp_id) {
+        this.supp_id = supp_id;
+
     }
 
    

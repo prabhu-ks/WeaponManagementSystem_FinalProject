@@ -5,6 +5,7 @@
 package model.manufacturer;
 
 import java.util.ArrayList;
+import java.util.UUID;
 import model.root.Department;
 
 /**
@@ -13,6 +14,21 @@ import model.root.Department;
  */
 public class ApprovalAffairs extends Department {
     private ArrayList <Report> reports;
+    
+    public ApprovalAffairs() {
+    }
+
+    public ApprovalAffairs(String Dept_name, UUID Dept_ID) {
+        super(Dept_name, Dept_ID);
+    }
+
+    public ArrayList<Report> getReports() {
+        return reports;
+    }
+
+    public void setReports(ArrayList<Report> reports) {
+        this.reports = reports;
+    }
    
     
 }
