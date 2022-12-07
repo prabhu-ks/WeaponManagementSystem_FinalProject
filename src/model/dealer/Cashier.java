@@ -18,8 +18,8 @@ public class Cashier extends Person {
         this.workingStoreId = workingStoreId;
     }
     
-    public Cashier(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.CASHIER);
+    public Cashier(long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.CASHIER);
 
     }
     

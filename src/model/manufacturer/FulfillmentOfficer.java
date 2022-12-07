@@ -14,8 +14,8 @@ import model.root.Person;
 public class FulfillmentOfficer extends Person {
      private UUID workingDepartmentId;
 
-    public FulfillmentOfficer(UUID workingDepartmentId, UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, role);
+    public FulfillmentOfficer(UUID workingDepartmentId, long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.workingDepartmentId = workingDepartmentId;
     }
 

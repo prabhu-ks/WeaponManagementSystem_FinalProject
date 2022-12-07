@@ -22,8 +22,8 @@ public class Assembler extends Person{
         this.workingDepartmentId = workingDepartmentId;
     }
 
-    public Assembler(UUID workingDepartmentId, UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, role);
+    public Assembler(UUID workingDepartmentId, long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.workingDepartmentId = workingDepartmentId;
     }
     

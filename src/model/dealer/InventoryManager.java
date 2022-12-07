@@ -14,8 +14,8 @@ import model.root.Person;
 public class InventoryManager extends Person {
     private UUID workingStoreId;
 
-    public InventoryManager( UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UUID workingStoreId) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.INVENTORY_MANAGER);
+    public InventoryManager( long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UUID workingStoreId) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.INVENTORY_MANAGER);
         this.workingStoreId = workingStoreId;
     }
 

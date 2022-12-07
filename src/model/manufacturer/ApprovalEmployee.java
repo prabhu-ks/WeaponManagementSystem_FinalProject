@@ -14,8 +14,8 @@ import model.root.Person;
 public class ApprovalEmployee extends Person {
     private UUID workingDepartmentId;
 
-    public ApprovalEmployee(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password,UUID workingDepartmentId) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.APPROVAL_EMPLOYEE);
+    public ApprovalEmployee(long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password,UUID workingDepartmentId) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.APPROVAL_EMPLOYEE);
         this.workingDepartmentId = workingDepartmentId;
     }
 
