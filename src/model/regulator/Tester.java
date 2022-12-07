@@ -4,6 +4,7 @@
  */
 package model.regulator;
 
+import java.util.ArrayList;
 import java.util.UUID;
 import model.root.Person;
 
@@ -13,8 +14,13 @@ import model.root.Person;
  */
 public class Tester extends Person {
     
-    public Tester(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(UUID.randomUUID(), name, gender, dob, phoneNo, email, address, username, password, UserRole.TESTER);
-    }  
+    private ArrayList<Test> testList;
+    private UUID workingDeptId;
+
+    public Tester(ArrayList<Test> testList, UUID workingDeptId, long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
+        this.testList = testList;
+        this.workingDeptId = workingDeptId;
+    }
     
 }
