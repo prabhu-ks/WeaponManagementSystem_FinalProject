@@ -8,12 +8,12 @@ package ui;
  *
  * @author pho3nix28
  */
-public class ShippingManagerCreate extends javax.swing.JPanel {
+public class OrderManagerCreate extends javax.swing.JPanel {
 
     /**
-     * Creates new form ShippingManagerCreate
+     * Creates new form OrderManagerCreate
      */
-    public ShippingManagerCreate() {
+    public OrderManagerCreate() {
         initComponents();
     }
 
@@ -28,7 +28,7 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
 
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblShippingOrder = new javax.swing.JTable();
+        tblOrderManager = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
@@ -38,8 +38,8 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Order Management");
 
-        tblShippingOrder.setBackground(new java.awt.Color(255, 255, 255));
-        tblShippingOrder.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderManager.setBackground(new java.awt.Color(255, 255, 255));
+        tblOrderManager.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -50,7 +50,7 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblShippingOrder);
+        jScrollPane1.setViewportView(tblOrderManager);
 
         btnCreate.setBackground(new java.awt.Color(126, 87, 194));
         btnCreate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -80,7 +80,7 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCreate)
                 .addGap(252, 252, 252))
         );
@@ -95,6 +95,6 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JTable tblShippingOrder;
+    private javax.swing.JTable tblOrderManager;
     // End of variables declaration//GEN-END:variables
 }

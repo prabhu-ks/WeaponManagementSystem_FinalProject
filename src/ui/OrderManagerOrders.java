@@ -8,12 +8,12 @@ package ui;
  *
  * @author pho3nix28
  */
-public class ShippingManagerCreate extends javax.swing.JPanel {
+public class OrderManagerOrders extends javax.swing.JPanel {
 
     /**
-     * Creates new form ShippingManagerCreate
+     * Creates new form OrderManagerOrders
      */
-    public ShippingManagerCreate() {
+    public OrderManagerOrders() {
         initComponents();
     }
 
@@ -28,18 +28,20 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
 
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblShippingOrder = new javax.swing.JTable();
-        btnCreate = new javax.swing.JButton();
+        btnOrderManager = new javax.swing.JTable();
+        btnOrder = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Order Management");
+        lblTitle1.setText("Manufacturer-Supplier Order Management");
 
-        tblShippingOrder.setBackground(new java.awt.Color(255, 255, 255));
-        tblShippingOrder.setModel(new javax.swing.table.DefaultTableModel(
+        btnOrderManager.setBackground(new java.awt.Color(255, 255, 255));
+        btnOrderManager.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -50,17 +52,27 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblShippingOrder);
+        jScrollPane1.setViewportView(btnOrderManager);
 
-        btnCreate.setBackground(new java.awt.Color(126, 87, 194));
-        btnCreate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
-        btnCreate.setText("Create");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnOrder.setBackground(new java.awt.Color(126, 87, 194));
+        btnOrder.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrder.setText("View Order");
+
+        btnUpdate.setBackground(new java.awt.Color(126, 87, 194));
+        btnUpdate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
+
+        btnDelete.setBackground(new java.awt.Color(126, 87, 194));
+        btnDelete.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,9 +80,15 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOrder)
+                .addGap(300, 300, 300))
             .addGroup(layout.createSequentialGroup()
-                .addGap(304, 304, 304)
-                .addComponent(btnCreate)
+                .addGap(251, 251, 251)
+                .addComponent(btnUpdate)
+                .addGap(31, 31, 31)
+                .addComponent(btnDelete)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,21 +98,27 @@ public class ShippingManagerCreate extends javax.swing.JPanel {
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
-                .addComponent(btnCreate)
-                .addGap(252, 252, 252))
+                .addGap(18, 18, 18)
+                .addComponent(btnOrder)
+                .addGap(235, 235, 235)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnDelete))
+                .addContainerGap(323, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnOrder;
+    private javax.swing.JTable btnOrderManager;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JTable tblShippingOrder;
     // End of variables declaration//GEN-END:variables
 }
