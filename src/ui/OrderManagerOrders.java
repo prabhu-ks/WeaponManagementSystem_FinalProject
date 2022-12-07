@@ -28,7 +28,7 @@ public class OrderManagerOrders extends javax.swing.JPanel {
 
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        btnOrderManager = new javax.swing.JTable();
+        tblOrderManager = new javax.swing.JTable();
         btnOrder = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -40,8 +40,8 @@ public class OrderManagerOrders extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Manufacturer-Supplier Order Management");
 
-        btnOrderManager.setBackground(new java.awt.Color(255, 255, 255));
-        btnOrderManager.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderManager.setBackground(new java.awt.Color(255, 255, 255));
+        tblOrderManager.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,7 +52,7 @@ public class OrderManagerOrders extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(btnOrderManager);
+        jScrollPane1.setViewportView(tblOrderManager);
 
         btnOrder.setBackground(new java.awt.Color(126, 87, 194));
         btnOrder.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -116,9 +116,9 @@ public class OrderManagerOrders extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnOrder;
-    private javax.swing.JTable btnOrderManager;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JTable tblOrderManager;
     // End of variables declaration//GEN-END:variables
 }
