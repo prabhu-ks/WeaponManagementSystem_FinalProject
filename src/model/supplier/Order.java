@@ -15,7 +15,6 @@ public class Order {
     
     private long order_id;
     private String order_status;
-    private String test_status;
     private long manf_id;
     private long supp_id;
     private ArrayList<Weapon> weaponList;
@@ -23,7 +22,6 @@ public class Order {
     public Order(long order_id, String order_status, String test_status, long manf_id, long supp_id, ArrayList<Weapon> weaponList) {
         this.order_id = order_id;
         this.order_status = order_status;
-        this.test_status = test_status;
         this.manf_id = manf_id;
         this.supp_id = supp_id;
         this.weaponList = weaponList;
@@ -55,13 +53,6 @@ public class Order {
         this.order_status = order_status;
     }
 
-    public String getTest_status() {
-        return test_status;
-    }
-
-    public void setTest_status(String test_status) {
-        this.test_status = test_status;
-    }
 
     public long getManf_id() {
         return manf_id;
