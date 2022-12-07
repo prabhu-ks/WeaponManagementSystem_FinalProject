@@ -6,19 +6,19 @@ package ui;
 
 import javax.swing.JFrame;
 import static ui.MainFrame.mainFrame;
+import static ui.ShippingManagerFrame.shipFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class ShippingManagerFrame extends javax.swing.JFrame {
-    
-    public static JFrame shipFrame;
-
+public class OrderManagerFrame extends javax.swing.JFrame {
+ 
+    public static JFrame ordFrame;
     /**
-     * Creates new form ShippingManagerFrame
+     * Creates new form OrderManagerFrame
      */
-    public ShippingManagerFrame() {
+    public OrderManagerFrame() {
         initComponents();
     }
 
@@ -33,7 +33,7 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnManage = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -44,13 +44,13 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnManage.setBackground(new java.awt.Color(126, 87, 194));
-        btnManage.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnManage.setForeground(new java.awt.Color(255, 255, 255));
-        btnManage.setText("Manage");
-        btnManage.addActionListener(new java.awt.event.ActionListener() {
+        btnOrder.setBackground(new java.awt.Color(126, 87, 194));
+        btnOrder.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
+        btnOrder.setText("Manage");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageActionPerformed(evt);
+                btnOrderActionPerformed(evt);
             }
         });
 
@@ -81,7 +81,7 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -93,7 +93,7 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(235, 235, 235)
-                .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -111,14 +111,14 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
 
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle1.setText("Shipping Manager Dashboard");
+        lblTitle1.setText("Order Manager Dashboard");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(lblTitle)
@@ -143,7 +143,7 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,23 +153,23 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageActionPerformed
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
         // TODO add your handling code here:
-        
-         ShippingManagerOrders ord = new ShippingManagerOrders();
-         splitPane.setRightComponent(ord);  
-    }//GEN-LAST:event_btnManageActionPerformed
+
+        OrderManagerOrders ord1 = new OrderManagerOrders();
+        splitPane.setRightComponent(ord1);
+    }//GEN-LAST:event_btnOrderActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        ShippingManagerFrame.shipFrame.setVisible(false);
+        OrderManagerFrame.ordFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-         ShippingManagerCreate ordcr = new ShippingManagerCreate();
-         splitPane.setRightComponent(ordcr);  
+        OrderManagerCreate ord2 = new OrderManagerCreate();
+        splitPane.setRightComponent(ord2);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
@@ -189,33 +189,33 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ShippingManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ShippingManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ShippingManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ShippingManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OrderManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               if(shipFrame == null){
-                    shipFrame = new ShippingManagerFrame();
+                if(ordFrame == null){
+                    ordFrame = new ShippingManagerFrame();
                 }
                 
-                shipFrame.setVisible(true);
-            }
+                ordFrame.setVisible(true);
             
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnManage;
+    private javax.swing.JButton btnOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
