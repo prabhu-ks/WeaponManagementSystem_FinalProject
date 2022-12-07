@@ -13,8 +13,8 @@ import model.root.Person;
  */
 public class OrderManager extends Person {
 
-    public OrderManager(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.ORDER_MANAGER);
+    public OrderManager(long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.ORDER_MANAGER);
     }
 
    
