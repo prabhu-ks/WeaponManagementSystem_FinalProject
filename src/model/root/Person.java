@@ -28,7 +28,8 @@ public class Person {
         CUSTOMER
     }
     
-    private UUID ssn;
+    private long ssn;
+    private UUID puid;
     private String name;
     private String gender;
     private String dob;
@@ -43,8 +44,9 @@ public class Person {
         
     }
 
-    public Person(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Person(long ssn,UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         this.ssn = ssn;
+        this.puid = puid;
         this.name = name;
         this.gender = gender;
         this.dob = dob;
@@ -56,12 +58,20 @@ public class Person {
         this.role = role;
     }
 
-    public UUID getSsn() {
+    public long getSsn() {
         return ssn;
     }
 
-    public void setSsn(UUID ssn) {
+    public void setSsn(long ssn) {
         this.ssn = ssn;
+    }
+
+    public UUID getPuid() {
+        return puid;
+    }
+
+    public void setPuid(UUID puid) {
+        this.puid = puid;
     }
 
     public String getName() {

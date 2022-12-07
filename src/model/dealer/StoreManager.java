@@ -17,8 +17,8 @@ public class StoreManager extends Person {
 
     
 
-    public StoreManager(UUID ssn, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password,UUID managingStoreId) {
-        super(ssn, name, gender, dob, phoneNo, email, address, username, password, UserRole.STORE_MANAGER);
+    public StoreManager(long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password,UUID managingStoreId) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.STORE_MANAGER);
         this.managingStoreId = managingStoreId;
     }
 
