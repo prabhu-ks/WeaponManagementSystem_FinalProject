@@ -35,10 +35,10 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnCustomer = new javax.swing.JButton();
+        btnStore = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
-        btnSupplier = new javax.swing.JButton();
+        btnInventory = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -47,13 +47,13 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnCustomer.setBackground(new java.awt.Color(126, 87, 194));
-        btnCustomer.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCustomer.setForeground(new java.awt.Color(255, 255, 255));
-        btnCustomer.setText("Customer Order");
-        btnCustomer.addActionListener(new java.awt.event.ActionListener() {
+        btnStore.setBackground(new java.awt.Color(126, 87, 194));
+        btnStore.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnStore.setForeground(new java.awt.Color(255, 255, 255));
+        btnStore.setText("Store Management");
+        btnStore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomerActionPerformed(evt);
+                btnStoreActionPerformed(evt);
             }
         });
 
@@ -77,13 +77,13 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             }
         });
 
-        btnSupplier.setBackground(new java.awt.Color(126, 87, 194));
-        btnSupplier.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnSupplier.setForeground(new java.awt.Color(255, 255, 255));
-        btnSupplier.setText("Supplier Order");
-        btnSupplier.addActionListener(new java.awt.event.ActionListener() {
+        btnInventory.setBackground(new java.awt.Color(126, 87, 194));
+        btnInventory.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
+        btnInventory.setText("Inventory Management");
+        btnInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSupplierActionPerformed(evt);
+                btnInventoryActionPerformed(evt);
             }
         });
 
@@ -96,8 +96,8 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -106,9 +106,9 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 .addGap(187, 187, 187)
                 .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnStore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(342, Short.MAX_VALUE))
@@ -176,12 +176,13 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
+    private void btnStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStoreActionPerformed
         // TODO add your handling code here:
+        StoreManagement ordcr = new StoreManagement();
+        splitPane.setRightComponent(ordcr);
 
-//        DealerCustomerOrder ord = new DealerCustomerOrder();
-//        splitPane.setRightComponent(ord);
-    }//GEN-LAST:event_btnCustomerActionPerformed
+     
+    }//GEN-LAST:event_btnStoreActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -191,16 +192,17 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
-        CreateEmployee ordcr = new CreateEmployee();
+        EmployeeManagement ordcr = new EmployeeManagement();
         splitPane.setRightComponent(ordcr);
         
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
-    private void btnSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSupplierActionPerformed
+    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
         // TODO add your handling code here:
-//        DealerSupplierOrder ordcr = new DealerSupplierOrder();
-//        splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnSupplierActionPerformed
+        InventoryManagement ordcr = new InventoryManagement();
+        splitPane.setRightComponent(ordcr);
+
+    }//GEN-LAST:event_btnInventoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,10 +245,10 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnEmployee;
+    private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnSupplier;
+    private javax.swing.JButton btnStore;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

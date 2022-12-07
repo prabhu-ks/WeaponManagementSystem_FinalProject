@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author pho3nix28
  */
-public class CreateEmployee extends javax.swing.JPanel {
+public class EmployeeManagement extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateEmployee
      */
     String gender;
-    public CreateEmployee() {
+    public EmployeeManagement() {
         initComponents();
     }
 
@@ -149,7 +149,7 @@ public class CreateEmployee extends javax.swing.JPanel {
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Employee");
+        lblTitle1.setText("Employee Management");
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));

@@ -72,8 +72,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnEmployee" max="32767" attributes="0"/>
                               <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnSupplier" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnCustomer" alignment="1" max="32767" attributes="0"/>
+                              <Component id="btnInventory" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnStore" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -85,9 +85,9 @@
                           <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
                           <Component id="btnEmployee" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnCustomer" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnStore" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnSupplier" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnInventory" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                           <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace pref="342" max="32767" attributes="0"/>
@@ -96,7 +96,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnCustomer">
+                <Component class="javax.swing.JButton" name="btnStore">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -107,10 +107,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Customer Order"/>
+                    <Property name="text" type="java.lang.String" value="Store Management"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStoreActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnLogout">
@@ -147,7 +147,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmployeeActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSupplier">
+                <Component class="javax.swing.JButton" name="btnInventory">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -158,10 +158,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Supplier Order"/>
+                    <Property name="text" type="java.lang.String" value="Inventory Management"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSupplierActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInventoryActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
