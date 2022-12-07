@@ -15,8 +15,7 @@ import model.root.Department;
 public class ApprovalAffairs extends Department {
     private ArrayList <Report> reports;
     
-    public ApprovalAffairs() {
-    }
+   
 
     public ApprovalAffairs(String Dept_name, UUID Dept_ID) {
         super(Dept_name, Dept_ID);
