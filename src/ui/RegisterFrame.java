@@ -171,7 +171,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         });
 
         btnCreate.setBackground(new java.awt.Color(126, 87, 194));
-        btnCreate.setFont(new java.awt.Font("Copperplate", 0, 13)); // NOI18N
+        btnCreate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create Account");
 
