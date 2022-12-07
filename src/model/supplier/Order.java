@@ -77,6 +77,7 @@ public class Order {
 
     public void setSupp_id(long supp_id) {
         this.supp_id = supp_id;
+
     }
 
    
