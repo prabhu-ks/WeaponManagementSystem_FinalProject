@@ -19,6 +19,10 @@ import model.supplier.Supplier;
  */
 public class OperatingSystem {
     private static OperatingSystem os;
+
+    static OperatingSystem getInstance() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private ArrayList<Region> regionList;
     private ArrayList<Weapon> weaponList;
     private ArrayList<Store> storeList;
