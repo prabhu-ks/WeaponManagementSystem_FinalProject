@@ -69,7 +69,7 @@
                       <Component id="btnInventory" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="407" max="32767" attributes="0"/>
+                      <EmptySpace pref="427" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -143,7 +143,7 @@
                       <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lblTitle1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="668" max="32767" attributes="0"/>
+                      <EmptySpace pref="688" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
