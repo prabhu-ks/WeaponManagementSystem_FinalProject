@@ -38,6 +38,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         btnStore = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         btnEmployee = new javax.swing.JButton();
+        btnSalesReport = new javax.swing.JButton();
         btnInventory = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
@@ -77,6 +78,16 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             }
         });
 
+        btnSalesReport.setBackground(new java.awt.Color(126, 87, 194));
+        btnSalesReport.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        btnSalesReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalesReport.setText("Sales report");
+        btnSalesReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalesReportActionPerformed(evt);
+            }
+        });
+
         btnInventory.setBackground(new java.awt.Color(126, 87, 194));
         btnInventory.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         btnInventory.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,8 +107,9 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSalesReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -109,7 +121,9 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 .addComponent(btnStore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(115, 115, 115)
+                .addGap(18, 18, 18)
+                .addComponent(btnSalesReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(342, Short.MAX_VALUE))
         );
@@ -197,11 +211,17 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
+    private void btnSalesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalesReportActionPerformed
+        // TODO add your handling code here:
+        SalesReport ordcr = new SalesReport();
+        splitPane.setRightComponent(ordcr);
+
+    }//GEN-LAST:event_btnSalesReportActionPerformed
+
     private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
         // TODO add your handling code here:
         InventoryManagement ordcr = new InventoryManagement();
         splitPane.setRightComponent(ordcr);
-
     }//GEN-LAST:event_btnInventoryActionPerformed
 
     /**
@@ -248,6 +268,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnEmployee;
     private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnSalesReport;
     private javax.swing.JButton btnStore;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
