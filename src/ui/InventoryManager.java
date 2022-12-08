@@ -83,7 +83,7 @@ public class InventoryManager extends javax.swing.JFrame {
                 .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel2);
@@ -118,7 +118,7 @@ public class InventoryManager extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addGap(30, 30, 30)
                 .addComponent(lblTitle1)
-                .addContainerGap(668, Short.MAX_VALUE))
+                .addContainerGap(688, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel3);
