@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -6,20 +7,20 @@ package ui;
 
 import javax.swing.JFrame;
 import static ui.MainFrame.mainFrame;
-import static ui.ShippingManagerFrame.shipFrame;
+import static ui.RegionalManagerFrame.regFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class RegionalManagerFrame extends javax.swing.JFrame {
+public class InventoryManager extends javax.swing.JFrame {
     
-    public static JFrame regFrame;
+    public static JFrame invFrame;
 
     /**
-     * Creates new form DealerDashboard
+     * Creates new form InventoryManager
      */
-    public RegionalManagerFrame() {
+    public InventoryManager() {
         initComponents();
     }
 
@@ -32,15 +33,10 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnStore = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        btnEmployee = new javax.swing.JButton();
-        btnSalesReport = new javax.swing.JButton();
         btnInventory = new javax.swing.JButton();
-        btnIDChecker = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -49,16 +45,6 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnStore.setBackground(new java.awt.Color(126, 87, 194));
-        btnStore.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnStore.setForeground(new java.awt.Color(255, 255, 255));
-        btnStore.setText("Store Management");
-        btnStore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStoreActionPerformed(evt);
-            }
-        });
-
         btnLogout.setBackground(new java.awt.Color(126, 87, 194));
         btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,26 +52,6 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
-            }
-        });
-
-        btnEmployee.setBackground(new java.awt.Color(126, 87, 194));
-        btnEmployee.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnEmployee.setForeground(new java.awt.Color(255, 255, 255));
-        btnEmployee.setText("Employee Management");
-        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmployeeActionPerformed(evt);
-            }
-        });
-
-        btnSalesReport.setBackground(new java.awt.Color(126, 87, 194));
-        btnSalesReport.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnSalesReport.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalesReport.setText("Sales report");
-        btnSalesReport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalesReportActionPerformed(evt);
             }
         });
 
@@ -99,16 +65,6 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             }
         });
 
-        btnIDChecker.setBackground(new java.awt.Color(126, 87, 194));
-        btnIDChecker.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnIDChecker.setForeground(new java.awt.Color(255, 255, 255));
-        btnIDChecker.setText("ID Checker");
-        btnIDChecker.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIDCheckerActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -116,30 +72,18 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalesReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnIDChecker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnStore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(283, 283, 283)
                 .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalesReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnIDChecker, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(50, 50, 50)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel2);
@@ -154,7 +98,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Regional Manager Dashboard");
+        lblTitle1.setText("Inventory Manager Dashboard");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -163,87 +107,47 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                     .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addComponent(lblTitle)
-                .addGap(29, 29, 29)
+                .addGap(30, 30, 30)
                 .addComponent(lblTitle1)
                 .addContainerGap(668, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel3);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStoreActionPerformed
-        // TODO add your handling code here:
-        StoreManagement ordcr = new StoreManagement();
-        splitPane.setRightComponent(ordcr);
-
-     
-    }//GEN-LAST:event_btnStoreActionPerformed
-
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        RegionalManagerFrame.regFrame.setVisible(false);
+        InventoryManager.invFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
-        // TODO add your handling code here:
-        EmployeeManagement ordcr = new EmployeeManagement();
-        splitPane.setRightComponent(ordcr);
-        
-    }//GEN-LAST:event_btnEmployeeActionPerformed
-
-    private void btnSalesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalesReportActionPerformed
-        // TODO add your handling code here:
-        SalesReport ordcr = new SalesReport();
-        splitPane.setRightComponent(ordcr);
-
-    }//GEN-LAST:event_btnSalesReportActionPerformed
 
     private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
         // TODO add your handling code here:
         InventoryManagement ordcr = new InventoryManagement();
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_btnInventoryActionPerformed
-
-    private void btnIDCheckerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIDCheckerActionPerformed
-        // TODO add your handling code here:
-        
-        IdCheckerManager ordcr = new IdCheckerManager();
-        splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnIDCheckerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,37 +166,31 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegionalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegionalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegionalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegionalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InventoryManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if(regFrame == null){
-                    regFrame = new RegionalManagerFrame();
+              if(invFrame == null){
+                    invFrame = new InventoryManager();
                 }
                 
-                regFrame.setVisible(true);
+                invFrame.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEmployee;
-    private javax.swing.JButton btnIDChecker;
     private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnSalesReport;
-    private javax.swing.JButton btnStore;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;
