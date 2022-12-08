@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="splitPane" alignment="1" max="32767" attributes="0"/>
+          <Component id="splitPane" alignment="1" pref="800" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -52,11 +52,11 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnCheck" pref="190" max="32767" attributes="0"/>
-                          <Component id="btnLogout" max="32767" attributes="0"/>
+                          <Component id="btnCheck" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -69,7 +69,7 @@
                       <Component id="btnCheck" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="407" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -103,7 +103,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="IDentity Management"/>
+                <Property name="text" type="java.lang.String" value="WEAPON TESTING"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckActionPerformed"/>
@@ -129,8 +129,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblTitle" alignment="0" pref="581" max="32767" attributes="0"/>
-                          <Component id="lblTitle1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblTitle1" pref="622" max="32767" attributes="0"/>
+                          <Component id="lblTitle" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -170,7 +170,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="ID Checker Dashboard"/>
+                <Property name="text" type="java.lang.String" value="Tester Dashboard"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -5,21 +5,21 @@
 package ui;
 
 import javax.swing.JFrame;
-import static ui.LoginFrame.loginFrame;
 import static ui.MainFrame.mainFrame;
+import static ui.StoreManager.storeFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class Idchecker extends javax.swing.JFrame {
+public class TesterFrame extends javax.swing.JFrame {
     
-    public static JFrame idcheckFrame;
+    public static JFrame testerFrame;
 
     /**
-     * Creates new form Idchecker
+     * Creates new form TesterFrame
      */
-    public Idchecker() {
+    public TesterFrame() {
         initComponents();
     }
 
@@ -57,7 +57,7 @@ public class Idchecker extends javax.swing.JFrame {
         btnCheck.setBackground(new java.awt.Color(126, 87, 194));
         btnCheck.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         btnCheck.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheck.setText("IDentity Management");
+        btnCheck.setText("WEAPON TESTING");
         btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckActionPerformed(evt);
@@ -71,7 +71,7 @@ public class Idchecker extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCheck, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(btnCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -82,7 +82,7 @@ public class Idchecker extends javax.swing.JFrame {
                 .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel2);
@@ -97,7 +97,7 @@ public class Idchecker extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("ID Checker Dashboard");
+        lblTitle1.setText("Tester Dashboard");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -106,8 +106,8 @@ public class Idchecker extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
-                    .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -126,7 +126,7 @@ public class Idchecker extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,13 +138,13 @@ public class Idchecker extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        Idchecker.idcheckFrame.setVisible(false);
+        TesterFrame.testerFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
-        IdCheckerManager ordcr = new IdCheckerManager();
+        WeaponTestingPanel ordcr = new WeaponTestingPanel();
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_btnCheckActionPerformed
 
@@ -165,24 +165,24 @@ public class Idchecker extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if(idcheckFrame == null){
-                    idcheckFrame = new Idchecker();
+                if(testerFrame == null){
+                    testerFrame = new TesterFrame();
                 }
                 
-                idcheckFrame.setVisible(true);
+                testerFrame.setVisible(true);
             }
         });
     }

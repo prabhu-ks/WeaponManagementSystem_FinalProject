@@ -5,21 +5,21 @@
 package ui;
 
 import javax.swing.JFrame;
-import static ui.LoginFrame.loginFrame;
+import static ui.Idchecker.idcheckFrame;
 import static ui.MainFrame.mainFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class Idchecker extends javax.swing.JFrame {
+public class ApprovalManager extends javax.swing.JFrame {
     
-    public static JFrame idcheckFrame;
+    public static JFrame apprFrame;
 
     /**
-     * Creates new form Idchecker
+     * Creates new form ApprovalManager
      */
-    public Idchecker() {
+    public ApprovalManager() {
         initComponents();
     }
 
@@ -57,7 +57,7 @@ public class Idchecker extends javax.swing.JFrame {
         btnCheck.setBackground(new java.awt.Color(126, 87, 194));
         btnCheck.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         btnCheck.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheck.setText("IDentity Management");
+        btnCheck.setText("Weapon Approval");
         btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckActionPerformed(evt);
@@ -97,7 +97,7 @@ public class Idchecker extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("ID Checker Dashboard");
+        lblTitle1.setText("Approval Manager Dashboard");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -138,13 +138,13 @@ public class Idchecker extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        Idchecker.idcheckFrame.setVisible(false);
+        ApprovalManager.apprFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
-        IdCheckerManager ordcr = new IdCheckerManager();
+        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_btnCheckActionPerformed
 
@@ -165,24 +165,24 @@ public class Idchecker extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if(idcheckFrame == null){
-                    idcheckFrame = new Idchecker();
+                if(apprFrame == null){
+                    apprFrame = new ApprovalManager();
                 }
                 
-                idcheckFrame.setVisible(true);
+                apprFrame.setVisible(true);
             }
         });
     }
