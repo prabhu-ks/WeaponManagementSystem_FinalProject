@@ -29,6 +29,12 @@ public class OperatingSystem {
     private ArrayList<Order> supplierOrderDirectory;
     private ArrayList<Order> manufactureOrderDirectory;
 
+    public static OperatingSystem getInstance(){
+        if(os == null){
+            os = new OperatingSystem();
+        }
+        return os;
+    }
     public static OperatingSystem getOs() {
         return os;
     }
