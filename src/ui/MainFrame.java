@@ -45,6 +45,8 @@ public class MainFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +145,20 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setText("Regulator Admin");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Assembler");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,13 +176,19 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(170, 170, 170))
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(129, 129, 129)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(60, 60, 60)
+                        .addComponent(jButton7)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
@@ -175,10 +197,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(jButton5)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton7)))
+                        .addComponent(jButton8)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -207,7 +228,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
-                    .addComponent(jButton7))
+                    .addComponent(jButton7)
+                    .addComponent(jButton8)
+                    .addComponent(jButton9))
                 .addGap(44, 44, 44))
         );
 
@@ -299,6 +322,21 @@ public class MainFrame extends javax.swing.JFrame {
         mainFrame.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        RegulatorAdmin.regAdminFrame = new RegulatorAdmin();
+        RegulatorAdmin.regAdminFrame.setVisible(true);
+        mainFrame.setVisible(false);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        AssemblerFrame.assFrame = new AssemblerFrame();
+        AssemblerFrame.assFrame .setVisible(true);
+        mainFrame.setVisible(false);
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -346,6 +384,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

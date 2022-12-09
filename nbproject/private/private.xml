@@ -8,21 +8,27 @@
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/Idchecker.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/manufacturer/ApprovalAffairs.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/root/Seller.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/WeaponApprovalJPanel.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/WeaponTestingPanel.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/RegionalManagerFrame.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/RegulatorAdmin.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/root/Weapon.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/supplier/Order.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/OrderManagerOrders.java</file>
-            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/backend/SytemConfig.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/root/Department.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/ShippingManagerOrders.java</file>
-            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/OrderManagerCreate.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/InventoryManagement.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/ApprovalManager.java</file>
-            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/ShippingManagerCreate.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/ShippingManagerFrame.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/AssemblerFrame.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/RegionalEmployeeManagement.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/RegulatorEmployeeManagement.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/backend/DbConnection.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/root/Person.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/regulator/CreateTestBattery.java</file>
-            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/EmployeeManagement.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/StoreManager.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/WeaponAssemblyJPanel.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/ManufacturerAdmin.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/LoginFrame.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/IdCheckerManager.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/SalesReport.java</file>
@@ -31,8 +37,11 @@
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/root/Regulator.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/StoreManagement.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/InventoryManager.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/TesterFrame.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/MainFrame.java</file>
             <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/model/supplier/ShippingManager.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/OrderFullfilJPanel.java</file>
+            <file>file:/Users/pho3nix28/Desktop/WeaponManagementSystem_FinalProject/src/ui/FullfilmentOfficerFrame.java</file>
         </group>
     </open-files>
 </project-private>

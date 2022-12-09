@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author pho3nix28
  */
-public class EmployeeManagement extends javax.swing.JPanel {
+public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     /**
      * Creates new form CreateEmployee
      */
     String gender;
-    public EmployeeManagement() {
+    public RegionalEmployeeManagement() {
         initComponents();
     }
 
