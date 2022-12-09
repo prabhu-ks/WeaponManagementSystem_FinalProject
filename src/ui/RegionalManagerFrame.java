@@ -220,7 +220,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
-        EmployeeManagement ordcr = new EmployeeManagement();
+        RegionalEmployeeManagement ordcr = new RegionalEmployeeManagement();
         splitPane.setRightComponent(ordcr);
         
     }//GEN-LAST:event_btnEmployeeActionPerformed
