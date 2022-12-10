@@ -149,6 +149,11 @@ public class Person {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" + "ssn=" + ssn + ", puid=" + puid + ", name=" + name + ", gender=" + gender + ", dob=" + dob + ", phoneNo=" + phoneNo + ", email=" + email + ", address=" + address + ", username=" + username + ", password=" + password + ", role=" + role + '}';
+    }
+
     
     
 }
