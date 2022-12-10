@@ -70,12 +70,12 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnEmployee" max="32767" attributes="0"/>
-                              <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnSalesReport" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnStore" alignment="1" max="32767" attributes="0"/>
-                              <Component id="btnInventory" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnIDChecker" alignment="0" max="32767" attributes="0"/>
+                              <Component id="regManEmployeeManagementButton" max="32767" attributes="0"/>
+                              <Component id="regManLogoutButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="regManSalesReportButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="regManStoreManButton" alignment="1" max="32767" attributes="0"/>
+                              <Component id="regManInventoryManButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="regManIdCheckerButton" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -85,24 +85,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                          <Component id="btnEmployee" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManEmployeeManagementButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnStore" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManStoreManButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnInventory" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManInventoryManButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnSalesReport" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManSalesReportButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnIDChecker" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManIdCheckerButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManLogoutButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace pref="302" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnStore">
+                <Component class="javax.swing.JButton" name="regManStoreManButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -116,10 +116,10 @@
                     <Property name="text" type="java.lang.String" value="Store Management"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStoreActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManStoreManButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnLogout">
+                <Component class="javax.swing.JButton" name="regManLogoutButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -133,10 +133,10 @@
                     <Property name="text" type="java.lang.String" value="Logout"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManLogoutButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnEmployee">
+                <Component class="javax.swing.JButton" name="regManEmployeeManagementButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -150,10 +150,10 @@
                     <Property name="text" type="java.lang.String" value="Employee Management"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmployeeActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManEmployeeManagementButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSalesReport">
+                <Component class="javax.swing.JButton" name="regManSalesReportButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -167,10 +167,10 @@
                     <Property name="text" type="java.lang.String" value="Sales report"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalesReportActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManSalesReportButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnInventory">
+                <Component class="javax.swing.JButton" name="regManInventoryManButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -184,10 +184,10 @@
                     <Property name="text" type="java.lang.String" value="Inventory Management"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInventoryActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManInventoryManButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnIDChecker">
+                <Component class="javax.swing.JButton" name="regManIdCheckerButton">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -201,7 +201,7 @@
                     <Property name="text" type="java.lang.String" value="ID Checker"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIDCheckerActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManIdCheckerButtonActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

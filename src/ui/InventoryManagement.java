@@ -29,33 +29,33 @@ public class InventoryManagement extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        inventoryManInventorySearchTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        inventoryManInventorySearchTable2 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        txtSearchInv = new javax.swing.JTextField();
+        inventoryManAvailableRadioButton = new javax.swing.JRadioButton();
+        inventoryManSoldRadioButton = new javax.swing.JRadioButton();
+        inventoryManInventoryListSearchText1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtSearchSold = new javax.swing.JTextField();
+        inventoryManInventorySearchText2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        txtActive = new javax.swing.JTextField();
+        inventoryManInventorySearchTable3 = new javax.swing.JTable();
+        inventoryManInventorySearchText3 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        inventoryManPastRadioButton = new javax.swing.JRadioButton();
+        inventoryManActiveRadioButton = new javax.swing.JRadioButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        inventoryManWeaponNameCombo = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        txtQuantity = new javax.swing.JTextField();
-        btnOrder = new javax.swing.JButton();
-        btnSelect = new javax.swing.JButton();
+        inventoryManQuantityText = new javax.swing.JTextField();
+        inventoryManOrderButton = new javax.swing.JButton();
+        inventoryManSelectButton = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(32, 33, 35));
@@ -70,7 +70,7 @@ public class InventoryManagement extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Inventory List:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        inventoryManInventorySearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -81,9 +81,9 @@ public class InventoryManagement extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(inventoryManInventorySearchTable);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        inventoryManInventorySearchTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -94,29 +94,40 @@ public class InventoryManagement extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(inventoryManInventorySearchTable2);
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sold and Available List:");
 
-        jRadioButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Available");
+        inventoryManAvailableRadioButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        inventoryManAvailableRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManAvailableRadioButton.setText("Available");
 
-        jRadioButton2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Sold");
-
-        txtSearchInv.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManSoldRadioButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        inventoryManSoldRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManSoldRadioButton.setText("Sold");
+        inventoryManSoldRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchInvActionPerformed(evt);
+                inventoryManSoldRadioButtonActionPerformed(evt);
+            }
+        });
+
+        inventoryManInventoryListSearchText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryManInventoryListSearchText1ActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Search:");
+
+        inventoryManInventorySearchText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryManInventorySearchText2ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,7 +140,7 @@ public class InventoryManagement extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Acitve and Past Orders List:");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        inventoryManInventorySearchTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -140,24 +151,29 @@ public class InventoryManagement extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(inventoryManInventorySearchTable3);
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Search:");
 
-        jRadioButton3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Past");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManPastRadioButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        inventoryManPastRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManPastRadioButton.setText("Past");
+        inventoryManPastRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                inventoryManPastRadioButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton4.setText("Active");
+        inventoryManActiveRadioButton.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        inventoryManActiveRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManActiveRadioButton.setText("Active");
+        inventoryManActiveRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryManActiveRadioButtonActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,10 +189,10 @@ public class InventoryManagement extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Weapon Name:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManWeaponNameCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        inventoryManWeaponNameCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                inventoryManWeaponNameComboActionPerformed(evt);
             }
         });
 
@@ -184,23 +200,23 @@ public class InventoryManagement extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Quantity:");
 
-        btnOrder.setBackground(new java.awt.Color(126, 87, 194));
-        btnOrder.setFont(new java.awt.Font("Copperplate", 1, 14)); // NOI18N
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrder.setText("Order");
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManOrderButton.setBackground(new java.awt.Color(126, 87, 194));
+        inventoryManOrderButton.setFont(new java.awt.Font("Copperplate", 1, 14)); // NOI18N
+        inventoryManOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManOrderButton.setText("Order");
+        inventoryManOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
+                inventoryManOrderButtonActionPerformed(evt);
             }
         });
 
-        btnSelect.setBackground(new java.awt.Color(126, 87, 194));
-        btnSelect.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnSelect.setForeground(new java.awt.Color(255, 255, 255));
-        btnSelect.setText("Select");
-        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManSelectButton.setBackground(new java.awt.Color(126, 87, 194));
+        inventoryManSelectButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        inventoryManSelectButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManSelectButton.setText("Select");
+        inventoryManSelectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSelectActionPerformed(evt);
+                inventoryManSelectButtonActionPerformed(evt);
             }
         });
 
@@ -214,20 +230,20 @@ public class InventoryManagement extends javax.swing.JPanel {
                 .addGap(84, 84, 84)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inventoryManWeaponNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(91, 91, 91)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inventoryManQuantityText, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnOrder)
+                        .addComponent(inventoryManOrderButton)
                         .addGap(287, 287, 287))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSelect)
+                        .addComponent(inventoryManSelectButton)
                         .addGap(283, 283, 283))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -244,13 +260,13 @@ public class InventoryManagement extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(103, 103, 103)
-                                .addComponent(jRadioButton2)
+                                .addComponent(inventoryManSoldRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton1)
+                                .addComponent(inventoryManAvailableRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSearchSold, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(inventoryManInventorySearchText2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1)
                             .addComponent(jScrollPane2)
                             .addComponent(jScrollPane3)
@@ -259,17 +275,17 @@ public class InventoryManagement extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSearchInv, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(inventoryManInventoryListSearchText1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(61, 61, 61)
-                                .addComponent(jRadioButton4)
+                                .addComponent(inventoryManActiveRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton3)
+                                .addComponent(inventoryManPastRadioButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtActive, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(inventoryManInventorySearchText3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -283,20 +299,20 @@ public class InventoryManagement extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtSearchInv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inventoryManInventoryListSearchText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSelect)
+                .addComponent(inventoryManSelectButton)
                 .addGap(8, 8, 8)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(txtSearchSold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inventoryManAvailableRadioButton)
+                    .addComponent(inventoryManSoldRadioButton)
+                    .addComponent(inventoryManInventorySearchText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,9 +321,9 @@ public class InventoryManagement extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4)
-                    .addComponent(txtActive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inventoryManPastRadioButton)
+                    .addComponent(inventoryManActiveRadioButton)
+                    .addComponent(inventoryManInventorySearchText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,40 +334,63 @@ public class InventoryManagement extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inventoryManWeaponNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inventoryManQuantityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnOrder)
+                .addComponent(inventoryManOrderButton)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void inventoryManPastRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManPastRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_inventoryManPastRadioButtonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void inventoryManWeaponNameComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManWeaponNameComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_inventoryManWeaponNameComboActionPerformed
 
-    private void txtSearchInvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchInvActionPerformed
+    private void inventoryManInventoryListSearchText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManInventoryListSearchText1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchInvActionPerformed
+    }//GEN-LAST:event_inventoryManInventoryListSearchText1ActionPerformed
 
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+    private void inventoryManOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManOrderButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderActionPerformed
+    }//GEN-LAST:event_inventoryManOrderButtonActionPerformed
 
-    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+    private void inventoryManSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManSelectButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSelectActionPerformed
+    }//GEN-LAST:event_inventoryManSelectButtonActionPerformed
+
+    private void inventoryManInventorySearchText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManInventorySearchText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inventoryManInventorySearchText2ActionPerformed
+
+    private void inventoryManSoldRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManSoldRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inventoryManSoldRadioButtonActionPerformed
+
+    private void inventoryManActiveRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManActiveRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inventoryManActiveRadioButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnOrder;
-    private javax.swing.JButton btnSelect;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JRadioButton inventoryManActiveRadioButton;
+    private javax.swing.JRadioButton inventoryManAvailableRadioButton;
+    private javax.swing.JTextField inventoryManInventoryListSearchText1;
+    private javax.swing.JTable inventoryManInventorySearchTable;
+    private javax.swing.JTable inventoryManInventorySearchTable2;
+    private javax.swing.JTable inventoryManInventorySearchTable3;
+    private javax.swing.JTextField inventoryManInventorySearchText2;
+    private javax.swing.JTextField inventoryManInventorySearchText3;
+    private javax.swing.JButton inventoryManOrderButton;
+    private javax.swing.JRadioButton inventoryManPastRadioButton;
+    private javax.swing.JTextField inventoryManQuantityText;
+    private javax.swing.JButton inventoryManSelectButton;
+    private javax.swing.JRadioButton inventoryManSoldRadioButton;
+    private javax.swing.JComboBox<String> inventoryManWeaponNameCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -362,10 +401,6 @@ public class InventoryManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -373,12 +408,5 @@ public class InventoryManagement extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField txtActive;
-    private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtSearchInv;
-    private javax.swing.JTextField txtSearchSold;
     // End of variables declaration//GEN-END:variables
 }
