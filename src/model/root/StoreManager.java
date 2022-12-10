@@ -15,10 +15,12 @@ import model.root.Person;
 public class StoreManager extends Person {
     private String managingStoreId;
 
-    public StoreManager(String managingStoreId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public StoreManager(String managingStoreId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.managingStoreId = managingStoreId;
     }
+
+    
 
     public String getManagingStoreId() {
         return managingStoreId;

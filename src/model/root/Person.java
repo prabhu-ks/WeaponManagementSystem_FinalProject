@@ -41,13 +41,13 @@ public class Person {
     private String address;
     private String username;
     private String password;
-    private UserRole role;
+    private String role;
     
     public Person(){
         
     }
 
-    public Person(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Person(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
         this.ssn = ssn;
         this.puid = puid;
         this.name = name;
@@ -141,11 +141,11 @@ public class Person {
         this.password = password;
     }
 
-    public UserRole getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

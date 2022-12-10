@@ -15,9 +15,12 @@ import model.root.Person;
 public class ApprovalOfficer extends Person {
     private String workingDepartmentId;
 
-    public ApprovalOfficer(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.APPROVAL_OFFICER);
+    public ApprovalOfficer(String workingDepartmentId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
+        this.workingDepartmentId = workingDepartmentId;
     }
+
+    
 
     public String getWorkingDepartmentId() {
         return workingDepartmentId;
