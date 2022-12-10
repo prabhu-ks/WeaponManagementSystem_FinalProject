@@ -6,7 +6,7 @@ package model.backend;
 
 /**
  *
- * @author prasa
+ * @author manav
  */
 public class SystemConfig {
     public static OperatingSystem configure(){
