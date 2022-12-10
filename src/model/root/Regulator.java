@@ -4,13 +4,16 @@
  */
 package model.root;
 
+import java.util.UUID;
+
 /**
  *
  * @author manavmalavia
  */
 public class Regulator extends Enterprise {
-    public Regulator(){
-        this.setEnterpriseType(EnterpriseType.Regulator);
+
+    public Regulator(UUID enterpriseId, String enterpriseName, EnterpriseType enterpriseType) {
+        super(enterpriseId, enterpriseName, enterpriseType.REGULATOR);
     }
     
 }

@@ -14,10 +14,12 @@ public class Department {
 
    private String deptName;
    private UUID deptId;
+   private UUID enterpriseId;
 
-    public Department(String deptName, UUID deptId) {
+    public Department(String deptName, UUID deptId, UUID enterpriseId) {
         this.deptName = deptName;
         this.deptId = deptId;
+        this.enterpriseId = enterpriseId;
     }
 
     public String getDeptName() {
@@ -34,7 +36,14 @@ public class Department {
 
     public void setDeptId(UUID deptId) {
         this.deptId = deptId;
+    }
 
+    public UUID getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(UUID enterpriseId) {
+        this.enterpriseId = enterpriseId;
     }
    
 }

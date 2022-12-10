@@ -4,6 +4,7 @@
  */
 package model.regulator;
 
+import model.root.Tester;
 import java.util.UUID;
 import model.root.Weapon;
 

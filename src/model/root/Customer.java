@@ -4,6 +4,7 @@
  */
 package model.root;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -12,10 +13,11 @@ import java.util.UUID;
  */
 public class Customer extends Person {
     
+    
     public String selectedImagePath;
 
-    public Customer(String selectedImagePath, long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
+    public Customer(String selectedImagePath, long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.CUSTOMER);
         this.selectedImagePath = selectedImagePath;
     }
 
