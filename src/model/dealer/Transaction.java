@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.supplier;
+package model.dealer;
 
 import java.util.UUID;
 import model.root.Weapon;
@@ -11,33 +11,30 @@ import model.root.Weapon;
  *
  * @author pho3nix28
  */
-public class Order {
+public class Transaction {
     
-    private long orderId;
+    private UUID transactionId;
     private String orderStatus;
-    private UUID manufacturerId;
-    private UUID supplierId;
+    private UUID dealerId;
+    private UUID customerId;
     private Weapon weaponId;
     private int quantity;
 
-    public Order() {
-    }
-
-    public Order(long orderId, String orderStatus, UUID manufacturerId, UUID supplierId, Weapon weaponId, int quantity) {
-        this.orderId = orderId;
+    public Transaction(UUID transactionId, String orderStatus, UUID manufacturerId, UUID supplierId, Weapon weaponId, int quantity) {
+        this.transactionId = transactionId;
         this.orderStatus = orderStatus;
-        this.manufacturerId = manufacturerId;
-        this.supplierId = supplierId;
+        this.dealerId = manufacturerId;
+        this.customerId = supplierId;
         this.weaponId = weaponId;
         this.quantity = quantity;
     }
 
-    public long getOrderId() {
-        return orderId;
+    public UUID getTransactionId() {
+        return transactionId;
     }
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
+    public void setTransactionId(UUID transactionId) {
+        this.transactionId = transactionId;
     }
 
     public String getOrderStatus() {
@@ -48,20 +45,20 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public UUID getManufacturerId() {
-        return manufacturerId;
+    public UUID getDealerId() {
+        return dealerId;
     }
 
-    public void setManufacturerId(UUID manufacturerId) {
-        this.manufacturerId = manufacturerId;
+    public void setDealerId(UUID dealerId) {
+        this.dealerId = dealerId;
     }
 
-    public UUID getSupplierId() {
-        return supplierId;
+    public UUID getCustomerId() {
+        return customerId;
     }
 
-    public void setSupplierId(UUID supplierId) {
-        this.supplierId = supplierId;
+    public void setCustomerId(UUID customerId) {
+        this.customerId = customerId;
     }
 
     public Weapon getWeaponId() {
@@ -81,5 +78,7 @@ public class Order {
     }
 
     
- 
+    
+    
+    
 }
