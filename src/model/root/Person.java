@@ -4,6 +4,7 @@
  */
 package model.root;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -24,7 +25,6 @@ public class Person {
         ACCOUNT_VERIFYER,
         REGIONAL_MANAGER,
         STORE_MANAGER,
-        CASHIER,
         CUSTOMER
     }
     
@@ -32,7 +32,7 @@ public class Person {
     private UUID puid;
     private String name;
     private String gender;
-    private String dob;
+    private Date dob;
     private long phoneNo;
     private String email;
     private String address;
@@ -44,7 +44,7 @@ public class Person {
         
     }
 
-    public Person(long ssn,UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Person(long ssn,UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         this.ssn = ssn;
         this.puid = puid;
         this.name = name;
@@ -90,11 +90,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(String dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 

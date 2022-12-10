@@ -3,13 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.root;
-import model.root.Enterprise.EnterpriseType;
+
+import java.util.UUID;
+
 /**
  *
  * @author manavmalavia
  */
 public class Manufacturer extends Enterprise{
-    public Manufacturer(){
-        this.setEnterpriseType(EnterpriseType.Manufacturer);
-    }
+
+    public Manufacturer(UUID enterpriseId, String enterpriseName, EnterpriseType enterpriseType) {
+        super(enterpriseId, enterpriseName, enterpriseType.MANUFACTURER);
+    } 
+    
 }
