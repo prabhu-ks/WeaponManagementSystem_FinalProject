@@ -19,21 +19,21 @@ public class Enterprise {
     }
     
     
-    private UUID enterpriseId;
+    private String enterpriseId;
     private String enterpriseName;
-    EnterpriseType enterpriseType;
+    private String enterpriseType;
 
-    public Enterprise(UUID enterpriseId, String enterpriseName, EnterpriseType enterpriseType) {
+    public Enterprise(String enterpriseId, String enterpriseName, String enterpriseType) {
         this.enterpriseId = enterpriseId;
         this.enterpriseName = enterpriseName;
         this.enterpriseType = enterpriseType;
     }
 
-    public UUID getEnterpriseId() {
+    public String getEnterpriseId() {
         return enterpriseId;
     }
 
-    public void setEnterpriseId(UUID enterpriseId) {
+    public void setEnterpriseId(String enterpriseId) {
         this.enterpriseId = enterpriseId;
     }
 
@@ -45,14 +45,15 @@ public class Enterprise {
         this.enterpriseName = enterpriseName;
     }
 
-    public EnterpriseType getEnterpriseType() {
+    public String getEnterpriseType() {
         return enterpriseType;
     }
 
-    public void setEnterpriseType(EnterpriseType enterpriseType) {
+    public void setEnterpriseType(String enterpriseType) {
         this.enterpriseType = enterpriseType;
     }
 
+    
     
 
     }

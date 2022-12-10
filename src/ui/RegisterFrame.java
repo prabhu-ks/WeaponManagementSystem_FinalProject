@@ -501,18 +501,14 @@ public class RegisterFrame extends javax.swing.JFrame {
         String username = registerFrameUsernameTxt.getText();
         String password = new String(registerFramePasswordTxt.getPassword());
         String idPath = selectedImagePath;
-        UUID uuid = UUID.randomUUID();
+        String uuid = UUID.randomUUID().toString();
         
-        Person person = new Customer(idPath, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, UserRole.CUSTOMER);
+        Person person = new Customer(idPath, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, UserRole.CUSTOMER.name());
 
         operatingSystem.addPersonToPersonDirectory(person);
         dB4OUtility.storeSystem(operatingSystem);
         
         OperatingSystem os= dB4OUtility.retrieveSystem();
-        ArrayList<Person> dataFromDB= os.getPersonDirectory();
-        for(Person person1: dataFromDB){
-            System.out.println(person1.getName());
-        }
         
         registerFrameNameTxt.setText("");
         registerFrameSsnTxt.setText("");
@@ -524,6 +520,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         registerFrameAddressTxt.setText("");
         registerFrameUsernameTxt.setText("");
         registerFramePasswordTxt.setText("");
+        
         
         
     }//GEN-LAST:event_registerFrameCreateAccountButtonActionPerformed

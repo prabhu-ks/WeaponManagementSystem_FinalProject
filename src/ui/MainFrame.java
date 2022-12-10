@@ -4,9 +4,23 @@
  */
 package ui;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.UUID;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.dealer.Inventory;
+import model.dealer.Store;
+import model.root.Dealer;
+import model.root.Enterprise;
+import model.root.Enterprise.EnterpriseType;
+import model.root.Manufacturer;
+import model.root.Person.UserRole;
+import model.root.RegionalManager;
+import model.root.Regulator;
+import model.root.Supplier;
+import model.root.Weapon;
 
 /**
  *
@@ -25,6 +39,35 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         this.operatingSystem = dB4OUtility.retrieveSystem();
         System.out.println(this.operatingSystem);
+        createStaticUsers();
+    }
+    
+    public void createStaticUsers(){
+//        RegionalManager rmdef = new RegionalManager("", 12345677, UUID.randomUUID().toString(),"Regional Admin","Female", new Date(), 123456789, "regionaladmin123@gmail.com", "Boston", "regionaladmin", "admin123", UserRole.REGIONAL_MANAGER.name());
+//        operatingSystem.addPersonToPersonDirectory(rmdef);
+//        dB4OUtility.storeSystem(operatingSystem);
+//        Store store = new Store(UUID.randomUUID().toString(), "Store one", new Inventory(0, 0,  0, new ArrayList<Weapon>()), 12345678, "storeone@gmail.com", "111 Boylston Street");
+//        operatingSystem.addStoreToStoreDirectory(store);
+//        dB4OUtility.storeSystem(operatingSystem);
+
+//          Dealer dealer = new Dealer(UUID.randomUUID().toString(),"Dealer", EnterpriseType.DEALER.name());
+//          operatingSystem.addEnterprisetoEnterpriseDirectory(dealer);
+//          dB4OUtility.storeSystem(operatingSystem);
+//          
+//          Regulator regulator = new Regulator(UUID.randomUUID().toString(),"Regulator", EnterpriseType.REGULATOR.name());
+//          operatingSystem.addEnterprisetoEnterpriseDirectory(regulator);
+//          dB4OUtility.storeSystem(operatingSystem);
+//          
+//          Manufacturer manufacturer = new Manufacturer(UUID.randomUUID().toString(),"Manufacturer", EnterpriseType.MANUFACTURER.name());
+//          operatingSystem.addEnterprisetoEnterpriseDirectory(manufacturer);
+//          dB4OUtility.storeSystem(operatingSystem);
+//          
+//          Supplier supplier = new Supplier(UUID.randomUUID().toString(),"Supplier", EnterpriseType.SUPPLIER.name());
+//          operatingSystem.addEnterprisetoEnterpriseDirectory(supplier);
+//          dB4OUtility.storeSystem(operatingSystem);
+          
+          
+
     }
 
     /**
@@ -316,9 +359,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        InventoryManager.invFrame = new InventoryManager();
-         InventoryManager.invFrame.setVisible(true);
-        mainFrame.setVisible(false);
+    
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

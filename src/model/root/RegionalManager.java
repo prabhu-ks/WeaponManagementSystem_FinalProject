@@ -5,22 +5,19 @@
 package model.root;
 
 import java.util.Date;
-import java.util.UUID;
-import model.root.Person;
 
 /**
  *
  * @author manavhirey
  */
-public class ApprovalOfficer extends Person {
+public class RegionalManager extends Person {
+    
     private String workingDepartmentId;
 
-    public ApprovalOfficer(String workingDepartmentId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
+    public RegionalManager(String workingDepartmentId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.REGIONAL_MANAGER.toString());
         this.workingDepartmentId = workingDepartmentId;
     }
-
-    
 
     public String getWorkingDepartmentId() {
         return workingDepartmentId;
@@ -29,5 +26,6 @@ public class ApprovalOfficer extends Person {
     public void setWorkingDepartmentId(String workingDepartmentId) {
         this.workingDepartmentId = workingDepartmentId;
     }
+    
     
 }
