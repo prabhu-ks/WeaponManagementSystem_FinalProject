@@ -34,10 +34,10 @@ public class RegulatorAdmin extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnApproval = new javax.swing.JButton();
-        btnEmployee = new javax.swing.JButton();
-        btnTesting = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        regAdminApprovalManagerButton = new javax.swing.JButton();
+        regAdminCreateEmployeeButton = new javax.swing.JButton();
+        regAdminTestingButton = new javax.swing.JButton();
+        regAdminLogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTitle1 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
@@ -46,43 +46,43 @@ public class RegulatorAdmin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnApproval.setBackground(new java.awt.Color(126, 87, 194));
-        btnApproval.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnApproval.setForeground(new java.awt.Color(255, 255, 255));
-        btnApproval.setText("Approval Manager");
-        btnApproval.addActionListener(new java.awt.event.ActionListener() {
+        regAdminApprovalManagerButton.setBackground(new java.awt.Color(126, 87, 194));
+        regAdminApprovalManagerButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regAdminApprovalManagerButton.setForeground(new java.awt.Color(255, 255, 255));
+        regAdminApprovalManagerButton.setText("Approval Manager");
+        regAdminApprovalManagerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnApprovalActionPerformed(evt);
+                regAdminApprovalManagerButtonActionPerformed(evt);
             }
         });
 
-        btnEmployee.setBackground(new java.awt.Color(126, 87, 194));
-        btnEmployee.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnEmployee.setForeground(new java.awt.Color(255, 255, 255));
-        btnEmployee.setText("Create Employee");
-        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
+        regAdminCreateEmployeeButton.setBackground(new java.awt.Color(126, 87, 194));
+        regAdminCreateEmployeeButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regAdminCreateEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
+        regAdminCreateEmployeeButton.setText("Create Employee");
+        regAdminCreateEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmployeeActionPerformed(evt);
+                regAdminCreateEmployeeButtonActionPerformed(evt);
             }
         });
 
-        btnTesting.setBackground(new java.awt.Color(126, 87, 194));
-        btnTesting.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnTesting.setForeground(new java.awt.Color(255, 255, 255));
-        btnTesting.setText("Testing");
-        btnTesting.addActionListener(new java.awt.event.ActionListener() {
+        regAdminTestingButton.setBackground(new java.awt.Color(126, 87, 194));
+        regAdminTestingButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regAdminTestingButton.setForeground(new java.awt.Color(255, 255, 255));
+        regAdminTestingButton.setText("Testing");
+        regAdminTestingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTestingActionPerformed(evt);
+                regAdminTestingButtonActionPerformed(evt);
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        regAdminLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        regAdminLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regAdminLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        regAdminLogoutButton.setText("Logout");
+        regAdminLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                regAdminLogoutButtonActionPerformed(evt);
             }
         });
 
@@ -93,23 +93,23 @@ public class RegulatorAdmin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnTesting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnApproval, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(regAdminCreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regAdminTestingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regAdminLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regAdminApprovalManagerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(205, 205, 205)
-                .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regAdminCreateEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnApproval, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regAdminApprovalManagerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnTesting, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regAdminTestingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regAdminLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(421, Short.MAX_VALUE))
         );
 
@@ -154,7 +154,7 @@ public class RegulatorAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,32 +164,32 @@ public class RegulatorAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void regAdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminLogoutButtonActionPerformed
         // TODO add your handling code here:
         RegulatorAdmin.regAdminFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_regAdminLogoutButtonActionPerformed
 
-    private void btnApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovalActionPerformed
+    private void regAdminApprovalManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminApprovalManagerButtonActionPerformed
         // TODO add your handling code here:
         WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
         splitPane.setRightComponent(ordcr);
         
-    }//GEN-LAST:event_btnApprovalActionPerformed
+    }//GEN-LAST:event_regAdminApprovalManagerButtonActionPerformed
 
-    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+    private void regAdminCreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminCreateEmployeeButtonActionPerformed
         // TODO add your handling code here:
         
         RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnEmployeeActionPerformed
+    }//GEN-LAST:event_regAdminCreateEmployeeButtonActionPerformed
 
-    private void btnTestingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestingActionPerformed
+    private void regAdminTestingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminTestingButtonActionPerformed
         // TODO add your handling code here:
         WeaponTestingPanel ordcr = new WeaponTestingPanel();
         splitPane.setRightComponent(ordcr);
         
-    }//GEN-LAST:event_btnTestingActionPerformed
+    }//GEN-LAST:event_regAdminTestingButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,14 +231,14 @@ public class RegulatorAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnApproval;
-    private javax.swing.JButton btnEmployee;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnTesting;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JButton regAdminApprovalManagerButton;
+    private javax.swing.JButton regAdminCreateEmployeeButton;
+    private javax.swing.JButton regAdminLogoutButton;
+    private javax.swing.JButton regAdminTestingButton;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

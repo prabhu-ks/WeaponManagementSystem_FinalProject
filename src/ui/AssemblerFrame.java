@@ -34,8 +34,8 @@ public class AssemblerFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnCheck = new javax.swing.JButton();
+        assManLogoutButton = new javax.swing.JButton();
+        assManWeaponAssemblyButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -44,23 +44,23 @@ public class AssemblerFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        assManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        assManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        assManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        assManLogoutButton.setText("Logout");
+        assManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                assManLogoutButtonActionPerformed(evt);
             }
         });
 
-        btnCheck.setBackground(new java.awt.Color(126, 87, 194));
-        btnCheck.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCheck.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheck.setText("weapon assembly");
-        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+        assManWeaponAssemblyButton.setBackground(new java.awt.Color(126, 87, 194));
+        assManWeaponAssemblyButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        assManWeaponAssemblyButton.setForeground(new java.awt.Color(255, 255, 255));
+        assManWeaponAssemblyButton.setText("weapon assembly");
+        assManWeaponAssemblyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckActionPerformed(evt);
+                assManWeaponAssemblyButtonActionPerformed(evt);
             }
         });
 
@@ -71,17 +71,17 @@ public class AssemblerFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCheck, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(assManWeaponAssemblyButton, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(assManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(assManWeaponAssemblyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(assManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(407, Short.MAX_VALUE))
         );
 
@@ -136,17 +136,17 @@ public class AssemblerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void assManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assManLogoutButtonActionPerformed
         // TODO add your handling code here:
         AssemblerFrame.assFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_assManLogoutButtonActionPerformed
 
-    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+    private void assManWeaponAssemblyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assManWeaponAssemblyButtonActionPerformed
         // TODO add your handling code here:
         WeaponAssemblyJPanel ordcr = new WeaponAssemblyJPanel();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnCheckActionPerformed
+    }//GEN-LAST:event_assManWeaponAssemblyButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,8 +188,8 @@ public class AssemblerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCheck;
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton assManLogoutButton;
+    private javax.swing.JButton assManWeaponAssemblyButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;

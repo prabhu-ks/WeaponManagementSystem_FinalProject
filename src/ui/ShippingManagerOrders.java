@@ -28,10 +28,10 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
 
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        btnOrderView = new javax.swing.JTable();
-        btnView = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        shippingManOrderTable = new javax.swing.JTable();
+        shippingManViewOrderButton = new javax.swing.JButton();
+        shippingManUpdateButton = new javax.swing.JButton();
+        shippingManDeleteButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
         setPreferredSize(new java.awt.Dimension(695, 800));
@@ -41,8 +41,8 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Supplier-Dealer Order Management");
 
-        btnOrderView.setBackground(new java.awt.Color(255, 255, 255));
-        btnOrderView.setModel(new javax.swing.table.DefaultTableModel(
+        shippingManOrderTable.setBackground(new java.awt.Color(255, 255, 255));
+        shippingManOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,22 +53,22 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(btnOrderView);
+        jScrollPane1.setViewportView(shippingManOrderTable);
 
-        btnView.setBackground(new java.awt.Color(126, 87, 194));
-        btnView.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnView.setForeground(new java.awt.Color(255, 255, 255));
-        btnView.setText("View Order");
+        shippingManViewOrderButton.setBackground(new java.awt.Color(126, 87, 194));
+        shippingManViewOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        shippingManViewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        shippingManViewOrderButton.setText("View Order");
 
-        btnUpdate.setBackground(new java.awt.Color(126, 87, 194));
-        btnUpdate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
+        shippingManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        shippingManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        shippingManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        shippingManUpdateButton.setText("Update");
 
-        btnDelete.setBackground(new java.awt.Color(126, 87, 194));
-        btnDelete.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
+        shippingManDeleteButton.setBackground(new java.awt.Color(126, 87, 194));
+        shippingManDeleteButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        shippingManDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        shippingManDeleteButton.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,13 +78,13 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnView)
+                .addComponent(shippingManViewOrderButton)
                 .addGap(300, 300, 300))
             .addGroup(layout.createSequentialGroup()
                 .addGap(251, 251, 251)
-                .addComponent(btnUpdate)
+                .addComponent(shippingManUpdateButton)
                 .addGap(31, 31, 31)
-                .addComponent(btnDelete)
+                .addComponent(shippingManDeleteButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,22 +95,22 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnView)
+                .addComponent(shippingManViewOrderButton)
                 .addGap(235, 235, 235)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
+                    .addComponent(shippingManUpdateButton)
+                    .addComponent(shippingManDeleteButton))
                 .addContainerGap(323, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JTable btnOrderView;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JButton shippingManDeleteButton;
+    private javax.swing.JTable shippingManOrderTable;
+    private javax.swing.JButton shippingManUpdateButton;
+    private javax.swing.JButton shippingManViewOrderButton;
     // End of variables declaration//GEN-END:variables
 }

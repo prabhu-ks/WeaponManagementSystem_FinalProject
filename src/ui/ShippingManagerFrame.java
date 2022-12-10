@@ -33,8 +33,8 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnManage = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        shippingManManageButton = new javax.swing.JButton();
+        shippingManLogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -43,23 +43,23 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnManage.setBackground(new java.awt.Color(126, 87, 194));
-        btnManage.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnManage.setForeground(new java.awt.Color(255, 255, 255));
-        btnManage.setText("Manage");
-        btnManage.addActionListener(new java.awt.event.ActionListener() {
+        shippingManManageButton.setBackground(new java.awt.Color(126, 87, 194));
+        shippingManManageButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        shippingManManageButton.setForeground(new java.awt.Color(255, 255, 255));
+        shippingManManageButton.setText("Manage");
+        shippingManManageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageActionPerformed(evt);
+                shippingManManageButtonActionPerformed(evt);
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        shippingManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        shippingManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        shippingManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        shippingManLogoutButton.setText("Logout");
+        shippingManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                shippingManLogoutButtonActionPerformed(evt);
             }
         });
 
@@ -72,17 +72,17 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(shippingManManageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(shippingManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(235, 235, 235)
-                .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(shippingManManageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(shippingManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(439, Short.MAX_VALUE))
         );
 
@@ -127,7 +127,7 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,18 +137,18 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageActionPerformed
+    private void shippingManManageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shippingManManageButtonActionPerformed
         // TODO add your handling code here:
         
          ShippingManagerOrders ord = new ShippingManagerOrders();
          splitPane.setRightComponent(ord);  
-    }//GEN-LAST:event_btnManageActionPerformed
+    }//GEN-LAST:event_shippingManManageButtonActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void shippingManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shippingManLogoutButtonActionPerformed
         // TODO add your handling code here:
         ShippingManagerFrame.shipFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_shippingManLogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,12 +191,12 @@ public class ShippingManagerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnManage;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JButton shippingManLogoutButton;
+    private javax.swing.JButton shippingManManageButton;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

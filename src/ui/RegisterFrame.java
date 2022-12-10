@@ -47,20 +47,20 @@ public class RegisterFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtSSN = new javax.swing.JTextField();
-        rbtMale = new javax.swing.JRadioButton();
-        rbtFemale = new javax.swing.JRadioButton();
-        rbtOther = new javax.swing.JRadioButton();
-        txtDate = new com.toedter.calendar.JDateChooser();
-        txtPhone = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
-        btnCreate = new javax.swing.JButton();
-        btnBack = new javax.swing.JButton();
-        btnImport = new javax.swing.JButton();
+        registerFrameNameButton = new javax.swing.JTextField();
+        registerFrameSsnButton = new javax.swing.JTextField();
+        registerFrameMaleButton = new javax.swing.JRadioButton();
+        registerFrameFemaleButton = new javax.swing.JRadioButton();
+        registerFrameOtherButton = new javax.swing.JRadioButton();
+        registerFrameBirthButton = new com.toedter.calendar.JDateChooser();
+        registerFramePhoneButton = new javax.swing.JTextField();
+        registerFrameEmailButton = new javax.swing.JTextField();
+        registerFrameAddressButton = new javax.swing.JTextField();
+        registerFrameUpdateButton = new javax.swing.JTextField();
+        registerFramePasswordButton = new javax.swing.JPasswordField();
+        registerFrameCreateAccountButton = new javax.swing.JButton();
+        registerFrameGoBackButton = new javax.swing.JButton();
+        registerFrameImportButton = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,83 +114,96 @@ public class RegisterFrame extends javax.swing.JFrame {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Weapon Management System");
 
-        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+        registerFrameNameButton.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNameFocusLost(evt);
+                registerFrameNameButtonFocusLost(evt);
             }
         });
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+        registerFrameNameButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNameKeyPressed(evt);
+                registerFrameNameButtonKeyPressed(evt);
             }
         });
 
-        txtSSN.addKeyListener(new java.awt.event.KeyAdapter() {
+        registerFrameSsnButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSSNKeyPressed(evt);
+                registerFrameSsnButtonKeyPressed(evt);
             }
         });
 
-        rbtMale.setForeground(new java.awt.Color(255, 255, 255));
-        rbtMale.setText("Male");
-        rbtMale.addActionListener(new java.awt.event.ActionListener() {
+        registerFrameMaleButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerFrameMaleButton.setText("Male");
+        registerFrameMaleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtMaleActionPerformed(evt);
+                registerFrameMaleButtonActionPerformed(evt);
             }
         });
 
-        rbtFemale.setForeground(new java.awt.Color(255, 255, 255));
-        rbtFemale.setText("Female");
-        rbtFemale.addActionListener(new java.awt.event.ActionListener() {
+        registerFrameFemaleButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerFrameFemaleButton.setText("Female");
+        registerFrameFemaleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtFemaleActionPerformed(evt);
+                registerFrameFemaleButtonActionPerformed(evt);
             }
         });
 
-        rbtOther.setForeground(new java.awt.Color(255, 255, 255));
-        rbtOther.setText("Other");
-        rbtOther.addActionListener(new java.awt.event.ActionListener() {
+        registerFrameOtherButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerFrameOtherButton.setText("Other");
+        registerFrameOtherButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtOtherActionPerformed(evt);
+                registerFrameOtherButtonActionPerformed(evt);
             }
         });
 
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+        registerFrameBirthButton.setDateFormatString("yyyy-MM-dd");
+
+        registerFramePhoneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
+                registerFramePhoneButtonActionPerformed(evt);
             }
         });
-        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+        registerFramePhoneButton.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPhoneKeyPressed(evt);
+                registerFramePhoneButtonKeyPressed(evt);
             }
         });
 
-        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+        registerFrameEmailButton.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtEmailFocusLost(evt);
+                registerFrameEmailButtonFocusLost(evt);
             }
         });
 
-        btnCreate.setBackground(new java.awt.Color(126, 87, 194));
-        btnCreate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
-        btnCreate.setText("Create Account");
-
-        btnBack.setBackground(new java.awt.Color(126, 87, 194));
-        btnBack.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("Go Back <<<<<");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        registerFramePasswordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                registerFramePasswordButtonActionPerformed(evt);
             }
         });
 
-        btnImport.setBackground(new java.awt.Color(204, 204, 204));
-        btnImport.setFont(new java.awt.Font("Copperplate", 0, 13)); // NOI18N
-        btnImport.setForeground(new java.awt.Color(0, 0, 0));
-        btnImport.setText("Import");
+        registerFrameCreateAccountButton.setBackground(new java.awt.Color(126, 87, 194));
+        registerFrameCreateAccountButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        registerFrameCreateAccountButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerFrameCreateAccountButton.setText("Create Account");
+
+        registerFrameGoBackButton.setBackground(new java.awt.Color(126, 87, 194));
+        registerFrameGoBackButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        registerFrameGoBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerFrameGoBackButton.setText("Go Back <<<<<");
+        registerFrameGoBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerFrameGoBackButtonActionPerformed(evt);
+            }
+        });
+
+        registerFrameImportButton.setBackground(new java.awt.Color(204, 204, 204));
+        registerFrameImportButton.setFont(new java.awt.Font("Copperplate", 0, 13)); // NOI18N
+        registerFrameImportButton.setForeground(new java.awt.Color(0, 0, 0));
+        registerFrameImportButton.setText("Import");
+        registerFrameImportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerFrameImportButtonActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,8 +220,8 @@ public class RegisterFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(276, 276, 276)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(registerFrameGoBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerFrameCreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(196, 196, 196)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -225,20 +238,20 @@ public class RegisterFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rbtMale)
+                                .addComponent(registerFrameMaleButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbtFemale)
+                                .addComponent(registerFrameFemaleButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbtOther))
-                            .addComponent(txtDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPassword)
-                            .addComponent(txtUsername)
-                            .addComponent(txtAddress)
-                            .addComponent(txtEmail)
-                            .addComponent(txtPhone)
-                            .addComponent(txtSSN)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnImport))))
+                                .addComponent(registerFrameOtherButton))
+                            .addComponent(registerFrameBirthButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registerFramePasswordButton)
+                            .addComponent(registerFrameUpdateButton)
+                            .addComponent(registerFrameAddressButton)
+                            .addComponent(registerFrameEmailButton)
+                            .addComponent(registerFramePhoneButton)
+                            .addComponent(registerFrameSsnButton)
+                            .addComponent(registerFrameNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(registerFrameImportButton))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -251,49 +264,49 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameSsnButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(rbtMale)
-                    .addComponent(rbtFemale)
-                    .addComponent(rbtOther))
+                    .addComponent(registerFrameMaleButton)
+                    .addComponent(registerFrameFemaleButton)
+                    .addComponent(registerFrameOtherButton))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameBirthButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFramePhoneButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameAddressButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameUpdateButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFramePasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(registerFrameImportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerFrameCreateAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerFrameGoBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -311,121 +324,129 @@ public class RegisterFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbtMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtMaleActionPerformed
+    private void registerFrameMaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameMaleButtonActionPerformed
         // TODO add your handling code here:
-         if(rbtMale.isSelected()){
+         if(registerFrameMaleButton.isSelected()){
             gender = "Male";
-            rbtFemale.setSelected(false);
-            rbtOther.setSelected(false);
+            registerFrameFemaleButton.setSelected(false);
+            registerFrameOtherButton.setSelected(false);
         }
-    }//GEN-LAST:event_rbtMaleActionPerformed
+    }//GEN-LAST:event_registerFrameMaleButtonActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void registerFrameGoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameGoBackButtonActionPerformed
         // TODO add your handling code here:
         MainFrame.mainFrame.setVisible(true);
         registerFrame.setVisible(false);
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_registerFrameGoBackButtonActionPerformed
 
-    private void rbtFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFemaleActionPerformed
+    private void registerFrameFemaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameFemaleButtonActionPerformed
         // TODO add your handling code here:
-        if(rbtFemale.isSelected()){
+        if(registerFrameFemaleButton.isSelected()){
             gender = "Male";
-            rbtMale.setSelected(false);
-            rbtOther.setSelected(false);
+            registerFrameMaleButton.setSelected(false);
+            registerFrameOtherButton.setSelected(false);
         }
-    }//GEN-LAST:event_rbtFemaleActionPerformed
+    }//GEN-LAST:event_registerFrameFemaleButtonActionPerformed
 
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+    private void registerFramePhoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFramePhoneButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
+    }//GEN-LAST:event_registerFramePhoneButtonActionPerformed
 
-    private void txtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyPressed
+    private void registerFramePhoneButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registerFramePhoneButtonKeyPressed
         // TODO add your handling code here:
         
-           String phoneNumber = txtPhone.getText();
+           String phoneNumber = registerFramePhoneButton.getText();
         int lengthOfNumber = phoneNumber.length();
         char checkChar = evt.getKeyChar();
         if (checkChar >= '0' && checkChar <= '9') {
             if (lengthOfNumber < 10) {
-                txtPhone.setEditable(true);
+                registerFramePhoneButton.setEditable(true);
             } else {
-                txtPhone.setEditable(false);
+                registerFramePhoneButton.setEditable(false);
                 JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
             }
         } else {
             if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
-                txtPhone.setEditable(true);
+                registerFramePhoneButton.setEditable(true);
             } else {
-                txtPhone.setEditable(false);
+                registerFramePhoneButton.setEditable(false);
             }
         }
-    }//GEN-LAST:event_txtPhoneKeyPressed
+    }//GEN-LAST:event_registerFramePhoneButtonKeyPressed
 
-    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+    private void registerFrameNameButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registerFrameNameButtonKeyPressed
         // TODO add your handling code here:
         
       
-    }//GEN-LAST:event_txtNameKeyPressed
+    }//GEN-LAST:event_registerFrameNameButtonKeyPressed
 
-    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+    private void registerFrameNameButtonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registerFrameNameButtonFocusLost
         // TODO add your handling code here:
         
           Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(txtName.getText());
+        Matcher m = p.matcher(registerFrameNameButton.getText());
         // boolean b = m.matches();
         boolean b = m.find();
         if (b){
             JOptionPane.showMessageDialog(null,"Special Characters are not allowed.");
-            txtName.setText("");
+            registerFrameNameButton.setText("");
         }
-    }//GEN-LAST:event_txtNameFocusLost
+    }//GEN-LAST:event_registerFrameNameButtonFocusLost
 
-    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+    private void registerFrameEmailButtonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registerFrameEmailButtonFocusLost
         // TODO add your handling code here:
         
         String emailFormat ="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\."+ "[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"; 
         Pattern employeeEmail = Pattern.compile(emailFormat) ;
-        Matcher employeeEmailMatch = employeeEmail.matcher(txtEmail.getText());
+        Matcher employeeEmailMatch = employeeEmail.matcher(registerFrameEmailButton.getText());
         
         if (!employeeEmailMatch.matches()){
             JOptionPane.showMessageDialog(null,"Invalid Email!");
-            txtEmail.setText("");
+            registerFrameEmailButton.setText("");
         } 
-    }//GEN-LAST:event_txtEmailFocusLost
+    }//GEN-LAST:event_registerFrameEmailButtonFocusLost
 
-    private void txtSSNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSSNKeyPressed
+    private void registerFrameSsnButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registerFrameSsnButtonKeyPressed
         // TODO add your handling code here:
         
-         String ssn = txtSSN.getText();
+         String ssn = registerFrameSsnButton.getText();
         int lengthOfNumber = ssn.length();
         char checkChar = evt.getKeyChar();
         if (checkChar >= '0' && checkChar <= '9') {
             if (lengthOfNumber < 9) {
-                txtSSN.setEditable(true);
+                registerFrameSsnButton.setEditable(true);
             } else {
-                txtSSN.setEditable(false);
+                registerFrameSsnButton.setEditable(false);
                 JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
             }
         } else {
             if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
-                txtSSN.setEditable(true);
+                registerFrameSsnButton.setEditable(true);
             } else {
-                txtSSN.setEditable(false);
+                registerFrameSsnButton.setEditable(false);
             }
         }
         
         
         
-    }//GEN-LAST:event_txtSSNKeyPressed
+    }//GEN-LAST:event_registerFrameSsnButtonKeyPressed
 
-    private void rbtOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOtherActionPerformed
+    private void registerFrameOtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameOtherButtonActionPerformed
         // TODO add your handling code here:
-        if(rbtOther.isSelected()){
+        if(registerFrameOtherButton.isSelected()){
             gender = "Male";
-            rbtMale.setSelected(false);
-            rbtFemale.setSelected(false);
+            registerFrameMaleButton.setSelected(false);
+            registerFrameFemaleButton.setSelected(false);
         }
-    }//GEN-LAST:event_rbtOtherActionPerformed
+    }//GEN-LAST:event_registerFrameOtherButtonActionPerformed
+
+    private void registerFramePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFramePasswordButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerFramePasswordButtonActionPerformed
+
+    private void registerFrameImportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameImportButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerFrameImportButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -467,9 +488,6 @@ public class RegisterFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnImport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -483,16 +501,19 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JRadioButton rbtFemale;
-    private javax.swing.JRadioButton rbtMale;
-    private javax.swing.JRadioButton rbtOther;
-    private javax.swing.JTextField txtAddress;
-    private com.toedter.calendar.JDateChooser txtDate;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtSSN;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField registerFrameAddressButton;
+    private com.toedter.calendar.JDateChooser registerFrameBirthButton;
+    private javax.swing.JButton registerFrameCreateAccountButton;
+    private javax.swing.JTextField registerFrameEmailButton;
+    private javax.swing.JRadioButton registerFrameFemaleButton;
+    private javax.swing.JButton registerFrameGoBackButton;
+    private javax.swing.JButton registerFrameImportButton;
+    private javax.swing.JRadioButton registerFrameMaleButton;
+    private javax.swing.JTextField registerFrameNameButton;
+    private javax.swing.JRadioButton registerFrameOtherButton;
+    private javax.swing.JPasswordField registerFramePasswordButton;
+    private javax.swing.JTextField registerFramePhoneButton;
+    private javax.swing.JTextField registerFrameSsnButton;
+    private javax.swing.JTextField registerFrameUpdateButton;
     // End of variables declaration//GEN-END:variables
 }
