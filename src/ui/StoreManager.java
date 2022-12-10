@@ -57,7 +57,7 @@ public class StoreManager extends javax.swing.JFrame {
         storeManStoreManButton.setBackground(new java.awt.Color(126, 87, 194));
         storeManStoreManButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         storeManStoreManButton.setForeground(new java.awt.Color(255, 255, 255));
-        storeManStoreManButton.setText("Store Management");
+        storeManStoreManButton.setText("Inventory Management");
         storeManStoreManButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 storeManStoreManButtonActionPerformed(evt);
@@ -144,7 +144,7 @@ public class StoreManager extends javax.swing.JFrame {
 
     private void storeManStoreManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManStoreManButtonActionPerformed
         // TODO add your handling code here:
-        StoreManagement ordcr = new StoreManagement();
+        InventoryManagement ordcr = new InventoryManagement();
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_storeManStoreManButtonActionPerformed
 
