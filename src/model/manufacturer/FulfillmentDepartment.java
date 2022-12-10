@@ -16,10 +16,12 @@ import model.supplier.Order;
 public class FulfillmentDepartment extends Department{
     private ArrayList<Order> orderList;
 
-    public FulfillmentDepartment(ArrayList<Order> orderList, String Dept_name, UUID Dept_ID) {
-        super(Dept_name, Dept_ID);
+    public FulfillmentDepartment(ArrayList<Order> orderList, String deptName, UUID deptId, UUID enterpriseId) {
+        super(deptName, deptId, enterpriseId);
         this.orderList = orderList;
     }
+
+    
 
     public ArrayList<Order> getOrderList() {
         return orderList;

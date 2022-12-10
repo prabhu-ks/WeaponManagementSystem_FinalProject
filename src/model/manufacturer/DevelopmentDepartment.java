@@ -16,11 +16,12 @@ import model.root.Weapon;
 public class DevelopmentDepartment extends Department{
     private ArrayList<Weapon> weaponList;
 
-    public DevelopmentDepartment(ArrayList<Weapon> weaponList, String Dept_name, UUID Dept_ID) {
-        super(Dept_name, Dept_ID);
+    public DevelopmentDepartment(ArrayList<Weapon> weaponList, String deptName, UUID deptId, UUID enterpriseId) {
+        super(deptName, deptId, enterpriseId);
         this.weaponList = weaponList;
     }
 
+   
     public ArrayList<Weapon> getWeaponList() {
         return weaponList;
     }
