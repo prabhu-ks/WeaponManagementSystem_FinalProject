@@ -57,7 +57,7 @@ public class OperatingSystem {
 
     @Override
     public String toString() {
-        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", orderDirectory=" + orderDirectory + ", storeOrderDirectory=" + storeOrderDirectory + ", dealerOrderDirectory=" + dealerOrderDirectory + ", supplierOrderDirectory=" + supplierOrderDirectory + ", manufacturerOrderDirectory=" + manufacturerOrderDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory + '}';
+        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", orderDirectory=" + orderDirectory + ", storeOrderDirectory=" + storeOrderDirectory + ", dealerOrderDirectory=" + dealerOrderDirectory + ", supplierOrderDirectory=" + supplierOrderDirectory + ", manufacturerOrderDirectory=" + manufacturerOrderDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
     }
 
     
@@ -183,6 +183,13 @@ public class OperatingSystem {
 
     public void setEnterpriseDirectory(ArrayList<Enterprise> enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
+    public void addEnterprisetoEnterpriseDirectory(Enterprise enterprise){
+        if(enterpriseDirectory == null){
+            enterpriseDirectory = new ArrayList<Enterprise>();
+        }
+        enterpriseDirectory.add(enterprise);
     }
     
     

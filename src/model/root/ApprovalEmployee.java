@@ -20,7 +20,6 @@ public class ApprovalEmployee extends Person {
         this.workingDepartmentId = workingDepartmentId;
     }
 
-    
 
     public String getWorkingDepartmentId() {
         return workingDepartmentId;
