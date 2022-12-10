@@ -316,9 +316,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        InventoryManager.invFrame = new InventoryManager();
-         InventoryManager.invFrame.setVisible(true);
-        mainFrame.setVisible(false);
+    
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
