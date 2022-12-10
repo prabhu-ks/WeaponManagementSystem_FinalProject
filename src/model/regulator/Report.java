@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.manufacturer;
+package model.regulator;
 
 import model.root.ApprovalOfficer;
+import model.root.Tester;
 import model.root.Weapon;
 
 /**
@@ -21,8 +22,9 @@ public class Report {
     private boolean test4;
     private boolean testr;
     private ApprovalOfficer approvalOfficerId;
+    private Tester testerId;
 
-    public Report(String status, Weapon weapon, boolean approved, boolean test1, boolean test2, boolean test3, boolean test4, boolean testr, ApprovalOfficer approvalOfficerId) {
+    public Report(String status, Weapon weapon, boolean approved, boolean test1, boolean test2, boolean test3, boolean test4, boolean testr, ApprovalOfficer approvalOfficerId, Tester testerId) {
         this.status = status;
         this.weapon = weapon;
         this.approved = approved;
@@ -32,6 +34,7 @@ public class Report {
         this.test4 = test4;
         this.testr = testr;
         this.approvalOfficerId = approvalOfficerId;
+        this.testerId = testerId;
     }
 
     public String getStatus() {
@@ -105,6 +108,16 @@ public class Report {
     public void setApprovalOfficerId(ApprovalOfficer approvalOfficerId) {
         this.approvalOfficerId = approvalOfficerId;
     }
+
+    public Tester getTesterId() {
+        return testerId;
+    }
+
+    public void setTesterId(Tester testerId) {
+        this.testerId = testerId;
+    }
+
+    
     
     
 }

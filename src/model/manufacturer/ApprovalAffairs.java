@@ -4,6 +4,7 @@
  */
 package model.manufacturer;
 
+import model.regulator.Report;
 import java.util.ArrayList;
 import java.util.UUID;
 import model.root.Department;
