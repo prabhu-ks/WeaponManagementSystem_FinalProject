@@ -4,6 +4,7 @@
  */
 package model.root;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -12,8 +13,8 @@ import java.util.UUID;
  */
 public class Employee extends Person {
 
-    public Employee(long ssn, UUID puid, String name, String gender, String dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
+    public Employee(long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password,role);
     }
     
     
