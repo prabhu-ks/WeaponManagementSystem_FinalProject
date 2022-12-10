@@ -4,9 +4,17 @@
  */
 package ui;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.UUID;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.dealer.Inventory;
+import model.dealer.Store;
+import model.root.Person.UserRole;
+import model.root.RegionalManager;
+import model.root.Weapon;
 
 /**
  *
@@ -25,6 +33,16 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         this.operatingSystem = dB4OUtility.retrieveSystem();
         System.out.println(this.operatingSystem);
+        createStaticUsers();
+    }
+    
+    public void createStaticUsers(){
+//        RegionalManager rmdef = new RegionalManager("", 12345677, UUID.randomUUID().toString(),"Regional Admin","Female", new Date(), 123456789, "regionaladmin123@gmail.com", "Boston", "regionaladmin", "admin123", UserRole.REGIONAL_MANAGER.name());
+//        operatingSystem.addPersonToPersonDirectory(rmdef);
+//        dB4OUtility.storeSystem(operatingSystem);
+//        Store store = new Store(UUID.randomUUID().toString(), "Store one", new Inventory(0, 0,  0, new ArrayList<Weapon>()), 12345678, "storeone@gmail.com", "111 Boylston Street");
+//        operatingSystem.addStoreToStoreDirectory(store);
+//        dB4OUtility.storeSystem(operatingSystem);
     }
 
     /**

@@ -5,9 +5,14 @@
 package ui;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.dealer.Store;
 
 /**
  *
@@ -15,11 +20,16 @@ import javax.swing.JOptionPane;
  */
 public class StoreManagement extends javax.swing.JPanel {
 
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
     /**
      * Creates new form StoreManagement
      */
-    public StoreManagement() {
+    public StoreManagement(Db4oUtils db ,OperatingSystem os) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        populateTable();
     }
 
     /**
@@ -103,16 +113,15 @@ public class StoreManagement extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Store Management");
 
-        storeManStoreTable.setBackground(new java.awt.Color(255, 255, 255));
         storeManStoreTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
         jScrollPane1.setViewportView(storeManStoreTable);
@@ -315,4 +324,26 @@ public class StoreManagement extends javax.swing.JPanel {
     private javax.swing.JButton storeManUpdateButton;
     private javax.swing.JButton storeManViewButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) storeManStoreTable.getModel();
+        model.setRowCount(0);
+        List<Store> stores = operatingSystem.getStoreDirectory();
+         
+        for (Store store : stores){
+
+            Object[] row =  new Object[8];
+            row[0] = store.getId();
+            row[1] = store.getName();
+            row[2] = store.getAddress();
+            row[3] = store.getEmail();
+            row[4] = store.getPhoneNumber();
+
+            model.addRow(row);
+
+
+        }
+        
+    }
 }

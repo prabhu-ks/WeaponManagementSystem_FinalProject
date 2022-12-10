@@ -10,6 +10,7 @@ import model.dealer.Region;
 import model.dealer.Store;
 import model.dealer.Transaction;
 import model.regulator.Report;
+import model.root.Enterprise;
 import model.root.Person;
 import model.root.UserTest;
 import model.root.Weapon;
@@ -34,6 +35,7 @@ public class OperatingSystem {
     private ArrayList<Order> manufacturerOrderDirectory;
     private ArrayList<UserTest> userTestDir;
     private ArrayList<Person> personDirectory;
+    private ArrayList<Enterprise> enterpriseDirectory;
 
     
     public OperatingSystem(){
@@ -49,6 +51,7 @@ public class OperatingSystem {
         supplierOrderDirectory = new ArrayList<Shipping>();
         manufacturerOrderDirectory = new ArrayList<Order>();
         personDirectory = new ArrayList<Person>();
+        enterpriseDirectory = new ArrayList<Enterprise>();
         
     }
 
@@ -87,6 +90,16 @@ public class OperatingSystem {
 
     public void setStoreDirectory(ArrayList<Store> storeDirectory) {
         this.storeDirectory = storeDirectory;
+    }
+    
+    public void addStoreToStoreDirectory(Store store){
+        if(storeDirectory == null)
+            storeDirectory = new ArrayList<Store>();
+        storeDirectory.add(store);
+    }
+    
+    public void deleteStoreFromStoreDirectory(Store store){
+        storeDirectory.remove(store);
     }
 
     public ArrayList<Report> getReportDirectory() {
@@ -163,4 +176,14 @@ public class OperatingSystem {
     public void deletePersonFromPersonDirectory(Person person){
         personDirectory.remove(person);
     }
+
+    public ArrayList<Enterprise> getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(ArrayList<Enterprise> enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+    
+    
 }

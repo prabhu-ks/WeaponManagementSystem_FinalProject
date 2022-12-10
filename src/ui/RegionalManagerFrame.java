@@ -5,6 +5,10 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Person;
+import model.root.RegionalManager;
 import static ui.MainFrame.mainFrame;
 import static ui.ShippingManagerFrame.shipFrame;
 
@@ -15,12 +19,22 @@ import static ui.ShippingManagerFrame.shipFrame;
 public class RegionalManagerFrame extends javax.swing.JFrame {
     
     public static JFrame regFrame;
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    RegionalManager rm;
 
     /**
      * Creates new form DealerDashboard
      */
     public RegionalManagerFrame() {
         initComponents();
+    }
+    
+    public RegionalManagerFrame(Db4oUtils db ,OperatingSystem os, RegionalManager rm) {
+        initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.rm = rm;
     }
 
     /**
@@ -206,7 +220,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     private void regManStoreManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManStoreManButtonActionPerformed
         // TODO add your handling code here:
-        StoreManagement ordcr = new StoreManagement();
+        StoreManagement ordcr = new StoreManagement(dB4OUtility,operatingSystem);
         splitPane.setRightComponent(ordcr);
 
      
