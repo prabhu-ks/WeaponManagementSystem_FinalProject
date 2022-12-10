@@ -19,8 +19,8 @@ public class Tester extends Person {
     private ArrayList<Report> reportDirectory;
     private String workingDeptId;
 
-    public Tester(ArrayList<Report> reportDirectory, String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role.TESTER);
+    public Tester(ArrayList<Report> reportDirectory, String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.reportDirectory = reportDirectory;
         this.workingDeptId = workingDeptId;
     }
