@@ -333,6 +333,9 @@
           </Events>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="registerFrameBirthButton">
+          <Properties>
+            <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="registerFramePhoneButton">
           <Events>
