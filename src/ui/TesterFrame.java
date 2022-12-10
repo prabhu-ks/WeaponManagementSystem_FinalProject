@@ -34,8 +34,8 @@ public class TesterFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnCheck = new javax.swing.JButton();
+        testerFrameLogoutButton = new javax.swing.JButton();
+        testerFrameWeaponTestingButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -44,23 +44,23 @@ public class TesterFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        testerFrameLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        testerFrameLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        testerFrameLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        testerFrameLogoutButton.setText("Logout");
+        testerFrameLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                testerFrameLogoutButtonActionPerformed(evt);
             }
         });
 
-        btnCheck.setBackground(new java.awt.Color(126, 87, 194));
-        btnCheck.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCheck.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheck.setText("WEAPON TESTING");
-        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+        testerFrameWeaponTestingButton.setBackground(new java.awt.Color(126, 87, 194));
+        testerFrameWeaponTestingButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        testerFrameWeaponTestingButton.setForeground(new java.awt.Color(255, 255, 255));
+        testerFrameWeaponTestingButton.setText("WEAPON TESTING");
+        testerFrameWeaponTestingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckActionPerformed(evt);
+                testerFrameWeaponTestingButtonActionPerformed(evt);
             }
         });
 
@@ -71,17 +71,17 @@ public class TesterFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCheck, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(testerFrameWeaponTestingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(testerFrameLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(testerFrameWeaponTestingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(testerFrameLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -136,17 +136,17 @@ public class TesterFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void testerFrameLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testerFrameLogoutButtonActionPerformed
         // TODO add your handling code here:
         TesterFrame.testerFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_testerFrameLogoutButtonActionPerformed
 
-    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+    private void testerFrameWeaponTestingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testerFrameWeaponTestingButtonActionPerformed
         // TODO add your handling code here:
         WeaponTestingPanel ordcr = new WeaponTestingPanel();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnCheckActionPerformed
+    }//GEN-LAST:event_testerFrameWeaponTestingButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,12 +188,12 @@ public class TesterFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCheck;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JSplitPane splitPane;
+    private javax.swing.JButton testerFrameLogoutButton;
+    private javax.swing.JButton testerFrameWeaponTestingButton;
     // End of variables declaration//GEN-END:variables
 }

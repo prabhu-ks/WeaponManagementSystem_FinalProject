@@ -30,8 +30,8 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnEmployee = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        manAdminCreateEmployeeButton = new javax.swing.JButton();
+        manAdminLogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTitle1 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
@@ -40,23 +40,23 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnEmployee.setBackground(new java.awt.Color(126, 87, 194));
-        btnEmployee.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnEmployee.setForeground(new java.awt.Color(255, 255, 255));
-        btnEmployee.setText("Create Employee");
-        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
+        manAdminCreateEmployeeButton.setBackground(new java.awt.Color(126, 87, 194));
+        manAdminCreateEmployeeButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        manAdminCreateEmployeeButton.setForeground(new java.awt.Color(255, 255, 255));
+        manAdminCreateEmployeeButton.setText("Create Employee");
+        manAdminCreateEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmployeeActionPerformed(evt);
+                manAdminCreateEmployeeButtonActionPerformed(evt);
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        manAdminLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        manAdminLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        manAdminLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        manAdminLogoutButton.setText("Logout");
+        manAdminLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                manAdminLogoutButtonActionPerformed(evt);
             }
         });
 
@@ -67,17 +67,17 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(manAdminCreateEmployeeButton, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                    .addComponent(manAdminLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(205, 205, 205)
-                .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manAdminCreateEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(114, 114, 114)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manAdminLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(421, Short.MAX_VALUE))
         );
 
@@ -132,18 +132,18 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+    private void manAdminCreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manAdminCreateEmployeeButtonActionPerformed
         // TODO add your handling code here:
 
         RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnEmployeeActionPerformed
+    }//GEN-LAST:event_manAdminCreateEmployeeButtonActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void manAdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manAdminLogoutButtonActionPerformed
         // TODO add your handling code here:
         RegulatorAdmin.regAdminFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_manAdminLogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,12 +181,12 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEmployee;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JButton manAdminCreateEmployeeButton;
+    private javax.swing.JButton manAdminLogoutButton;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

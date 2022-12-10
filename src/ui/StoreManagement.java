@@ -33,19 +33,19 @@ public class StoreManagement extends javax.swing.JPanel {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtPhone = new javax.swing.JTextField();
+        storeManNumberText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        txtAddress = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
+        storeManEmailText = new javax.swing.JTextField();
+        storeManAddressText = new javax.swing.JTextField();
+        storeManNameText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployee = new javax.swing.JTable();
-        btnCreate = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        storeManStoreTable = new javax.swing.JTable();
+        storeManCreateButton = new javax.swing.JButton();
+        storeManViewButton = new javax.swing.JButton();
+        storeManUpdateButton = new javax.swing.JButton();
+        storeManDeleteButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -57,14 +57,14 @@ public class StoreManagement extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email:");
 
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+        storeManNumberText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
+                storeManNumberTextActionPerformed(evt);
             }
         });
-        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+        storeManNumberText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPhoneKeyPressed(evt);
+                storeManNumberTextKeyPressed(evt);
             }
         });
 
@@ -72,20 +72,25 @@ public class StoreManagement extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address:");
 
-        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+        storeManEmailText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtEmailFocusLost(evt);
+                storeManEmailTextFocusLost(evt);
             }
         });
 
-        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+        storeManNameText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNameFocusLost(evt);
+                storeManNameTextFocusLost(evt);
             }
         });
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+        storeManNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                storeManNameTextActionPerformed(evt);
+            }
+        });
+        storeManNameText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNameKeyPressed(evt);
+                storeManNameTextKeyPressed(evt);
             }
         });
 
@@ -98,8 +103,8 @@ public class StoreManagement extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Store Management");
 
-        tblEmployee.setBackground(new java.awt.Color(255, 255, 255));
-        tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
+        storeManStoreTable.setBackground(new java.awt.Color(255, 255, 255));
+        storeManStoreTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -110,40 +115,40 @@ public class StoreManagement extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblEmployee);
+        jScrollPane1.setViewportView(storeManStoreTable);
 
-        btnCreate.setBackground(new java.awt.Color(126, 87, 194));
-        btnCreate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
-        btnCreate.setText("Create");
+        storeManCreateButton.setBackground(new java.awt.Color(126, 87, 194));
+        storeManCreateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        storeManCreateButton.setForeground(new java.awt.Color(255, 255, 255));
+        storeManCreateButton.setText("Create");
 
-        btnView.setBackground(new java.awt.Color(126, 87, 194));
-        btnView.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnView.setForeground(new java.awt.Color(255, 255, 255));
-        btnView.setText("View");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
+        storeManViewButton.setBackground(new java.awt.Color(126, 87, 194));
+        storeManViewButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        storeManViewButton.setForeground(new java.awt.Color(255, 255, 255));
+        storeManViewButton.setText("View");
+        storeManViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
+                storeManViewButtonActionPerformed(evt);
             }
         });
 
-        btnUpdate.setBackground(new java.awt.Color(126, 87, 194));
-        btnUpdate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        storeManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        storeManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        storeManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        storeManUpdateButton.setText("Update");
+        storeManUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                storeManUpdateButtonActionPerformed(evt);
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(126, 87, 194));
-        btnDelete.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        storeManDeleteButton.setBackground(new java.awt.Color(126, 87, 194));
+        storeManDeleteButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        storeManDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        storeManDeleteButton.setText("Delete");
+        storeManDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                storeManDeleteButtonActionPerformed(evt);
             }
         });
 
@@ -162,7 +167,7 @@ public class StoreManagement extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(304, 304, 304)
-                                .addComponent(btnView))
+                                .addComponent(storeManViewButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(158, 158, 158)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -172,17 +177,17 @@ public class StoreManagement extends javax.swing.JPanel {
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtName)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(storeManNameText)
+                                    .addComponent(storeManNumberText, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(storeManEmailText, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(storeManAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(185, 185, 185)
-                                .addComponent(btnCreate)
+                                .addComponent(storeManCreateButton)
                                 .addGap(30, 30, 30)
-                                .addComponent(btnUpdate)
+                                .addComponent(storeManUpdateButton)
                                 .addGap(31, 31, 31)
-                                .addComponent(btnDelete)))
+                                .addComponent(storeManDeleteButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -194,116 +199,120 @@ public class StoreManagement extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnView)
+                .addComponent(storeManViewButton)
                 .addGap(99, 99, 99)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeManNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeManNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeManEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeManAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreate)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
+                    .addComponent(storeManCreateButton)
+                    .addComponent(storeManUpdateButton)
+                    .addComponent(storeManDeleteButton))
                 .addContainerGap(269, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+    private void storeManNumberTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManNumberTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
+    }//GEN-LAST:event_storeManNumberTextActionPerformed
 
-    private void txtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyPressed
+    private void storeManNumberTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_storeManNumberTextKeyPressed
         // TODO add your handling code here:
 
-        String phoneNumber = txtPhone.getText();
+        String phoneNumber = storeManNumberText.getText();
         int lengthOfNumber = phoneNumber.length();
         char checkChar = evt.getKeyChar();
         if (checkChar >= '0' && checkChar <= '9') {
             if (lengthOfNumber < 10) {
-                txtPhone.setEditable(true);
+                storeManNumberText.setEditable(true);
             } else {
-                txtPhone.setEditable(false);
+                storeManNumberText.setEditable(false);
                 JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
             }
         } else {
             if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
-                txtPhone.setEditable(true);
+                storeManNumberText.setEditable(true);
             } else {
-                txtPhone.setEditable(false);
+                storeManNumberText.setEditable(false);
             }
         }
-    }//GEN-LAST:event_txtPhoneKeyPressed
+    }//GEN-LAST:event_storeManNumberTextKeyPressed
 
-    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+    private void storeManEmailTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_storeManEmailTextFocusLost
         // TODO add your handling code here:
 
         String emailFormat ="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\."+ "[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
         Pattern employeeEmail = Pattern.compile(emailFormat) ;
-        Matcher employeeEmailMatch = employeeEmail.matcher(txtEmail.getText());
+        Matcher employeeEmailMatch = employeeEmail.matcher(storeManEmailText.getText());
 
         if (!employeeEmailMatch.matches()){
             JOptionPane.showMessageDialog(null,"Invalid Email!");
-            txtEmail.setText("");
+            storeManEmailText.setText("");
         }
-    }//GEN-LAST:event_txtEmailFocusLost
+    }//GEN-LAST:event_storeManEmailTextFocusLost
 
-    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+    private void storeManNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_storeManNameTextFocusLost
         // TODO add your handling code here:
 
         Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(txtName.getText());
+        Matcher m = p.matcher(storeManNameText.getText());
         // boolean b = m.matches();
         boolean b = m.find();
         if (b){
             JOptionPane.showMessageDialog(null,"Special Characters are not allowed.");
-            txtName.setText("");
+            storeManNameText.setText("");
         }
-    }//GEN-LAST:event_txtNameFocusLost
+    }//GEN-LAST:event_storeManNameTextFocusLost
 
-    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+    private void storeManNameTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_storeManNameTextKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameKeyPressed
+    }//GEN-LAST:event_storeManNameTextKeyPressed
 
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+    private void storeManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManViewButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewActionPerformed
+    }//GEN-LAST:event_storeManViewButtonActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void storeManDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManDeleteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    }//GEN-LAST:event_storeManDeleteButtonActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void storeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManUpdateButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_storeManUpdateButtonActionPerformed
+
+    private void storeManNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storeManNameTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JTable tblEmployee;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField storeManAddressText;
+    private javax.swing.JButton storeManCreateButton;
+    private javax.swing.JButton storeManDeleteButton;
+    private javax.swing.JTextField storeManEmailText;
+    private javax.swing.JTextField storeManNameText;
+    private javax.swing.JTextField storeManNumberText;
+    private javax.swing.JTable storeManStoreTable;
+    private javax.swing.JButton storeManUpdateButton;
+    private javax.swing.JButton storeManViewButton;
     // End of variables declaration//GEN-END:variables
 }

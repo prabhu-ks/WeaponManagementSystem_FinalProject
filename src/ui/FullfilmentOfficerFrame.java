@@ -30,8 +30,8 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnCheck = new javax.swing.JButton();
+        fullOffLogoutButton = new javax.swing.JButton();
+        fullOffOrderFullfillmentButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -40,23 +40,23 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        fullOffLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        fullOffLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        fullOffLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        fullOffLogoutButton.setText("Logout");
+        fullOffLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                fullOffLogoutButtonActionPerformed(evt);
             }
         });
 
-        btnCheck.setBackground(new java.awt.Color(126, 87, 194));
-        btnCheck.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCheck.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheck.setText("Order Fullfillment");
-        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+        fullOffOrderFullfillmentButton.setBackground(new java.awt.Color(126, 87, 194));
+        fullOffOrderFullfillmentButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        fullOffOrderFullfillmentButton.setForeground(new java.awt.Color(255, 255, 255));
+        fullOffOrderFullfillmentButton.setText("Order Fullfillment");
+        fullOffOrderFullfillmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckActionPerformed(evt);
+                fullOffOrderFullfillmentButtonActionPerformed(evt);
             }
         });
 
@@ -67,17 +67,17 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCheck, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(fullOffOrderFullfillmentButton, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(fullOffLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fullOffOrderFullfillmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fullOffLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(407, Short.MAX_VALUE))
         );
 
@@ -132,17 +132,17 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void fullOffLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffLogoutButtonActionPerformed
         // TODO add your handling code here:
         ApprovalManager.apprFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_fullOffLogoutButtonActionPerformed
 
-    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+    private void fullOffOrderFullfillmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffOrderFullfillmentButtonActionPerformed
         // TODO add your handling code here:
         WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnCheckActionPerformed
+    }//GEN-LAST:event_fullOffOrderFullfillmentButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,8 +181,8 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCheck;
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton fullOffLogoutButton;
+    private javax.swing.JButton fullOffOrderFullfillmentButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;

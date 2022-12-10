@@ -35,8 +35,8 @@ public class InventoryManager extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnInventory = new javax.swing.JButton();
+        inventoryManLogoutButton = new javax.swing.JButton();
+        inventoryManInventoryManButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -45,23 +45,23 @@ public class InventoryManager extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        inventoryManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        inventoryManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManLogoutButton.setText("Logout");
+        inventoryManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                inventoryManLogoutButtonActionPerformed(evt);
             }
         });
 
-        btnInventory.setBackground(new java.awt.Color(126, 87, 194));
-        btnInventory.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventory.setText("Inventory Management");
-        btnInventory.addActionListener(new java.awt.event.ActionListener() {
+        inventoryManInventoryManButton.setBackground(new java.awt.Color(126, 87, 194));
+        inventoryManInventoryManButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        inventoryManInventoryManButton.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryManInventoryManButton.setText("Inventory Management");
+        inventoryManInventoryManButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInventoryActionPerformed(evt);
+                inventoryManInventoryManButtonActionPerformed(evt);
             }
         });
 
@@ -72,17 +72,17 @@ public class InventoryManager extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(inventoryManInventoryManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inventoryManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(283, 283, 283)
-                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inventoryManInventoryManButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inventoryManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(427, Short.MAX_VALUE))
         );
 
@@ -137,17 +137,17 @@ public class InventoryManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void inventoryManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManLogoutButtonActionPerformed
         // TODO add your handling code here:
         InventoryManager.invFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_inventoryManLogoutButtonActionPerformed
 
-    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
+    private void inventoryManInventoryManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManInventoryManButtonActionPerformed
         // TODO add your handling code here:
         InventoryManagement ordcr = new InventoryManagement();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnInventoryActionPerformed
+    }//GEN-LAST:event_inventoryManInventoryManButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,8 +189,8 @@ public class InventoryManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInventory;
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton inventoryManInventoryManButton;
+    private javax.swing.JButton inventoryManLogoutButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;
