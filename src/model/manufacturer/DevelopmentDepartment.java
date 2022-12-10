@@ -16,7 +16,7 @@ import model.root.Weapon;
 public class DevelopmentDepartment extends Department{
     private ArrayList<Weapon> weaponList;
 
-    public DevelopmentDepartment(ArrayList<Weapon> weaponList, String deptName, UUID deptId, UUID enterpriseId) {
+    public DevelopmentDepartment(ArrayList<Weapon> weaponList, String deptName, String deptId, String enterpriseId) {
         super(deptName, deptId, enterpriseId);
         this.weaponList = weaponList;
     }

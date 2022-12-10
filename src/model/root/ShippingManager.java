@@ -16,7 +16,7 @@ import model.root.Person;
  */
 public class ShippingManager extends Person {
 
-    public ShippingManager(long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public ShippingManager(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.SHIPMENT_MANAGER);
     }
 

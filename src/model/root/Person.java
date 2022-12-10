@@ -15,6 +15,9 @@ public class Person {
     
     public enum UserRole{
         TESTER,
+        REGULATOR_SYSADMIN,
+        SUPPLIER_SYSADMIN,
+        MANUFACTURER_SYSADMIN,
         APPROVAL_OFFICER,
         APPROVAL_EMPLOYEE,
         FULFILMENT_OFFICER,
@@ -29,7 +32,7 @@ public class Person {
     }
     
     private long ssn;
-    private UUID puid;
+    private String puid;
     private String name;
     private String gender;
     private Date dob;
@@ -44,7 +47,7 @@ public class Person {
         
     }
 
-    public Person(long ssn,UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Person(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         this.ssn = ssn;
         this.puid = puid;
         this.name = name;
@@ -66,11 +69,11 @@ public class Person {
         this.ssn = ssn;
     }
 
-    public UUID getPuid() {
+    public String getPuid() {
         return puid;
     }
 
-    public void setPuid(UUID puid) {
+    public void setPuid(String puid) {
         this.puid = puid;
     }
 
@@ -151,5 +154,6 @@ public class Person {
         return "Person{" + "ssn=" + ssn + ", puid=" + puid + ", name=" + name + ", gender=" + gender + ", dob=" + dob + ", phoneNo=" + phoneNo + ", email=" + email + ", address=" + address + ", username=" + username + ", password=" + password + ", role=" + role + '}';
     }
 
+    
     
 }

@@ -16,7 +16,7 @@ import model.supplier.Order;
 public class FulfillmentDepartment extends Department{
     private ArrayList<Order> orderList;
 
-    public FulfillmentDepartment(ArrayList<Order> orderList, String deptName, UUID deptId, UUID enterpriseId) {
+    public FulfillmentDepartment(ArrayList<Order> orderList, String deptName, String deptId, String enterpriseId) {
         super(deptName, deptId, enterpriseId);
         this.orderList = orderList;
     }
