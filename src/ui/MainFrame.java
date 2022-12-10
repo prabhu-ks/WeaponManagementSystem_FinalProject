@@ -266,7 +266,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void mainRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainRegisterButtonActionPerformed
         // TODO add your handling code here:
-        RegisterFrame.registerFrame = new RegisterFrame();
+        RegisterFrame.registerFrame = new RegisterFrame(dB4OUtility,operatingSystem);
         RegisterFrame.registerFrame.setVisible(true);
         mainFrame.setVisible(false);
     }//GEN-LAST:event_mainRegisterButtonActionPerformed
