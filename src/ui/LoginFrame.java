@@ -12,8 +12,13 @@ import model.root.Person;
 import static ui.RegisterFrame.registerFrame;
 import com.db4o.Db4oEmbedded;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.Person.UserRole;
+import static model.root.Person.UserRole.CUSTOMER;
+import model.root.RegionalManager;
 import model.root.UserTest;
         
  public class LoginFrame extends javax.swing.JFrame {
@@ -197,23 +202,36 @@ import model.root.UserTest;
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:   
         String user = loginUsernameText.getText().trim();
-        String pass = loginPasswordText.getText().trim();
+        String pass = new String(loginPasswordText.getPassword());
         
-        UserTest newUser= new UserTest(user, pass);
-        ArrayList<UserTest> dir= operatingSystem.getUserTestDir();
-        dir.add(newUser);
-        dB4OUtility.storeSystem(operatingSystem);
+        List<Person> personsList = operatingSystem.getPersonDirectory();
         
-        OperatingSystem os= dB4OUtility.retrieveSystem();
-        ArrayList<UserTest> dataFromDB= os.getUserTestDir();
-        for(UserTest usertest: dataFromDB){
-            System.out.println(usertest.getName());
+        Person person = personsList.stream()
+                        .filter(p -> p.getUsername().equals(user) && p.getPassword().equals(pass))
+                        .findFirst()
+                        .orElse(null);
+        if(person == null){
+            JOptionPane.showMessageDialog(null, "Username or password is incorrect. Please check again");
+            return;
         }
         
+        switch(UserRole.valueOf(person.getRole())){
+            
+            case CUSTOMER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
+                           RegionalManagerFrame.regFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;
+            case REGIONAL_MANAGER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
+                           RegionalManagerFrame.regFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;
+            default: JOptionPane.showMessageDialog(null, "Something went wrong");
+                           
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments/
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
