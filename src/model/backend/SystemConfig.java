@@ -6,13 +6,11 @@ package model.backend;
 
 /**
  *
- * @author pho3nix28
+ * @author manav
  */
 public class SystemConfig {
-    
     public static OperatingSystem configure(){
-        OperatingSystem os = OperatingSystem.getInstance();
+        OperatingSystem os = OperatingSystem.getOs();
         return os;
     }
-    
 }

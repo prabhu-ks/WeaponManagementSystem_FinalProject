@@ -80,14 +80,14 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="registerFrameOtherButton" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="registerFrameBirthButton" max="32767" attributes="0"/>
-                              <Component id="registerFramePasswordButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="registerFrameUpdateButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="registerFrameAddressButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="registerFrameEmailButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="registerFramePhoneButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="registerFrameSsnButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="registerFrameNameButton" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="registerFrameBirthDateChooser" max="32767" attributes="0"/>
+                              <Component id="registerFramePasswordTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="registerFrameUsernameTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="registerFrameAddressTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="registerFrameEmailTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="registerFramePhoneTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="registerFrameSsnTxt" alignment="0" max="32767" attributes="0"/>
+                              <Component id="registerFrameNameTxt" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                               <Component id="registerFrameImportButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -106,12 +106,12 @@
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFrameNameButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFrameNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFrameSsnButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFrameSsnTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -123,32 +123,32 @@
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFrameBirthButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFrameBirthDateChooser" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFramePhoneButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFramePhoneTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFrameEmailButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFrameEmailTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFrameAddressButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFrameAddressTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFrameUpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFrameUsernameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="registerFramePasswordButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="registerFramePasswordTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -288,15 +288,16 @@
             <Property name="text" type="java.lang.String" value="Weapon Management System"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="registerFrameNameButton">
+        <Component class="javax.swing.JTextField" name="registerFrameNameTxt">
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFrameNameButtonFocusLost"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFrameNameButtonKeyPressed"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFrameNameTxtFocusLost"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFrameNameTxtActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFrameNameTxtKeyPressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="registerFrameSsnButton">
+        <Component class="javax.swing.JTextField" name="registerFrameSsnTxt">
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFrameSsnButtonKeyPressed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFrameSsnTxtKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="registerFrameMaleButton">
@@ -332,29 +333,29 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFrameOtherButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="registerFrameBirthButton">
+        <Component class="com.toedter.calendar.JDateChooser" name="registerFrameBirthDateChooser">
           <Properties>
             <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="registerFramePhoneButton">
+        <Component class="javax.swing.JTextField" name="registerFramePhoneTxt">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFramePhoneButtonActionPerformed"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFramePhoneButtonKeyPressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFramePhoneTxtActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFramePhoneTxtKeyPressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="registerFrameEmailButton">
+        <Component class="javax.swing.JTextField" name="registerFrameEmailTxt">
           <Events>
-            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFrameEmailButtonFocusLost"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFrameEmailTxtFocusLost"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="registerFrameAddressButton">
+        <Component class="javax.swing.JTextField" name="registerFrameAddressTxt">
         </Component>
-        <Component class="javax.swing.JTextField" name="registerFrameUpdateButton">
+        <Component class="javax.swing.JTextField" name="registerFrameUsernameTxt">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="registerFramePasswordButton">
+        <Component class="javax.swing.JPasswordField" name="registerFramePasswordTxt">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFramePasswordButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFramePasswordTxtActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="registerFrameCreateAccountButton">
@@ -370,6 +371,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Create Account"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFrameCreateAccountButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="registerFrameGoBackButton">
           <Properties>
@@ -395,9 +399,6 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Copperplate" size="13" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Import"/>
           </Properties>
