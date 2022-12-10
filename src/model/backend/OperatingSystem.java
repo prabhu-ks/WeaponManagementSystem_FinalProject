@@ -8,7 +8,8 @@ package model.backend;
 import java.util.ArrayList;
 import model.dealer.Region;
 import model.dealer.Store;
-import model.manufacturer.Report;
+import model.regulator.Report;
+import model.root.UserTest;
 import model.root.Weapon;
 import model.supplier.Order;
 
@@ -28,10 +29,26 @@ public class OperatingSystem {
      private ArrayList<Order> dealerOrderDirectory;
      private ArrayList<Order> supplierOrderDirectory;
      private ArrayList<Order> manufactureOrderDirectory;
+     private ArrayList<UserTest> userTestDir;
+
+    public ArrayList<UserTest> getUserTestDir() {
+        return userTestDir;
+    }
+
+    public void setUserTestDir(ArrayList<UserTest> userTestDir) {
+        this.userTestDir = userTestDir;
+    }
+    
+    public OperatingSystem(){
+        userTestDir = new ArrayList<UserTest>();
+    }
 
     
      public static OperatingSystem getOs() {
-         return os;
+         if (os == null) {
+            os = new OperatingSystem();
+        }
+        return os;
      }
 
      public static void setOs(OperatingSystem os) {

@@ -5,6 +5,8 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
 
 /**
  *
@@ -13,12 +15,16 @@ import javax.swing.JFrame;
 public class MainFrame extends javax.swing.JFrame {
     
     public static JFrame mainFrame;
+    private OperatingSystem operatingSystem;
+    private Db4oUtils dB4OUtility = Db4oUtils.getInstance();
 
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        this.operatingSystem = dB4OUtility.retrieveSystem();
+        System.out.println(this.operatingSystem);
     }
 
     /**
@@ -253,7 +259,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void mainLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainLoginButtonActionPerformed
         // TODO add your handling code here:
         
-        LoginFrame.loginFrame = new LoginFrame();
+        LoginFrame.loginFrame = new LoginFrame(dB4OUtility, operatingSystem);
         LoginFrame.loginFrame.setVisible(true);
         mainFrame.setVisible(false);
     }//GEN-LAST:event_mainLoginButtonActionPerformed

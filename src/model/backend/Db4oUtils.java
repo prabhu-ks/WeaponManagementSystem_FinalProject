@@ -58,10 +58,13 @@ public class Db4oUtils {
     
     public OperatingSystem retrieveSystem(){
         ObjectContainer conn = createConnection();
+        System.out.println(conn);
         ObjectSet<OperatingSystem> systems = conn.query( OperatingSystem.class); // Change to the object you want to save
+        System.out.println(systems.size());
         OperatingSystem system;
         if (systems.size() == 0){
             system = SystemConfig.configure();  // If there's no System in the record, create a new one
+            System.out.println(system);
         }
         else{
             system = systems.get(systems.size() - 1);
