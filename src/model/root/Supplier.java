@@ -13,8 +13,10 @@ import model.root.Enterprise;
  */
 public class Supplier extends Enterprise {
 
-    public Supplier(UUID enterpriseId, String enterpriseName, EnterpriseType enterpriseType) {
-        super(enterpriseId, enterpriseName, enterpriseType.SUPPLIER);
+    public Supplier(String enterpriseId, String enterpriseName, String enterpriseType) {
+        super(enterpriseId, enterpriseName, enterpriseType);
     }
+
+    
     
 }
