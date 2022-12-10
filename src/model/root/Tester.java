@@ -17,9 +17,9 @@ import model.root.Person;
 public class Tester extends Person {
     
     private ArrayList<Report> reportDirectory;
-    private UUID workingDeptId;
+    private String workingDeptId;
 
-    public Tester(ArrayList<Report> reportDirectory, UUID workingDeptId, long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Tester(ArrayList<Report> reportDirectory, String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role.TESTER);
         this.reportDirectory = reportDirectory;
         this.workingDeptId = workingDeptId;
@@ -33,11 +33,11 @@ public class Tester extends Person {
         this.reportDirectory = reportDirectory;
     }
 
-    public UUID getWorkingDeptId() {
+    public String getWorkingDeptId() {
         return workingDeptId;
     }
 
-    public void setWorkingDeptId(UUID workingDeptId) {
+    public void setWorkingDeptId(String workingDeptId) {
         this.workingDeptId = workingDeptId;
     }
     

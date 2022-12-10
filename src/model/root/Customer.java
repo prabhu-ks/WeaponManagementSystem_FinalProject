@@ -16,7 +16,7 @@ public class Customer extends Person {
     
     public String selectedImagePath;
 
-    public Customer(String selectedImagePath, long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public Customer(String selectedImagePath, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.CUSTOMER);
         this.selectedImagePath = selectedImagePath;
     }
