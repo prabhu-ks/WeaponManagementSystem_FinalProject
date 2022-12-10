@@ -37,6 +37,7 @@ public class OperatingSystem {
 
     
     public OperatingSystem(){
+        System.out.println("in con");
         userTestDir = new ArrayList<UserTest>();
         regionDirectory = new ArrayList<Region>();
         weaponDirectory = new ArrayList<Weapon>();
@@ -49,6 +50,11 @@ public class OperatingSystem {
         manufacturerOrderDirectory = new ArrayList<Order>();
         personDirectory = new ArrayList<Person>();
         
+    }
+
+    @Override
+    public String toString() {
+        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", orderDirectory=" + orderDirectory + ", storeOrderDirectory=" + storeOrderDirectory + ", dealerOrderDirectory=" + dealerOrderDirectory + ", supplierOrderDirectory=" + supplierOrderDirectory + ", manufacturerOrderDirectory=" + manufacturerOrderDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory + '}';
     }
 
     
@@ -148,12 +154,13 @@ public class OperatingSystem {
     }
     
     public void addPersonToPersonDirectory(Person person){
+        if(personDirectory == null){
+            personDirectory = new ArrayList<Person>();
+        }
         personDirectory.add(person);
     }
     
     public void deletePersonFromPersonDirectory(Person person){
         personDirectory.remove(person);
     }
-
-    
 }

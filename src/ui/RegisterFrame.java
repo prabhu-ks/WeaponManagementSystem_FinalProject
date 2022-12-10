@@ -6,6 +6,7 @@ package ui;
 
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -19,6 +20,7 @@ import model.backend.OperatingSystem;
 import model.root.Customer;
 import model.root.Person;
 import model.root.Person.UserRole;
+import model.root.UserTest;
 
 /**
  *
@@ -228,6 +230,7 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         registerFrameImportButton.setBackground(new java.awt.Color(204, 204, 204));
         registerFrameImportButton.setFont(new java.awt.Font("Copperplate", 0, 13)); // NOI18N
+        registerFrameImportButton.setForeground(new java.awt.Color(0, 0, 0));
         registerFrameImportButton.setText("Import");
         registerFrameImportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -502,10 +505,14 @@ public class RegisterFrame extends javax.swing.JFrame {
         
         Person person = new Customer(idPath, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, UserRole.CUSTOMER);
 
-        
         operatingSystem.addPersonToPersonDirectory(person);
-        
         dB4OUtility.storeSystem(operatingSystem);
+        
+        OperatingSystem os= dB4OUtility.retrieveSystem();
+        ArrayList<Person> dataFromDB= os.getPersonDirectory();
+        for(Person person1: dataFromDB){
+            System.out.println(person1.getName());
+        }
         
         registerFrameNameTxt.setText("");
         registerFrameSsnTxt.setText("");
