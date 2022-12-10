@@ -155,6 +155,8 @@ public class RegisterFrame extends javax.swing.JFrame {
             }
         });
 
+        registerFrameBirthButton.setDateFormatString("yyyy-MM-dd");
+
         registerFramePhoneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerFramePhoneButtonActionPerformed(evt);
