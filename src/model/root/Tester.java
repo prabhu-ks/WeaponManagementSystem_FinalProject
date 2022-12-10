@@ -7,7 +7,7 @@ package model.root;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-import model.regulator.Test;
+import model.manufacturer.Report;
 import model.root.Person;
 
 /**
@@ -16,21 +16,21 @@ import model.root.Person;
  */
 public class Tester extends Person {
     
-    private ArrayList<Test> testList;
+    private ArrayList<Report> reportDirectory;
     private UUID workingDeptId;
 
-    public Tester(ArrayList<Test> testList, UUID workingDeptId, long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.TESTER);
-        this.testList = testList;
+    public Tester(ArrayList<Report> reportDirectory, UUID workingDeptId, long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role.TESTER);
+        this.reportDirectory = reportDirectory;
         this.workingDeptId = workingDeptId;
     }
 
-    public ArrayList<Test> getTestList() {
-        return testList;
+    public ArrayList<Report> getReportDirectory() {
+        return reportDirectory;
     }
 
-    public void setTestList(ArrayList<Test> testList) {
-        this.testList = testList;
+    public void setReportDirectory(ArrayList<Report> reportDirectory) {
+        this.reportDirectory = reportDirectory;
     }
 
     public UUID getWorkingDeptId() {
@@ -41,4 +41,7 @@ public class Tester extends Person {
         this.workingDeptId = workingDeptId;
     }
     
+    
+
+   
 }

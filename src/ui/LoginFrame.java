@@ -4,14 +4,15 @@
  */
 package ui;
 
+import com.sun.jdi.connect.spi.Connection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import model.root.Person;
 import static ui.RegisterFrame.registerFrame;
-
-/**
- *
- * @author pho3nix28
- */
-public class LoginFrame extends javax.swing.JFrame {
+import com.db4o.Db4oEmbedded;
+        
+ public class LoginFrame extends javax.swing.JFrame {
     
     public static JFrame loginFrame;
 
@@ -84,6 +85,11 @@ public class LoginFrame extends javax.swing.JFrame {
         loginButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         goBackButton.setBackground(new java.awt.Color(126, 87, 194));
         goBackButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -174,6 +180,11 @@ public class LoginFrame extends javax.swing.JFrame {
         MainFrame.mainFrame.setVisible(true);
         loginFrame.setVisible(false);
     }//GEN-LAST:event_goBackButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        // TODO add your handling code here:   
+        
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments

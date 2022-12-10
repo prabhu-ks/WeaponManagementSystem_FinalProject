@@ -13,13 +13,10 @@ import model.root.Department;
  */
 public class OrderDepartment extends Department {
 
-    public OrderDepartment(String dept_Name, UUID dept_ID) {
-        super(dept_Name, dept_ID);
+    public OrderDepartment(String deptName, UUID deptId, UUID enterpriseId) {
+        super(deptName, deptId, enterpriseId);
     }
-
-   
-
-  
     
     
+
 }
