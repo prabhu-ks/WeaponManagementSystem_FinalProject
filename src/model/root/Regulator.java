@@ -12,8 +12,10 @@ import java.util.UUID;
  */
 public class Regulator extends Enterprise {
 
-    public Regulator(UUID enterpriseId, String enterpriseName, EnterpriseType enterpriseType) {
-        super(enterpriseId, enterpriseName, enterpriseType.REGULATOR);
+    public Regulator(String enterpriseId, String enterpriseName, String enterpriseType) {
+        super(enterpriseId, enterpriseName, enterpriseType);
     }
+
+    
     
 }

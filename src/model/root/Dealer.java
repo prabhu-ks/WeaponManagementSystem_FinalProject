@@ -12,8 +12,10 @@ import java.util.UUID;
  */
 public class Dealer extends Enterprise {
 
-    public Dealer(UUID enterpriseId, String enterpriseName, EnterpriseType enterpriseType) {
-        super(enterpriseId, enterpriseName, enterpriseType.DEALER);
+    public Dealer(String enterpriseId, String enterpriseName, String enterpriseType) {
+        super(enterpriseId, enterpriseName, enterpriseType);
     }
+
+    
     
 }
