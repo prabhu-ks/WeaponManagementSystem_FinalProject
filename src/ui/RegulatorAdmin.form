@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="splitPane" alignment="0" pref="848" max="32767" attributes="0"/>
+          <Component id="splitPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -55,10 +55,10 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnEmployee" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnTesting" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnApproval" alignment="0" max="32767" attributes="0"/>
+                          <Component id="regAdminCreateEmployeeButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="regAdminTestingButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="regAdminLogoutButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="regAdminApprovalManagerButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -68,20 +68,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
-                      <Component id="btnEmployee" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="regAdminCreateEmployeeButton" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnApproval" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="regAdminApprovalManagerButton" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnTesting" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="regAdminTestingButton" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnLogout" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="regAdminLogoutButton" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace pref="421" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnApproval">
+            <Component class="javax.swing.JButton" name="regAdminApprovalManagerButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -95,10 +95,10 @@
                 <Property name="text" type="java.lang.String" value="Approval Manager"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnApprovalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regAdminApprovalManagerButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnEmployee">
+            <Component class="javax.swing.JButton" name="regAdminCreateEmployeeButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -112,10 +112,10 @@
                 <Property name="text" type="java.lang.String" value="Create Employee"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmployeeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regAdminCreateEmployeeButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnTesting">
+            <Component class="javax.swing.JButton" name="regAdminTestingButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -129,10 +129,10 @@
                 <Property name="text" type="java.lang.String" value="Testing"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTestingActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regAdminTestingButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnLogout">
+            <Component class="javax.swing.JButton" name="regAdminLogoutButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -146,7 +146,7 @@
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regAdminLogoutButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

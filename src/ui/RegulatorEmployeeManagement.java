@@ -32,30 +32,30 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        regEmpManRoleCombo = new javax.swing.JComboBox<>();
+        regEmpManCreateButton = new javax.swing.JButton();
+        regEmpManUpdateButton = new javax.swing.JButton();
+        regEmpManDeleteButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtDate = new com.toedter.calendar.JDateChooser();
+        regEmpManBirthText = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        txtPhone = new javax.swing.JTextField();
+        regEmpManPhoneText = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        regEmpManEmailText = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
+        regEmpManAddressText = new javax.swing.JTextField();
+        regEmpManUsernameText = new javax.swing.JTextField();
+        regEmpManPasswordText = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        rbtMale = new javax.swing.JRadioButton();
-        rbtFemale = new javax.swing.JRadioButton();
-        rbtOther = new javax.swing.JRadioButton();
-        txtName = new javax.swing.JTextField();
+        regEmpManMaleRadioButton = new javax.swing.JRadioButton();
+        regEmpManFemaleRadioButton = new javax.swing.JRadioButton();
+        regEmpManOtherRadioButton = new javax.swing.JRadioButton();
+        regEmpManNameText = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnView = new javax.swing.JButton();
+        regEmpManViewButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
@@ -63,25 +63,25 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(32, 33, 35));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        regEmpManRoleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setBackground(new java.awt.Color(126, 87, 194));
-        jButton1.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Create");
+        regEmpManCreateButton.setBackground(new java.awt.Color(126, 87, 194));
+        regEmpManCreateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regEmpManCreateButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManCreateButton.setText("Create");
 
-        jButton3.setBackground(new java.awt.Color(126, 87, 194));
-        jButton3.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Update");
+        regEmpManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        regEmpManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regEmpManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManUpdateButton.setText("Update");
 
-        jButton4.setBackground(new java.awt.Color(126, 87, 194));
-        jButton4.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Delete");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        regEmpManDeleteButton.setBackground(new java.awt.Color(126, 87, 194));
+        regEmpManDeleteButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regEmpManDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManDeleteButton.setText("Delete");
+        regEmpManDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                regEmpManDeleteButtonActionPerformed(evt);
             }
         });
 
@@ -93,14 +93,14 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email:");
 
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+        regEmpManPhoneText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
+                regEmpManPhoneTextActionPerformed(evt);
             }
         });
-        txtPhone.addKeyListener(new java.awt.event.KeyAdapter() {
+        regEmpManPhoneText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPhoneKeyPressed(evt);
+                regEmpManPhoneTextKeyPressed(evt);
             }
         });
 
@@ -108,15 +108,21 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address:");
 
-        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+        regEmpManEmailText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtEmailFocusLost(evt);
+                regEmpManEmailTextFocusLost(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Username:");
+
+        regEmpManAddressText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regEmpManAddressTextActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,38 +140,38 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Gender:");
 
-        rbtMale.setForeground(new java.awt.Color(255, 255, 255));
-        rbtMale.setText("Male");
-        rbtMale.addActionListener(new java.awt.event.ActionListener() {
+        regEmpManMaleRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManMaleRadioButton.setText("Male");
+        regEmpManMaleRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtMaleActionPerformed(evt);
+                regEmpManMaleRadioButtonActionPerformed(evt);
             }
         });
 
-        rbtFemale.setForeground(new java.awt.Color(255, 255, 255));
-        rbtFemale.setText("Female");
-        rbtFemale.addActionListener(new java.awt.event.ActionListener() {
+        regEmpManFemaleRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManFemaleRadioButton.setText("Female");
+        regEmpManFemaleRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtFemaleActionPerformed(evt);
+                regEmpManFemaleRadioButtonActionPerformed(evt);
             }
         });
 
-        rbtOther.setForeground(new java.awt.Color(255, 255, 255));
-        rbtOther.setText("Other");
-        rbtOther.addActionListener(new java.awt.event.ActionListener() {
+        regEmpManOtherRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManOtherRadioButton.setText("Other");
+        regEmpManOtherRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtOtherActionPerformed(evt);
+                regEmpManOtherRadioButtonActionPerformed(evt);
             }
         });
 
-        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+        regEmpManNameText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                txtNameFocusLost(evt);
+                regEmpManNameTextFocusLost(evt);
             }
         });
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+        regEmpManNameText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNameKeyPressed(evt);
+                regEmpManNameTextKeyPressed(evt);
             }
         });
 
@@ -173,13 +179,13 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Name:");
 
-        btnView.setBackground(new java.awt.Color(126, 87, 194));
-        btnView.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnView.setForeground(new java.awt.Color(255, 255, 255));
-        btnView.setText("View");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
+        regEmpManViewButton.setBackground(new java.awt.Color(126, 87, 194));
+        regEmpManViewButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regEmpManViewButton.setForeground(new java.awt.Color(255, 255, 255));
+        regEmpManViewButton.setText("View");
+        regEmpManViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
+                regEmpManViewButtonActionPerformed(evt);
             }
         });
 
@@ -219,7 +225,7 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
                                         .addGap(57, 57, 57)
                                         .addComponent(jLabel1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(regEmpManNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel9)
@@ -233,22 +239,22 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(rbtMale)
+                                                .addComponent(regEmpManMaleRadioButton)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(rbtFemale)
+                                                .addComponent(regEmpManFemaleRadioButton)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(rbtOther))
+                                                .addComponent(regEmpManOtherRadioButton))
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 180, Short.MAX_VALUE))))))
+                                                .addComponent(regEmpManPasswordText, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(regEmpManPhoneText, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(regEmpManBirthText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(regEmpManEmailText, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(regEmpManAddressText, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(regEmpManUsernameText, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(regEmpManRoleCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 180, Short.MAX_VALUE))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(304, 304, 304)
-                                .addComponent(btnView)))
+                                .addComponent(regEmpManViewButton)))
                         .addGap(0, 234, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -259,11 +265,11 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(regEmpManCreateButton)
                 .addGap(30, 30, 30)
-                .addComponent(jButton3)
+                .addComponent(regEmpManUpdateButton)
                 .addGap(31, 31, 31)
-                .addComponent(jButton4)
+                .addComponent(regEmpManDeleteButton)
                 .addGap(184, 184, 184))
         );
         layout.setVerticalGroup(
@@ -276,152 +282,151 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnView)
+                .addComponent(regEmpManViewButton)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(regEmpManNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(rbtMale)
-                    .addComponent(rbtFemale)
-                    .addComponent(rbtOther))
+                    .addComponent(regEmpManMaleRadioButton)
+                    .addComponent(regEmpManFemaleRadioButton)
+                    .addComponent(regEmpManOtherRadioButton))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(regEmpManBirthText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regEmpManPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regEmpManEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regEmpManAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regEmpManUsernameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regEmpManPasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(regEmpManRoleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(regEmpManCreateButton)
+                    .addComponent(regEmpManUpdateButton)
+                    .addComponent(regEmpManDeleteButton))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void regEmpManDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManDeleteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_regEmpManDeleteButtonActionPerformed
 
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+    private void regEmpManPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManPhoneTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
+    }//GEN-LAST:event_regEmpManPhoneTextActionPerformed
 
-    private void txtPhoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneKeyPressed
+    private void regEmpManPhoneTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_regEmpManPhoneTextKeyPressed
         // TODO add your handling code here:
 
-        String phoneNumber = txtPhone.getText();
+        String phoneNumber = regEmpManPhoneText.getText();
         int lengthOfNumber = phoneNumber.length();
         char checkChar = evt.getKeyChar();
         if (checkChar >= '0' && checkChar <= '9') {
             if (lengthOfNumber < 10) {
-                txtPhone.setEditable(true);
+                regEmpManPhoneText.setEditable(true);
             } else {
-                txtPhone.setEditable(false);
+                regEmpManPhoneText.setEditable(false);
                 JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
             }
         } else {
             if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
-                txtPhone.setEditable(true);
+                regEmpManPhoneText.setEditable(true);
             } else {
-                txtPhone.setEditable(false);
+                regEmpManPhoneText.setEditable(false);
             }
         }
-    }//GEN-LAST:event_txtPhoneKeyPressed
+    }//GEN-LAST:event_regEmpManPhoneTextKeyPressed
 
-    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+    private void regEmpManEmailTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_regEmpManEmailTextFocusLost
         // TODO add your handling code here:
 
         String emailFormat ="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\."+ "[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
         Pattern employeeEmail = Pattern.compile(emailFormat) ;
-        Matcher employeeEmailMatch = employeeEmail.matcher(txtEmail.getText());
+        Matcher employeeEmailMatch = employeeEmail.matcher(regEmpManEmailText.getText());
 
         if (!employeeEmailMatch.matches()){
             JOptionPane.showMessageDialog(null,"Invalid Email!");
-            txtEmail.setText("");
+            regEmpManEmailText.setText("");
         }
-    }//GEN-LAST:event_txtEmailFocusLost
+    }//GEN-LAST:event_regEmpManEmailTextFocusLost
 
-    private void rbtMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtMaleActionPerformed
+    private void regEmpManMaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManMaleRadioButtonActionPerformed
         // TODO add your handling code here:
-        if(rbtMale.isSelected()){
+        if(regEmpManMaleRadioButton.isSelected()){
             gender = "Male";
-            rbtFemale.setSelected(false);
-            rbtOther.setSelected(false);
+            regEmpManFemaleRadioButton.setSelected(false);
+            regEmpManOtherRadioButton.setSelected(false);
         }
-    }//GEN-LAST:event_rbtMaleActionPerformed
+    }//GEN-LAST:event_regEmpManMaleRadioButtonActionPerformed
 
-    private void rbtFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFemaleActionPerformed
+    private void regEmpManFemaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManFemaleRadioButtonActionPerformed
         // TODO add your handling code here:
-        if(rbtFemale.isSelected()){
+        if(regEmpManFemaleRadioButton.isSelected()){
             gender = "Male";
-            rbtMale.setSelected(false);
-            rbtOther.setSelected(false);
+            regEmpManMaleRadioButton.setSelected(false);
+            regEmpManOtherRadioButton.setSelected(false);
         }
-    }//GEN-LAST:event_rbtFemaleActionPerformed
+    }//GEN-LAST:event_regEmpManFemaleRadioButtonActionPerformed
 
-    private void rbtOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtOtherActionPerformed
+    private void regEmpManOtherRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManOtherRadioButtonActionPerformed
         // TODO add your handling code here:
-        if(rbtOther.isSelected()){
+        if(regEmpManOtherRadioButton.isSelected()){
             gender = "Male";
-            rbtMale.setSelected(false);
-            rbtFemale.setSelected(false);
+            regEmpManMaleRadioButton.setSelected(false);
+            regEmpManFemaleRadioButton.setSelected(false);
         }
-    }//GEN-LAST:event_rbtOtherActionPerformed
+    }//GEN-LAST:event_regEmpManOtherRadioButtonActionPerformed
 
-    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+    private void regEmpManNameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_regEmpManNameTextFocusLost
         // TODO add your handling code here:
 
         Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(txtName.getText());
+        Matcher m = p.matcher(regEmpManNameText.getText());
         // boolean b = m.matches();
         boolean b = m.find();
         if (b){
             JOptionPane.showMessageDialog(null,"Special Characters are not allowed.");
-            txtName.setText("");
+            regEmpManNameText.setText("");
         }
-    }//GEN-LAST:event_txtNameFocusLost
+    }//GEN-LAST:event_regEmpManNameTextFocusLost
 
-    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+    private void regEmpManNameTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_regEmpManNameTextKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameKeyPressed
+    }//GEN-LAST:event_regEmpManNameTextKeyPressed
 
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+    private void regEmpManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManViewButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewActionPerformed
+    }//GEN-LAST:event_regEmpManViewButtonActionPerformed
+
+    private void regEmpManAddressTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManAddressTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regEmpManAddressTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnView;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -434,16 +439,21 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JRadioButton rbtFemale;
-    private javax.swing.JRadioButton rbtMale;
-    private javax.swing.JRadioButton rbtOther;
+    private javax.swing.JTextField regEmpManAddressText;
+    private com.toedter.calendar.JDateChooser regEmpManBirthText;
+    private javax.swing.JButton regEmpManCreateButton;
+    private javax.swing.JButton regEmpManDeleteButton;
+    private javax.swing.JTextField regEmpManEmailText;
+    private javax.swing.JRadioButton regEmpManFemaleRadioButton;
+    private javax.swing.JRadioButton regEmpManMaleRadioButton;
+    private javax.swing.JTextField regEmpManNameText;
+    private javax.swing.JRadioButton regEmpManOtherRadioButton;
+    private javax.swing.JPasswordField regEmpManPasswordText;
+    private javax.swing.JTextField regEmpManPhoneText;
+    private javax.swing.JComboBox<String> regEmpManRoleCombo;
+    private javax.swing.JButton regEmpManUpdateButton;
+    private javax.swing.JTextField regEmpManUsernameText;
+    private javax.swing.JButton regEmpManViewButton;
     private javax.swing.JTable tblEmployee;
-    private javax.swing.JTextField txtAddress;
-    private com.toedter.calendar.JDateChooser txtDate;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

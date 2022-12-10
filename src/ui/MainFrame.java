@@ -32,8 +32,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
-        btnRegister = new javax.swing.JButton();
+        mainLoginButton = new javax.swing.JButton();
+        mainRegisterButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,23 +57,23 @@ public class MainFrame extends javax.swing.JFrame {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Weapon Management System");
 
-        btnLogin.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogin.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        mainLoginButton.setBackground(new java.awt.Color(126, 87, 194));
+        mainLoginButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        mainLoginButton.setForeground(new java.awt.Color(255, 255, 255));
+        mainLoginButton.setText("Login");
+        mainLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                mainLoginButtonActionPerformed(evt);
             }
         });
 
-        btnRegister.setBackground(new java.awt.Color(126, 87, 194));
-        btnRegister.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+        mainRegisterButton.setBackground(new java.awt.Color(126, 87, 194));
+        mainRegisterButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        mainRegisterButton.setForeground(new java.awt.Color(255, 255, 255));
+        mainRegisterButton.setText("Register");
+        mainRegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
+                mainRegisterButtonActionPerformed(evt);
             }
         });
 
@@ -166,13 +166,13 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(157, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mainRegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(170, 170, 170))
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -215,8 +215,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(mainRegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mainLoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -250,20 +250,20 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void mainLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainLoginButtonActionPerformed
         // TODO add your handling code here:
         
         LoginFrame.loginFrame = new LoginFrame();
         LoginFrame.loginFrame.setVisible(true);
         mainFrame.setVisible(false);
-    }//GEN-LAST:event_btnLoginActionPerformed
+    }//GEN-LAST:event_mainLoginButtonActionPerformed
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+    private void mainRegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainRegisterButtonActionPerformed
         // TODO add your handling code here:
         RegisterFrame.registerFrame = new RegisterFrame();
         RegisterFrame.registerFrame.setVisible(true);
         mainFrame.setVisible(false);
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_mainRegisterButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -375,8 +375,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Regional;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -391,5 +389,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JButton mainLoginButton;
+    private javax.swing.JButton mainRegisterButton;
     // End of variables declaration//GEN-END:variables
 }

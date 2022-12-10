@@ -33,8 +33,8 @@ public class OrderManagerFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnOrder = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
+        orderManManageButton = new javax.swing.JButton();
+        orderManLogoutButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -43,23 +43,23 @@ public class OrderManagerFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnOrder.setBackground(new java.awt.Color(126, 87, 194));
-        btnOrder.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrder.setText("Manage");
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+        orderManManageButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManManageButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManManageButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManManageButton.setText("Manage");
+        orderManManageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
+                orderManManageButtonActionPerformed(evt);
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        orderManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManLogoutButton.setText("Logout");
+        orderManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                orderManLogoutButtonActionPerformed(evt);
             }
         });
 
@@ -70,19 +70,19 @@ public class OrderManagerFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(orderManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(orderManManageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(235, 235, 235)
-                .addComponent(btnOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(orderManManageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(orderManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(439, Short.MAX_VALUE))
         );
 
@@ -137,18 +137,18 @@ public class OrderManagerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+    private void orderManManageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManManageButtonActionPerformed
         // TODO add your handling code here:
 
         OrderManagerOrders ord1 = new OrderManagerOrders();
         splitPane.setRightComponent(ord1);
-    }//GEN-LAST:event_btnOrderActionPerformed
+    }//GEN-LAST:event_orderManManageButtonActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void orderManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManLogoutButtonActionPerformed
         // TODO add your handling code here:
         OrderManagerFrame.ordFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_orderManLogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,12 +191,12 @@ public class OrderManagerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JButton orderManLogoutButton;
+    private javax.swing.JButton orderManManageButton;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

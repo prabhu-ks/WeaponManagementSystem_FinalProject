@@ -31,23 +31,23 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        weaponTestCustListTable = new javax.swing.JTable();
+        weaponTestButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        weaponIdText = new javax.swing.JTextField();
+        weaponNameText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        weaponTest1Combo = new javax.swing.JComboBox<>();
+        weaponTest2Combo = new javax.swing.JComboBox<>();
+        weaponTest3Combo = new javax.swing.JComboBox<>();
+        weaponTest4Combo = new javax.swing.JComboBox<>();
+        weaponTest5Combo = new javax.swing.JComboBox<>();
+        weaponTestSubmitButton = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -66,7 +66,7 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Customer List:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        weaponTestCustListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -77,15 +77,15 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(weaponTestCustListTable);
 
-        jButton1.setBackground(new java.awt.Color(126, 87, 194));
-        jButton1.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Test");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        weaponTestButton.setBackground(new java.awt.Color(126, 87, 194));
+        weaponTestButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        weaponTestButton.setForeground(new java.awt.Color(255, 255, 255));
+        weaponTestButton.setText("Test");
+        weaponTestButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                weaponTestButtonActionPerformed(evt);
             }
         });
 
@@ -117,28 +117,33 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Test 5:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        weaponTest1Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        weaponTest2Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        weaponTest2Combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                weaponTest2ComboActionPerformed(evt);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-
-        jButton2.setBackground(new java.awt.Color(126, 87, 194));
-        jButton2.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Submit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        weaponTest3Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        weaponTest3Combo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                weaponTest3ComboActionPerformed(evt);
+            }
+        });
+
+        weaponTest4Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+
+        weaponTest5Combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+
+        weaponTestSubmitButton.setBackground(new java.awt.Color(126, 87, 194));
+        weaponTestSubmitButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        weaponTestSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
+        weaponTestSubmitButton.setText("Submit");
+        weaponTestSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponTestSubmitButtonActionPerformed(evt);
             }
         });
 
@@ -161,7 +166,7 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(261, 261, 261)
-                                .addComponent(jButton1))
+                                .addComponent(weaponTestButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(135, 135, 135)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -175,20 +180,20 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
                                             .addComponent(jLabel3))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField3)
-                                            .addComponent(jTextField2)
-                                            .addComponent(jComboBox1, 0, 163, Short.MAX_VALUE)
-                                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(weaponNameText)
+                                            .addComponent(weaponIdText)
+                                            .addComponent(weaponTest1Combo, 0, 163, Short.MAX_VALUE)
+                                            .addComponent(weaponTest2Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(weaponTest3Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(weaponTest4Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(50, 50, 50)
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(weaponTest5Combo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(256, 256, 256)
-                                .addComponent(jButton2)))
+                                .addComponent(weaponTestSubmitButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -204,62 +209,59 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(weaponTestButton)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponIdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponTest1Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponTest2Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponTest3Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponTest4Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(weaponTest5Combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(weaponTestSubmitButton)
                 .addContainerGap(203, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void weaponTestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTestButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_weaponTestButtonActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void weaponTest2ComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTest2ComboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_weaponTest2ComboActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void weaponTestSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTestSubmitButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_weaponTestSubmitButtonActionPerformed
+
+    private void weaponTest3ComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTest3ComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weaponTest3ComboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -271,9 +273,16 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField weaponIdText;
+    private javax.swing.JTextField weaponNameText;
+    private javax.swing.JComboBox<String> weaponTest1Combo;
+    private javax.swing.JComboBox<String> weaponTest2Combo;
+    private javax.swing.JComboBox<String> weaponTest3Combo;
+    private javax.swing.JComboBox<String> weaponTest4Combo;
+    private javax.swing.JComboBox<String> weaponTest5Combo;
+    private javax.swing.JButton weaponTestButton;
+    private javax.swing.JTable weaponTestCustListTable;
+    private javax.swing.JButton weaponTestSubmitButton;
     // End of variables declaration//GEN-END:variables
 }

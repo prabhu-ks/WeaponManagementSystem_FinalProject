@@ -34,8 +34,8 @@ public class ApprovalManager extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnCheck = new javax.swing.JButton();
+        appManLogoutButton = new javax.swing.JButton();
+        appManWeaponApprovalButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -44,23 +44,23 @@ public class ApprovalManager extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        appManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        appManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        appManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        appManLogoutButton.setText("Logout");
+        appManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                appManLogoutButtonActionPerformed(evt);
             }
         });
 
-        btnCheck.setBackground(new java.awt.Color(126, 87, 194));
-        btnCheck.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnCheck.setForeground(new java.awt.Color(255, 255, 255));
-        btnCheck.setText("Weapon Approval");
-        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+        appManWeaponApprovalButton.setBackground(new java.awt.Color(126, 87, 194));
+        appManWeaponApprovalButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        appManWeaponApprovalButton.setForeground(new java.awt.Color(255, 255, 255));
+        appManWeaponApprovalButton.setText("Weapon Approval");
+        appManWeaponApprovalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckActionPerformed(evt);
+                appManWeaponApprovalButtonActionPerformed(evt);
             }
         });
 
@@ -71,17 +71,17 @@ public class ApprovalManager extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCheck, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(appManWeaponApprovalButton, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(appManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(appManWeaponApprovalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(appManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(407, Short.MAX_VALUE))
         );
 
@@ -136,17 +136,17 @@ public class ApprovalManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void appManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManLogoutButtonActionPerformed
         // TODO add your handling code here:
         ApprovalManager.apprFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_appManLogoutButtonActionPerformed
 
-    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
+    private void appManWeaponApprovalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManWeaponApprovalButtonActionPerformed
         // TODO add your handling code here:
         WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnCheckActionPerformed
+    }//GEN-LAST:event_appManWeaponApprovalButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,8 +188,8 @@ public class ApprovalManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCheck;
-    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton appManLogoutButton;
+    private javax.swing.JButton appManWeaponApprovalButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;

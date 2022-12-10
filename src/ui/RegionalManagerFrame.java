@@ -35,12 +35,12 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        btnStore = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
-        btnEmployee = new javax.swing.JButton();
-        btnSalesReport = new javax.swing.JButton();
-        btnInventory = new javax.swing.JButton();
-        btnIDChecker = new javax.swing.JButton();
+        regManStoreManButton = new javax.swing.JButton();
+        regManLogoutButton = new javax.swing.JButton();
+        regManEmployeeManagementButton = new javax.swing.JButton();
+        regManSalesReportButton = new javax.swing.JButton();
+        regManInventoryManButton = new javax.swing.JButton();
+        regManIdCheckerButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -49,63 +49,63 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        btnStore.setBackground(new java.awt.Color(126, 87, 194));
-        btnStore.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnStore.setForeground(new java.awt.Color(255, 255, 255));
-        btnStore.setText("Store Management");
-        btnStore.addActionListener(new java.awt.event.ActionListener() {
+        regManStoreManButton.setBackground(new java.awt.Color(126, 87, 194));
+        regManStoreManButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManStoreManButton.setForeground(new java.awt.Color(255, 255, 255));
+        regManStoreManButton.setText("Store Management");
+        regManStoreManButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStoreActionPerformed(evt);
+                regManStoreManButtonActionPerformed(evt);
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(126, 87, 194));
-        btnLogout.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+        regManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        regManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        regManLogoutButton.setText("Logout");
+        regManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                regManLogoutButtonActionPerformed(evt);
             }
         });
 
-        btnEmployee.setBackground(new java.awt.Color(126, 87, 194));
-        btnEmployee.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnEmployee.setForeground(new java.awt.Color(255, 255, 255));
-        btnEmployee.setText("Employee Management");
-        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
+        regManEmployeeManagementButton.setBackground(new java.awt.Color(126, 87, 194));
+        regManEmployeeManagementButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManEmployeeManagementButton.setForeground(new java.awt.Color(255, 255, 255));
+        regManEmployeeManagementButton.setText("Employee Management");
+        regManEmployeeManagementButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmployeeActionPerformed(evt);
+                regManEmployeeManagementButtonActionPerformed(evt);
             }
         });
 
-        btnSalesReport.setBackground(new java.awt.Color(126, 87, 194));
-        btnSalesReport.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnSalesReport.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalesReport.setText("Sales report");
-        btnSalesReport.addActionListener(new java.awt.event.ActionListener() {
+        regManSalesReportButton.setBackground(new java.awt.Color(126, 87, 194));
+        regManSalesReportButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManSalesReportButton.setForeground(new java.awt.Color(255, 255, 255));
+        regManSalesReportButton.setText("Sales report");
+        regManSalesReportButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalesReportActionPerformed(evt);
+                regManSalesReportButtonActionPerformed(evt);
             }
         });
 
-        btnInventory.setBackground(new java.awt.Color(126, 87, 194));
-        btnInventory.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnInventory.setForeground(new java.awt.Color(255, 255, 255));
-        btnInventory.setText("Inventory Management");
-        btnInventory.addActionListener(new java.awt.event.ActionListener() {
+        regManInventoryManButton.setBackground(new java.awt.Color(126, 87, 194));
+        regManInventoryManButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManInventoryManButton.setForeground(new java.awt.Color(255, 255, 255));
+        regManInventoryManButton.setText("Inventory Management");
+        regManInventoryManButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInventoryActionPerformed(evt);
+                regManInventoryManButtonActionPerformed(evt);
             }
         });
 
-        btnIDChecker.setBackground(new java.awt.Color(126, 87, 194));
-        btnIDChecker.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnIDChecker.setForeground(new java.awt.Color(255, 255, 255));
-        btnIDChecker.setText("ID Checker");
-        btnIDChecker.addActionListener(new java.awt.event.ActionListener() {
+        regManIdCheckerButton.setBackground(new java.awt.Color(126, 87, 194));
+        regManIdCheckerButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManIdCheckerButton.setForeground(new java.awt.Color(255, 255, 255));
+        regManIdCheckerButton.setText("ID Checker");
+        regManIdCheckerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIDCheckerActionPerformed(evt);
+                regManIdCheckerButtonActionPerformed(evt);
             }
         });
 
@@ -116,29 +116,29 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSalesReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStore, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnIDChecker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(regManEmployeeManagementButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regManSalesReportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regManStoreManButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regManInventoryManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regManIdCheckerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(187, 187, 187)
-                .addComponent(btnEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManEmployeeManagementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnStore, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManStoreManButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManInventoryManButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSalesReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManSalesReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnIDChecker, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManIdCheckerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(302, Short.MAX_VALUE))
         );
 
@@ -204,46 +204,46 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStoreActionPerformed
+    private void regManStoreManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManStoreManButtonActionPerformed
         // TODO add your handling code here:
         StoreManagement ordcr = new StoreManagement();
         splitPane.setRightComponent(ordcr);
 
      
-    }//GEN-LAST:event_btnStoreActionPerformed
+    }//GEN-LAST:event_regManStoreManButtonActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+    private void regManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManLogoutButtonActionPerformed
         // TODO add your handling code here:
         RegionalManagerFrame.regFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    }//GEN-LAST:event_regManLogoutButtonActionPerformed
 
-    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+    private void regManEmployeeManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManEmployeeManagementButtonActionPerformed
         // TODO add your handling code here:
         RegionalEmployeeManagement ordcr = new RegionalEmployeeManagement();
         splitPane.setRightComponent(ordcr);
         
-    }//GEN-LAST:event_btnEmployeeActionPerformed
+    }//GEN-LAST:event_regManEmployeeManagementButtonActionPerformed
 
-    private void btnSalesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalesReportActionPerformed
+    private void regManSalesReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManSalesReportButtonActionPerformed
         // TODO add your handling code here:
         SalesReport ordcr = new SalesReport();
         splitPane.setRightComponent(ordcr);
 
-    }//GEN-LAST:event_btnSalesReportActionPerformed
+    }//GEN-LAST:event_regManSalesReportButtonActionPerformed
 
-    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
+    private void regManInventoryManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManInventoryManButtonActionPerformed
         // TODO add your handling code here:
         InventoryManagement ordcr = new InventoryManagement();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnInventoryActionPerformed
+    }//GEN-LAST:event_regManInventoryManButtonActionPerformed
 
-    private void btnIDCheckerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIDCheckerActionPerformed
+    private void regManIdCheckerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManIdCheckerButtonActionPerformed
         // TODO add your handling code here:
         
         IdCheckerManager ordcr = new IdCheckerManager();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_btnIDCheckerActionPerformed
+    }//GEN-LAST:event_regManIdCheckerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,17 +286,17 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEmployee;
-    private javax.swing.JButton btnIDChecker;
-    private javax.swing.JButton btnInventory;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnSalesReport;
-    private javax.swing.JButton btnStore;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JButton regManEmployeeManagementButton;
+    private javax.swing.JButton regManIdCheckerButton;
+    private javax.swing.JButton regManInventoryManButton;
+    private javax.swing.JButton regManLogoutButton;
+    private javax.swing.JButton regManSalesReportButton;
+    private javax.swing.JButton regManStoreManButton;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }

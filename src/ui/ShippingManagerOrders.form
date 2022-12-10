@@ -28,14 +28,14 @@
           <Component id="jScrollPane1" alignment="0" pref="695" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnView" min="-2" max="-2" attributes="0"/>
+              <Component id="shippingManViewOrderButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="300" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
-              <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
+              <Component id="shippingManUpdateButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="btnDelete" min="-2" max="-2" attributes="0"/>
+              <Component id="shippingManDeleteButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -48,11 +48,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="149" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnView" min="-2" max="-2" attributes="0"/>
+              <Component id="shippingManViewOrderButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="shippingManUpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="shippingManDeleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="323" max="32767" attributes="0"/>
           </Group>
@@ -79,7 +79,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="btnOrderView">
+        <Component class="javax.swing.JTable" name="shippingManOrderTable">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -96,7 +96,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnView">
+    <Component class="javax.swing.JButton" name="shippingManViewOrderButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -110,7 +110,7 @@
         <Property name="text" type="java.lang.String" value="View Order"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnUpdate">
+    <Component class="javax.swing.JButton" name="shippingManUpdateButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -124,7 +124,7 @@
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnDelete">
+    <Component class="javax.swing.JButton" name="shippingManDeleteButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>

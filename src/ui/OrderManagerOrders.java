@@ -28,10 +28,10 @@ public class OrderManagerOrders extends javax.swing.JPanel {
 
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblOrderManager = new javax.swing.JTable();
-        btnOrder = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        orderManOrderTable = new javax.swing.JTable();
+        orderManViewOrderButton = new javax.swing.JButton();
+        orderManUpdateButton = new javax.swing.JButton();
+        orderManDeleteButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -40,8 +40,8 @@ public class OrderManagerOrders extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Manufacturer-Supplier Order Management");
 
-        tblOrderManager.setBackground(new java.awt.Color(255, 255, 255));
-        tblOrderManager.setModel(new javax.swing.table.DefaultTableModel(
+        orderManOrderTable.setBackground(new java.awt.Color(255, 255, 255));
+        orderManOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,27 +52,27 @@ public class OrderManagerOrders extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblOrderManager);
+        jScrollPane1.setViewportView(orderManOrderTable);
 
-        btnOrder.setBackground(new java.awt.Color(126, 87, 194));
-        btnOrder.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnOrder.setForeground(new java.awt.Color(255, 255, 255));
-        btnOrder.setText("View Order");
+        orderManViewOrderButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManViewOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManViewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManViewOrderButton.setText("View Order");
 
-        btnUpdate.setBackground(new java.awt.Color(126, 87, 194));
-        btnUpdate.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        orderManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManUpdateButton.setText("Update");
+        orderManUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                orderManUpdateButtonActionPerformed(evt);
             }
         });
 
-        btnDelete.setBackground(new java.awt.Color(126, 87, 194));
-        btnDelete.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
+        orderManDeleteButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManDeleteButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManDeleteButton.setText("Delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,13 +82,13 @@ public class OrderManagerOrders extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOrder)
+                .addComponent(orderManViewOrderButton)
                 .addGap(300, 300, 300))
             .addGroup(layout.createSequentialGroup()
                 .addGap(251, 251, 251)
-                .addComponent(btnUpdate)
+                .addComponent(orderManUpdateButton)
                 .addGap(31, 31, 31)
-                .addComponent(btnDelete)
+                .addComponent(orderManDeleteButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,26 +99,26 @@ public class OrderManagerOrders extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnOrder)
+                .addComponent(orderManViewOrderButton)
                 .addGap(235, 235, 235)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
+                    .addComponent(orderManUpdateButton)
+                    .addComponent(orderManDeleteButton))
                 .addContainerGap(323, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void orderManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManUpdateButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_orderManUpdateButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnOrder;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JTable tblOrderManager;
+    private javax.swing.JButton orderManDeleteButton;
+    private javax.swing.JTable orderManOrderTable;
+    private javax.swing.JButton orderManUpdateButton;
+    private javax.swing.JButton orderManViewOrderButton;
     // End of variables declaration//GEN-END:variables
 }
