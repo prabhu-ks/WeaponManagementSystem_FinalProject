@@ -11,17 +11,30 @@ import javax.swing.JFrame;
 import model.root.Person;
 import static ui.RegisterFrame.registerFrame;
 import com.db4o.Db4oEmbedded;
+import java.util.ArrayList;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.UserTest;
         
  public class LoginFrame extends javax.swing.JFrame {
     
     public static JFrame loginFrame;
+    private OperatingSystem operatingSystem;
+    private Db4oUtils dB4OUtility;
+    
+    public LoginFrame() {
+    }
 
     /**
      * Creates new form LoginFrame
      */
-    public LoginFrame() {
+    public LoginFrame(Db4oUtils db ,OperatingSystem os) {
         initComponents();
+        System.out.println(db+"\t"+os);
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,6 +196,19 @@ import com.db4o.Db4oEmbedded;
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:   
+        String user = loginUsernameText.getText().trim();
+        String pass = loginPasswordText.getText().trim();
+        
+        UserTest newUser= new UserTest(user, pass);
+        ArrayList<UserTest> dir= operatingSystem.getUserTestDir();
+        dir.add(newUser);
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        OperatingSystem os= dB4OUtility.retrieveSystem();
+        ArrayList<UserTest> dataFromDB= os.getUserTestDir();
+        for(UserTest usertest: dataFromDB){
+            System.out.println(usertest.getName());
+        }
         
     }//GEN-LAST:event_loginButtonActionPerformed
 
