@@ -4,7 +4,7 @@
  */
 package model.backend;
 
-import model.root.personDirectory;
+import model.root.PersonDirectory;
 import model.root.Manufacturer;
 import model.root.Su;
 import model.root.Department;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class OperatingSystem {
 
     private static OperatingSystem os;
-    private personDirectory personList;
+    private PersonDirectory personList;
     private ArrayList<Manufacturer> manufactureDirectory;
     private ArrayList<Department> departmentDirectory;
     private ArrayList<Supplier> donorBankDirectory;

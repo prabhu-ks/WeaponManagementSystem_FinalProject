@@ -14,13 +14,12 @@ import model.root.Department;
  */
 public class ApprovalAffairs extends Department {
     private ArrayList <Report> reports;
-    
-   
 
-    public ApprovalAffairs(String Dept_name, UUID Dept_ID) {
-        super(Dept_name, Dept_ID);
+    public ApprovalAffairs(ArrayList<Report> reports, String deptName, UUID deptId, UUID enterpriseId) {
+        super(deptName, deptId, enterpriseId);
+        this.reports = reports;
     }
-
+    
     public ArrayList<Report> getReports() {
         return reports;
     }

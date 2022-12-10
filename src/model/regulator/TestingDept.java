@@ -13,8 +13,9 @@ import java.util.UUID;
  */
 public class TestingDept extends Department{
 
-    public TestingDept(String Dept_name, UUID Dept_ID) {
-        super(Dept_name, Dept_ID);
+    public TestingDept(String deptName, UUID deptId, UUID enterpriseId) {
+        super(deptName, deptId, enterpriseId);
     }
     
+   
 }
