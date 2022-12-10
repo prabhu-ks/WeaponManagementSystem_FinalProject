@@ -12,20 +12,21 @@ import java.util.UUID;
  */
 public class Weapon {
     private String name;
-    private UUID id;
+    private UUID weaponId;
+    private UUID serialNo;
     private String type;
     private long price;
     private boolean approval;
 
-    public Weapon(String name, UUID id, String type, long price, boolean approval) {
+    public Weapon(String name, UUID weaponId, UUID serialNo, String type, long price, boolean approval) {
         this.name = name;
-        this.id = id;
+        this.weaponId = weaponId;
+        this.serialNo = serialNo;
         this.type = type;
         this.price = price;
         this.approval = approval;
     }
-
-    
+   
 
     public String getName() {
         return name;
@@ -35,12 +36,20 @@ public class Weapon {
         this.name = name;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getWeaponId() {
+        return weaponId;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setWeaponId(UUID weaponId) {
+        this.weaponId = weaponId;
+    }
+
+    public UUID getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(UUID serialNo) {
+        this.serialNo = serialNo;
     }
 
     public String getType() {
@@ -68,4 +77,5 @@ public class Weapon {
     }
     
     
+   
 }

@@ -7,7 +7,7 @@ package model.root;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
-import model.manufacturer.Report;
+import model.regulator.Report;
 import model.root.Person;
 
 /**
