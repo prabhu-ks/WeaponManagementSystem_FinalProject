@@ -13,10 +13,10 @@ public class Department {
     
 
    private String deptName;
-   private UUID deptId;
-   private UUID enterpriseId;
+   private String deptId;
+   private String enterpriseId;
 
-    public Department(String deptName, UUID deptId, UUID enterpriseId) {
+    public Department(String deptName, String deptId, String enterpriseId) {
         this.deptName = deptName;
         this.deptId = deptId;
         this.enterpriseId = enterpriseId;
@@ -30,20 +30,22 @@ public class Department {
         this.deptName = deptName;
     }
 
-    public UUID getDeptId() {
+    public String getDeptId() {
         return deptId;
     }
 
-    public void setDeptId(UUID deptId) {
+    public void setDeptId(String deptId) {
         this.deptId = deptId;
     }
 
-    public UUID getEnterpriseId() {
+    public String getEnterpriseId() {
         return enterpriseId;
     }
 
-    public void setEnterpriseId(UUID enterpriseId) {
+    public void setEnterpriseId(String enterpriseId) {
         this.enterpriseId = enterpriseId;
     }
+
+    
    
 }

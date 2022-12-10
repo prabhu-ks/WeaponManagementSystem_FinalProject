@@ -13,22 +13,19 @@ import model.root.Person;
  * @author manavmalavia
  */
 public class InventoryManager extends Person {
-    private UUID workingStoreId;
+    private String workingStoreId;
 
-    public InventoryManager( long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UUID workingStoreId) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.INVENTORY_MANAGER);
+    public InventoryManager(String workingStoreId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.workingStoreId = workingStoreId;
     }
 
-    public UUID getWorkingStoreId() {
+    public String getWorkingStoreId() {
         return workingStoreId;
     }
 
-    public void setWorkingStoreId(UUID workingStoreId) {
+    public void setWorkingStoreId(String workingStoreId) {
         this.workingStoreId = workingStoreId;
     }
-
-    
-    
     
 }

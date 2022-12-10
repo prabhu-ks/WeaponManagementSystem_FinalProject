@@ -13,20 +13,18 @@ import model.root.Person;
  * @author manavmalavia
  */
 public class StoreManager extends Person {
-    private UUID managingStoreId;
+    private String managingStoreId;
 
-    
-
-    public StoreManager(long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password,UUID managingStoreId) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.STORE_MANAGER);
+    public StoreManager(String managingStoreId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.managingStoreId = managingStoreId;
     }
 
-    public UUID getManagingStoreId() {
+    public String getManagingStoreId() {
         return managingStoreId;
     }
 
-    public void setManagingStoreId(UUID managingStoreId) {
+    public void setManagingStoreId(String managingStoreId) {
         this.managingStoreId = managingStoreId;
     }
     

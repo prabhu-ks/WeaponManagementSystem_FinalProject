@@ -16,7 +16,7 @@ import model.root.Department;
 public class ApprovalAffairs extends Department {
     private ArrayList <Report> reports;
 
-    public ApprovalAffairs(ArrayList<Report> reports, String deptName, UUID deptId, UUID enterpriseId) {
+    public ApprovalAffairs(ArrayList<Report> reports, String deptName, String deptId, String enterpriseId) {
         super(deptName, deptId, enterpriseId);
         this.reports = reports;
     }

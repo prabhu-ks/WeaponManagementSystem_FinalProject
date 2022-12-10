@@ -14,7 +14,7 @@ import model.root.Person;
  */
 public class OrderManager extends Person {
 
-    public OrderManager(long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public OrderManager(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.ORDER_MANAGER);
     }
 

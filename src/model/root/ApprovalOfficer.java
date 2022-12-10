@@ -13,17 +13,17 @@ import model.root.Person;
  * @author manavhirey
  */
 public class ApprovalOfficer extends Person {
-    private UUID workingDepartmentId;
+    private String workingDepartmentId;
 
-    public ApprovalOfficer(long ssn, UUID puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
+    public ApprovalOfficer(long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, UserRole role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.APPROVAL_OFFICER);
     }
 
-    public UUID getWorkingDepartmentId() {
+    public String getWorkingDepartmentId() {
         return workingDepartmentId;
     }
 
-    public void setWorkingDepartmentId(UUID workingDepartmentId) {
+    public void setWorkingDepartmentId(String workingDepartmentId) {
         this.workingDepartmentId = workingDepartmentId;
     }
     
