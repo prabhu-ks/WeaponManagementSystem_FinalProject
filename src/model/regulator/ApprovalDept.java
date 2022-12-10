@@ -12,9 +12,11 @@ import model.root.Department;
  * @author manavhirey
  */
 public class ApprovalDept extends Department {
-    
-    public ApprovalDept(String Dept_name, UUID Dept_ID) {
-        super(Dept_name, Dept_ID);
+
+    public ApprovalDept(String deptName, UUID deptId, UUID enterpriseId) {
+        super(deptName, deptId, enterpriseId);
     }
+    
+  
     
 }
