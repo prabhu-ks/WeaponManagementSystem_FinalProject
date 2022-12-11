@@ -14,8 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.ApprovalOfficer;
+import model.root.Enterprise.EnterpriseType;
 import model.root.Person;
 import model.root.Person.UserRole;
+import model.root.Tester;
 
 /**
  *
@@ -549,7 +552,11 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         String role = regEmpManRoleCombo.getSelectedItem().toString();
         if(role.equals("TESTER")){
             
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.TESTER.name());
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.REGULATOR))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            Person person = new Tester(dealerId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.TESTER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
@@ -557,7 +564,11 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         }
         if(role.equals("APPROVAL OFFICER")){
             
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_OFFICER.name());
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.REGULATOR))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            Person person = new ApprovalOfficer(dealerId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_OFFICER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();

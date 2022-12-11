@@ -15,22 +15,12 @@ import model.root.Person;
  * @author manavhirey
  */
 public class Tester extends Person {
-    
-    private ArrayList<Report> reportDirectory;
+   
     private String enterpriseId;
 
-    public Tester(ArrayList<Report> reportDirectory, String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
+    public Tester(String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
-        this.reportDirectory = reportDirectory;
         this.enterpriseId = workingDeptId;
-    }
-
-    public ArrayList<Report> getReportDirectory() {
-        return reportDirectory;
-    }
-
-    public void setReportDirectory(ArrayList<Report> reportDirectory) {
-        this.reportDirectory = reportDirectory;
     }
 
     public String getEnterpriseId() {
