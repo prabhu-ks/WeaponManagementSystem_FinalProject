@@ -14,7 +14,6 @@ import model.root.Weapon;
  */
 public class Report {
     private String status;
-    private Weapon weapon;
     private boolean approved;
     private boolean test1;
     private boolean test2;
@@ -24,9 +23,8 @@ public class Report {
     private ApprovalOfficer approvalOfficerId;
     private Tester testerId;
 
-    public Report(String status, Weapon weapon, boolean approved, boolean test1, boolean test2, boolean test3, boolean test4, boolean testr, ApprovalOfficer approvalOfficerId, Tester testerId) {
+    public Report(String status, boolean approved, boolean test1, boolean test2, boolean test3, boolean test4, boolean testr, ApprovalOfficer approvalOfficerId, Tester testerId) {
         this.status = status;
-        this.weapon = weapon;
         this.approved = approved;
         this.test1 = test1;
         this.test2 = test2;
@@ -43,14 +41,6 @@ public class Report {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
     }
 
     public boolean isApproved() {

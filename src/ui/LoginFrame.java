@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.Customer;
 import model.root.Person.UserRole;
 import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
@@ -217,8 +218,8 @@ import model.root.UserTest;
         
         switch(UserRole.valueOf(person.getRole())){
             
-            case CUSTOMER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
-                           RegionalManagerFrame.regFrame.setVisible(true);
+            case CUSTOMER: CustomerFrame.customerFrame = new CustomerFrame(dB4OUtility, operatingSystem,(Customer) person);
+                           CustomerFrame.customerFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
             case REGIONAL_MANAGER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);

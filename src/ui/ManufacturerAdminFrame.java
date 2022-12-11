@@ -4,19 +4,34 @@
  */
 package ui;
 
+import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.ManufacturerAdmin;
 import static ui.MainFrame.mainFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class ManufacturerAdmin extends javax.swing.JFrame {
+public class ManufacturerAdminFrame extends javax.swing.JFrame {
 
+    public static JFrame manuAdminFrame;
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    ManufacturerAdmin ma;
     /**
      * Creates new form ManufacturerAdmin
      */
-    public ManufacturerAdmin() {
+    
+    public ManufacturerAdminFrame(){
+    }
+
+    public ManufacturerAdminFrame(Db4oUtils db ,OperatingSystem os, ManufacturerAdmin ma) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.ma = ma;
     }
 
     /**
@@ -135,13 +150,13 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
     private void manAdminCreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manAdminCreateEmployeeButtonActionPerformed
         // TODO add your handling code here:
 
-        RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement();
+        RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement(dB4OUtility ,operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_manAdminCreateEmployeeButtonActionPerformed
 
     private void manAdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manAdminLogoutButtonActionPerformed
         // TODO add your handling code here:
-        RegulatorAdmin.regAdminFrame.setVisible(false);
+        RegulatorAdminFrame.regAdminFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_manAdminLogoutButtonActionPerformed
 
@@ -175,7 +190,11 @@ public class ManufacturerAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ManufacturerAdmin().setVisible(true);
+                if(manuAdminFrame == null){
+                    manuAdminFrame = new RegulatorAdminFrame();
+                }
+                
+                manuAdminFrame.setVisible(true);
             }
         });
     }
