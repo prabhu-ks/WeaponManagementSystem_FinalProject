@@ -218,16 +218,23 @@ import model.root.UserTest;
             return;
         }
         
+        
         switch(UserRole.valueOf(person.getRole())){
             
-            case CUSTOMER: CustomerFrame.customerFrame = new CustomerFrame(dB4OUtility, operatingSystem,(Customer) person);
+            case CUSTOMER: Customer cust = (Customer) person;
+                           if(cust.approvalStatus==false){
+                               JOptionPane.showMessageDialog(null, "Invalid Age");
+                               break;
+                           }
+        
+                           CustomerFrame.customerFrame = new CustomerFrame(dB4OUtility, operatingSystem,(Customer) person);
                            CustomerFrame.customerFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
             case REGIONAL_MANAGER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
                            RegionalManagerFrame.regFrame.setVisible(true);
                            loginFrame.setVisible(false);
-                           break;
+
             case REGULATOR_SYSADMIN: RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame(dB4OUtility, operatingSystem,(RegulatorAdmin) person);
                            RegulatorAdminFrame.regAdminFrame.setVisible(true);
                            loginFrame.setVisible(false);
@@ -235,7 +242,11 @@ import model.root.UserTest;
             case MANUFACTURER_SYSADMIN: ManufacturerAdminFrame.manuAdminFrame = new ManufacturerAdminFrame(dB4OUtility, operatingSystem,(ManufacturerAdmin) person);
                            ManufacturerAdminFrame.manuAdminFrame .setVisible(true);
                            loginFrame.setVisible(false);
-                           break;
+                           break;            
+            case ACCOUNT_VERIFYER: Idchecker.idcheckFrame = new Idchecker(dB4OUtility, operatingSystem,(Person) person);
+                           Idchecker.idcheckFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;                                        
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            
         }
