@@ -55,7 +55,7 @@
                                           </Group>
                                           <Component id="regEmployeeManPasswordText" alignment="0" max="32767" attributes="0"/>
                                           <Component id="regEmployeeManPhoneText" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="regEmployeeManBirthText" alignment="0" pref="180" max="32767" attributes="0"/>
+                                          <Component id="regEmployeeManBirthText" alignment="0" max="32767" attributes="0"/>
                                           <Component id="regEmployeeManEmailText" alignment="0" max="32767" attributes="0"/>
                                           <Component id="regEmployeeManAddressText" alignment="0" max="32767" attributes="0"/>
                                           <Component id="regEmployeeManUsernameText" alignment="0" max="32767" attributes="0"/>
