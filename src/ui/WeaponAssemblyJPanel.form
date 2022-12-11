@@ -29,6 +29,11 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="314" max="32767" attributes="0"/>
+              <Component id="weaponAssViewButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -38,26 +43,20 @@
                   <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="weaponAssNameButton" alignment="1" pref="180" max="32767" attributes="0"/>
-                  <Component id="weaponAssQuantityButton" alignment="0" max="32767" attributes="0"/>
-                  <Component id="weaponAssTypeCombo" max="32767" attributes="0"/>
-                  <Component id="weaponAssNameCombo" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="weaponAssCreateButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="weaponAssUpdateButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="weaponAssNameTxt" alignment="1" pref="180" max="32767" attributes="0"/>
+                      <Component id="weaponAssQuantityTxt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="weaponAssTypeCombo" max="32767" attributes="0"/>
+                      <Component id="weaponAssPriceTxt" alignment="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="311" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="weaponAssViewButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="weaponAssCreateButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,12 +71,12 @@
               <Component id="weaponAssViewButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="weaponAssNameButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="weaponAssNameTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="weaponAssQuantityButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="weaponAssQuantityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
@@ -88,20 +87,23 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="weaponAssNameCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="weaponAssPriceTxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="weaponAssCreateButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="334" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="weaponAssCreateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="weaponAssUpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="329" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="weaponAssNameButton">
+    <Component class="javax.swing.JTextField" name="weaponAssNameTxt">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="weaponAssNameButtonFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="weaponAssNameButtonKeyPressed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="weaponAssNameTxtFocusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="weaponAssNameTxtKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -126,10 +128,10 @@
         <Property name="text" type="java.lang.String" value="Weapon Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="weaponAssQuantityButton">
+    <Component class="javax.swing.JTextField" name="weaponAssQuantityTxt">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weaponAssQuantityButtonActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="weaponAssQuantityButtonKeyPressed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weaponAssQuantityTxtActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="weaponAssQuantityTxtKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="weaponAssCreateButton">
@@ -145,6 +147,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Create"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weaponAssCreateButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTitle1">
       <Properties>
@@ -201,7 +206,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Weapon Name:"/>
+        <Property name="text" type="java.lang.String" value="Price"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="weaponAssViewButton">
@@ -223,13 +228,8 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="weaponAssTypeCombo">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Pistol&quot;, &quot;SMG&quot;, &quot;Assault Rifle&quot;, &quot;Launchers&quot; })" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -239,20 +239,28 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="weaponAssNameCombo">
+    <Component class="javax.swing.JTextField" name="weaponAssPriceTxt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weaponAssPriceTxtActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="weaponAssPriceTxtKeyPressed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="weaponAssUpdateButton">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="c2" green="57" red="7e" type="rgb"/>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Copperplate" size="13" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weaponAssUpdateButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
