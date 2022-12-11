@@ -255,7 +255,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
     private void regManIdCheckerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManIdCheckerButtonActionPerformed
         // TODO add your handling code here:
         
-        IdCheckerManager ordcr = new IdCheckerManager();
+        IdCheckerManager ordcr = new IdCheckerManager(dB4OUtility  ,operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_regManIdCheckerButtonActionPerformed
 

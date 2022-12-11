@@ -5,6 +5,10 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Person;
+import model.root.RegionalManager;
 import static ui.LoginFrame.loginFrame;
 import static ui.MainFrame.mainFrame;
 
@@ -15,12 +19,22 @@ import static ui.MainFrame.mainFrame;
 public class Idchecker extends javax.swing.JFrame {
     
     public static JFrame idcheckFrame;
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    Person id;
 
     /**
      * Creates new form Idchecker
      */
     public Idchecker() {
+  
+    }
+    
+    public Idchecker(Db4oUtils db ,OperatingSystem os, Person id) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.id = id;
     }
 
     /**
@@ -144,7 +158,7 @@ public class Idchecker extends javax.swing.JFrame {
 
     private void idCheckIdentityManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCheckIdentityManagementButtonActionPerformed
         // TODO add your handling code here:
-        IdCheckerManager ordcr = new IdCheckerManager();
+        IdCheckerManager ordcr = new IdCheckerManager(dB4OUtility  ,operatingSystem );
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_idCheckIdentityManagementButtonActionPerformed
 

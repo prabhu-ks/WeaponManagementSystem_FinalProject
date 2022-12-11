@@ -4,6 +4,21 @@
  */
 package ui;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Customer;
+import model.root.Person;
+
 /**
  *
  * @author pho3nix28
@@ -13,8 +28,18 @@ public class IdCheckerManager extends javax.swing.JPanel {
     /**
      * Creates new form IdCheckerManager
      */
+    
+     OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    String selectedImagePath;
     public IdCheckerManager() {
+    }
+    
+    public IdCheckerManager(Db4oUtils db ,OperatingSystem os) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        populateTable();
     }
 
     /**
@@ -36,11 +61,11 @@ public class IdCheckerManager extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         idCheckBirthText = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         idCheckApprovedToBuyCombo = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         idCheckSubmitButton = new javax.swing.JButton();
+        lblImage = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -97,24 +122,11 @@ public class IdCheckerManager extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ID Proof");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 321, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 174, Short.MAX_VALUE)
-        );
-
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Approved to Buy:");
 
-        idCheckApprovedToBuyCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        idCheckApprovedToBuyCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "true", "false" }));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,6 +141,10 @@ public class IdCheckerManager extends javax.swing.JPanel {
             }
         });
 
+        lblImage.setBackground(new java.awt.Color(255, 255, 255));
+        lblImage.setForeground(new java.awt.Color(255, 255, 255));
+        lblImage.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +155,7 @@ public class IdCheckerManager extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -147,22 +163,22 @@ public class IdCheckerManager extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 127, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(IdCheckViewCustomerButton)
-                                    .addComponent(idCheckCustNameText)
-                                    .addComponent(idCheckBirthText, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(idCheckSubmitButton)
-                                    .addComponent(idCheckApprovedToBuyCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(idCheckApprovedToBuyCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(IdCheckViewCustomerButton)
+                                    .addComponent(idCheckCustNameText)
+                                    .addComponent(idCheckBirthText, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
+                            .addComponent(lblImage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(139, 139, 139))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(271, 271, 271)
@@ -197,8 +213,8 @@ public class IdCheckerManager extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(idCheckApprovedToBuyCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,6 +226,27 @@ public class IdCheckerManager extends javax.swing.JPanel {
 
     private void IdCheckViewCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdCheckViewCustomerButtonActionPerformed
         // TODO add your handling code here:
+        int selected = idCheckCustomerListTable.getSelectedRow();
+        List<Person> persons = operatingSystem.getPersonDirectory().stream()
+                .filter(p -> Person.UserRole.valueOf(p.getRole()).equals(Person.UserRole.CUSTOMER)).toList(); 
+        Customer cust = (Customer) persons.get(selected);
+        
+        idCheckCustNameText.setText(cust.getName());
+        idCheckBirthText.setText(cust.getDob().toString());
+        
+        
+        
+        try {
+           
+            BufferedImage image = ImageIO.read(new File(selectedImagePath));
+            lblImage.setIcon(new ImageIcon(image.getScaledInstance(301, 180, Image.SCALE_DEFAULT)));  
+        } catch (IOException excp) {
+            Logger.getLogger(IdCheckerManager.class.getName()).log(Level.SEVERE, selectedImagePath, excp);
+        }
+        
+        
+                
+        
     }//GEN-LAST:event_IdCheckViewCustomerButtonActionPerformed
 
     private void idCheckBirthTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCheckBirthTextActionPerformed
@@ -218,6 +255,25 @@ public class IdCheckerManager extends javax.swing.JPanel {
 
     private void idCheckSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCheckSubmitButtonActionPerformed
         // TODO add your handling code here:
+        
+        int selected = idCheckCustomerListTable.getSelectedRow();
+        List<Person> persons = operatingSystem.getPersonDirectory().stream()
+                .filter(p -> Person.UserRole.valueOf(p.getRole()).equals(Person.UserRole.CUSTOMER)).toList(); 
+        Customer cust = (Customer) persons.get(selected);
+        
+        String approval = idCheckApprovedToBuyCombo.getSelectedItem().toString();
+        if(approval.equals("true")){
+        cust.setApprovalStatus(true);
+        }
+        
+        if(approval.equals("falses")){
+        cust.setApprovalStatus(false);
+        }
+        dB4OUtility.storeSystem(operatingSystem);
+        populateTable();
+       
+        
+        
     }//GEN-LAST:event_idCheckSubmitButtonActionPerformed
 
 
@@ -234,8 +290,30 @@ public class IdCheckerManager extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblImage;
     // End of variables declaration//GEN-END:variables
+private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) idCheckCustomerListTable.getModel();
+        model.setRowCount(0);
+        List<Person> persons = operatingSystem.getPersonDirectory().stream()
+                .filter(p -> Person.UserRole.valueOf(p.getRole()).equals(Person.UserRole.CUSTOMER)).toList();
+         
+        for ( Person person : persons){
+            Customer c = (Customer) person;
+            Object[] row =  new Object[8];
+            row[0] = c.getName();
+            row[1] = c.getRole();
+            row[2] = c.getEmail();
+            row[3] = c.approvalStatus;
+
+            model.addRow(row);
+
+
+        }
+        
+    }
+
 }
