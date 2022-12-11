@@ -199,7 +199,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "Employee Role", "Email", "Gender"
             }
         ));
         jScrollPane1.setViewportView(tblEmployee);
@@ -389,7 +389,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
     private void regEmployeeManFemaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManFemaleRadioButtonActionPerformed
         // TODO add your handling code here:
         if(regEmployeeManFemaleRadioButton.isSelected()){
-            gender = "Male";
+            gender = "Female";
             regEmployeeManMaleRadioButton.setSelected(false);
             regEmployeeManOtherRadioButton.setSelected(false);
         }
@@ -398,7 +398,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
     private void regEmployeeManOtherRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManOtherRadioButtonActionPerformed
         // TODO add your handling code here:
         if(regEmployeeManOtherRadioButton.isSelected()){
-            gender = "Male";
+            gender = "Other";
             regEmployeeManMaleRadioButton.setSelected(false);
             regEmployeeManFemaleRadioButton.setSelected(false);
         }
@@ -463,10 +463,66 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManDeleteButtonActionPerformed
         // TODO add your handling code here:
+        
+        int selected = tblEmployee.getSelectedRow();
+        List<Person> person = operatingSystem.getPersonDirectory().stream()
+                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.ACCOUNT_VERIFYER) || UserRole.valueOf(p.getRole()).equals(UserRole.STORE_MANAGER)).toList();
+        Person p = person.get(selected);
+        
+
+        operatingSystem.deletePersonFromPersonDirectory(p);
+         dB4OUtility.storeSystem(operatingSystem);
+
+            
+        JOptionPane.showMessageDialog(this, "Employee Data Deleted!!!");
+
+        populateTable();
+
+        regEmployeeManNameText.setText("");
+        regEmployeeManSSNText.setText("");
+        regEmployeeManMaleRadioButton.setSelected(false);
+        regEmployeeManFemaleRadioButton.setSelected(false);
+        regEmployeeManOtherRadioButton.setSelected(false);
+        regEmployeeManPhoneText.setText("");
+        regEmployeeManEmailText.setText("");
+        regEmployeeManAddressText.setText("");
+        regEmployeeManUsernameText.setText("");
+        regEmployeeManPasswordText.setText("");
+        regEmployeeManBirthText.setCalendar(null);
     }//GEN-LAST:event_regEmployeeManDeleteButtonActionPerformed
 
     private void regEmployeeManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManViewButtonActionPerformed
         // TODO add your handling code here:
+        regEmployeeManMaleRadioButton.setSelected(false);
+        regEmployeeManFemaleRadioButton.setSelected(false);
+        regEmployeeManOtherRadioButton.setSelected(false);
+        
+        int selected = tblEmployee.getSelectedRow();
+        List<Person> person = operatingSystem.getPersonDirectory().stream()
+                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.ACCOUNT_VERIFYER) || UserRole.valueOf(p.getRole()).equals(UserRole.STORE_MANAGER)).toList();
+        Person p = person.get(selected);
+        
+        regEmployeeManNameText.setText(p.getName());
+        regEmployeeManSSNText.setText(String.valueOf(p.getSsn()));
+        regEmployeeManPhoneText.setText(String.valueOf(p.getPhoneNo()));
+        regEmployeeManEmailText.setText(p.getEmail());
+        regEmployeeManAddressText.setText(p.getAddress());
+        regEmployeeManUsernameText.setText(p.getUsername());
+        regEmployeeManPasswordText.setText(p.getPassword());
+        regEmployeeManBirthText.setDate(p.getDob());
+        regEmployeeManRoleCombo.setSelectedItem(p.getRole());
+        
+        if(gender == "Male"){
+            regEmployeeManMaleRadioButton.setSelected(true);
+        }
+        if(gender == "Female"){
+            regEmployeeManFemaleRadioButton.setSelected(true);
+        }
+        if(gender == "Other"){
+            regEmployeeManOtherRadioButton.setSelected(true);
+        }
+        
+
     }//GEN-LAST:event_regEmployeeManViewButtonActionPerformed
 
     private void regEmployeeManNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManNameTextActionPerformed
@@ -475,6 +531,72 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManUpdateButtonActionPerformed
         // TODO add your handling code here:
+        
+        int selected = tblEmployee.getSelectedRow();
+        List<Person> person = operatingSystem.getPersonDirectory().stream()
+                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.ACCOUNT_VERIFYER) || UserRole.valueOf(p.getRole()).equals(UserRole.STORE_MANAGER)).toList();
+        Person p = person.get(selected);
+
+        String name = regEmployeeManNameText.getText();
+        long ssn = Long.parseLong(regEmployeeManSSNText.getText());
+        String personGender = gender;
+        Date dob = regEmployeeManBirthText.getDate();
+        long phoneNumber = Long.parseLong(regEmployeeManPhoneText.getText());
+        String email = regEmployeeManEmailText.getText();
+        String address = regEmployeeManAddressText.getText();
+        String username = regEmployeeManUsernameText.getText();
+        String password = new String(regEmployeeManPasswordText.getPassword());
+        String role = regEmployeeManRoleCombo.getSelectedItem().toString();
+        
+        if(role.equals("IDChecker")){
+            p.setName(name);
+            p.setSsn(ssn);
+            p.setGender(personGender);
+            p.setDob(dob);
+            p.setPhoneNo(phoneNumber);
+            p.setEmail(email);
+            p.setRole(UserRole.ACCOUNT_VERIFYER.name());
+            p.setAddress(address);
+            p.setUsername(username);
+            p.setPassword(password);
+
+        }
+        
+        if(role.equals("Store Manager")){
+            p.setName(name);
+            p.setSsn(ssn);
+            p.setGender(personGender);
+            p.setDob(dob);
+            p.setPhoneNo(phoneNumber);
+            p.setEmail(email);
+            p.setRole(UserRole.STORE_MANAGER.name());
+            p.setAddress(address);
+            p.setUsername(username);
+            p.setPassword(password);
+
+        }
+        
+        dB4OUtility.storeSystem(operatingSystem);
+        populateTable();
+        JOptionPane.showMessageDialog(this, "Data Updated");
+        regEmployeeManNameText.setText("");
+        regEmployeeManSSNText.setText("");
+        regEmployeeManMaleRadioButton.setSelected(false);
+        regEmployeeManFemaleRadioButton.setSelected(false);
+        regEmployeeManOtherRadioButton.setSelected(false);
+        regEmployeeManPhoneText.setText("");
+        regEmployeeManEmailText.setText("");
+        regEmployeeManAddressText.setText("");
+        regEmployeeManUsernameText.setText("");
+        regEmployeeManPasswordText.setText("");
+        regEmployeeManBirthText.setCalendar(null);
+        
+        
+            
+        
+        
+       
+        
     }//GEN-LAST:event_regEmployeeManUpdateButtonActionPerformed
 
     private void regEmployeeManRoleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManRoleComboActionPerformed
@@ -514,8 +636,8 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         }
         
 
-        
-        
+        JOptionPane.showMessageDialog(this, "Data Created");
+        populateTable();
         regEmployeeManNameText.setText("");
         regEmployeeManSSNText.setText("");
         regEmployeeManMaleRadioButton.setSelected(false);
@@ -528,7 +650,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         regEmployeeManPasswordText.setText("");
         regEmployeeManBirthText.setCalendar(null);
         
-        populateTable();
+        
     }//GEN-LAST:event_regEmployeeManCreateButtonActionPerformed
 
 
