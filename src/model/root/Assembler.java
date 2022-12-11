@@ -13,19 +13,19 @@ import model.root.Person;
  * @author manavmalavia
  */
 public class Assembler extends Person{
-    private String workingDepartmentId;
+    private String enterpriseId;
 
     public Assembler(String workingDepartmentId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
-        this.workingDepartmentId = workingDepartmentId;
+        this.enterpriseId = workingDepartmentId;
     }
 
-    public String getWorkingDepartmentId() {
-        return workingDepartmentId;
+    public String getEnterpriseId() {
+        return enterpriseId;
     }
 
-    public void setWorkingDepartmentId(String workingDepartmentId) {
-        this.workingDepartmentId = workingDepartmentId;
+    public void setEnterpriseId(String enterpriseId) {
+        this.enterpriseId = enterpriseId;
     }
 
     

@@ -17,12 +17,12 @@ import model.root.Person;
 public class Tester extends Person {
     
     private ArrayList<Report> reportDirectory;
-    private String workingDeptId;
+    private String enterpriseId;
 
     public Tester(ArrayList<Report> reportDirectory, String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
         this.reportDirectory = reportDirectory;
-        this.workingDeptId = workingDeptId;
+        this.enterpriseId = workingDeptId;
     }
 
     public ArrayList<Report> getReportDirectory() {
@@ -33,12 +33,12 @@ public class Tester extends Person {
         this.reportDirectory = reportDirectory;
     }
 
-    public String getWorkingDeptId() {
-        return workingDeptId;
+    public String getEnterpriseId() {
+        return enterpriseId;
     }
 
-    public void setWorkingDeptId(String workingDeptId) {
-        this.workingDeptId = workingDeptId;
+    public void setEnterpriseId(String enterpriseId) {
+        this.enterpriseId = enterpriseId;
     }
     
     

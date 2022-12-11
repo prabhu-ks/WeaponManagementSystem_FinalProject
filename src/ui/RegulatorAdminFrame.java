@@ -5,22 +5,32 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.RegulatorAdmin;
 import static ui.MainFrame.mainFrame;
-import static ui.OrderManagerFrame.ordFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class RegulatorAdmin extends javax.swing.JFrame {
+public class RegulatorAdminFrame extends javax.swing.JFrame {
     
     public static JFrame regAdminFrame;
-
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    RegulatorAdmin ra;
     /**
      * Creates new form RegulatorAdmin
      */
-    public RegulatorAdmin() {
+    public RegulatorAdminFrame() {
+    
+    }   
+        public RegulatorAdminFrame(Db4oUtils db ,OperatingSystem os, RegulatorAdmin ra) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.ra = ra;
     }
 
     /**
@@ -166,7 +176,7 @@ public class RegulatorAdmin extends javax.swing.JFrame {
 
     private void regAdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminLogoutButtonActionPerformed
         // TODO add your handling code here:
-        RegulatorAdmin.regAdminFrame.setVisible(false);
+        RegulatorAdminFrame.regAdminFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_regAdminLogoutButtonActionPerformed
 
@@ -180,7 +190,7 @@ public class RegulatorAdmin extends javax.swing.JFrame {
     private void regAdminCreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminCreateEmployeeButtonActionPerformed
         // TODO add your handling code here:
         
-        RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement();
+        RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement(dB4OUtility,operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_regAdminCreateEmployeeButtonActionPerformed
 
@@ -222,7 +232,7 @@ public class RegulatorAdmin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 if(regAdminFrame == null){
-                    regAdminFrame = new RegulatorAdmin();
+                    regAdminFrame = new RegulatorAdminFrame();
                 }
                 
                 regAdminFrame.setVisible(true);
