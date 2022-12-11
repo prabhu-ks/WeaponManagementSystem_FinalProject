@@ -248,7 +248,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     private void regManagerOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManagerOrdersActionPerformed
         // TODO add your handling code here:
-        InventoryManagement ordcr = new InventoryManagement();
+        RegionalManagerOrders ordcr = new RegionalManagerOrders(dB4OUtility, operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_regManagerOrdersActionPerformed
 
