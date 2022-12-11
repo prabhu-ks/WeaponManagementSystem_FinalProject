@@ -521,9 +521,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManViewButtonActionPerformed
         // TODO add your handling code here:
-        regEmployeeManMaleRadioButton.setSelected(false);
-        regEmployeeManFemaleRadioButton.setSelected(false);
-        regEmployeeManOtherRadioButton.setSelected(false);
+        
         
         int selected = tblEmployee.getSelectedRow();
         List<Person> person = operatingSystem.getPersonDirectory().stream()
@@ -583,14 +581,22 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
             updatedPerson = new IdChecker(dealerId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ACCOUNT_VERIFYER.name());
             operatingSystem.deletePersonFromPersonDirectory(person1);
             operatingSystem.addPersonToPersonDirectory(updatedPerson);
-        }
-        
-        if((role.equals("Store Manager") && person1.getRole().equals(Person.UserRole.ACCOUNT_VERIFYER.name()))){
+        } else if((role.equals("Store Manager") && person1.getRole().equals(Person.UserRole.ACCOUNT_VERIFYER.name()))){
             String managingStoreName = managingStoreComboBox.getSelectedItem().toString();
             String managingStoreId = stores.stream().filter(store -> store.getName().equals(managingStoreName)).findFirst().orElse(null).getId();
             updatedPerson = new StoreManager(managingStoreId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.STORE_MANAGER.name());
             operatingSystem.deletePersonFromPersonDirectory(person1);
             operatingSystem.addPersonToPersonDirectory(updatedPerson);
+        } else{
+             person1.setName(name);
+             person1.setGender(gender);
+             person1.setAddress(address);
+             person1.setDob(dob);
+             person1.setEmail(email);
+             person1.setSsn(ssn);
+             person1.setUsername(username);
+             person1.setPassword(password);
+             person1.setPhoneNo(phoneNumber);
         }
         
         dB4OUtility.storeSystem(operatingSystem);
