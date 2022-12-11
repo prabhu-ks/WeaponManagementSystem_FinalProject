@@ -50,6 +50,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         populateRoleComboBox();
         managingStoreLabel.setVisible(false);
         managingStoreComboBox.setVisible(false);
+        regEmployeeManSSNText.setEditable(true);
     }
 
     /**
@@ -521,6 +522,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManViewButtonActionPerformed
         // TODO add your handling code here:
+        regEmployeeManSSNText.setEditable(false);
         
         
         int selected = tblEmployee.getSelectedRow();
