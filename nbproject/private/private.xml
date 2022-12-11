@@ -9,8 +9,6 @@
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Manufacturer.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Department.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/regulator/ApprovalDept.java</file>
-            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/manufacturer/Report.java</file>
-            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/personDirectory.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/RegionalManagerFrame.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/LoginFrame.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/OrderManagerFrame.java</file>
@@ -22,34 +20,36 @@
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Employee.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Enterprise.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/dealer/Inventory.java</file>
+            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/PersonDirectory.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/OrderManagerOrders.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/RegionalEmployeeManagement.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Customer.java</file>
+            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/StoreManagerDirectory.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/StoreManagement.java</file>
-            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/backend/OperatingSystem.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/InventoryManagement.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/Idchecker.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/MainFrame.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/StoreManager.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/supplier/Order.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/manufacturer/FulfillmentDepartment.java</file>
-            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/backend/Db4oUtils.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Weapon.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/dealer/Region.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/RegulatorAdmin.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/supplier/ShippingDepartment.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/ManufacturerAdmin.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/InventoryManager.java</file>
+            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/UserTest.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/dealer/Store.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/TesterFrame.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/FullfilmentOfficerFrame.java</file>
-            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/build.xml</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/manufacturer/DevelopmentDepartment.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/WeaponTestingPanel.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/Person.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/RegisterFrame.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/WeaponApprovalJPanel.java</file>
+            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/regulator/Report.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/ui/ShippingManagerOrders.java</file>
+            <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/root/StoreManager.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/manufacturer/ApprovalAffairs.java</file>
             <file>file:/Users/manavmalavia/Documents/GitHub/WeaponManagementFinalProject/src/model/supplier/OrderDepartment.java</file>
         </group>
