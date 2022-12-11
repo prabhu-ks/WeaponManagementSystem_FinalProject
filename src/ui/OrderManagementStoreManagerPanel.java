@@ -21,6 +21,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
 
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
+    private List<Weapon> weaponsList;
     /**
      * Creates new form OrderManagementStoreManagerPanel
      */
@@ -29,6 +30,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         this.operatingSystem = os;
         this.dB4OUtility = db;
         populateWeapons();
+        weaponsList = operatingSystem.getWeaponDirectory();
     }
 
     /**
@@ -47,6 +49,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         weaponComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         quantityTxt = new javax.swing.JTextField();
+        addToInventoryButton = new javax.swing.JButton();
         createOrderButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
@@ -58,13 +61,13 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
 
         orderManOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Order Status", "Weapon ID", "Quantity"
+                "Order ID", "Order Status", "Weapon ID", "Weapon Name", "Quantity"
             }
         ));
         jScrollPane1.setViewportView(orderManOrderTable);
@@ -90,6 +93,17 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         quantityTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 quantityTxtKeyPressed(evt);
+            }
+        });
+
+        addToInventoryButton.setBackground(new java.awt.Color(126, 87, 194));
+        addToInventoryButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        addToInventoryButton.setForeground(new java.awt.Color(255, 255, 255));
+        addToInventoryButton.setText("Add To Inventory");
+        addToInventoryButton.setEnabled(false);
+        addToInventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToInventoryButtonActionPerformed(evt);
             }
         });
 
@@ -124,11 +138,14 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(weaponComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(createOrderButton)))
+                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(createOrderButton)
+                .addGap(39, 39, 39)
+                .addComponent(addToInventoryButton)
+                .addGap(321, 321, 321))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +162,11 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(createOrderButton)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addToInventoryButton)
+                    .addComponent(createOrderButton))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,6 +182,11 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityTxtKeyPressed
 
+    private void addToInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToInventoryButtonActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_addToInventoryButtonActionPerformed
+
     private void createOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createOrderButtonActionPerformed
         // TODO add your handling code here:
         
@@ -170,6 +194,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addToInventoryButton;
     private javax.swing.JButton createOrderButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -181,8 +206,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateWeapons(){
-        List<Weapon> weapons = operatingSystem.getWeaponDirectory();
-        weapons.forEach(weapon -> weaponComboBox.addItem(weapon.getName()));
+        weaponsList.forEach(weapon -> weaponComboBox.addItem(weapon.getName()));
         
     }
     
