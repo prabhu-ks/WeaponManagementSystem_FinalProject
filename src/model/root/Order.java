@@ -9,10 +9,26 @@ package model.root;
  * @author Manav Hirey
  */
 public class Order {
+    
+    public enum OrderStatus{
+        REQUESTED,
+        CREATED,
+        WAITING_FOR_MANUFACTURER,
+        FULFILLED,
+        READY_TO_SHIP,
+        SHIPPED,
+        DELIVERED
+    }
     private String orderId;
+    private String storeId;
+    private String dealerId;
+    private String supplierId;
+    private String manufacturerId;
     private String weaponID;
     private String quantity;
     private String status;
+    
+    
 
     public Order(String orderId, String weaponID, String quantity, String status) {
         this.orderId = orderId;
