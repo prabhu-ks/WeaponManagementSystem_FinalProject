@@ -16,9 +16,11 @@ import model.root.Dealer;
 import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
 import model.root.Manufacturer;
+import model.root.ManufacturerAdmin;
 import model.root.Person.UserRole;
 import model.root.RegionalManager;
 import model.root.Regulator;
+import model.root.RegulatorAdmin;
 import model.root.Supplier;
 import model.root.Weapon;
 
@@ -66,6 +68,13 @@ public class MainFrame extends javax.swing.JFrame {
 //          operatingSystem.addEnterprisetoEnterpriseDirectory(supplier);
 //          dB4OUtility.storeSystem(operatingSystem);
           
+//            RegulatorAdmin rmdef = new RegulatorAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "regulatoradmin", "admin123", UserRole.REGULATOR_SYSADMIN.name());
+//            operatingSystem.addPersonToPersonDirectory(rmdef);
+//            dB4OUtility.storeSystem(operatingSystem);
+
+//            ManufacturerAdmin madef = new ManufacturerAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "manufadmin", "admin123", UserRole.MANUFACTURER_SYSADMIN.name());
+//            operatingSystem.addPersonToPersonDirectory(madef);
+//            dB4OUtility.storeSystem(operatingSystem);
             
           
 
