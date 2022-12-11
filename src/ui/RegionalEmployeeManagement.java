@@ -17,8 +17,12 @@ import model.backend.OperatingSystem;
 import model.dealer.Store;
 import model.root.Customer;
 import model.root.Employee;
+import model.root.Enterprise;
+import model.root.Enterprise.EnterpriseType;
+import model.root.IdChecker;
 import model.root.Person;
 import model.root.Person.UserRole;
+import model.root.StoreManager;
 
 /**
  *
@@ -32,6 +36,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
     String gender;
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
+    private List<Store> stores;
     
     public RegionalEmployeeManagement() {
     }
@@ -41,6 +46,13 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         this.operatingSystem = os;
         this.dB4OUtility = db;
         populateTable();
+        stores = operatingSystem.getStoreDirectory();
+        populateRoleComboBox();
+        managingStoreLabel.setVisible(false);
+        managingStoreComboBox.setVisible(false);
+        regEmployeeManSSNText.setEditable(true);
+        regEmployeeManUpdateButton.setVisible(false);
+        regEmployeeManDeleteButton.setVisible(false);
     }
 
     /**
@@ -72,7 +84,6 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        regEmployeeManRoleCombo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployee = new javax.swing.JTable();
         regEmployeeManCreateButton = new javax.swing.JButton();
@@ -82,6 +93,9 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
         regEmployeeManSSNText = new javax.swing.JTextField();
+        managingStoreLabel = new javax.swing.JLabel();
+        managingStoreComboBox = new javax.swing.JComboBox<>();
+        regRoleComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -183,14 +197,6 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Role:");
 
-        regEmployeeManRoleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IDChecker", "Store Manager" }));
-        regEmployeeManRoleCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regEmployeeManRoleComboActionPerformed(evt);
-            }
-        });
-
-        tblEmployee.setBackground(new java.awt.Color(255, 255, 255));
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -250,6 +256,26 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("SSN:");
 
+        managingStoreLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        managingStoreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        managingStoreLabel.setText("Managing Store:");
+
+        regRoleComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                regRoleComboBoxItemStateChanged(evt);
+            }
+        });
+        regRoleComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                regRoleComboBoxMouseClicked(evt);
+            }
+        });
+        regRoleComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regRoleComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -257,48 +283,44 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(160, 160, 160)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(304, 304, 304)
-                                .addComponent(regEmployeeManViewButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(160, 160, 160)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(managingStoreLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3))
+                                        .addComponent(regEmployeeManMaleRadioButton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(regEmployeeManMaleRadioButton)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(regEmployeeManFemaleRadioButton)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(regEmployeeManOtherRadioButton))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(regEmployeeManPasswordText, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(regEmployeeManPhoneText, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(regEmployeeManBirthText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(regEmployeeManEmailText, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(regEmployeeManAddressText, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(regEmployeeManUsernameText, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(regEmployeeManRoleCombo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel1))
+                                        .addComponent(regEmployeeManFemaleRadioButton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(regEmployeeManNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                                            .addComponent(regEmployeeManSSNText))))))
-                        .addGap(0, 236, Short.MAX_VALUE))
+                                        .addComponent(regEmployeeManOtherRadioButton))
+                                    .addComponent(regEmployeeManPasswordText)
+                                    .addComponent(regEmployeeManPhoneText)
+                                    .addComponent(regEmployeeManBirthText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(regEmployeeManEmailText)
+                                    .addComponent(regEmployeeManAddressText)
+                                    .addComponent(regEmployeeManUsernameText)
+                                    .addComponent(managingStoreComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(regRoleComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(regEmployeeManNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                                    .addComponent(regEmployeeManSSNText))))
+                        .addGap(0, 249, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,14 +328,18 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                             .addComponent(jSeparator1))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(regEmployeeManCreateButton)
-                .addGap(30, 30, 30)
-                .addComponent(regEmployeeManUpdateButton)
-                .addGap(31, 31, 31)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(304, 304, 304)
+                .addComponent(regEmployeeManViewButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(regEmployeeManDeleteButton)
-                .addGap(193, 193, 193))
+                .addGap(35, 35, 35))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(324, 324, 324)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(regEmployeeManCreateButton)
+                    .addComponent(regEmployeeManUpdateButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,7 +351,9 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(regEmployeeManViewButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(regEmployeeManViewButton)
+                    .addComponent(regEmployeeManDeleteButton))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -367,13 +395,16 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(regEmployeeManRoleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(regRoleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(regEmployeeManCreateButton)
-                    .addComponent(regEmployeeManUpdateButton)
-                    .addComponent(regEmployeeManDeleteButton))
-                .addContainerGap(98, Short.MAX_VALUE))
+                    .addComponent(managingStoreLabel)
+                    .addComponent(managingStoreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(regEmployeeManCreateButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(regEmployeeManUpdateButton)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -489,6 +520,10 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         regEmployeeManUsernameText.setText("");
         regEmployeeManPasswordText.setText("");
         regEmployeeManBirthText.setCalendar(null);
+        
+        regEmployeeManUpdateButton.setVisible(false);
+        regEmployeeManDeleteButton.setVisible(false);
+        regEmployeeManCreateButton.setVisible(true);
     }//GEN-LAST:event_regEmployeeManDeleteButtonActionPerformed
 
     private void regEmployeeManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManViewButtonActionPerformed
@@ -496,7 +531,11 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         regEmployeeManMaleRadioButton.setSelected(false);
         regEmployeeManFemaleRadioButton.setSelected(false);
         regEmployeeManOtherRadioButton.setSelected(false);
-        
+        regEmployeeManUpdateButton.setVisible(true);
+        regEmployeeManDeleteButton.setVisible(true);
+        regEmployeeManCreateButton.setVisible(false);
+        regEmployeeManSSNText.setEditable(false);
+   
         int selected = tblEmployee.getSelectedRow();
         List<Person> person = operatingSystem.getPersonDirectory().stream()
                 .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.ACCOUNT_VERIFYER) || UserRole.valueOf(p.getRole()).equals(UserRole.STORE_MANAGER)).toList();
@@ -510,19 +549,20 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         regEmployeeManUsernameText.setText(p.getUsername());
         regEmployeeManPasswordText.setText(p.getPassword());
         regEmployeeManBirthText.setDate(p.getDob());
-        regEmployeeManRoleCombo.setSelectedItem(p.getRole());
+        regRoleComboBox.setSelectedItem(p.getRole());
         
-        if(gender == "Male"){
-            regEmployeeManMaleRadioButton.setSelected(true);
-        }
-        if(gender == "Female"){
-            regEmployeeManFemaleRadioButton.setSelected(true);
-        }
-        if(gender == "Other"){
-            regEmployeeManOtherRadioButton.setSelected(true);
-        }
-        
+        if(p.getGender().equals("Male")){
+           regEmployeeManMaleRadioButton.setSelected(true);
 
+        }else if(p.getGender().equals("Female")){
+            regEmployeeManFemaleRadioButton.setSelected(true);
+        
+    } else{
+            regEmployeeManOtherRadioButton.setSelected(true);
+        
+    }
+        
+  
     }//GEN-LAST:event_regEmployeeManViewButtonActionPerformed
 
     private void regEmployeeManNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManNameTextActionPerformed
@@ -531,12 +571,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManUpdateButtonActionPerformed
         // TODO add your handling code here:
-        
-        int selected = tblEmployee.getSelectedRow();
-        List<Person> person = operatingSystem.getPersonDirectory().stream()
-                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.ACCOUNT_VERIFYER) || UserRole.valueOf(p.getRole()).equals(UserRole.STORE_MANAGER)).toList();
-        Person p = person.get(selected);
-
+        Person updatedPerson;
         String name = regEmployeeManNameText.getText();
         long ssn = Long.parseLong(regEmployeeManSSNText.getText());
         String personGender = gender;
@@ -546,34 +581,36 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         String address = regEmployeeManAddressText.getText();
         String username = regEmployeeManUsernameText.getText();
         String password = new String(regEmployeeManPasswordText.getPassword());
-        String role = regEmployeeManRoleCombo.getSelectedItem().toString();
+        String role = regRoleComboBox.getSelectedItem().toString();
+                
+        Person person1 = operatingSystem.getPersonDirectory().stream()
+                .filter(p-> p.getSsn() == ssn).findFirst().orElse(null);
         
-        if(role.equals("IDChecker")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.ACCOUNT_VERIFYER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
-        }
-        
-        if(role.equals("Store Manager")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.STORE_MANAGER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
+        if((role.equals("IDChecker") && person1.getRole().equals(Person.UserRole.STORE_MANAGER.name()))){
+            
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.DEALER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new IdChecker(dealerId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ACCOUNT_VERIFYER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+        } else if((role.equals("Store Manager") && person1.getRole().equals(Person.UserRole.ACCOUNT_VERIFYER.name()))){
+            String managingStoreName = managingStoreComboBox.getSelectedItem().toString();
+            String managingStoreId = stores.stream().filter(store -> store.getName().equals(managingStoreName)).findFirst().orElse(null).getId();
+            updatedPerson = new StoreManager(managingStoreId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.STORE_MANAGER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+        } else{
+             person1.setName(name);
+             person1.setGender(gender);
+             person1.setAddress(address);
+             person1.setDob(dob);
+             person1.setEmail(email);
+             person1.setSsn(ssn);
+             person1.setUsername(username);
+             person1.setPassword(password);
+             person1.setPhoneNo(phoneNumber);
         }
         
         dB4OUtility.storeSystem(operatingSystem);
@@ -591,21 +628,23 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         regEmployeeManPasswordText.setText("");
         regEmployeeManBirthText.setCalendar(null);
         
-        
-            
-        
-        
-       
-        
+        regEmployeeManUpdateButton.setVisible(false);
+        regEmployeeManDeleteButton.setVisible(false);
+        regEmployeeManCreateButton.setVisible(true);
+          
     }//GEN-LAST:event_regEmployeeManUpdateButtonActionPerformed
-
-    private void regEmployeeManRoleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManRoleComboActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_regEmployeeManRoleComboActionPerformed
 
     private void regEmployeeManCreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManCreateButtonActionPerformed
         // TODO add your handling code here:
+        if(regEmployeeManNameText.getText().equals("") || regEmployeeManSSNText.getText().equals("") 
+                 || regEmployeeManPasswordText.getText().equals("") || regEmployeeManPhoneText.getText().equals("") 
+                 || regEmployeeManEmailText.getText().equals("") || regEmployeeManAddressText.getText().equals("") 
+                 || regEmployeeManUsernameText.getText().equals("") || regEmployeeManBirthText.getDate().equals("")){
+             
+
+              JOptionPane.showMessageDialog(this,"Please Complete the Form");
+              return;
+         }
         
         String name = regEmployeeManNameText.getText();
         long ssn = Long.parseLong(regEmployeeManSSNText.getText());
@@ -617,18 +656,24 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         String username = regEmployeeManUsernameText.getText();
         String password = new String(regEmployeeManPasswordText.getPassword());
         String uuid = UUID.randomUUID().toString();
-        String role = regEmployeeManRoleCombo.getSelectedItem().toString();
+        String role = regRoleComboBox.getSelectedItem().toString();
+        
+        
         if(role.equals("IDChecker")){
-            
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ACCOUNT_VERIFYER.name());
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.DEALER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            Person person = new IdChecker(dealerId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ACCOUNT_VERIFYER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
             
         }
         if(role.equals("Store Manager")){
-            
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.STORE_MANAGER.name());
+            String managingStoreName = managingStoreComboBox.getSelectedItem().toString();
+            String managingStoreId = stores.stream().filter(store -> store.getName().equals(managingStoreName)).findFirst().orElse(null).getId();
+            Person person = new StoreManager(managingStoreId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.STORE_MANAGER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
@@ -653,6 +698,31 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         
     }//GEN-LAST:event_regEmployeeManCreateButtonActionPerformed
 
+    private void regRoleComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regRoleComboBoxActionPerformed
+
+        if(regRoleComboBox.getSelectedItem().toString().equals("Store Manager"))
+        {
+            stores.forEach(store -> managingStoreComboBox.addItem(store.getName()));
+            managingStoreLabel.setVisible(true);
+            managingStoreComboBox.setVisible(true);
+        }
+        else{
+            managingStoreComboBox.removeAllItems();
+            managingStoreComboBox.setSelectedIndex(-1);
+            managingStoreLabel.setVisible(false);
+            managingStoreComboBox.setVisible(false);
+        }
+    }//GEN-LAST:event_regRoleComboBoxActionPerformed
+
+    private void regRoleComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_regRoleComboBoxItemStateChanged
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_regRoleComboBoxItemStateChanged
+
+    private void regRoleComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regRoleComboBoxMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regRoleComboBoxMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -668,6 +738,8 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JComboBox<String> managingStoreComboBox;
+    private javax.swing.JLabel managingStoreLabel;
     private javax.swing.JTextField regEmployeeManAddressText;
     private com.toedter.calendar.JDateChooser regEmployeeManBirthText;
     private javax.swing.JButton regEmployeeManCreateButton;
@@ -679,11 +751,11 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
     private javax.swing.JRadioButton regEmployeeManOtherRadioButton;
     private javax.swing.JPasswordField regEmployeeManPasswordText;
     private javax.swing.JTextField regEmployeeManPhoneText;
-    private javax.swing.JComboBox<String> regEmployeeManRoleCombo;
     private javax.swing.JTextField regEmployeeManSSNText;
     private javax.swing.JButton regEmployeeManUpdateButton;
     private javax.swing.JTextField regEmployeeManUsernameText;
     private javax.swing.JButton regEmployeeManViewButton;
+    private javax.swing.JComboBox<String> regRoleComboBox;
     private javax.swing.JTable tblEmployee;
     // End of variables declaration//GEN-END:variables
  private void populateTable() {
@@ -706,6 +778,12 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
         }
         
+    }
+
+    private void populateRoleComboBox() {
+        regRoleComboBox.addItem("IDChecker");
+        regRoleComboBox.addItem("Store Manager");
+        regRoleComboBox.setSelectedIndex(0);
     }
 
 

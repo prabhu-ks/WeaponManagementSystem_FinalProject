@@ -4,19 +4,33 @@
  */
 package ui;
 
+import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.ApprovalEmployee;
 import static ui.MainFrame.mainFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class FullfilmentOfficerFrame extends javax.swing.JFrame {
-
+public class ApprovalEmployeeFrame extends javax.swing.JFrame {
+    
+    public static JFrame apprEmpFrame;
+    OperatingSystem os;
+    Db4oUtils db;
+    ApprovalEmployee ae;
     /**
-     * Creates new form FullfillmentOfficerFrame
+     * Creates new form ApprovalManager
      */
-    public FullfilmentOfficerFrame() {
+    public ApprovalEmployeeFrame(){
+        
+    }
+    public ApprovalEmployeeFrame(Db4oUtils db ,OperatingSystem os, ApprovalEmployee ae) {
         initComponents();
+        this.os = os;
+        this.db = db;
+        this.ae= ae;
     }
 
     /**
@@ -30,8 +44,8 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        fullOffLogoutButton = new javax.swing.JButton();
-        fullOffOrderFullfillmentButton = new javax.swing.JButton();
+        appManLogoutButton = new javax.swing.JButton();
+        appManWeaponApprovalButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -40,23 +54,23 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        fullOffLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
-        fullOffLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        fullOffLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
-        fullOffLogoutButton.setText("Logout");
-        fullOffLogoutButton.addActionListener(new java.awt.event.ActionListener() {
+        appManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        appManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        appManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        appManLogoutButton.setText("Logout");
+        appManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullOffLogoutButtonActionPerformed(evt);
+                appManLogoutButtonActionPerformed(evt);
             }
         });
 
-        fullOffOrderFullfillmentButton.setBackground(new java.awt.Color(126, 87, 194));
-        fullOffOrderFullfillmentButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        fullOffOrderFullfillmentButton.setForeground(new java.awt.Color(255, 255, 255));
-        fullOffOrderFullfillmentButton.setText("Order Fullfillment");
-        fullOffOrderFullfillmentButton.addActionListener(new java.awt.event.ActionListener() {
+        appManWeaponApprovalButton.setBackground(new java.awt.Color(126, 87, 194));
+        appManWeaponApprovalButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        appManWeaponApprovalButton.setForeground(new java.awt.Color(255, 255, 255));
+        appManWeaponApprovalButton.setText("Weapon Approval Status");
+        appManWeaponApprovalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fullOffOrderFullfillmentButtonActionPerformed(evt);
+                appManWeaponApprovalButtonActionPerformed(evt);
             }
         });
 
@@ -67,17 +81,17 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fullOffOrderFullfillmentButton, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(fullOffLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(appManWeaponApprovalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(appManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(fullOffOrderFullfillmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(appManWeaponApprovalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(fullOffLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(appManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(407, Short.MAX_VALUE))
         );
 
@@ -93,7 +107,7 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Fullfilment Officer Dashboard");
+        lblTitle1.setText("Approval Employee Dashboard");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -132,17 +146,17 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fullOffLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffLogoutButtonActionPerformed
+    private void appManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManLogoutButtonActionPerformed
         // TODO add your handling code here:
-        ApprovalManagerFrame.apprFrame.setVisible(false);
+        ApprovalEmployeeFrame.apprEmpFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_fullOffLogoutButtonActionPerformed
+    }//GEN-LAST:event_appManLogoutButtonActionPerformed
 
-    private void fullOffOrderFullfillmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffOrderFullfillmentButtonActionPerformed
+    private void appManWeaponApprovalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManWeaponApprovalButtonActionPerformed
         // TODO add your handling code here:
-        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
+        StatusWeaponApprovalJPanel1 ordcr = new StatusWeaponApprovalJPanel1(os,db);
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_fullOffOrderFullfillmentButtonActionPerformed
+    }//GEN-LAST:event_appManWeaponApprovalButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,28 +175,38 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FullfilmentOfficerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FullfilmentOfficerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FullfilmentOfficerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FullfilmentOfficerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FullfilmentOfficerFrame().setVisible(true);
+                if(apprEmpFrame == null){
+                    apprEmpFrame = new ApprovalEmployeeFrame();
+                }
+                
+                apprEmpFrame.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton fullOffLogoutButton;
-    private javax.swing.JButton fullOffOrderFullfillmentButton;
+    private javax.swing.JButton appManLogoutButton;
+    private javax.swing.JButton appManWeaponApprovalButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;

@@ -59,8 +59,8 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         weaponComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         quantityTxt = new javax.swing.JTextField();
-        addToInventoryButton = new javax.swing.JButton();
         createOrderButton = new javax.swing.JButton();
+        addToInventoryButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -112,17 +112,6 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
             }
         });
 
-        addToInventoryButton.setBackground(new java.awt.Color(126, 87, 194));
-        addToInventoryButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        addToInventoryButton.setForeground(new java.awt.Color(255, 255, 255));
-        addToInventoryButton.setText("Add To Inventory");
-        addToInventoryButton.setEnabled(false);
-        addToInventoryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addToInventoryButtonActionPerformed(evt);
-            }
-        });
-
         createOrderButton.setBackground(new java.awt.Color(126, 87, 194));
         createOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         createOrderButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -130,6 +119,16 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         createOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createOrderButtonActionPerformed(evt);
+            }
+        });
+
+        addToInventoryButton.setBackground(new java.awt.Color(126, 87, 194));
+        addToInventoryButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        addToInventoryButton.setForeground(new java.awt.Color(255, 255, 255));
+        addToInventoryButton.setText("add to inventory");
+        addToInventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToInventoryButtonActionPerformed(evt);
             }
         });
 
@@ -146,22 +145,25 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(228, 228, 228)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(59, 59, 59)
+                        .addGap(228, 228, 228)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(228, 228, 228)
+                                .addComponent(jLabel2)
+                                .addGap(59, 59, 59))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(createOrderButton)
+                                .addGap(49, 49, 49)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(weaponComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addToInventoryButton))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(createOrderButton)
-                .addGap(39, 39, 39)
-                .addComponent(addToInventoryButton)
-                .addGap(321, 321, 321))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +182,8 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                     .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addToInventoryButton)
-                    .addComponent(createOrderButton))
+                    .addComponent(createOrderButton)
+                    .addComponent(addToInventoryButton))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -197,28 +199,6 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
     private void quantityTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTxtKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityTxtKeyPressed
-
-    private void addToInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToInventoryButtonActionPerformed
-        // TODO add your handling code here:
-        int selectedRow = orderManOrderTable.getSelectedRow();
-        Order order = ordersList.get(selectedRow);
-        if(OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.DELIVERED) == false){
-            JOptionPane.showMessageDialog(weaponComboBox, "Order has not yet been delivered");
-            return;
-        }
-        Weapon weapon = weaponsList.stream().filter(w -> w.getWeaponId().equals(order.getWeaponID())).findFirst().orElse(null);
-        Store store = operatingSystem.getStoreDirectory().stream()
-                .filter(s -> s.getId().equals(storeManager.getManagingStoreId()))
-                .findFirst().orElse(null);
-        Inventory inventory = store.getInventory();
-        if(inventory.getWeaponsList().containsKey(weapon))
-           inventory.getWeaponsList().put(weapon, inventory.getWeaponsList().get(weapon)+order.getQuantity());
-        else
-            inventory.getWeaponsList().put(weapon, order.getQuantity());
-        inventory.setFilled(inventory.getFilled()+order.getQuantity());
-        inventory.setAvailable(inventory.getCapacity()-inventory.getFilled());
-        addToInventoryButton.setEnabled(false);
-    }//GEN-LAST:event_addToInventoryButtonActionPerformed
 
     private void createOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createOrderButtonActionPerformed
         // TODO add your handling code here:
@@ -247,6 +227,28 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
             addToInventoryButton.setEnabled(true);
         }
     }//GEN-LAST:event_orderManOrderTableMouseClicked
+
+    private void addToInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToInventoryButtonActionPerformed
+        // TODO add your handling code here:
+          int selectedRow = orderManOrderTable.getSelectedRow();
+        Order order = ordersList.get(selectedRow);
+        if(OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.DELIVERED) == false){
+            JOptionPane.showMessageDialog(weaponComboBox, "Order has not yet been delivered");
+            return;
+        }
+        Weapon weapon = weaponsList.stream().filter(w -> w.getWeaponId().equals(order.getWeaponID())).findFirst().orElse(null);
+        Store store = operatingSystem.getStoreDirectory().stream()
+                .filter(s -> s.getId().equals(storeManager.getManagingStoreId()))
+                .findFirst().orElse(null);
+        Inventory inventory = store.getInventory();
+        if(inventory.getWeaponsList().containsKey(weapon))
+           inventory.getWeaponsList().put(weapon, inventory.getWeaponsList().get(weapon)+order.getQuantity());
+        else
+            inventory.getWeaponsList().put(weapon, order.getQuantity());
+        inventory.setFilled(inventory.getFilled()+order.getQuantity());
+        inventory.setAvailable(inventory.getCapacity()-inventory.getFilled());
+        addToInventoryButton.setEnabled(false);
+    }//GEN-LAST:event_addToInventoryButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
