@@ -5,9 +5,15 @@
 package ui;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Person;
+import model.root.Person.UserRole;
 
 /**
  *
@@ -15,12 +21,17 @@ import javax.swing.JOptionPane;
  */
 public class RegulatorEmployeeManagement extends javax.swing.JPanel {
 
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
     /**
      * Creates new form RegulatorEmployeeManagement
      */
     public String gender;
-    public RegulatorEmployeeManagement() {
+    public RegulatorEmployeeManagement(Db4oUtils db ,OperatingSystem os) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        populateTable();
     }
 
     /**
@@ -456,4 +467,29 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
     private javax.swing.JButton regEmpManViewButton;
     private javax.swing.JTable tblEmployee;
     // End of variables declaration//GEN-END:variables
+
+private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
+        model.setRowCount(0);
+        List<Person> persons = operatingSystem.getPersonDirectory().stream()
+            .filter( x -> UserRole.valueOf(x.getRole()).equals(UserRole.TESTER) || UserRole.valueOf(x.getRole()).equals(UserRole.APPROVAL_OFFICER))
+            .toList();
+         
+        for (Person person : persons){
+
+            Object[] row =  new Object[8];
+            row[0] = person.getPuid();
+            row[1] = person.getName();
+            row[2] = person.getAddress();
+            row[3] = person.getRole();
+            row[4] = person.getPhoneNo();
+
+            model.addRow(row);
+
+
+        }
+        
+    }
+
 }
