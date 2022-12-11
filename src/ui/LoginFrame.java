@@ -226,7 +226,7 @@ import model.root.UserTest;
             
             case CUSTOMER: Customer cust = (Customer) person;
                            if(cust.approvalStatus==false){
-                               JOptionPane.showMessageDialog(null, "Invalid Age");
+                               JOptionPane.showMessageDialog(null, "Account Yet to be Verified");
                                break;
                            }
         
