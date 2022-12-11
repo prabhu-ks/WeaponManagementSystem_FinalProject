@@ -338,6 +338,12 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
             OperatingSystem os= db.retrieveSystem();
             
         }
+        
+        JOptionPane.showMessageDialog(this, "Data Created");
+        populateTable();
+        weaponAssNameTxt.setText("");
+        weaponAssQuantityTxt.setText("");
+        weaponAssPriceTxt.setText("");
     }//GEN-LAST:event_weaponAssCreateButtonActionPerformed
 
     private void weaponAssUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssUpdateButtonActionPerformed
