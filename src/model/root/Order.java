@@ -25,13 +25,15 @@ public class Order {
     private String supplierId;
     private String manufacturerId;
     private String weaponID;
-    private String quantity;
+    private int quantity;
     private String status;
-    
-    
 
-    public Order(String orderId, String weaponID, String quantity, String status) {
+    public Order(String orderId, String storeId, String dealerId, String supplierId, String manufacturerId, String weaponID, int quantity, String status) {
         this.orderId = orderId;
+        this.storeId = storeId;
+        this.dealerId = dealerId;
+        this.supplierId = supplierId;
+        this.manufacturerId = manufacturerId;
         this.weaponID = weaponID;
         this.quantity = quantity;
         this.status = status;
@@ -45,6 +47,38 @@ public class Order {
         this.orderId = orderId;
     }
 
+    public String getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
+    }
+
+    public String getDealerId() {
+        return dealerId;
+    }
+
+    public void setDealerId(String dealerId) {
+        this.dealerId = dealerId;
+    }
+
+    public String getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(String supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public String getManufacturerId() {
+        return manufacturerId;
+    }
+
+    public void setManufacturerId(String manufacturerId) {
+        this.manufacturerId = manufacturerId;
+    }
+
     public String getWeaponID() {
         return weaponID;
     }
@@ -53,11 +87,11 @@ public class Order {
         this.weaponID = weaponID;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -68,6 +102,8 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    
     
     
 }

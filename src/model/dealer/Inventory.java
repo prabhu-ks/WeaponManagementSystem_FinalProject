@@ -5,6 +5,7 @@
 package model.dealer;
 
 import java.util.ArrayList;
+import java.util.Map;
 import model.root.Weapon;
 
 /**
@@ -15,23 +16,23 @@ public class Inventory {
     private long capacity;
     private long available;
     private long filled;
-    private ArrayList<Weapon> weaponList;
+    private Map<Weapon, Integer> weaponsList;
 
-    public Inventory(long capacity, long available, long filled, ArrayList<Weapon> weaponList) {
+    public Inventory(long capacity, long available, long filled, Map<Weapon, Integer> weaponsList) {
         this.capacity = capacity;
         this.available = available;
         this.filled = filled;
-        this.weaponList = weaponList;
+        this.weaponsList = weaponsList;
     }
     
    
 
-    public ArrayList<Weapon> getWeaponList() {
-        return weaponList;
+    public Map<Weapon, Integer> getWeaponsList() {
+        return weaponsList;
     }
 
-    public void setWeaponList(ArrayList<Weapon> weaponList) {
-        this.weaponList = weaponList;
+    public void setWeaponsList(Map<Weapon, Integer> weaponsList) {
+        this.weaponsList = weaponsList;
     }
 
     public long getCapacity() {
