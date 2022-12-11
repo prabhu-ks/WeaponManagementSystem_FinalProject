@@ -203,5 +203,16 @@ public class OperatingSystem {
         enterpriseDirectory.add(enterprise);
     }
     
+    public void addWeaponToWeaponDirectory(Weapon weapon){
+        if(weaponDirectory == null){
+            weaponDirectory = new ArrayList<Weapon>();
+        }
+        weaponDirectory.add(weapon);
+    }
+    
+    public void deleteWeaponFromWeaponDirectory(Weapon weapon){
+        weaponDirectory.remove(weapon);
+    }
+    
     
 }

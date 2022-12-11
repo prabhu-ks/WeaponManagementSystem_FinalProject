@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.Assembler;
 import model.root.Customer;
 import model.root.ManufacturerAdmin;
 import model.root.Person.UserRole;
@@ -244,10 +245,16 @@ import model.root.UserTest;
                            ManufacturerAdminFrame.manuAdminFrame .setVisible(true);
                            loginFrame.setVisible(false);
                            break;            
+                           
             case ACCOUNT_VERIFYER: Idchecker.idcheckFrame = new Idchecker(dB4OUtility, operatingSystem,(Person) person);
                            Idchecker.idcheckFrame.setVisible(true);
                            loginFrame.setVisible(false);
-                           break;                                        
+                                       
+                           break;
+            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Assembler) person);
+                           AssemblerFrame.assFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            
         }
