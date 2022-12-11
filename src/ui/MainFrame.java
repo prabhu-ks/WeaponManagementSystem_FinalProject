@@ -66,6 +66,7 @@ public class MainFrame extends javax.swing.JFrame {
 //          operatingSystem.addEnterprisetoEnterpriseDirectory(supplier);
 //          dB4OUtility.storeSystem(operatingSystem);
           
+            
           
 
     }
@@ -371,8 +372,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        RegulatorAdmin.regAdminFrame = new RegulatorAdmin();
-        RegulatorAdmin.regAdminFrame.setVisible(true);
+        RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame();
+        RegulatorAdminFrame.regAdminFrame.setVisible(true);
         mainFrame.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
