@@ -153,6 +153,11 @@ public class RegisterFrame extends javax.swing.JFrame {
             }
         });
 
+        registerFrameSsnTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerFrameSsnTxtActionPerformed(evt);
+            }
+        });
         registerFrameSsnTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 registerFrameSsnTxtKeyPressed(evt);
@@ -375,7 +380,7 @@ public class RegisterFrame extends javax.swing.JFrame {
     private void registerFrameFemaleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameFemaleButtonActionPerformed
         // TODO add your handling code here:
         if(registerFrameFemaleButton.isSelected()){
-            gender = "Male";
+            gender = "Female";
             registerFrameMaleButton.setSelected(false);
             registerFrameOtherButton.setSelected(false);
         }
@@ -467,7 +472,7 @@ public class RegisterFrame extends javax.swing.JFrame {
     private void registerFrameOtherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameOtherButtonActionPerformed
         // TODO add your handling code here:
         if(registerFrameOtherButton.isSelected()){
-            gender = "Male";
+            gender = "Other";
             registerFrameMaleButton.setSelected(false);
             registerFrameFemaleButton.setSelected(false);
         }
@@ -491,6 +496,17 @@ public class RegisterFrame extends javax.swing.JFrame {
 
     private void registerFrameCreateAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameCreateAccountButtonActionPerformed
         // TODO add your handling code here:
+        if(registerFrameNameTxt.getText().equals("") || registerFrameSsnTxt.getText().equals("") 
+                 || registerFramePhoneTxt.getText().equals("") || registerFrameEmailTxt.getText().equals("") 
+                 || registerFrameAddressTxt.getText().equals("") || registerFrameUsernameTxt.getText().equals("") 
+                 || registerFramePasswordTxt.getText().equals("")| registerFrameBirthDateChooser.getDate().equals("")){
+             
+
+              JOptionPane.showMessageDialog(this,"Please Complete the Form");
+              return;
+         }
+        else{
+        
         String name = registerFrameNameTxt.getText();
         long ssn = Long.parseLong(registerFrameSsnTxt.getText());
         String personGender = gender;
@@ -503,13 +519,17 @@ public class RegisterFrame extends javax.swing.JFrame {
         String idPath = selectedImagePath;
         String uuid = UUID.randomUUID().toString();
         boolean approval = false;
-        
+      
         Person person = new Customer(idPath,approval, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, UserRole.CUSTOMER.name());
 
         operatingSystem.addPersonToPersonDirectory(person);
         dB4OUtility.storeSystem(operatingSystem);
         
         OperatingSystem os= dB4OUtility.retrieveSystem();
+        
+       
+        
+        JOptionPane.showMessageDialog(this, "Account Registered Please Wait for Age Validation . Validations might take upto 24Hours");
         
         registerFrameNameTxt.setText("");
         registerFrameSsnTxt.setText("");
@@ -521,14 +541,19 @@ public class RegisterFrame extends javax.swing.JFrame {
         registerFrameAddressTxt.setText("");
         registerFrameUsernameTxt.setText("");
         registerFramePasswordTxt.setText("");
+        registerFrameBirthDateChooser.setCalendar(null);
         
-        
+         }
         
     }//GEN-LAST:event_registerFrameCreateAccountButtonActionPerformed
 
     private void registerFrameNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameNameTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerFrameNameTxtActionPerformed
+
+    private void registerFrameSsnTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameSsnTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerFrameSsnTxtActionPerformed
 
     /**
      * @param args the command line arguments
