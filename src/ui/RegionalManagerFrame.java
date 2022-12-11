@@ -234,7 +234,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     private void regManEmployeeManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManEmployeeManagementButtonActionPerformed
         // TODO add your handling code here:
-        RegionalEmployeeManagement ordcr = new RegionalEmployeeManagement();
+        RegionalEmployeeManagement ordcr = new RegionalEmployeeManagement(dB4OUtility , operatingSystem);
         splitPane.setRightComponent(ordcr);
         
     }//GEN-LAST:event_regManEmployeeManagementButtonActionPerformed
