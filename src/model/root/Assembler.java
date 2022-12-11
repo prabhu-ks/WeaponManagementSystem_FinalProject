@@ -15,9 +15,9 @@ import model.root.Person;
 public class Assembler extends Person{
     private String enterpriseId;
 
-    public Assembler(String workingDepartmentId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
-        this.enterpriseId = workingDepartmentId;
+    public Assembler(String enterpriseId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.ASSEMBLER.toString());
+        this.enterpriseId = enterpriseId;
     }
 
     public String getEnterpriseId() {

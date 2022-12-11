@@ -17,16 +17,17 @@ public class Weapon {
     private String type;
     private long price;
     private boolean approval;
+    private int quantity;
 
-    public Weapon(String name, String weaponId, String serialNo, String type, long price, boolean approval) {
+    public Weapon(String name, String weaponId, String reportId, String type, long price, boolean approval, int quantity) {
         this.name = name;
         this.weaponId = weaponId;
-        this.reportId = serialNo;
+        this.reportId = reportId;
         this.type = type;
         this.price = price;
         this.approval = approval;
+        this.quantity = quantity;
     }
-   
 
     public String getName() {
         return name;
@@ -75,7 +76,14 @@ public class Weapon {
     public void setApproval(boolean approval) {
         this.approval = approval;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
     
     
-   
 }

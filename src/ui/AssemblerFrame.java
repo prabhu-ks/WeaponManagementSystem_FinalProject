@@ -5,6 +5,9 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Assembler;
 import static ui.ApprovalManager.apprFrame;
 import static ui.MainFrame.mainFrame;
 
@@ -15,12 +18,21 @@ import static ui.MainFrame.mainFrame;
 public class AssemblerFrame extends javax.swing.JFrame {
     
     public static JFrame assFrame;
-
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    Assembler ass;
     /**
      * Creates new form AssemblerFrame
      */
-    public AssemblerFrame() {
+    public AssemblerFrame(){
+        
+    }
+    
+    public AssemblerFrame(Db4oUtils db ,OperatingSystem os, Assembler ass) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.ass = ass;
     }
 
     /**
@@ -144,7 +156,7 @@ public class AssemblerFrame extends javax.swing.JFrame {
 
     private void assManWeaponAssemblyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assManWeaponAssemblyButtonActionPerformed
         // TODO add your handling code here:
-        WeaponAssemblyJPanel ordcr = new WeaponAssemblyJPanel();
+        WeaponAssemblyJPanel ordcr = new WeaponAssemblyJPanel(dB4OUtility ,operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_assManWeaponAssemblyButtonActionPerformed
 
