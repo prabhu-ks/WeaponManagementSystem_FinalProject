@@ -36,9 +36,11 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
-        populateWeapons();
-        weaponsList = operatingSystem.getWeaponDirectory();
+        this.storeManager = storeManager;
+        weaponsList = operatingSystem.getWeaponDirectory(); 
+        weaponsList.forEach(weapon -> System.out.println(weapon.getName()));
         storeManager = storeManager;
+        populateWeapons();
         populateOrders();
         populateOrdersTable();
     }
@@ -264,7 +266,10 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateWeapons(){
-        weaponsList.forEach(weapon -> weaponComboBox.addItem(weapon.getName()));
+        weaponsList.forEach(weapon -> {
+            System.out.println(weapon.getName());
+            weaponComboBox.addItem(weapon.getName());
+        });
         
     }
     
