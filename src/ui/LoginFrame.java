@@ -251,7 +251,7 @@ import model.root.UserTest;
                            loginFrame.setVisible(false);
                                        
                            break;
-            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Assembler) person);
+            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Person) person);
                            AssemblerFrame.assFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;

@@ -329,6 +329,37 @@ public class StoreManagement extends javax.swing.JPanel {
 
     private void storeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManUpdateButtonActionPerformed
         // TODO add your handling code here:
+        
+        int selected = storeManStoreTable.getSelectedRow();
+        List<Store> stores = operatingSystem.getStoreDirectory();
+        Store st = stores.get(selected);
+        
+        String Name = storeManNameText.getText();
+        String email = storeManEmailText.getText();
+        long phone = Long.parseLong(storeManNumberText.getText());
+        String add = storeManAddressText.getText();
+        
+        st.setName(Name);
+        st.setEmail(email);
+        st.setAddress(add);
+        st.setPhoneNumber(phone);
+        
+        
+        
+        dB4OUtility.storeSystem(operatingSystem);
+        populateTable();
+         JOptionPane.showMessageDialog(this, "Data Updated");
+        
+        storeManNameText.setText("");
+        storeManEmailText.setText("");
+        storeManNumberText.setText("");
+        storeManAddressText.setText("");
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_storeManUpdateButtonActionPerformed
 
     private void storeManNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManNameTextActionPerformed
