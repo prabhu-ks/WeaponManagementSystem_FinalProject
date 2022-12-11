@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.Assembler;
+import model.root.Person;
 import static ui.ApprovalManager.apprFrame;
 import static ui.MainFrame.mainFrame;
 
@@ -20,7 +21,7 @@ public class AssemblerFrame extends javax.swing.JFrame {
     public static JFrame assFrame;
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
-    Assembler ass;
+    Person pat;
     /**
      * Creates new form AssemblerFrame
      */
@@ -28,11 +29,11 @@ public class AssemblerFrame extends javax.swing.JFrame {
         
     }
     
-    public AssemblerFrame(Db4oUtils db ,OperatingSystem os, Assembler ass) {
+    public AssemblerFrame(Db4oUtils db ,OperatingSystem os, Person pat) {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
-        this.ass = ass;
+        this.pat = pat;
     }
 
     /**
