@@ -150,7 +150,7 @@ public class ManufacturerAdminFrame extends javax.swing.JFrame {
     private void manAdminCreateEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manAdminCreateEmployeeButtonActionPerformed
         // TODO add your handling code here:
 
-        RegulatorEmployeeManagement ordcr = new RegulatorEmployeeManagement(dB4OUtility ,operatingSystem);
+        ManufacturerEmployeeManagement ordcr = new ManufacturerEmployeeManagement(dB4OUtility ,operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_manAdminCreateEmployeeButtonActionPerformed
 
