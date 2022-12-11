@@ -53,7 +53,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         regManLogoutButton = new javax.swing.JButton();
         regManEmployeeManagementButton = new javax.swing.JButton();
         regManSalesReportButton = new javax.swing.JButton();
-        regManInventoryManButton = new javax.swing.JButton();
+        regManagerOrders = new javax.swing.JButton();
         regManIdCheckerButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
@@ -103,13 +103,13 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
             }
         });
 
-        regManInventoryManButton.setBackground(new java.awt.Color(126, 87, 194));
-        regManInventoryManButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        regManInventoryManButton.setForeground(new java.awt.Color(255, 255, 255));
-        regManInventoryManButton.setText("Inventory Management");
-        regManInventoryManButton.addActionListener(new java.awt.event.ActionListener() {
+        regManagerOrders.setBackground(new java.awt.Color(126, 87, 194));
+        regManagerOrders.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        regManagerOrders.setForeground(new java.awt.Color(255, 255, 255));
+        regManagerOrders.setText("Manage Orders");
+        regManagerOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regManInventoryManButtonActionPerformed(evt);
+                regManagerOrdersActionPerformed(evt);
             }
         });
 
@@ -134,7 +134,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                     .addComponent(regManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(regManSalesReportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(regManStoreManButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(regManInventoryManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regManagerOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(regManIdCheckerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -146,14 +146,14 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(regManStoreManButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(regManInventoryManButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(regManagerOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(regManSalesReportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(regManIdCheckerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(regManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel2);
@@ -188,7 +188,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addGap(29, 29, 29)
                 .addComponent(lblTitle1)
-                .addContainerGap(668, Short.MAX_VALUE))
+                .addContainerGap(681, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel3);
@@ -197,7 +197,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,11 +246,11 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_regManSalesReportButtonActionPerformed
 
-    private void regManInventoryManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManInventoryManButtonActionPerformed
+    private void regManagerOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManagerOrdersActionPerformed
         // TODO add your handling code here:
         InventoryManagement ordcr = new InventoryManagement();
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_regManInventoryManButtonActionPerformed
+    }//GEN-LAST:event_regManagerOrdersActionPerformed
 
     private void regManIdCheckerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManIdCheckerButtonActionPerformed
         // TODO add your handling code here:
@@ -307,10 +307,10 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JButton regManEmployeeManagementButton;
     private javax.swing.JButton regManIdCheckerButton;
-    private javax.swing.JButton regManInventoryManButton;
     private javax.swing.JButton regManLogoutButton;
     private javax.swing.JButton regManSalesReportButton;
     private javax.swing.JButton regManStoreManButton;
+    private javax.swing.JButton regManagerOrders;
     private javax.swing.JSplitPane splitPane;
     // End of variables declaration//GEN-END:variables
 }
