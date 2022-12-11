@@ -274,7 +274,6 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
        order.setSupplierId(supplierId);
        
        this.dB4OUtility.storeSystem(operatingSystem);
-        
     }//GEN-LAST:event_regionalManagerCreateOrderActionPerformed
 
     private void regionalManagerViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerViewOrderActionPerformed
@@ -326,8 +325,7 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) regionalManagerOrdersTable.getModel();
         model.setRowCount(0);
         List<Order> persons = operatingSystem.getOrderDirectory().stream()
-                .filter(o -> Order.OrderStatus.valueOf(o.getStatus()).equals(Order.OrderStatus.REQUESTED)).toList();
-         
+                .filter(o -> Order.OrderStatus.valueOf(o.getStatus()).equals(Order.OrderStatus.REQUESTED)).toList(); 
         for ( Order order : persons){
             
             Object[] row =  new Object[8];
@@ -340,7 +338,6 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
             row[6] = order.getSupplierId();
 
             model.addRow(row);
-
         }
         
     }
