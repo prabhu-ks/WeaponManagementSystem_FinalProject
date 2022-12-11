@@ -6,6 +6,7 @@ package ui;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -374,7 +375,7 @@ public class StoreManagement extends javax.swing.JPanel {
         String add = storeManAddressText.getText();
         String uuid = UUID.randomUUID().toString();
         
-        Store store = new Store(uuid , Name,new Inventory(0, 0,  0, new ArrayList<Weapon>()),phone,email,add);
+        Store store = new Store(uuid , Name,new Inventory(0, 0,  0, new HashMap<Weapon,Integer>()),phone,email,add);
         operatingSystem.addStoreToStoreDirectory(store);
         dB4OUtility.storeSystem(operatingSystem);
         OperatingSystem os= dB4OUtility.retrieveSystem();
