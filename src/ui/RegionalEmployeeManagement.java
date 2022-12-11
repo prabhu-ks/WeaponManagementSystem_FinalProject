@@ -559,12 +559,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManUpdateButtonActionPerformed
         // TODO add your handling code here:
-        
-        int selected = tblEmployee.getSelectedRow();
-        List<Person> person = operatingSystem.getPersonDirectory().stream()
-                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.ACCOUNT_VERIFYER) || UserRole.valueOf(p.getRole()).equals(UserRole.STORE_MANAGER)).toList();
-        Person p = person.get(selected);
-
+        Person updatedPerson;
         String name = regEmployeeManNameText.getText();
         long ssn = Long.parseLong(regEmployeeManSSNText.getText());
         String personGender = gender;
@@ -575,33 +570,27 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         String username = regEmployeeManUsernameText.getText();
         String password = new String(regEmployeeManPasswordText.getPassword());
         String role = regRoleComboBox.getSelectedItem().toString();
+                
+        Person person1 = operatingSystem.getPersonDirectory().stream()
+                .filter(p-> p.getSsn() == ssn).findFirst().orElse(null);
         
-        if(role.equals("IDChecker")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.ACCOUNT_VERIFYER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
+        if((role.equals("IDChecker") && person1.getRole().equals(Person.UserRole.STORE_MANAGER.name()))){
+            
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.DEALER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new IdChecker(dealerId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ACCOUNT_VERIFYER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
         }
         
-        if(role.equals("Store Manager")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.STORE_MANAGER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
+        if((role.equals("Store Manager") && person1.getRole().equals(Person.UserRole.ACCOUNT_VERIFYER.name()))){
+            String managingStoreName = managingStoreComboBox.getSelectedItem().toString();
+            String managingStoreId = stores.stream().filter(store -> store.getName().equals(managingStoreName)).findFirst().orElse(null).getId();
+            updatedPerson = new StoreManager(managingStoreId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.STORE_MANAGER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
         }
         
         dB4OUtility.storeSystem(operatingSystem);
@@ -618,13 +607,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         regEmployeeManUsernameText.setText("");
         regEmployeeManPasswordText.setText("");
         regEmployeeManBirthText.setCalendar(null);
-        
-        
-            
-        
-        
-       
-        
+          
     }//GEN-LAST:event_regEmployeeManUpdateButtonActionPerformed
 
     private void regEmployeeManCreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManCreateButtonActionPerformed
@@ -641,6 +624,8 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         String password = new String(regEmployeeManPasswordText.getPassword());
         String uuid = UUID.randomUUID().toString();
         String role = regRoleComboBox.getSelectedItem().toString();
+        
+        
         if(role.equals("IDChecker")){
             String dealerId = operatingSystem.getEnterpriseDirectory().stream()
                     .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.DEALER))
