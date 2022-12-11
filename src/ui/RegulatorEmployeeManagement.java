@@ -85,7 +85,12 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(32, 33, 35));
 
-        regEmpManRoleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TESTER", "APPROVAL OFFICER"}));
+        regEmpManRoleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TESTER", "APPROVAL_OFFICER" }));
+        regEmpManRoleCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regEmpManRoleComboActionPerformed(evt);
+            }
+        });
 
         regEmpManCreateButton.setBackground(new java.awt.Color(126, 87, 194));
         regEmpManCreateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -269,12 +274,11 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
                                 .addGap(220, 220, 220)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(regEmpManNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(166, 166, 166))
+                                .addComponent(regEmpManNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(304, 304, 304)
                                 .addComponent(regEmpManViewButton)))
-                        .addGap(0, 71, Short.MAX_VALUE))
+                        .addGap(0, 237, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,11 +604,8 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmpManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManUpdateButtonActionPerformed
         // TODO add your handling code here:
-        int selected = tblEmployee.getSelectedRow();
-        List<Person> person = operatingSystem.getPersonDirectory().stream()
-                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.TESTER) || UserRole.valueOf(p.getRole()).equals(UserRole.APPROVAL_OFFICER)).toList();
-        Person p = person.get(selected);
-
+        
+        Person updatedPerson;
         String name = regEmpManNameText.getText();
         long ssn = Long.parseLong(regEmpManSsnText.getText());
         String personGender = gender;
@@ -615,33 +616,39 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         String username = regEmpManUsernameText.getText();
         String password = new String(regEmpManPasswordText.getPassword());
         String role = regEmpManRoleCombo.getSelectedItem().toString();
+                
+        Person person1 = operatingSystem.getPersonDirectory().stream()
+                .filter(p-> p.getSsn() == ssn).findFirst().orElse(null);
         
-        if(role.equals("TESTER")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.TESTER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
-        }
-        
-        if(role.equals("APPROVAL OFFICER")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.APPROVAL_OFFICER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
+        if((role.equals("TESTER") && person1.getRole().equals(Person.UserRole.APPROVAL_OFFICER.name()))){
+            
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.REGULATOR))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new Tester(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.TESTER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else if((role.equals("APPROVAL_OFFICER") && person1.getRole().equals(Person.UserRole.TESTER.name()))){
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.REGULATOR))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new ApprovalOfficer(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_OFFICER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else{
+             person1.setName(name);
+             person1.setGender(gender);
+             person1.setAddress(address);
+             person1.setDob(dob);
+             person1.setEmail(email);
+             person1.setSsn(ssn);
+             person1.setUsername(username);
+             person1.setPassword(password);
+             person1.setPhoneNo(phoneNumber);
         }
         
         dB4OUtility.storeSystem(operatingSystem);
@@ -659,6 +666,10 @@ public class RegulatorEmployeeManagement extends javax.swing.JPanel {
         regEmpManPasswordText.setText("");
         regEmpManBirthText.setCalendar(null);
     }//GEN-LAST:event_regEmpManUpdateButtonActionPerformed
+
+    private void regEmpManRoleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmpManRoleComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regEmpManRoleComboActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

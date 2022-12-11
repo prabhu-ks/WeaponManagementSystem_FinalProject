@@ -86,7 +86,7 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(32, 33, 35));
 
-        manEmpRoleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "APPROVAL AFFAIRS OFFICER", "ASSEMBLER", "FULFILLMENT OFFICER"}));
+        manEmpRoleCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "APPROVAL AFFAIRS OFFICER", "ASSEMBLER", "FULFILLMENT OFFICER" }));
 
         manEmpCreateButton.setBackground(new java.awt.Color(126, 87, 194));
         manEmpCreateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -611,11 +611,7 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
 
     private void manEmpUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manEmpUpdateButtonActionPerformed
         // TODO add your handling code here:
-        int selected = tblEmployee.getSelectedRow();
-        List<Person> person = operatingSystem.getPersonDirectory().stream()
-                .filter(p -> UserRole.valueOf(p.getRole()).equals(UserRole.APPROVAL_EMPLOYEE) || UserRole.valueOf(p.getRole()).equals(UserRole.ASSEMBLER)|| UserRole.valueOf(p.getRole()).equals(UserRole.FULFILMENT_OFFICER)).toList();
-        Person p = person.get(selected);
-
+        Person updatedPerson;
         String name = manEmpNameText.getText();
         long ssn = Long.parseLong(manEmpSSNText.getText());
         String personGender = gender;
@@ -627,46 +623,76 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         String password = new String(manEmpPasswordText.getPassword());
         String role = manEmpRoleCombo.getSelectedItem().toString();
         
-        if(role.equals("APPROVAL AFFAIRS OFFICER")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.APPROVAL_EMPLOYEE.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
-        }
+        Person person1 = operatingSystem.getPersonDirectory().stream()
+                .filter(p-> p.getSsn() == ssn).findFirst().orElse(null);
         
-        if(role.equals("ASSEMBLER")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.ASSEMBLER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
-        }
-        
-        if(role.equals("FULFILLMENT OFFICER")){
-            p.setName(name);
-            p.setSsn(ssn);
-            p.setGender(personGender);
-            p.setDob(dob);
-            p.setPhoneNo(phoneNumber);
-            p.setEmail(email);
-            p.setRole(UserRole.FULFILMENT_OFFICER.name());
-            p.setAddress(address);
-            p.setUsername(username);
-            p.setPassword(password);
-
+        if((role.equals("APPROVAL AFFAIRS OFFICER") && person1.getRole().equals(Person.UserRole.ASSEMBLER.name()))){
+            
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new Assembler(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_EMPLOYEE.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else if((role.equals("APPROVAL AFFAIRS OFFICER") && person1.getRole().equals(Person.UserRole.FULFILMENT_OFFICER.name()))){
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new FulfillmentOfficer(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_EMPLOYEE.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else if((role.equals("ASSEMBLER") && person1.getRole().equals(Person.UserRole.APPROVAL_EMPLOYEE.name()))){
+            
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new ApprovalEmployee(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ASSEMBLER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else if((role.equals("ASSEMBLER") && person1.getRole().equals(Person.UserRole.FULFILMENT_OFFICER.name()))){
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new ApprovalEmployee(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ASSEMBLER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else if((role.equals("FULFILLMENT OFFICER") && person1.getRole().equals(Person.UserRole.ASSEMBLER.name()))){
+            
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new FulfillmentOfficer(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.FULFILMENT_OFFICER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else if((role.equals("FULFILLMENT OFFICER") && person1.getRole().equals(Person.UserRole.APPROVAL_EMPLOYEE.name()))){
+            String regulatorId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            updatedPerson = new FulfillmentOfficer(regulatorId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.FULFILMENT_OFFICER.name());
+            operatingSystem.deletePersonFromPersonDirectory(person1);
+            operatingSystem.addPersonToPersonDirectory(updatedPerson);
+            
+        } else{
+             person1.setName(name);
+             person1.setGender(gender);
+             person1.setAddress(address);
+             person1.setDob(dob);
+             person1.setEmail(email);
+             person1.setSsn(ssn);
+             person1.setUsername(username);
+             person1.setPassword(password);
+             person1.setPhoneNo(phoneNumber);
         }
         
         dB4OUtility.storeSystem(operatingSystem);
