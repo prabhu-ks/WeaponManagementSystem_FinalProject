@@ -234,6 +234,7 @@ import model.root.UserTest;
             case REGIONAL_MANAGER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
                            RegionalManagerFrame.regFrame.setVisible(true);
                            loginFrame.setVisible(false);
+                           break;
 
             case REGULATOR_SYSADMIN: RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame(dB4OUtility, operatingSystem,(RegulatorAdmin) person);
                            RegulatorAdminFrame.regAdminFrame.setVisible(true);
