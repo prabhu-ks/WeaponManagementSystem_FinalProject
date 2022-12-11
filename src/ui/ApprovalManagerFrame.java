@@ -5,22 +5,32 @@
 package ui;
 
 import javax.swing.JFrame;
-import static ui.IdCheckerJFrame.idcheckFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.ApprovalOfficer;
 import static ui.MainFrame.mainFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class ApprovalManager extends javax.swing.JFrame {
+public class ApprovalManagerFrame extends javax.swing.JFrame {
     
     public static JFrame apprFrame;
-
+    OperatingSystem os;
+    Db4oUtils db;
+    ApprovalOfficer ao;
     /**
      * Creates new form ApprovalManager
      */
-    public ApprovalManager() {
+    public ApprovalManagerFrame(){
+        
+    }
+    public ApprovalManagerFrame(Db4oUtils db ,OperatingSystem os, ApprovalOfficer ao) {
         initComponents();
+        this.os = os;
+        this.db = db;
+        this.ao= ao;
     }
 
     /**
@@ -138,13 +148,13 @@ public class ApprovalManager extends javax.swing.JFrame {
 
     private void appManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManLogoutButtonActionPerformed
         // TODO add your handling code here:
-        ApprovalManager.apprFrame.setVisible(false);
+        ApprovalManagerFrame.apprFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_appManLogoutButtonActionPerformed
 
     private void appManWeaponApprovalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManWeaponApprovalButtonActionPerformed
         // TODO add your handling code here:
-        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
+        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel(os,db);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_appManWeaponApprovalButtonActionPerformed
 
@@ -165,21 +175,22 @@ public class ApprovalManager extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ApprovalManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalManagerFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 if(apprFrame == null){
-                    apprFrame = new ApprovalManager();
+                    apprFrame = new ApprovalManagerFrame();
                 }
                 
                 apprFrame.setVisible(true);

@@ -232,5 +232,11 @@ public class OperatingSystem {
         weaponDirectory.remove(weapon);
     }
     
+    public void addReportToReportDirectory(Report report){
+        if(reportDirectory == null){
+            reportDirectory = new ArrayList<Report>();
+        }
+        reportDirectory.add(report);
+    }
     
 }

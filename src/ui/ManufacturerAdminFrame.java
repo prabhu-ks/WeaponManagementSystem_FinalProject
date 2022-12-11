@@ -156,7 +156,7 @@ public class ManufacturerAdminFrame extends javax.swing.JFrame {
 
     private void manAdminLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manAdminLogoutButtonActionPerformed
         // TODO add your handling code here:
-        RegulatorAdminFrame.regAdminFrame.setVisible(false);
+        ManufacturerAdminFrame.manuAdminFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_manAdminLogoutButtonActionPerformed
 

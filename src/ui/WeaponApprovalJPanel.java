@@ -4,17 +4,35 @@
  */
 package ui;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.regulator.Report;
+import model.root.Person;
+import model.root.Weapon;
+
 /**
  *
  * @author pho3nix28
  */
 public class WeaponApprovalJPanel extends javax.swing.JPanel {
-
+    
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
     /**
      * Creates new form WeaponApprovalJPanel
      */
-    public WeaponApprovalJPanel() {
+    public WeaponApprovalJPanel(){
+        
+    }
+    public WeaponApprovalJPanel(OperatingSystem operatingSystem,Db4oUtils dB4OUtility) {
         initComponents();
+        this.operatingSystem = operatingSystem;
+        this.dB4OUtility = dB4OUtility;
+        populateTable();
+        populateReportTable();
     }
 
     /**
@@ -29,7 +47,7 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        weaponAppTable2 = new javax.swing.JTable();
+        weaponReportTable = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         weaponAppSelectButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -39,6 +57,8 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
         weaponAppApprovalGunCombo = new javax.swing.JComboBox<>();
         weaponAppNameText = new javax.swing.JTextField();
         weaponAppSubmitButton = new javax.swing.JButton();
+        weaponReportSelectButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -51,18 +71,18 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Weapon List:");
 
-        weaponAppTable2.setModel(new javax.swing.table.DefaultTableModel(
+        weaponReportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ReportID", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Approved"
             }
         ));
-        jScrollPane1.setViewportView(weaponAppTable2);
+        jScrollPane1.setViewportView(weaponReportTable);
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,6 +91,11 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
         weaponAppSelectButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         weaponAppSelectButton.setForeground(new java.awt.Color(255, 255, 255));
         weaponAppSelectButton.setText("Select");
+        weaponAppSelectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponAppSelectButtonActionPerformed(evt);
+            }
+        });
 
         weaponAppWeaponListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,7 +105,7 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "WeaponID", "Name", "Type", "ReportID"
             }
         ));
         jScrollPane2.setViewportView(weaponAppWeaponListTable);
@@ -93,12 +118,33 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText(" ID:");
 
-        weaponAppApprovalGunCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        weaponAppApprovalGunCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+
+        weaponAppNameText.setEditable(false);
 
         weaponAppSubmitButton.setBackground(new java.awt.Color(126, 87, 194));
         weaponAppSubmitButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         weaponAppSubmitButton.setForeground(new java.awt.Color(255, 255, 255));
         weaponAppSubmitButton.setText("Submit");
+        weaponAppSubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponAppSubmitButtonActionPerformed(evt);
+            }
+        });
+
+        weaponReportSelectButton.setBackground(new java.awt.Color(126, 87, 194));
+        weaponReportSelectButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        weaponReportSelectButton.setForeground(new java.awt.Color(255, 255, 255));
+        weaponReportSelectButton.setText("Select");
+        weaponReportSelectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponReportSelectButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Report List:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,24 +162,31 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(156, 156, 156)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(weaponAppSubmitButton)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(257, 257, 257)
-                                .addComponent(weaponAppSelectButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(156, 156, 156)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(weaponAppSubmitButton)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel3))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(weaponAppNameText)
-                                            .addComponent(weaponAppApprovalGunCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(weaponAppNameText)
+                                    .addComponent(weaponAppApprovalGunCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 264, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(weaponReportSelectButton)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(weaponAppSelectButton)
+                        .addGap(41, 41, 41))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -149,11 +202,15 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(184, 184, 184)
-                .addComponent(weaponAppSelectButton)
-                .addGap(26, 26, 26)
+                .addGap(192, 192, 192)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(weaponAppSelectButton)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addComponent(weaponReportSelectButton)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(weaponAppNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -172,12 +229,56 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void weaponAppSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAppSelectButtonActionPerformed
+        // TODO add your handling code here:
+        int selected = weaponAppWeaponListTable.getSelectedRow();
+        List<Weapon> weapon = operatingSystem.getWeaponDirectory().stream().toList();
+        Weapon w = weapon.get(selected);
+        
+        populateReportTable(w);
+        
+    }//GEN-LAST:event_weaponAppSelectButtonActionPerformed
+
+    private void weaponReportSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponReportSelectButtonActionPerformed
+        // TODO add your handling code here:
+        int selected = weaponReportTable.getSelectedRow();
+        List<Report> report = operatingSystem.getReportDirectory().stream().toList();
+        Report r = report.get(selected);
+        
+        weaponAppNameText.setText(r.getReportId());
+        weaponAppApprovalGunCombo.setSelectedItem("No");
+    }//GEN-LAST:event_weaponReportSelectButtonActionPerformed
+
+    private void weaponAppSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAppSubmitButtonActionPerformed
+        // TODO add your handling code here:
+        boolean approved = false;
+        String approve = String.valueOf(weaponAppApprovalGunCombo.getSelectedItem());
+        String reportId = weaponAppNameText.getText();
+        
+        List<Report> reports = operatingSystem.getReportDirectory().stream()
+                .filter(r-> r.getReportId().equals(reportId)).toList();
+        if(reports.isEmpty()){
+            Report report = reports.get(0);
+            if(approve == "Yes"){
+                report.setApproved(true);
+            }
+        }
+        
+        JOptionPane.showMessageDialog(this, "Data Created");
+        populateReportTable();
+        weaponAppNameText.setText("");
+        weaponAppApprovalGunCombo.setSelectedItem("No");
+        
+        
+    }//GEN-LAST:event_weaponAppSubmitButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -185,7 +286,73 @@ public class WeaponApprovalJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField weaponAppNameText;
     private javax.swing.JButton weaponAppSelectButton;
     private javax.swing.JButton weaponAppSubmitButton;
-    private javax.swing.JTable weaponAppTable2;
     private javax.swing.JTable weaponAppWeaponListTable;
+    private javax.swing.JButton weaponReportSelectButton;
+    private javax.swing.JTable weaponReportTable;
     // End of variables declaration//GEN-END:variables
+private void populateTable(){
+    
+    DefaultTableModel model = (DefaultTableModel) weaponAppWeaponListTable.getModel();
+        model.setRowCount(0);
+        List<Weapon> weapons = operatingSystem.getWeaponDirectory();
+         
+        for (Weapon weapon : weapons){
+
+            Object[] row =  new Object[8];
+            row[0] = weapon.getWeaponId();
+            row[1] = weapon.getName();
+            row[2] = weapon.getType();
+            row[3] = weapon.getReportId();
+
+            model.addRow(row);
+
+
+        }
+        
+    }
+private void populateReportTable(){
+    
+    DefaultTableModel model = (DefaultTableModel) weaponReportTable.getModel();
+    model.setRowCount(0);
+    List<Report> reports = operatingSystem.getReportDirectory();
+            
+        for(Report report: reports){
+            Object[] row =  new Object[8];
+            row[0] = report.getReportId();
+            row[1] = report.isTest1();
+            row[2] = report.isTest2();
+            row[3] = report.isTest3();
+            row[4] = report.isTest4();
+            row[5] = report.isTest5();
+            row[6] = report.isApproved();
+
+            model.addRow(row);
+        }
+    }
+
+private void populateReportTable(Weapon w){
+    
+    DefaultTableModel model = (DefaultTableModel) weaponReportTable.getModel();
+    model.setRowCount(0);
+    List<Report> reports = operatingSystem.getReportDirectory().stream()
+            .filter(r -> r.getReportId().equals(w.getReportId())).toList();
+    if(reports.size() == 0){
+        model.setRowCount(0);
+    }else{
+        for(Report report: reports){
+            Object[] row =  new Object[8];
+            row[0] = report.getReportId();
+            row[1] = report.isTest1();
+            row[2] = report.isTest2();
+            row[3] = report.isTest3();
+            row[4] = report.isTest4();
+            row[5] = report.isTest5();
+            row[6] = report.isApproved();
+
+            model.addRow(row);
+        }
+    }
 }
+        
+}
+
