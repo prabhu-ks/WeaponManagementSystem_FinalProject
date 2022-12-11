@@ -5,13 +5,18 @@
 package ui;
 
 import java.util.List;
+import java.util.UUID;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.dealer.Inventory;
 import model.dealer.Store;
 import model.root.Order;
 import model.root.Order.OrderStatus;
 import model.root.Weapon;
+import model.root.StoreManager;
+
 
 /**
  *
@@ -21,14 +26,21 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
 
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
+    private List<Weapon> weaponsList;
+    private List<Order> ordersList;
+    StoreManager storeManager;
     /**
      * Creates new form OrderManagementStoreManagerPanel
      */
-    public OrderManagementStoreManagerPanel(Db4oUtils db ,OperatingSystem os) {
+    public OrderManagementStoreManagerPanel(Db4oUtils db ,OperatingSystem os, StoreManager storeManager) {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
         populateWeapons();
+        weaponsList = operatingSystem.getWeaponDirectory();
+        storeManager = storeManager;
+        populateOrders();
+        populateOrdersTable();
     }
 
     /**
@@ -47,6 +59,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         weaponComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         quantityTxt = new javax.swing.JTextField();
+        addToInventoryButton = new javax.swing.JButton();
         createOrderButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
@@ -58,15 +71,21 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
 
         orderManOrderTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Order Status", "Weapon ID", "Quantity"
+                "Order ID", "Order Status", "Weapon ID", "Weapon Name", "Quantity"
             }
         ));
+        orderManOrderTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderManOrderTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(orderManOrderTable);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -90,6 +109,17 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         quantityTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 quantityTxtKeyPressed(evt);
+            }
+        });
+
+        addToInventoryButton.setBackground(new java.awt.Color(126, 87, 194));
+        addToInventoryButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        addToInventoryButton.setForeground(new java.awt.Color(255, 255, 255));
+        addToInventoryButton.setText("Add To Inventory");
+        addToInventoryButton.setEnabled(false);
+        addToInventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToInventoryButtonActionPerformed(evt);
             }
         });
 
@@ -124,11 +154,14 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(weaponComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(createOrderButton)))
+                            .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(createOrderButton)
+                .addGap(39, 39, 39)
+                .addComponent(addToInventoryButton)
+                .addGap(321, 321, 321))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +178,11 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(createOrderButton)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addToInventoryButton)
+                    .addComponent(createOrderButton))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,13 +198,59 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityTxtKeyPressed
 
+    private void addToInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToInventoryButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = orderManOrderTable.getSelectedRow();
+        Order order = ordersList.get(selectedRow);
+        if(OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.DELIVERED) == false){
+            JOptionPane.showMessageDialog(weaponComboBox, "Order has not yet been delivered");
+            return;
+        }
+        Weapon weapon = weaponsList.stream().filter(w -> w.getWeaponId().equals(order.getWeaponID())).findFirst().orElse(null);
+        Store store = operatingSystem.getStoreDirectory().stream()
+                .filter(s -> s.getId().equals(storeManager.getManagingStoreId()))
+                .findFirst().orElse(null);
+        Inventory inventory = store.getInventory();
+        if(inventory.getWeaponsList().containsKey(weapon))
+           inventory.getWeaponsList().put(weapon, inventory.getWeaponsList().get(weapon)+order.getQuantity());
+        else
+            inventory.getWeaponsList().put(weapon, order.getQuantity());
+        inventory.setFilled(inventory.getFilled()+order.getQuantity());
+        inventory.setAvailable(inventory.getCapacity()-inventory.getFilled());
+        addToInventoryButton.setEnabled(false);
+    }//GEN-LAST:event_addToInventoryButtonActionPerformed
+
     private void createOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createOrderButtonActionPerformed
         // TODO add your handling code here:
+        String selectedWeaponName = (String)weaponComboBox.getSelectedItem();
+        if(selectedWeaponName == null){
+            JOptionPane.showMessageDialog(weaponComboBox, "Please eelect a weapon");
+            return;
+        }
+        String weaponId = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null).getWeaponId();
+        int quantity = Integer.parseInt(quantityTxt.getText());
+        
+        Order order = new Order(UUID.randomUUID().toString(), storeManager.getManagingStoreId(), null, null, null,weaponId, quantity, OrderStatus.REQUESTED.name());
+        
+        operatingSystem.getOrderDirectory().add(order);
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        weaponComboBox.setSelectedIndex(-1);
+        quantityTxt.setText("");
+        populateOrdersTable();
         
     }//GEN-LAST:event_createOrderButtonActionPerformed
 
+    private void orderManOrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderManOrderTableMouseClicked
+        // TODO add your handling code here:
+        if(orderManOrderTable.getSelectedRow()!= -1){
+            addToInventoryButton.setEnabled(true);
+        }
+    }//GEN-LAST:event_orderManOrderTableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addToInventoryButton;
     private javax.swing.JButton createOrderButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -181,20 +262,24 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateWeapons(){
-        List<Weapon> weapons = operatingSystem.getWeaponDirectory();
-        weapons.forEach(weapon -> weaponComboBox.addItem(weapon.getName()));
+        weaponsList.forEach(weapon -> weaponComboBox.addItem(weapon.getName()));
         
+    }
+    
+    private void populateOrders(){
+        ordersList = operatingSystem.getOrderDirectory().stream()
+                .filter(order -> order.getStoreId().equals(storeManager.getManagingStoreId()))
+                .toList();
     }
     
     private void populateOrdersTable(){
         DefaultTableModel model = (DefaultTableModel) orderManOrderTable.getModel();
         model.setRowCount(0);
-        List<Order> orders = operatingSystem.getOrderDirectory().stream()
-                            .filter(order -> OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.REQUESTED)
-                                    || OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.DELIVERED)
-                            ).toList();
+        ordersList = operatingSystem.getOrderDirectory().stream()
+                            .filter(order -> order.getStoreId().equals(storeManager.getManagingStoreId()))
+                            .toList();
          
-        for (Order order : orders){
+        for (Order order : ordersList){
 
             Object[] row =  new Object[8];
             row[0] = order.getOrderId();

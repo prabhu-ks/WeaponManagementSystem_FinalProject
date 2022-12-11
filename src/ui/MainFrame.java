@@ -48,35 +48,32 @@ public class MainFrame extends javax.swing.JFrame {
 //        RegionalManager rmdef = new RegionalManager("", 12345677, UUID.randomUUID().toString(),"Regional Admin","Female", new Date(), 123456789, "regionaladmin123@gmail.com", "Boston", "regionaladmin", "admin123", UserRole.REGIONAL_MANAGER.name());
 //        operatingSystem.addPersonToPersonDirectory(rmdef);
 //        dB4OUtility.storeSystem(operatingSystem);
-//        Store store = new Store(UUID.randomUUID().toString(), "Store one", new Inventory(0, 0,  0, new ArrayList<Weapon>()), 12345678, "storeone@gmail.com", "111 Boylston Street");
-//        operatingSystem.addStoreToStoreDirectory(store);
+
+//        Dealer dealer = new Dealer(UUID.randomUUID().toString(),"Dealer", EnterpriseType.DEALER.name());
+//        operatingSystem.addEnterprisetoEnterpriseDirectory(dealer);
 //        dB4OUtility.storeSystem(operatingSystem);
-
-//          Dealer dealer = new Dealer(UUID.randomUUID().toString(),"Dealer", EnterpriseType.DEALER.name());
-//          operatingSystem.addEnterprisetoEnterpriseDirectory(dealer);
-//          dB4OUtility.storeSystem(operatingSystem);
+//
+//        Regulator regulator = new Regulator(UUID.randomUUID().toString(),"Regulator", EnterpriseType.REGULATOR.name());
+//        operatingSystem.addEnterprisetoEnterpriseDirectory(regulator);
+//        dB4OUtility.storeSystem(operatingSystem);
+//
+//        Manufacturer manufacturer = new Manufacturer(UUID.randomUUID().toString(),"Manufacturer", EnterpriseType.MANUFACTURER.name());
+//        operatingSystem.addEnterprisetoEnterpriseDirectory(manufacturer);
+//        dB4OUtility.storeSystem(operatingSystem);
+//
+//        Supplier supplier = new Supplier(UUID.randomUUID().toString(),"Supplier", EnterpriseType.SUPPLIER.name());
+//        operatingSystem.addEnterprisetoEnterpriseDirectory(supplier);
+//        dB4OUtility.storeSystem(operatingSystem);
 //          
-//          Regulator regulator = new Regulator(UUID.randomUUID().toString(),"Regulator", EnterpriseType.REGULATOR.name());
-//          operatingSystem.addEnterprisetoEnterpriseDirectory(regulator);
-//          dB4OUtility.storeSystem(operatingSystem);
-//          
-//          Manufacturer manufacturer = new Manufacturer(UUID.randomUUID().toString(),"Manufacturer", EnterpriseType.MANUFACTURER.name());
-//          operatingSystem.addEnterprisetoEnterpriseDirectory(manufacturer);
-//          dB4OUtility.storeSystem(operatingSystem);
-//          
-//          Supplier supplier = new Supplier(UUID.randomUUID().toString(),"Supplier", EnterpriseType.SUPPLIER.name());
-//          operatingSystem.addEnterprisetoEnterpriseDirectory(supplier);
-//          dB4OUtility.storeSystem(operatingSystem);
-          
-//            RegulatorAdmin rmdef = new RegulatorAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "regulatoradmin", "admin123", UserRole.REGULATOR_SYSADMIN.name());
-//            operatingSystem.addPersonToPersonDirectory(rmdef);
-//            dB4OUtility.storeSystem(operatingSystem);
-
-//            ManufacturerAdmin madef = new ManufacturerAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "manufadmin", "admin123", UserRole.MANUFACTURER_SYSADMIN.name());
-//            operatingSystem.addPersonToPersonDirectory(madef);
-//            dB4OUtility.storeSystem(operatingSystem);
+//        RegulatorAdmin rgdef = new RegulatorAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "regulatoradmin", "admin123", UserRole.REGULATOR_SYSADMIN.name());
+//        operatingSystem.addPersonToPersonDirectory(rgdef);
+//        dB4OUtility.storeSystem(operatingSystem);
+//
+//        ManufacturerAdmin madef = new ManufacturerAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "manufadmin", "admin123", UserRole.MANUFACTURER_SYSADMIN.name());
+//        operatingSystem.addPersonToPersonDirectory(madef);
+//        dB4OUtility.storeSystem(operatingSystem);
             
-          
+        
 
     }
 
