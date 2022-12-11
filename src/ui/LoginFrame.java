@@ -17,9 +17,11 @@ import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.Customer;
+import model.root.ManufacturerAdmin;
 import model.root.Person.UserRole;
 import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
+import model.root.RegulatorAdmin;
 import model.root.UserTest;
         
  public class LoginFrame extends javax.swing.JFrame {
@@ -224,6 +226,14 @@ import model.root.UserTest;
                            break;
             case REGIONAL_MANAGER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
                            RegionalManagerFrame.regFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;
+            case REGULATOR_SYSADMIN: RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame(dB4OUtility, operatingSystem,(RegulatorAdmin) person);
+                           RegulatorAdminFrame.regAdminFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;
+            case MANUFACTURER_SYSADMIN: ManufacturerAdminFrame.manuAdminFrame = new ManufacturerAdminFrame(dB4OUtility, operatingSystem,(ManufacturerAdmin) person);
+                           ManufacturerAdminFrame.manuAdminFrame .setVisible(true);
                            loginFrame.setVisible(false);
                            break;
             default: JOptionPane.showMessageDialog(null, "Something went wrong");

@@ -29,15 +29,14 @@
                               <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="regEmpManNameText" min="-2" pref="183" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                              <Component id="manEmpNameText" min="-2" pref="183" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
-                              <Component id="regEmpManViewButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="manEmpViewButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="71" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -55,18 +54,18 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="regEmpManCreateButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="manEmpCreateButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="regEmpManUpdateButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="manEmpUpdateButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="regEmpManDeleteButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="manEmpDeleteButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="regEmpManSsnText" min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="manEmpSSNText" min="-2" pref="183" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -82,20 +81,20 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="regEmpManMaleRadioButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="manEmpMaleRadioButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="regEmpManFemaleRadioButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="manEmpFemaleRadioButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="regEmpManOtherRadioButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="manEmpOtherRadioButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="regEmpManPasswordText" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="regEmpManPhoneText" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="regEmpManBirthText" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="regEmpManEmailText" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="regEmpManAddressText" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="regEmpManUsernameText" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="regEmpManRoleCombo" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="manEmpPasswordText" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="manEmpPhoneText" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="manEmpBirthText" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="manEmpEmailText" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="manEmpAddressText" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="manEmpUsernameText" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="manEmpRoleCombo" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -117,64 +116,64 @@
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="149" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="regEmpManViewButton" min="-2" max="-2" attributes="0"/>
+              <Component id="manEmpViewButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManNameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpNameText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManSsnText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpSSNText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManMaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManFemaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManOtherRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpMaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpFemaleRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpOtherRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManBirthText" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpBirthText" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="regEmpManPhoneText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpPhoneText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="regEmpManEmailText" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpEmailText" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="regEmpManAddressText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpAddressText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="regEmpManUsernameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpUsernameText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="regEmpManPasswordText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpPasswordText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManRoleCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpRoleCombo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="regEmpManCreateButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManUpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="regEmpManDeleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpCreateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpUpdateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="manEmpDeleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="124" max="32767" attributes="0"/>
           </Group>
@@ -182,17 +181,17 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="regEmpManRoleCombo">
+    <Component class="javax.swing.JComboBox" name="manEmpRoleCombo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;TESTER&quot;, &quot;APPROVAL OFFICER&quot;})" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;APPROVAL AFFAIRS OFFICER&quot;, &quot;ASSEMBLER&quot;, &quot;FULFILLMENT OFFICER&quot;})" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="regEmpManCreateButton">
+    <Component class="javax.swing.JButton" name="manEmpCreateButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -206,10 +205,10 @@
         <Property name="text" type="java.lang.String" value="Create"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManCreateButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpCreateButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="regEmpManUpdateButton">
+    <Component class="javax.swing.JButton" name="manEmpUpdateButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -223,10 +222,10 @@
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManUpdateButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpUpdateButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="regEmpManDeleteButton">
+    <Component class="javax.swing.JButton" name="manEmpDeleteButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -240,7 +239,7 @@
         <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManDeleteButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpDeleteButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -254,7 +253,7 @@
         <Property name="text" type="java.lang.String" value="Phone Number:"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="regEmpManBirthText">
+    <Component class="com.toedter.calendar.JDateChooser" name="manEmpBirthText">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -267,10 +266,10 @@
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="regEmpManPhoneText">
+    <Component class="javax.swing.JTextField" name="manEmpPhoneText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManPhoneTextActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="regEmpManPhoneTextKeyPressed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpPhoneTextActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="manEmpPhoneTextKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -284,9 +283,9 @@
         <Property name="text" type="java.lang.String" value="Address:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="regEmpManEmailText">
+    <Component class="javax.swing.JTextField" name="manEmpEmailText">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="regEmpManEmailTextFocusLost"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="manEmpEmailTextFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -300,14 +299,14 @@
         <Property name="text" type="java.lang.String" value="Username:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="regEmpManAddressText">
+    <Component class="javax.swing.JTextField" name="manEmpAddressText">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManAddressTextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpAddressTextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="regEmpManUsernameText">
+    <Component class="javax.swing.JTextField" name="manEmpUsernameText">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="regEmpManPasswordText">
+    <Component class="javax.swing.JPasswordField" name="manEmpPasswordText">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
@@ -353,7 +352,7 @@
         <Property name="text" type="java.lang.String" value="Gender:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="regEmpManMaleRadioButton">
+    <Component class="javax.swing.JRadioButton" name="manEmpMaleRadioButton">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -361,10 +360,10 @@
         <Property name="text" type="java.lang.String" value="Male"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManMaleRadioButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpMaleRadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="regEmpManFemaleRadioButton">
+    <Component class="javax.swing.JRadioButton" name="manEmpFemaleRadioButton">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -372,10 +371,10 @@
         <Property name="text" type="java.lang.String" value="Female"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManFemaleRadioButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpFemaleRadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="regEmpManOtherRadioButton">
+    <Component class="javax.swing.JRadioButton" name="manEmpOtherRadioButton">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -383,13 +382,13 @@
         <Property name="text" type="java.lang.String" value="Other"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManOtherRadioButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpOtherRadioButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="regEmpManNameText">
+    <Component class="javax.swing.JTextField" name="manEmpNameText">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="regEmpManNameTextFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="regEmpManNameTextKeyPressed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="manEmpNameTextFocusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="manEmpNameTextKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -403,7 +402,7 @@
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="regEmpManViewButton">
+    <Component class="javax.swing.JButton" name="manEmpViewButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -417,7 +416,7 @@
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regEmpManViewButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manEmpViewButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -463,10 +462,10 @@
         <Property name="text" type="java.lang.String" value="Employee Management"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="regEmpManSsnText">
+    <Component class="javax.swing.JTextField" name="manEmpSSNText">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="regEmpManSsnTextFocusLost"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="regEmpManSsnTextKeyPressed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="manEmpSSNTextFocusLost"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="manEmpSSNTextKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
