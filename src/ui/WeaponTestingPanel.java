@@ -4,17 +4,36 @@
  */
 package ui;
 
+import java.util.List;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.regulator.Report;
+import model.root.Weapon;
+
 /**
  *
  * @author pho3nix28
  */
 public class WeaponTestingPanel extends javax.swing.JPanel {
-
+    
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    
     /**
      * Creates new form WeaponTestingPanel
      */
-    public WeaponTestingPanel() {
+    public WeaponTestingPanel(){
+        
+    }
+    
+    public WeaponTestingPanel(Db4oUtils dB4OUtility, OperatingSystem operatingSystem) {
         initComponents();
+        this.dB4OUtility = dB4OUtility;
+        this.operatingSystem = operatingSystem; 
+        populateTable();
     }
 
     /**
@@ -246,6 +265,16 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
 
     private void weaponTestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTestButtonActionPerformed
         // TODO add your handling code here:
+        int selected = weaponTestCustListTable.getSelectedRow();
+        List<Weapon> weapons = operatingSystem.getWeaponDirectory().stream().toList();
+        Weapon w = weapons.get(selected);
+        weaponIdText.setText(w.getWeaponId());
+        weaponNameText.setText(w.getName());
+        weaponTest1Combo.setSelectedItem("No");
+        weaponTest2Combo.setSelectedItem("No");
+        weaponTest3Combo.setSelectedItem("No");
+        weaponTest4Combo.setSelectedItem("No");
+        weaponTest5Combo.setSelectedItem("No");
     }//GEN-LAST:event_weaponTestButtonActionPerformed
 
     private void weaponTest2ComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTest2ComboActionPerformed
@@ -254,6 +283,46 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
 
     private void weaponTestSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTestSubmitButtonActionPerformed
         // TODO add your handling code here:
+        boolean test1 = false,test2 = false,test3 = false,test4 = false,test5 = false;
+        String reportId = UUID.randomUUID().toString();
+        String weaponId = weaponIdText.getText();
+        if(weaponTest1Combo.getSelectedItem() == "Yes"){
+             test1 = true;
+        }
+     
+        if(weaponTest2Combo.getSelectedItem() == "Yes"){
+             test2 = true;
+        }
+        
+        if(weaponTest3Combo.getSelectedItem() == "Yes"){
+             test3 = true;
+        }
+        
+        if(weaponTest4Combo.getSelectedItem() == "Yes"){
+             test4 = true;
+        }
+        
+        if(weaponTest5Combo.getSelectedItem() == "Yes"){
+             test5 = true;
+        }
+        
+        
+        List<Weapon> weapons = operatingSystem.getWeaponDirectory().stream()
+                .filter(w -> w.getWeaponId().equals(weaponId)).toList();
+        Weapon w = weapons.get(0);
+        
+         Report r = new Report(reportId,false,test1,test2,test3,test4,test5);
+         operatingSystem.addReportToReportDirectory(r);
+        
+        w.setWeaponId(weaponId);
+        w.setReportId(reportId);
+        
+        JOptionPane.showMessageDialog(this, "Data Created");
+        populateTable();
+        dB4OUtility.storeSystem(operatingSystem);
+        weaponIdText.setText("");
+        weaponNameText.setText("");
+ 
     }//GEN-LAST:event_weaponTestSubmitButtonActionPerformed
 
     private void weaponTest3ComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTest3ComboActionPerformed
@@ -285,4 +354,26 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
     private javax.swing.JTable weaponTestCustListTable;
     private javax.swing.JButton weaponTestSubmitButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable(){
+    
+    DefaultTableModel model = (DefaultTableModel) weaponTestCustListTable.getModel();
+        model.setRowCount(0);
+        List<Weapon> weapons = operatingSystem.getWeaponDirectory();
+         
+        for (Weapon weapon : weapons){
+
+            Object[] row =  new Object[8];
+            row[0] = weapon.getWeaponId();
+            row[1] = weapon.getName();
+            row[2] = weapon.getType();
+            row[3] = weapon.getReportId();
+
+            model.addRow(row);
+
+
+        }
+        
+    }
+    
 }

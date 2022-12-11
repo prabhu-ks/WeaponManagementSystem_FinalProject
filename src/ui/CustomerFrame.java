@@ -149,7 +149,7 @@ public class CustomerFrame extends javax.swing.JFrame {
 
     private void fullOffLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffLogoutButtonActionPerformed
         // TODO add your handling code here:
-        ApprovalManager.apprFrame.setVisible(false);
+        ApprovalManagerFrame.apprFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_fullOffLogoutButtonActionPerformed
 

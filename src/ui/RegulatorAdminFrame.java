@@ -182,7 +182,7 @@ public class RegulatorAdminFrame extends javax.swing.JFrame {
 
     private void regAdminApprovalManagerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminApprovalManagerButtonActionPerformed
         // TODO add your handling code here:
-        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
+        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel(operatingSystem,dB4OUtility);
         splitPane.setRightComponent(ordcr);
         
     }//GEN-LAST:event_regAdminApprovalManagerButtonActionPerformed
@@ -196,7 +196,7 @@ public class RegulatorAdminFrame extends javax.swing.JFrame {
 
     private void regAdminTestingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regAdminTestingButtonActionPerformed
         // TODO add your handling code here:
-        WeaponTestingPanel ordcr = new WeaponTestingPanel();
+        WeaponTestingPanel ordcr = new WeaponTestingPanel(dB4OUtility,operatingSystem);
         splitPane.setRightComponent(ordcr);
         
     }//GEN-LAST:event_regAdminTestingButtonActionPerformed

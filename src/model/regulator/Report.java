@@ -13,34 +13,30 @@ import model.root.Weapon;
  * @author manavmalavia
  */
 public class Report {
-    private String status;
+    private String reportId;
     private boolean approved;
     private boolean test1;
     private boolean test2;
     private boolean test3;
     private boolean test4;
-    private boolean testr;
-    private ApprovalOfficer approvalOfficerId;
-    private Tester testerId;
+    private boolean test5;
 
-    public Report(String status, boolean approved, boolean test1, boolean test2, boolean test3, boolean test4, boolean testr, ApprovalOfficer approvalOfficerId, Tester testerId) {
-        this.status = status;
+    public Report(String reportId, boolean approved, boolean test1, boolean test2, boolean test3, boolean test4, boolean test5) {
+        this.reportId = reportId;
         this.approved = approved;
         this.test1 = test1;
         this.test2 = test2;
         this.test3 = test3;
         this.test4 = test4;
-        this.testr = testr;
-        this.approvalOfficerId = approvalOfficerId;
-        this.testerId = testerId;
+        this.test5 = test5;
     }
 
-    public String getStatus() {
-        return status;
+    public String getReportId() {
+        return reportId;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setReportId(String reportId) {
+        this.reportId = reportId;
     }
 
     public boolean isApproved() {
@@ -83,31 +79,12 @@ public class Report {
         this.test4 = test4;
     }
 
-    public boolean isTestr() {
-        return testr;
+    public boolean isTest5() {
+        return test5;
     }
 
-    public void setTestr(boolean testr) {
-        this.testr = testr;
+    public void setTest5(boolean test5) {
+        this.test5 = test5;
     }
-
-    public ApprovalOfficer getApprovalOfficerId() {
-        return approvalOfficerId;
-    }
-
-    public void setApprovalOfficerId(ApprovalOfficer approvalOfficerId) {
-        this.approvalOfficerId = approvalOfficerId;
-    }
-
-    public Tester getTesterId() {
-        return testerId;
-    }
-
-    public void setTesterId(Tester testerId) {
-        this.testerId = testerId;
-    }
-
-    
-    
     
 }

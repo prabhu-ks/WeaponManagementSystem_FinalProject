@@ -9,7 +9,7 @@ import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.Assembler;
 import model.root.Person;
-import static ui.ApprovalManager.apprFrame;
+import static ui.ApprovalManagerFrame.apprFrame;
 import static ui.MainFrame.mainFrame;
 
 /**
