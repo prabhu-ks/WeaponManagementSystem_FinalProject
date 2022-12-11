@@ -502,8 +502,9 @@ public class RegisterFrame extends javax.swing.JFrame {
         String password = new String(registerFramePasswordTxt.getPassword());
         String idPath = selectedImagePath;
         String uuid = UUID.randomUUID().toString();
+        boolean approval = false;
         
-        Person person = new Customer(idPath, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, UserRole.CUSTOMER.name());
+        Person person = new Customer(idPath,approval, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, UserRole.CUSTOMER.name());
 
         operatingSystem.addPersonToPersonDirectory(person);
         dB4OUtility.storeSystem(operatingSystem);

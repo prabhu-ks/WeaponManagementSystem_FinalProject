@@ -218,9 +218,16 @@ import model.root.UserTest;
             return;
         }
         
+        
         switch(UserRole.valueOf(person.getRole())){
             
-            case CUSTOMER: CustomerFrame.customerFrame = new CustomerFrame(dB4OUtility, operatingSystem,(Customer) person);
+            case CUSTOMER: Customer cust = (Customer) person;
+                           if(cust.approvalStatus==false){
+                               JOptionPane.showMessageDialog(null, "Invalid Age");
+                               break;
+                           }
+        
+                           CustomerFrame.customerFrame = new CustomerFrame(dB4OUtility, operatingSystem,(Customer) person);
                            CustomerFrame.customerFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
@@ -228,6 +235,7 @@ import model.root.UserTest;
                            RegionalManagerFrame.regFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
+<<<<<<< Updated upstream
             case REGULATOR_SYSADMIN: RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame(dB4OUtility, operatingSystem,(RegulatorAdmin) person);
                            RegulatorAdminFrame.regAdminFrame.setVisible(true);
                            loginFrame.setVisible(false);
@@ -236,6 +244,15 @@ import model.root.UserTest;
                            ManufacturerAdminFrame.manuAdminFrame .setVisible(true);
                            loginFrame.setVisible(false);
                            break;
+=======
+                           
+            case ACCOUNT_VERIFYER: Idchecker.idcheckFrame = new Idchecker(dB4OUtility, operatingSystem,(Person) person);
+                           Idchecker.idcheckFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;              
+                           
+                                
+>>>>>>> Stashed changes
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            
         }
