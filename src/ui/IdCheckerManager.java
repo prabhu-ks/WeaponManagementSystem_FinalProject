@@ -233,6 +233,7 @@ public class IdCheckerManager extends javax.swing.JPanel {
         
         idCheckCustNameText.setText(cust.getName());
         idCheckBirthText.setText(cust.getDob().toString());
+        selectedImagePath = cust.getSelectedImagePath();
         
         
         
