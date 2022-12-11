@@ -5,8 +5,11 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Person;
 import static ui.MainFrame.mainFrame;
-import static ui.StoreManager.storeFrame;
+import static ui.StoreManagerJFrame.storeFrame;
 
 /**
  *
@@ -15,12 +18,20 @@ import static ui.StoreManager.storeFrame;
 public class TesterFrame extends javax.swing.JFrame {
     
     public static JFrame testerFrame;
-
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    Person pat;
     /**
      * Creates new form TesterFrame
      */
-    public TesterFrame() {
+    public TesterFrame(){
+        
+    }
+    public TesterFrame(Db4oUtils dB4OUtility, OperatingSystem operatingSystem, Person pat) {
         initComponents();
+        this.operatingSystem = operatingSystem;
+        this.dB4OUtility = dB4OUtility;
+        this.pat = pat;
     }
 
     /**
@@ -144,7 +155,7 @@ public class TesterFrame extends javax.swing.JFrame {
 
     private void testerFrameWeaponTestingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testerFrameWeaponTestingButtonActionPerformed
         // TODO add your handling code here:
-        WeaponTestingPanel ordcr = new WeaponTestingPanel();
+        WeaponTestingPanel ordcr = new WeaponTestingPanel(dB4OUtility,operatingSystem);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_testerFrameWeaponTestingButtonActionPerformed
 

@@ -11,6 +11,7 @@ import model.dealer.Store;
 import model.dealer.Transaction;
 import model.regulator.Report;
 import model.root.Enterprise;
+import model.root.IdChecker;
 import model.root.Order;
 import model.root.Person;
 import model.root.UserTest;
@@ -38,6 +39,8 @@ public class OperatingSystem {
     private ArrayList<Enterprise> enterpriseDirectory;
 
     
+
+    
     public OperatingSystem(){
         System.out.println("in con");
         userTestDir = new ArrayList<UserTest>();
@@ -52,6 +55,7 @@ public class OperatingSystem {
         orderDirectory = new ArrayList<Order>();
         personDirectory = new ArrayList<Person>();
         enterpriseDirectory = new ArrayList<Enterprise>();
+       
         
     }
 
@@ -67,6 +71,10 @@ public class OperatingSystem {
         }
         return os;
      }
+
+    
+    
+    
 
     public ArrayList<Region> getRegionDirectory() {
         return regionDirectory;
@@ -232,5 +240,11 @@ public class OperatingSystem {
         weaponDirectory.remove(weapon);
     }
     
+    public void addReportToReportDirectory(Report report){
+        if(reportDirectory == null){
+            reportDirectory = new ArrayList<Report>();
+        }
+        reportDirectory.add(report);
+    }
     
 }
