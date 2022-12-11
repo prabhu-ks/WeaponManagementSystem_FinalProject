@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.Assembler;
 import model.root.Customer;
 import model.root.ManufacturerAdmin;
 import model.root.Person.UserRole;
@@ -234,6 +235,7 @@ import model.root.UserTest;
             case REGIONAL_MANAGER: RegionalManagerFrame.regFrame = new RegionalManagerFrame(dB4OUtility, operatingSystem,(RegionalManager) person);
                            RegionalManagerFrame.regFrame.setVisible(true);
                            loginFrame.setVisible(false);
+                           break;
 
             case REGULATOR_SYSADMIN: RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame(dB4OUtility, operatingSystem,(RegulatorAdmin) person);
                            RegulatorAdminFrame.regAdminFrame.setVisible(true);
@@ -243,10 +245,16 @@ import model.root.UserTest;
                            ManufacturerAdminFrame.manuAdminFrame .setVisible(true);
                            loginFrame.setVisible(false);
                            break;            
+                           
             case ACCOUNT_VERIFYER: Idchecker.idcheckFrame = new Idchecker(dB4OUtility, operatingSystem,(Person) person);
                            Idchecker.idcheckFrame.setVisible(true);
                            loginFrame.setVisible(false);
-                           break;                                        
+                                       
+                           break;
+            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Person) person);
+                           AssemblerFrame.assFrame.setVisible(true);
+                           loginFrame.setVisible(false);
+                           break;
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            
         }

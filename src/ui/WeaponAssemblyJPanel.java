@@ -5,21 +5,34 @@
 package ui;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Weapon;
 
 /**
  *
  * @author pho3nix28
  */
 public class WeaponAssemblyJPanel extends javax.swing.JPanel {
-
+    OperatingSystem os;
+    Db4oUtils db;
     /**
      * Creates new form WeaponAssemblyJPanel
      */
-    public WeaponAssemblyJPanel() {
+    public WeaponAssemblyJPanel(){
+        
+    }
+    public WeaponAssemblyJPanel(Db4oUtils db ,OperatingSystem os) {
         initComponents();
+        this.os = os;
+        this.db = db;
+        populateTable();
     }
 
     /**
@@ -31,10 +44,10 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        weaponAssNameButton = new javax.swing.JTextField();
+        weaponAssNameTxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        weaponAssQuantityButton = new javax.swing.JTextField();
+        weaponAssQuantityTxt = new javax.swing.JTextField();
         weaponAssCreateButton = new javax.swing.JButton();
         lblTitle1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -43,18 +56,19 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         weaponAssViewButton = new javax.swing.JButton();
         weaponAssTypeCombo = new javax.swing.JComboBox<>();
-        weaponAssNameCombo = new javax.swing.JComboBox<>();
+        weaponAssPriceTxt = new javax.swing.JTextField();
+        weaponAssUpdateButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
-        weaponAssNameButton.addFocusListener(new java.awt.event.FocusAdapter() {
+        weaponAssNameTxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                weaponAssNameButtonFocusLost(evt);
+                weaponAssNameTxtFocusLost(evt);
             }
         });
-        weaponAssNameButton.addKeyListener(new java.awt.event.KeyAdapter() {
+        weaponAssNameTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                weaponAssNameButtonKeyPressed(evt);
+                weaponAssNameTxtKeyPressed(evt);
             }
         });
 
@@ -66,14 +80,14 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Weapon Name:");
 
-        weaponAssQuantityButton.addActionListener(new java.awt.event.ActionListener() {
+        weaponAssQuantityTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weaponAssQuantityButtonActionPerformed(evt);
+                weaponAssQuantityTxtActionPerformed(evt);
             }
         });
-        weaponAssQuantityButton.addKeyListener(new java.awt.event.KeyAdapter() {
+        weaponAssQuantityTxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                weaponAssQuantityButtonKeyPressed(evt);
+                weaponAssQuantityTxtKeyPressed(evt);
             }
         });
 
@@ -81,6 +95,11 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
         weaponAssCreateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         weaponAssCreateButton.setForeground(new java.awt.Color(255, 255, 255));
         weaponAssCreateButton.setText("Create");
+        weaponAssCreateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponAssCreateButtonActionPerformed(evt);
+            }
+        });
 
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
@@ -107,7 +126,7 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Weapon Name:");
+        jLabel6.setText("Price");
 
         weaponAssViewButton.setBackground(new java.awt.Color(126, 87, 194));
         weaponAssViewButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -119,14 +138,33 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
             }
         });
 
-        weaponAssTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        weaponAssTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pistol", "SMG", "Assault Rifle", "Launchers" }));
         weaponAssTypeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weaponAssTypeComboActionPerformed(evt);
             }
         });
 
-        weaponAssNameCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        weaponAssPriceTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponAssPriceTxtActionPerformed(evt);
+            }
+        });
+        weaponAssPriceTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                weaponAssPriceTxtKeyPressed(evt);
+            }
+        });
+
+        weaponAssUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        weaponAssUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        weaponAssUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        weaponAssUpdateButton.setText("Update");
+        weaponAssUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                weaponAssUpdateButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -138,6 +176,10 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
                     .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(314, Short.MAX_VALUE)
+                .addComponent(weaponAssViewButton)
+                .addGap(308, 308, 308))
             .addGroup(layout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -146,21 +188,17 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(weaponAssNameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(weaponAssQuantityButton, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(weaponAssTypeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(weaponAssNameCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(311, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(weaponAssViewButton)
-                        .addGap(308, 308, 308))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(weaponAssCreateButton)
-                        .addGap(304, 304, 304))))
+                        .addGap(18, 18, 18)
+                        .addComponent(weaponAssUpdateButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(weaponAssNameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                        .addComponent(weaponAssQuantityTxt, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(weaponAssTypeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(weaponAssPriceTxt, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,11 +211,11 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
                 .addComponent(weaponAssViewButton)
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(weaponAssNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(weaponAssNameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(weaponAssQuantityButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(weaponAssQuantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -186,63 +224,152 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(weaponAssNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(weaponAssCreateButton)
-                .addContainerGap(334, Short.MAX_VALUE))
+                    .addComponent(weaponAssPriceTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(weaponAssCreateButton)
+                    .addComponent(weaponAssUpdateButton))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void weaponAssNameButtonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponAssNameButtonFocusLost
+    private void weaponAssNameTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponAssNameTxtFocusLost
         // TODO add your handling code here:
 
         Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(weaponAssNameButton.getText());
+        Matcher m = p.matcher(weaponAssNameTxt.getText());
         // boolean b = m.matches();
         boolean b = m.find();
         if (b){
             JOptionPane.showMessageDialog(null,"Special Characters are not allowed.");
-            weaponAssNameButton.setText("");
+            weaponAssNameTxt.setText("");
         }
-    }//GEN-LAST:event_weaponAssNameButtonFocusLost
+    }//GEN-LAST:event_weaponAssNameTxtFocusLost
 
-    private void weaponAssNameButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponAssNameButtonKeyPressed
+    private void weaponAssNameTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponAssNameTxtKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_weaponAssNameButtonKeyPressed
+    }//GEN-LAST:event_weaponAssNameTxtKeyPressed
 
-    private void weaponAssQuantityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssQuantityButtonActionPerformed
+    private void weaponAssQuantityTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssQuantityTxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_weaponAssQuantityButtonActionPerformed
+    }//GEN-LAST:event_weaponAssQuantityTxtActionPerformed
 
-    private void weaponAssQuantityButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponAssQuantityButtonKeyPressed
+    private void weaponAssQuantityTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponAssQuantityTxtKeyPressed
         // TODO add your handling code here:
 
-        String phoneNumber = weaponAssQuantityButton.getText();
+        String phoneNumber = weaponAssQuantityTxt.getText();
         int lengthOfNumber = phoneNumber.length();
         char checkChar = evt.getKeyChar();
         if (checkChar >= '0' && checkChar <= '9') {
             if (lengthOfNumber < 10) {
-                weaponAssQuantityButton.setEditable(true);
+                weaponAssQuantityTxt.setEditable(true);
             } else {
-                weaponAssQuantityButton.setEditable(false);
+                weaponAssQuantityTxt.setEditable(false);
                 JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
             }
         } else {
             if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
-                weaponAssQuantityButton.setEditable(true);
+                weaponAssQuantityTxt.setEditable(true);
             } else {
-                weaponAssQuantityButton.setEditable(false);
+                weaponAssQuantityTxt.setEditable(false);
             }
         }
-    }//GEN-LAST:event_weaponAssQuantityButtonKeyPressed
+    }//GEN-LAST:event_weaponAssQuantityTxtKeyPressed
 
     private void weaponAssViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssViewButtonActionPerformed
         // TODO add your handling code here:
+        int selected = weaponAssTable.getSelectedRow();
+        List<Weapon> weapon = os.getWeaponDirectory();
+        Weapon w = weapon.get(selected);
+        
+        weaponAssNameTxt.setText(w.getName());
+        weaponAssQuantityTxt.setText(String.valueOf(w.getQuantity()));
+        weaponAssTypeCombo.setSelectedItem(String.valueOf(w.getType()));
+        weaponAssPriceTxt.setText(String.valueOf(w.getPrice()));
     }//GEN-LAST:event_weaponAssViewButtonActionPerformed
 
     private void weaponAssTypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssTypeComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_weaponAssTypeComboActionPerformed
+
+    private void weaponAssPriceTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssPriceTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weaponAssPriceTxtActionPerformed
+
+    private void weaponAssPriceTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponAssPriceTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weaponAssPriceTxtKeyPressed
+
+    private void weaponAssCreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssCreateButtonActionPerformed
+        // TODO add your handling code here:
+        String weaponName = weaponAssNameTxt.getText();
+        String weaponQuantity = weaponAssQuantityTxt.getText();
+        String weaponPrice = weaponAssPriceTxt.getText();
+        String type = weaponAssTypeCombo.getSelectedItem().toString();
+        if(type.equals("Pistol")){
+            
+            Weapon weapon = new Weapon(weaponName, UUID.randomUUID().toString(), null, "Pistol", Long.valueOf(weaponPrice), false, Integer.valueOf(weaponQuantity));
+            os.addWeaponToWeaponDirectory(weapon);
+            db.storeSystem(os);
+            OperatingSystem os= db.retrieveSystem();
+            
+        }
+        if(type.equals( "SMG")){
+            
+            Weapon weapon = new Weapon(weaponName, UUID.randomUUID().toString(), null, "SMG", Long.valueOf(weaponPrice), false, Integer.valueOf(weaponQuantity));
+            os.addWeaponToWeaponDirectory(weapon);
+            db.storeSystem(os);
+            OperatingSystem os= db.retrieveSystem();
+            
+        }
+        if(type.equals( "Assault Rifle" )){
+            
+            Weapon weapon = new Weapon(weaponName, UUID.randomUUID().toString(), null, "Assault Rifle", Long.valueOf(weaponPrice), false, Integer.valueOf(weaponQuantity));
+            os.addWeaponToWeaponDirectory(weapon);
+            db.storeSystem(os);
+            OperatingSystem os= db.retrieveSystem();
+            
+        }
+        if(type.equals( "Launcher" )){
+            
+            Weapon weapon = new Weapon(weaponName, UUID.randomUUID().toString(), null, "Launcher", Long.valueOf(weaponPrice), false, Integer.valueOf(weaponQuantity));
+            os.addWeaponToWeaponDirectory(weapon);
+            db.storeSystem(os);
+            OperatingSystem os= db.retrieveSystem();
+            
+        }
+        
+        JOptionPane.showMessageDialog(this, "Data Created");
+        populateTable();
+        weaponAssNameTxt.setText("");
+        weaponAssQuantityTxt.setText("");
+        weaponAssPriceTxt.setText("");
+    }//GEN-LAST:event_weaponAssCreateButtonActionPerformed
+
+    private void weaponAssUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponAssUpdateButtonActionPerformed
+        // TODO add your handling code here:
+        int selected = weaponAssTable.getSelectedRow();
+        List<Weapon> weapon = os.getWeaponDirectory();
+
+        String weaponName = weaponAssNameTxt.getText();
+        String weaponQuantity = weaponAssQuantityTxt.getText();
+        String weaponPrice = weaponAssPriceTxt.getText();
+        String type = weaponAssTypeCombo.getSelectedItem().toString();
+        
+        Weapon w = weapon.get(selected);
+        
+        w.setName(weaponName);
+        w.setQuantity(Integer.valueOf(weaponQuantity));
+        w.setPrice(Long.valueOf(weaponPrice));
+        w.setType(type);
+        
+        db.storeSystem(os);
+        populateTable();
+        JOptionPane.showMessageDialog(this, "Data Updated");
+        weaponAssNameTxt.setText("");
+        weaponAssQuantityTxt.setText("");
+        weaponAssPriceTxt.setText("");
+    }//GEN-LAST:event_weaponAssUpdateButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -253,11 +380,35 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JButton weaponAssCreateButton;
-    private javax.swing.JTextField weaponAssNameButton;
-    private javax.swing.JComboBox<String> weaponAssNameCombo;
-    private javax.swing.JTextField weaponAssQuantityButton;
+    private javax.swing.JTextField weaponAssNameTxt;
+    private javax.swing.JTextField weaponAssPriceTxt;
+    private javax.swing.JTextField weaponAssQuantityTxt;
     private javax.swing.JTable weaponAssTable;
     private javax.swing.JComboBox<String> weaponAssTypeCombo;
+    private javax.swing.JButton weaponAssUpdateButton;
     private javax.swing.JButton weaponAssViewButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) weaponAssTable.getModel();
+        model.setRowCount(0);
+        List<Weapon> weapons = os.getWeaponDirectory();
+         
+        for (Weapon weapon : weapons){
+
+            Object[] row =  new Object[8];
+            row[0] = weapon.getWeaponId();
+            row[1] = weapon.getName();
+            row[2] = weapon.getType();
+            row[3] = weapon.getPrice();
+            row[4] = weapon.getReportId();
+
+            model.addRow(row);
+
+
+        }
+        
+    }
+    
 }

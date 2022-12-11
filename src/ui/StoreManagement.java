@@ -5,14 +5,19 @@
 package ui;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.dealer.Inventory;
 import model.dealer.Store;
+import model.root.Person;
+import model.root.Weapon;
 
 /**
  *
@@ -130,6 +135,11 @@ public class StoreManagement extends javax.swing.JPanel {
         storeManCreateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         storeManCreateButton.setForeground(new java.awt.Color(255, 255, 255));
         storeManCreateButton.setText("Create");
+        storeManCreateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                storeManCreateButtonActionPerformed(evt);
+            }
+        });
 
         storeManViewButton.setBackground(new java.awt.Color(126, 87, 194));
         storeManViewButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
@@ -292,19 +302,93 @@ public class StoreManagement extends javax.swing.JPanel {
 
     private void storeManViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManViewButtonActionPerformed
         // TODO add your handling code here:
+         int selected = storeManStoreTable.getSelectedRow();
+        List<Store> stores = operatingSystem.getStoreDirectory();
+        Store st = stores.get(selected);
+        
+        storeManNameText.setText(st.getName());
+        storeManEmailText.setText(st.getEmail());
+        storeManNumberText.setText(String.valueOf(st.getPhoneNumber()));
+        storeManAddressText.setText(st.getAddress());
     }//GEN-LAST:event_storeManViewButtonActionPerformed
 
     private void storeManDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManDeleteButtonActionPerformed
         // TODO add your handling code here:
+        
+        int selected = storeManStoreTable.getSelectedRow();
+        List<Store> stores = operatingSystem.getStoreDirectory();
+        Store st = stores.get(selected);
+        operatingSystem.deleteStoreFromStoreDirectory(st);
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        JOptionPane.showMessageDialog(this, "Data Deleted");
+        populateTable();
+        
+        
     }//GEN-LAST:event_storeManDeleteButtonActionPerformed
 
     private void storeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManUpdateButtonActionPerformed
         // TODO add your handling code here:
+        
+        int selected = storeManStoreTable.getSelectedRow();
+        List<Store> stores = operatingSystem.getStoreDirectory();
+        Store st = stores.get(selected);
+        
+        String Name = storeManNameText.getText();
+        String email = storeManEmailText.getText();
+        long phone = Long.parseLong(storeManNumberText.getText());
+        String add = storeManAddressText.getText();
+        
+        st.setName(Name);
+        st.setEmail(email);
+        st.setAddress(add);
+        st.setPhoneNumber(phone);
+        
+        
+        
+        dB4OUtility.storeSystem(operatingSystem);
+        populateTable();
+         JOptionPane.showMessageDialog(this, "Data Updated");
+        
+        storeManNameText.setText("");
+        storeManEmailText.setText("");
+        storeManNumberText.setText("");
+        storeManAddressText.setText("");
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_storeManUpdateButtonActionPerformed
 
     private void storeManNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManNameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_storeManNameTextActionPerformed
+
+    private void storeManCreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManCreateButtonActionPerformed
+        // TODO add your handling code here:
+        String Name = storeManNameText.getText();
+        String email = storeManEmailText.getText();
+        long phone = Long.parseLong(storeManNumberText.getText());
+        String add = storeManAddressText.getText();
+        String uuid = UUID.randomUUID().toString();
+        
+        Store store = new Store(uuid , Name,new Inventory(0, 0,  0, new ArrayList<Weapon>()),phone,email,add);
+        operatingSystem.addStoreToStoreDirectory(store);
+        dB4OUtility.storeSystem(operatingSystem);
+        OperatingSystem os= dB4OUtility.retrieveSystem();
+        
+        JOptionPane.showMessageDialog(this, "Data Created");
+        populateTable();
+        
+        storeManNameText.setText("");
+        storeManEmailText.setText("");
+        storeManNumberText.setText("");
+        storeManAddressText.setText("");
+       
+        
+    }//GEN-LAST:event_storeManCreateButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
