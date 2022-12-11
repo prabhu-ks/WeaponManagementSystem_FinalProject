@@ -8,13 +8,15 @@ package model.backend;
 import java.util.ArrayList;
 import model.dealer.Region;
 import model.dealer.Store;
+import model.dealer.StoreOrder;
+import model.dealer.DealerOrder;
 import model.dealer.Transaction;
 import model.regulator.Report;
 import model.root.Enterprise;
+import model.root.Order;
 import model.root.Person;
 import model.root.UserTest;
 import model.root.Weapon;
-import model.supplier.Order;
 import model.supplier.Shipping;
 
 /**
@@ -28,9 +30,8 @@ public class OperatingSystem {
     private ArrayList<Weapon> weaponDirectory;
     private ArrayList<Store> storeDirectory;
     private ArrayList<Report> reportDirectory;
-    private ArrayList<Order> orderDirectory;
-    private ArrayList<Transaction> storeOrderDirectory;
-    private ArrayList<Transaction> dealerOrderDirectory;
+    private ArrayList<StoreOrder> storeOrderDirectory;
+    private ArrayList<DealerOrder> dealerOrderDirectory;
     private ArrayList<Shipping> supplierOrderDirectory;
     private ArrayList<Order> manufacturerOrderDirectory;
     private ArrayList<UserTest> userTestDir;
@@ -45,9 +46,8 @@ public class OperatingSystem {
         weaponDirectory = new ArrayList<Weapon>();
         storeDirectory = new ArrayList<Store>();
         reportDirectory = new ArrayList<Report>();
-        orderDirectory = new ArrayList<Order>();
-        storeOrderDirectory = new ArrayList<Transaction>();
-        dealerOrderDirectory = new ArrayList<Transaction>();
+        storeOrderDirectory = new ArrayList<StoreOrder>();
+        dealerOrderDirectory = new ArrayList<DealerOrder>();
         supplierOrderDirectory = new ArrayList<Shipping>();
         manufacturerOrderDirectory = new ArrayList<Order>();
         personDirectory = new ArrayList<Person>();
@@ -57,7 +57,7 @@ public class OperatingSystem {
 
     @Override
     public String toString() {
-        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", orderDirectory=" + orderDirectory + ", storeOrderDirectory=" + storeOrderDirectory + ", dealerOrderDirectory=" + dealerOrderDirectory + ", supplierOrderDirectory=" + supplierOrderDirectory + ", manufacturerOrderDirectory=" + manufacturerOrderDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
+        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", storeOrderDirectory=" + storeOrderDirectory + ", dealerOrderDirectory=" + dealerOrderDirectory + ", supplierOrderDirectory=" + supplierOrderDirectory + ", manufacturerOrderDirectory=" + manufacturerOrderDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
     }
 
     
@@ -110,30 +110,41 @@ public class OperatingSystem {
         this.reportDirectory = reportDirectory;
     }
 
-    public ArrayList<Order> getOrderDirectory() {
-        return orderDirectory;
-    }
-
-    public void setOrderDirectory(ArrayList<Order> orderDirectory) {
-        this.orderDirectory = orderDirectory;
-    }
-
-    public ArrayList<Transaction> getStoreOrderDirectory() {
+    public ArrayList<StoreOrder> getStoreOrderDirectory() {
         return storeOrderDirectory;
     }
 
-    public void setStoreOrderDirectory(ArrayList<Transaction> storeOrderDirectory) {
+    public void setStoreOrderDirectory(ArrayList<StoreOrder> storeOrderDirectory) {
         this.storeOrderDirectory = storeOrderDirectory;
     }
+    
+    public void addStoreOrderToDirectory(StoreOrder storeOrder){
+        if(storeOrderDirectory == null)
+            storeOrderDirectory = new ArrayList<StoreOrder>();
+        storeOrderDirectory.add(storeOrder);
+    }
+    
+    public void deleteStoreFromDirectory(StoreOrder storeOrder){
+        storeOrderDirectory.remove(storeOrder);
+    }
 
-    public ArrayList<Transaction> getDealerOrderDirectory() {
+    public ArrayList<DealerOrder> getDealerOrderDirectory() {
         return dealerOrderDirectory;
     }
 
-    public void setDealerOrderDirectory(ArrayList<Transaction> dealerOrderDirectory) {
+    public void setDealerOrderDirectory(ArrayList<DealerOrder> dealerOrderDirectory) {
         this.dealerOrderDirectory = dealerOrderDirectory;
     }
-
+    
+    public void addDealerOrderToDirectory(DealerOrder dealerOrder){
+        if(dealerOrderDirectory == null)
+            dealerOrderDirectory = new ArrayList<DealerOrder>();
+        dealerOrderDirectory.add(dealerOrder);
+    }
+    
+    public void deleteDealerOrderFromDirectory(DealerOrder dealerOrder){
+        dealerOrderDirectory.remove(dealerOrder);
+    }
     public ArrayList<Shipping> getSupplierOrderDirectory() {
         return supplierOrderDirectory;
     }
@@ -141,7 +152,7 @@ public class OperatingSystem {
     public void setSupplierOrderDirectory(ArrayList<Shipping> supplierOrderDirectory) {
         this.supplierOrderDirectory = supplierOrderDirectory;
     }
-
+    
     public ArrayList<Order> getManufacturerOrderDirectory() {
         return manufacturerOrderDirectory;
     }
