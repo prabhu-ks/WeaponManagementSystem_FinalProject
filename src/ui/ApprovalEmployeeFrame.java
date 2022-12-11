@@ -7,31 +7,30 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.root.Person;
+import model.root.ApprovalEmployee;
 import static ui.MainFrame.mainFrame;
-import static ui.StoreManagerJFrame.storeFrame;
 
 /**
  *
  * @author pho3nix28
  */
-public class TesterFrame extends javax.swing.JFrame {
+public class ApprovalEmployeeFrame extends javax.swing.JFrame {
     
-    public static JFrame testerFrame;
-    OperatingSystem operatingSystem;
-    Db4oUtils dB4OUtility;
-    Person pat;
+    public static JFrame apprEmpFrame;
+    OperatingSystem os;
+    Db4oUtils db;
+    ApprovalEmployee ae;
     /**
-     * Creates new form TesterFrame
+     * Creates new form ApprovalManager
      */
-    public TesterFrame(){
+    public ApprovalEmployeeFrame(){
         
     }
-    public TesterFrame(Db4oUtils dB4OUtility, OperatingSystem operatingSystem, Person pat) {
+    public ApprovalEmployeeFrame(Db4oUtils db ,OperatingSystem os, ApprovalEmployee ae) {
         initComponents();
-        this.operatingSystem = operatingSystem;
-        this.dB4OUtility = dB4OUtility;
-        this.pat = pat;
+        this.os = os;
+        this.db = db;
+        this.ae= ae;
     }
 
     /**
@@ -45,8 +44,8 @@ public class TesterFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        testerFrameLogoutButton = new javax.swing.JButton();
-        testerFrameWeaponTestingButton = new javax.swing.JButton();
+        appManLogoutButton = new javax.swing.JButton();
+        appManWeaponApprovalButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -55,23 +54,23 @@ public class TesterFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(32, 33, 35));
 
-        testerFrameLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
-        testerFrameLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        testerFrameLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
-        testerFrameLogoutButton.setText("Logout");
-        testerFrameLogoutButton.addActionListener(new java.awt.event.ActionListener() {
+        appManLogoutButton.setBackground(new java.awt.Color(126, 87, 194));
+        appManLogoutButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        appManLogoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        appManLogoutButton.setText("Logout");
+        appManLogoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testerFrameLogoutButtonActionPerformed(evt);
+                appManLogoutButtonActionPerformed(evt);
             }
         });
 
-        testerFrameWeaponTestingButton.setBackground(new java.awt.Color(126, 87, 194));
-        testerFrameWeaponTestingButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        testerFrameWeaponTestingButton.setForeground(new java.awt.Color(255, 255, 255));
-        testerFrameWeaponTestingButton.setText("WEAPON TESTING");
-        testerFrameWeaponTestingButton.addActionListener(new java.awt.event.ActionListener() {
+        appManWeaponApprovalButton.setBackground(new java.awt.Color(126, 87, 194));
+        appManWeaponApprovalButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        appManWeaponApprovalButton.setForeground(new java.awt.Color(255, 255, 255));
+        appManWeaponApprovalButton.setText("Weapon Approval Status");
+        appManWeaponApprovalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testerFrameWeaponTestingButtonActionPerformed(evt);
+                appManWeaponApprovalButtonActionPerformed(evt);
             }
         });
 
@@ -82,18 +81,18 @@ public class TesterFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(testerFrameWeaponTestingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(testerFrameLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(appManWeaponApprovalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(appManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(282, 282, 282)
-                .addComponent(testerFrameWeaponTestingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(appManWeaponApprovalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51)
-                .addComponent(testerFrameLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(appManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel2);
@@ -108,7 +107,7 @@ public class TesterFrame extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Tester Dashboard");
+        lblTitle1.setText("Approval Employee Dashboard");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -117,8 +116,8 @@ public class TesterFrame extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+                    .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -137,7 +136,7 @@ public class TesterFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,17 +146,17 @@ public class TesterFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void testerFrameLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testerFrameLogoutButtonActionPerformed
+    private void appManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManLogoutButtonActionPerformed
         // TODO add your handling code here:
-        TesterFrame.testerFrame.setVisible(false);
+        ApprovalEmployeeFrame.apprEmpFrame.setVisible(false);
         mainFrame.setVisible(true);
-    }//GEN-LAST:event_testerFrameLogoutButtonActionPerformed
+    }//GEN-LAST:event_appManLogoutButtonActionPerformed
 
-    private void testerFrameWeaponTestingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testerFrameWeaponTestingButtonActionPerformed
+    private void appManWeaponApprovalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appManWeaponApprovalButtonActionPerformed
         // TODO add your handling code here:
-        WeaponTestingPanel ordcr = new WeaponTestingPanel(dB4OUtility,operatingSystem);
+        StatusWeaponApprovalJPanel1 ordcr = new StatusWeaponApprovalJPanel1(os,db);
         splitPane.setRightComponent(ordcr);
-    }//GEN-LAST:event_testerFrameWeaponTestingButtonActionPerformed
+    }//GEN-LAST:event_appManWeaponApprovalButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,35 +175,42 @@ public class TesterFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TesterFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ApprovalEmployeeFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                if(testerFrame == null){
-                    testerFrame = new TesterFrame();
+                if(apprEmpFrame == null){
+                    apprEmpFrame = new ApprovalEmployeeFrame();
                 }
                 
-                testerFrame.setVisible(true);
+                apprEmpFrame.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton appManLogoutButton;
+    private javax.swing.JButton appManWeaponApprovalButton;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JSplitPane splitPane;
-    private javax.swing.JButton testerFrameLogoutButton;
-    private javax.swing.JButton testerFrameWeaponTestingButton;
     // End of variables declaration//GEN-END:variables
 }

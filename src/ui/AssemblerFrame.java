@@ -21,7 +21,7 @@ public class AssemblerFrame extends javax.swing.JFrame {
     public static JFrame assFrame;
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
-    Person pat;
+    Assembler assembler;
     /**
      * Creates new form AssemblerFrame
      */
@@ -29,11 +29,11 @@ public class AssemblerFrame extends javax.swing.JFrame {
         
     }
     
-    public AssemblerFrame(Db4oUtils db ,OperatingSystem os, Person pat) {
+    public AssemblerFrame(Db4oUtils db ,OperatingSystem os, Assembler ass) {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
-        this.pat = pat;
+        this.assembler = ass;
     }
 
     /**
