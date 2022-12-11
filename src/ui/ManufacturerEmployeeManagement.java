@@ -14,6 +14,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.ApprovalEmployee;
+import model.root.Assembler;
+import model.root.Enterprise.EnterpriseType;
+import model.root.FulfillmentOfficer;
 import model.root.Person;
 import model.root.Person.UserRole;
 
@@ -547,8 +551,11 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         String uuid = UUID.randomUUID().toString();
         String role = manEmpRoleCombo.getSelectedItem().toString();
         if(role.equals("APPROVAL AFFAIRS OFFICER")){
-            
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_EMPLOYEE.name());
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            Person person = new ApprovalEmployee(dealerId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_EMPLOYEE.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
@@ -556,7 +563,11 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         }
         if(role.equals("ASSEMBLER")){
             
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ASSEMBLER.name());
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            Person person = new Assembler(dealerId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.ASSEMBLER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
@@ -564,7 +575,11 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         }
         if(role.equals( "FULFILLMENT OFFICER")){
             
-            Person person = new Person(ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.FULFILMENT_OFFICER.name());
+            String dealerId = operatingSystem.getEnterpriseDirectory().stream()
+                    .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.MANUFACTURER))
+                    .findFirst()
+                    .orElse(null).getEnterpriseId();
+            Person person = new FulfillmentOfficer(dealerId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.FULFILMENT_OFFICER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
