@@ -5,7 +5,7 @@
 package ui;
 
 import javax.swing.JFrame;
-import static ui.Idchecker.idcheckFrame;
+import static ui.IdCheckerJFrame.idcheckFrame;
 import static ui.MainFrame.mainFrame;
 
 /**

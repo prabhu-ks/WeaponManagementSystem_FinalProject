@@ -5,6 +5,9 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.StoreManager;
 import static ui.ApprovalManager.apprFrame;
 import static ui.MainFrame.mainFrame;
 
@@ -12,15 +15,24 @@ import static ui.MainFrame.mainFrame;
  *
  * @author pho3nix28
  */
-public class StoreManager extends javax.swing.JFrame {
+public class StoreManagerJFrame extends javax.swing.JFrame {
     
     public static JFrame storeFrame;
+    private OperatingSystem operatingSystem;
+    private Db4oUtils dB4OUtility; 
+    private StoreManager storeManager;
 
     /**
      * Creates new form StoreManager
      */
-    public StoreManager() {
+    public StoreManagerJFrame(){
+        
+    }
+    public StoreManagerJFrame(Db4oUtils db ,OperatingSystem os, StoreManager storeManager) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.storeManager = storeManager;
     }
 
     /**
@@ -152,7 +164,7 @@ public class StoreManager extends javax.swing.JFrame {
 
     private void storeManLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManLogoutButtonActionPerformed
         // TODO add your handling code here:
-        StoreManager.storeFrame.setVisible(false);
+        StoreManagerJFrame.storeFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_storeManLogoutButtonActionPerformed
 
@@ -164,6 +176,8 @@ public class StoreManager extends javax.swing.JFrame {
 
     private void orderManagementButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManagementButtonActionPerformed
         // TODO add your handling code here:
+        OrderManagementStoreManagerPanel orderManagementStoreManagerPanel = new OrderManagementStoreManagerPanel(dB4OUtility, operatingSystem, storeManager);
+        splitPane.setRightComponent(orderManagementStoreManagerPanel);
     }//GEN-LAST:event_orderManagementButtonActionPerformed
 
     /**
@@ -183,21 +197,22 @@ public class StoreManager extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StoreManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StoreManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StoreManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StoreManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StoreManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 if(storeFrame == null){
-                    storeFrame = new StoreManager();
+                    storeFrame = new StoreManagerJFrame();
                 }
                 
                 storeFrame.setVisible(true);

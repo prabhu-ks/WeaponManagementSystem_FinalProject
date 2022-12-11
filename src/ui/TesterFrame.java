@@ -6,7 +6,7 @@ package ui;
 
 import javax.swing.JFrame;
 import static ui.MainFrame.mainFrame;
-import static ui.StoreManager.storeFrame;
+import static ui.StoreManagerJFrame.storeFrame;
 
 /**
  *
