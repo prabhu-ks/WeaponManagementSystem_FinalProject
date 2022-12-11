@@ -7,6 +7,7 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.IdChecker;
 import model.root.Person;
 import model.root.RegionalManager;
 import static ui.LoginFrame.loginFrame;
@@ -16,25 +17,25 @@ import static ui.MainFrame.mainFrame;
  *
  * @author pho3nix28
  */
-public class Idchecker extends javax.swing.JFrame {
+public class IdCheckerJFrame extends javax.swing.JFrame {
     
     public static JFrame idcheckFrame;
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
-    Person id;
+    IdChecker idChecker;
 
     /**
      * Creates new form Idchecker
      */
-    public Idchecker() {
+    public IdCheckerJFrame() {
   
     }
     
-    public Idchecker(Db4oUtils db ,OperatingSystem os, Person id) {
+    public IdCheckerJFrame(Db4oUtils db ,OperatingSystem os, IdChecker id) {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
-        this.id = id;
+        this.idChecker = id;
     }
 
     /**
@@ -152,7 +153,7 @@ public class Idchecker extends javax.swing.JFrame {
 
     private void idCheckLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCheckLogoutButtonActionPerformed
         // TODO add your handling code here:
-        Idchecker.idcheckFrame.setVisible(false);
+        IdCheckerJFrame.idcheckFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_idCheckLogoutButtonActionPerformed
 
@@ -179,21 +180,22 @@ public class Idchecker extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdCheckerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdCheckerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdCheckerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Idchecker.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IdCheckerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 if(idcheckFrame == null){
-                    idcheckFrame = new Idchecker();
+                    idcheckFrame = new IdCheckerJFrame();
                 }
                 
                 idcheckFrame.setVisible(true);

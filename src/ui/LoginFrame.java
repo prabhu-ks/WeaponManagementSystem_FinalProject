@@ -18,11 +18,13 @@ import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.Assembler;
 import model.root.Customer;
+import model.root.IdChecker;
 import model.root.ManufacturerAdmin;
 import model.root.Person.UserRole;
 import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
 import model.root.RegulatorAdmin;
+import model.root.StoreManager;
 import model.root.UserTest;
         
  public class LoginFrame extends javax.swing.JFrame {
@@ -246,15 +248,21 @@ import model.root.UserTest;
                            loginFrame.setVisible(false);
                            break;            
                            
-            case ACCOUNT_VERIFYER: Idchecker.idcheckFrame = new Idchecker(dB4OUtility, operatingSystem,(Person) person);
-                           Idchecker.idcheckFrame.setVisible(true);
+            case ACCOUNT_VERIFYER: IdCheckerJFrame.idcheckFrame = new IdCheckerJFrame(dB4OUtility, operatingSystem,(IdChecker) person);
+                           IdCheckerJFrame.idcheckFrame.setVisible(true);
                            loginFrame.setVisible(false);
                                        
                            break;
-            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Person) person);
+            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Assembler) person);
                            AssemblerFrame.assFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
+            
+            case STORE_MANAGER: StoreManagerJFrame.storeFrame = new StoreManagerJFrame(dB4OUtility, operatingSystem, (StoreManager) person);
+                                StoreManagerJFrame.storeFrame.setVisible(true);
+                                loginFrame.setVisible(false);
+                                break;
+                                
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            
         }
