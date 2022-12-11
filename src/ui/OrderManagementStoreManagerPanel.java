@@ -5,13 +5,18 @@
 package ui;
 
 import java.util.List;
+import java.util.UUID;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.dealer.Inventory;
 import model.dealer.Store;
 import model.root.Order;
 import model.root.Order.OrderStatus;
 import model.root.Weapon;
+import model.root.StoreManager;
+
 
 /**
  *
@@ -22,15 +27,20 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
     private List<Weapon> weaponsList;
+    private List<Order> ordersList;
+    StoreManager storeManager;
     /**
      * Creates new form OrderManagementStoreManagerPanel
      */
-    public OrderManagementStoreManagerPanel(Db4oUtils db ,OperatingSystem os) {
+    public OrderManagementStoreManagerPanel(Db4oUtils db ,OperatingSystem os, StoreManager storeManager) {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
         populateWeapons();
         weaponsList = operatingSystem.getWeaponDirectory();
+        storeManager = storeManager;
+        populateOrders();
+        populateOrdersTable();
     }
 
     /**
@@ -64,12 +74,18 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
                 "Order ID", "Order Status", "Weapon ID", "Weapon Name", "Quantity"
             }
         ));
+        orderManOrderTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderManOrderTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(orderManOrderTable);
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -184,13 +200,53 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
 
     private void addToInventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToInventoryButtonActionPerformed
         // TODO add your handling code here:
-        
+        int selectedRow = orderManOrderTable.getSelectedRow();
+        Order order = ordersList.get(selectedRow);
+        if(OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.DELIVERED) == false){
+            JOptionPane.showMessageDialog(weaponComboBox, "Order has not yet been delivered");
+            return;
+        }
+        Weapon weapon = weaponsList.stream().filter(w -> w.getWeaponId().equals(order.getWeaponID())).findFirst().orElse(null);
+        Store store = operatingSystem.getStoreDirectory().stream()
+                .filter(s -> s.getId().equals(storeManager.getManagingStoreId()))
+                .findFirst().orElse(null);
+        Inventory inventory = store.getInventory();
+        if(inventory.getWeaponsList().containsKey(weapon))
+           inventory.getWeaponsList().put(weapon, inventory.getWeaponsList().get(weapon)+order.getQuantity());
+        else
+            inventory.getWeaponsList().put(weapon, order.getQuantity());
+        inventory.setFilled(inventory.getFilled()+order.getQuantity());
+        inventory.setAvailable(inventory.getCapacity()-inventory.getFilled());
+        addToInventoryButton.setEnabled(false);
     }//GEN-LAST:event_addToInventoryButtonActionPerformed
 
     private void createOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createOrderButtonActionPerformed
         // TODO add your handling code here:
+        String selectedWeaponName = (String)weaponComboBox.getSelectedItem();
+        if(selectedWeaponName == null){
+            JOptionPane.showMessageDialog(weaponComboBox, "Please eelect a weapon");
+            return;
+        }
+        String weaponId = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null).getWeaponId();
+        int quantity = Integer.parseInt(quantityTxt.getText());
+        
+        Order order = new Order(UUID.randomUUID().toString(), storeManager.getManagingStoreId(), null, null, null,weaponId, quantity, OrderStatus.REQUESTED.name());
+        
+        operatingSystem.getOrderDirectory().add(order);
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        weaponComboBox.setSelectedIndex(-1);
+        quantityTxt.setText("");
+        populateOrdersTable();
         
     }//GEN-LAST:event_createOrderButtonActionPerformed
+
+    private void orderManOrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderManOrderTableMouseClicked
+        // TODO add your handling code here:
+        if(orderManOrderTable.getSelectedRow()!= -1){
+            addToInventoryButton.setEnabled(true);
+        }
+    }//GEN-LAST:event_orderManOrderTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -210,15 +266,20 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         
     }
     
+    private void populateOrders(){
+        ordersList = operatingSystem.getOrderDirectory().stream()
+                .filter(order -> order.getStoreId().equals(storeManager.getManagingStoreId()))
+                .toList();
+    }
+    
     private void populateOrdersTable(){
         DefaultTableModel model = (DefaultTableModel) orderManOrderTable.getModel();
         model.setRowCount(0);
-        List<Order> orders = operatingSystem.getOrderDirectory().stream()
-                            .filter(order -> OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.REQUESTED)
-                                    || OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.DELIVERED)
-                            ).toList();
+        ordersList = operatingSystem.getOrderDirectory().stream()
+                            .filter(order -> order.getStoreId().equals(storeManager.getManagingStoreId()))
+                            .toList();
          
-        for (Order order : orders){
+        for (Order order : ordersList){
 
             Object[] row =  new Object[8];
             row[0] = order.getOrderId();
