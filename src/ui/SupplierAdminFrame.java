@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.ManufacturerAdmin;
+import model.root.SupplierAdmin;
 import static ui.MainFrame.mainFrame;
 
 /**
@@ -19,7 +20,7 @@ public class SupplierAdminFrame extends javax.swing.JFrame {
     public static JFrame manuAdminFrame;
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
-    ManufacturerAdmin ma;
+    SupplierAdmin ma;
     /**
      * Creates new form ManufacturerAdmin
      */
@@ -27,7 +28,7 @@ public class SupplierAdminFrame extends javax.swing.JFrame {
     public SupplierAdminFrame(){
     }
 
-    public SupplierAdminFrame(Db4oUtils db ,OperatingSystem os, ManufacturerAdmin ma) {
+    public SupplierAdminFrame(Db4oUtils db ,OperatingSystem os, SupplierAdmin ma) {
         initComponents();
         this.operatingSystem = os;
         this.dB4OUtility = db;
