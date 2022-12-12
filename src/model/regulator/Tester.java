@@ -1,25 +1,28 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
-package model.root;
+package model.regulator;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
+import model.regulator.Report;
+import model.root.Person;
 import model.root.Person;
 
 /**
  *
- * @author manavmalavia
+ * @author manavhirey
  */
-public class ApprovalEmployee extends Person {
+public class Tester extends Person {
+   
     private String enterpriseId;
 
-    public ApprovalEmployee(String workingDepartmentId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
+    public Tester(String workingDeptId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
         super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, role);
-        this.enterpriseId = workingDepartmentId;
+        this.enterpriseId = workingDeptId;
     }
-
 
     public String getEnterpriseId() {
         return enterpriseId;
@@ -29,4 +32,7 @@ public class ApprovalEmployee extends Person {
         this.enterpriseId = enterpriseId;
     }
     
+    
+
+   
 }

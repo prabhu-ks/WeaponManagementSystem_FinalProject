@@ -13,8 +13,8 @@ import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
 import model.root.Order;
 import model.root.Order.OrderStatus;
-import model.root.OrderManager;
-import model.root.Weapon;
+import model.supplier.OrderManager;
+import model.manufacturer.Weapon;
 
 /**
  *

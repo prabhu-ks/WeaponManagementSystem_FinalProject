@@ -6,7 +6,7 @@ package model.supplier;
 
 
 import java.util.UUID;
-import model.root.Weapon;
+import model.manufacturer.Weapon;
 
 /**
  *

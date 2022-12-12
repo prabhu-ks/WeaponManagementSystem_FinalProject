@@ -14,11 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.root.ApprovalOfficer;
+import model.manufacturer.ApprovalOfficer;
 import model.root.Enterprise.EnterpriseType;
 import model.root.Person;
 import model.root.Person.UserRole;
-import model.root.Tester;
+import model.regulator.Tester;
 
 /**
  *

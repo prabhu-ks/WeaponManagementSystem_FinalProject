@@ -11,7 +11,7 @@ import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.Enterprise;
 import model.root.Order;
-import model.root.RegionalManager;
+import model.dealer.RegionalManager;
 
 /**
  *

@@ -77,7 +77,7 @@ public class IdCheckerManager extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "Phone No", "Email", "Approval Status"
             }
         ));
         jScrollPane1.setViewportView(idCheckCustomerListTable);
@@ -306,7 +306,7 @@ private void populateTable() {
             Customer c = (Customer) person;
             Object[] row =  new Object[8];
             row[0] = c.getName();
-            row[1] = c.getRole();
+            row[1] = c.getPhoneNo();
             row[2] = c.getEmail();
             row[3] = c.approvalStatus;
 

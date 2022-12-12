@@ -4,9 +4,8 @@
  */
 package model.regulator;
 
-import model.root.ApprovalOfficer;
-import model.root.Tester;
-import model.root.Weapon;
+import model.manufacturer.ApprovalOfficer;
+import model.manufacturer.Weapon;
 
 /**
  *
