@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.manufacturer.Weapon;
+import model.root.Weapon;
 
 /**
  *

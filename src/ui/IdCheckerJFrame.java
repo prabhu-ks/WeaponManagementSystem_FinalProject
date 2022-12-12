@@ -7,9 +7,9 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.dealer.IdChecker;
+import model.root.IdChecker;
 import model.root.Person;
-import model.dealer.RegionalManager;
+import model.root.RegionalManager;
 import static ui.LoginFrame.loginFrame;
 import static ui.MainFrame.mainFrame;
 

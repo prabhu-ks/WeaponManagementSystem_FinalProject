@@ -11,11 +11,11 @@ import model.dealer.Store;
 import model.dealer.Transaction;
 import model.regulator.Report;
 import model.root.Enterprise;
-import model.dealer.IdChecker;
+import model.root.IdChecker;
 import model.root.Order;
 import model.root.Person;
-
-import model.manufacturer.Weapon;
+import model.root.UserTest;
+import model.root.Weapon;
 import model.supplier.Shipping;
 
 /**
@@ -34,7 +34,7 @@ public class OperatingSystem {
 //    private ArrayList<Shipping> supplierOrderDirectory;
 //    private ArrayList<Order> manufacturerOrderDirectory;
     private ArrayList<Order> orderDirectory;
-
+    private ArrayList<UserTest> userTestDir;
     private ArrayList<Person> personDirectory;
     private ArrayList<Enterprise> enterpriseDirectory;
 
@@ -43,6 +43,7 @@ public class OperatingSystem {
     
     public OperatingSystem(){
         System.out.println("in con");
+        userTestDir = new ArrayList<UserTest>();
         regionDirectory = new ArrayList<Region>();
         weaponDirectory = new ArrayList<Weapon>();
         storeDirectory = new ArrayList<Store>();
@@ -60,7 +61,7 @@ public class OperatingSystem {
 
     @Override
     public String toString() {
-        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
+        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
     }
 
     
@@ -186,7 +187,13 @@ public class OperatingSystem {
         orderDirectory.remove(order);
     }
 
+    public ArrayList<UserTest> getUserTestDir() {
+        return userTestDir;
+    }
 
+    public void setUserTestDir(ArrayList<UserTest> userTestDir) {
+        this.userTestDir = userTestDir;
+    }
 
     public ArrayList<Person> getPersonDirectory() {
         return personDirectory;
