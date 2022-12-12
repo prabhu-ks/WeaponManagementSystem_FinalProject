@@ -282,6 +282,7 @@ import model.root.UserTest;
                                 OrderManagerFrame.ordFrame.setVisible(true);
                                 loginFrame.setVisible(false);
                                 break;
+            case SUPPLIER_SYSADMIN: SupplierAdminFrame.manuAdminFrame = new SupplierAdminFrame(dB4OUtility, operatingSystem, (Supplier))
                                 
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            

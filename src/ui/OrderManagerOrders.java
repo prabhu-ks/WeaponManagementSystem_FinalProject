@@ -339,6 +339,8 @@ public class OrderManagerOrders extends javax.swing.JPanel {
         String manufactuerID = manufacturerComboBox.getSelectedItem().toString();
         order.setManufacturerId(manufactuerID);
         
+        dB4OUtility.storeSystem(operatingSystem);
+        
         orderIDTxt.setText("");
         orderStatusComboBox.removeAllItems();
         orderStatusComboBox.setEnabled(false);
@@ -350,6 +352,9 @@ public class OrderManagerOrders extends javax.swing.JPanel {
         weaponIDTxt.setText("");
         quantityTxt.setText("");
         orderManUpdateButton.setEnabled(false);
+        
+        populateOrderList();
+        populateOrdersTable();
     }//GEN-LAST:event_orderManUpdateButtonActionPerformed
 
     private void orderIDTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderIDTxtFocusLost

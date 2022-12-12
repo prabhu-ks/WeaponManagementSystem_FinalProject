@@ -17,6 +17,7 @@ import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
 import model.root.Manufacturer;
 import model.root.ManufacturerAdmin;
+import model.root.Order;
 import model.root.OrderManager;
 import model.root.Person.UserRole;
 import model.root.RegionalManager;
@@ -46,7 +47,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void createStaticUsers(){
-//        RegionalManager rmdef = new RegionalManager("", 12345677, UUID.randomUUID().toString(),"Regional Admin","Female", new Date(), 123456789, "regionaladmin123@gmail.com", "Boston", "regionaladmin", "admin123", UserRole.REGIONAL_MANAGER.name());
+//        Dealer dealer = (Dealer) operatingSystem.getEnterpriseDirectory().stream()
+//            .filter(e -> e.getEnterpriseType().equals(EnterpriseType.DEALER.name()))
+//            .findFirst().orElse(null);
+//        RegionalManager rmdef = new RegionalManager(dealer.getEnterpriseId(), 12345698, UUID.randomUUID().toString(),"Second regional admin","Female", new Date(), 123456789, "regionaladmin456@gmail.com", "Boston", "newregionaladmin", "admin123", UserRole.REGIONAL_MANAGER.name());
 //        operatingSystem.addPersonToPersonDirectory(rmdef);
 //        dB4OUtility.storeSystem(operatingSystem);
 //
@@ -82,7 +86,9 @@ public class MainFrame extends javax.swing.JFrame {
 //                      "Female", new Date(), 12345678, "ordermanager123@gmail.com","1189 Boylston Street", "ordermanager123", "admin123", UserRole.ORDER_MANAGER.name());
 //        operatingSystem.addPersonToPersonDirectory(om);
 //        dB4OUtility.storeSystem(operatingSystem);
-
+//        Order order = operatingSystem.getOrderDirectory().stream().filter(o -> o.getOrderId().equals("b6c42956-9547-4b6e-b4e3-75cc33989894")).findFirst().orElse(null);
+//        operatingSystem.deleteOrderFromOrderDirectory(order);
+//        dB4OUtility.storeSystem(operatingSystem);
     }
 
     /**
