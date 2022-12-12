@@ -42,6 +42,9 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         this.operatingSystem = os;
         this.dB4OUtility = db;
         populateTable();
+        manEmpSSNText.setEditable(true);
+        manEmpDeleteButton.setVisible(false);
+        manEmpUpdateButton.setVisible(false);
     }
 
     /**
@@ -231,7 +234,7 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "Role", "Email", "Phone Number"
             }
         ));
         jScrollPane1.setViewportView(tblEmployee);
@@ -265,34 +268,13 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(220, 220, 220)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(manEmpNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(304, 304, 304)
-                                .addComponent(manEmpViewButton)))
-                        .addGap(0, 237, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
-                            .addComponent(jSeparator1))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(manEmpCreateButton)
-                        .addGap(30, 30, 30)
-                        .addComponent(manEmpUpdateButton)
-                        .addGap(31, 31, 31)
-                        .addComponent(manEmpDeleteButton))
+                            .addComponent(jScrollPane1)
+                            .addComponent(jSeparator1)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
@@ -323,9 +305,25 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
                                         .addComponent(manEmpEmailText, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(manEmpAddressText, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(manEmpUsernameText, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(manEmpRoleCombo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(56, 56, 56)))
+                                        .addComponent(manEmpRoleCombo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(manEmpNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 233, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(304, 304, 304)
+                .addComponent(manEmpViewButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(manEmpDeleteButton)
+                .addGap(25, 25, 25))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(manEmpCreateButton)
+                    .addComponent(manEmpUpdateButton))
+                .addGap(294, 294, 294))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +335,9 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(manEmpViewButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(manEmpViewButton)
+                    .addComponent(manEmpDeleteButton))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -380,12 +380,11 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(manEmpRoleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(manEmpCreateButton)
-                    .addComponent(manEmpUpdateButton)
-                    .addComponent(manEmpDeleteButton))
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(manEmpCreateButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manEmpUpdateButton)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -416,6 +415,11 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         manEmpUsernameText.setText("");
         manEmpPasswordText.setText("");
         manEmpBirthText.setCalendar(null);
+        
+        
+        manEmpDeleteButton.setVisible(false);
+        manEmpUpdateButton.setVisible(false);
+        manEmpCreateButton.setVisible(true);
     }//GEN-LAST:event_manEmpDeleteButtonActionPerformed
 
     private void manEmpPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manEmpPhoneTextActionPerformed
@@ -506,6 +510,10 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         manEmpMaleRadioButton.setSelected(false);
         manEmpFemaleRadioButton.setSelected(false);
         manEmpOtherRadioButton.setSelected(false);
+        manEmpUpdateButton.setVisible(true);
+        manEmpDeleteButton.setVisible(true);
+        manEmpCreateButton.setVisible(false);
+        manEmpSSNText.setEditable(false);
         
         int selected = tblEmployee.getSelectedRow();
         List<Person> person = operatingSystem.getPersonDirectory().stream()
@@ -522,15 +530,16 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         manEmpBirthText.setDate(p.getDob());
         manEmpRoleCombo.setSelectedItem(p.getRole());
         
-        if(gender == "Male"){
-            manEmpMaleRadioButton.setSelected(true);
-        }
-        if(gender == "Female"){
+        if(p.getGender().equals("Male")){
+           manEmpMaleRadioButton.setSelected(true);
+
+        }else if(p.getGender().equals("Female")){
             manEmpFemaleRadioButton.setSelected(true);
-        }
-        if(gender == "Other"){
+        
+    } else{
             manEmpOtherRadioButton.setSelected(true);
-        }
+        
+    }
     }//GEN-LAST:event_manEmpViewButtonActionPerformed
 
     private void manEmpAddressTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manEmpAddressTextActionPerformed
@@ -539,6 +548,16 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
 
     private void manEmpCreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manEmpCreateButtonActionPerformed
         // TODO add your handling code here:
+        if(manEmpNameText.getText().equals("") || manEmpSSNText.getText().equals("") 
+                 || manEmpPasswordText.getText().equals("") || manEmpPhoneText.getText().equals("") 
+                 || manEmpEmailText.getText().equals("") || manEmpAddressText.getText().equals("") 
+                 || manEmpUsernameText.getText().equals("") || manEmpBirthText.getDate().equals("")){
+             
+
+              JOptionPane.showMessageDialog(this,"Please Complete the Form");
+              return;
+         }
+        
         String name = manEmpNameText.getText();
         long ssn = Long.parseLong(manEmpSSNText.getText());
         String personGender = gender;
@@ -607,10 +626,48 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
 
     private void manEmpSSNTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_manEmpSSNTextKeyPressed
         // TODO add your handling code here:
+           String phoneNumber = manEmpSSNText.getText();
+        int lengthOfNumber = phoneNumber.length();
+        char checkChar = evt.getKeyChar();
+        if (checkChar >= '0' && checkChar <= '9') {
+            if (lengthOfNumber < 10) {
+                manEmpSSNText.setEditable(true);
+            } else {
+                manEmpSSNText.setEditable(false);
+                JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
+            }
+        } else {
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                manEmpSSNText.setEditable(true);
+            } else {
+                manEmpSSNText.setEditable(false);
+            }
+        }
     }//GEN-LAST:event_manEmpSSNTextKeyPressed
 
     private void manEmpUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manEmpUpdateButtonActionPerformed
         // TODO add your handling code here:
+         if(manEmpNameText.getText().equals("") || manEmpSSNText.getText().equals("") 
+                 || manEmpPasswordText.getText().equals("") || manEmpPhoneText.getText().equals("") 
+                 || manEmpEmailText.getText().equals("") || manEmpAddressText.getText().equals("") 
+                 || manEmpUsernameText.getText().equals("") || manEmpBirthText.getDate().equals("")){
+             
+
+              JOptionPane.showMessageDialog(this,"Please View any Data");
+        manEmpNameText.setText("");
+        manEmpSSNText.setText("");
+        manEmpMaleRadioButton.setSelected(false);
+        manEmpFemaleRadioButton.setSelected(false);
+        manEmpOtherRadioButton.setSelected(false);
+        manEmpPhoneText.setText("");
+        manEmpEmailText.setText("");
+        manEmpAddressText.setText("");
+        manEmpUsernameText.setText("");
+        manEmpPasswordText.setText("");
+        manEmpBirthText.setCalendar(null);
+              return;
+         }
+        
         Person updatedPerson;
         String name = manEmpNameText.getText();
         long ssn = Long.parseLong(manEmpSSNText.getText());
@@ -709,6 +766,10 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
         manEmpUsernameText.setText("");
         manEmpPasswordText.setText("");
         manEmpBirthText.setCalendar(null);
+        
+        manEmpUpdateButton.setVisible(false);
+        manEmpDeleteButton.setVisible(false);
+        manEmpCreateButton.setVisible(true);
     }//GEN-LAST:event_manEmpUpdateButtonActionPerformed
 
 
@@ -756,11 +817,10 @@ private void populateTable() {
         for (Person person : persons){
 
             Object[] row =  new Object[8];
-            row[0] = person.getSsn();
-            row[1] = person.getName();
-            row[2] = person.getAddress();
-            row[3] = person.getRole();
-            row[4] = person.getPhoneNo();
+            row[0] = person.getName();
+            row[1] = person.getRole();
+            row[2] = person.getEmail();
+            row[3] = person.getPhoneNo();
 
             model.addRow(row);
 

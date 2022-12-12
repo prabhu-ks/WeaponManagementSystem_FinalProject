@@ -297,6 +297,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="registerFrameSsnTxt">
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFrameSsnTxtFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFrameSsnTxtActionPerformed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFrameSsnTxtKeyPressed"/>
           </Events>
@@ -353,9 +354,13 @@
         <Component class="javax.swing.JTextField" name="registerFrameAddressTxt">
         </Component>
         <Component class="javax.swing.JTextField" name="registerFrameUsernameTxt">
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFrameUsernameTxtFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="registerFramePasswordTxt">
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="registerFramePasswordTxtFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFramePasswordTxtActionPerformed"/>
           </Events>
         </Component>

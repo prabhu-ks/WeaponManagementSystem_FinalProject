@@ -179,7 +179,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Customer List:"/>
+        <Property name="text" type="java.lang.String" value="To be Tested Weapons:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -243,6 +243,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="weaponIdText">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="weaponIdTextFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="weaponNameText">
     </Component>

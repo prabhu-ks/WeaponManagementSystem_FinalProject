@@ -28,6 +28,7 @@ import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
 import model.root.RegulatorAdmin;
 import model.root.StoreManager;
+import model.root.Supplier;
 import model.root.Tester;
 import model.root.UserTest;
         
@@ -282,7 +283,7 @@ import model.root.UserTest;
                                 OrderManagerFrame.ordFrame.setVisible(true);
                                 loginFrame.setVisible(false);
                                 break;
-            case SUPPLIER_SYSADMIN: SupplierAdminFrame.manuAdminFrame = new SupplierAdminFrame(dB4OUtility, operatingSystem, (Supplier))
+          //  case SUPPLIER_SYSADMIN: SupplierAdminFrame.manuAdminFrame = new SupplierAdminFrame(dB4OUtility, operatingSystem, (Supplier));
                                 
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            

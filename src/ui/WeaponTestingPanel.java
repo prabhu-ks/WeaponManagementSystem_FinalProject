@@ -83,7 +83,7 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Customer List:");
+        jLabel2.setText("To be Tested Weapons:");
 
         weaponTestCustListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -115,6 +115,12 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Weapon Name:");
+
+        weaponIdText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                weaponIdTextFocusLost(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -328,6 +334,11 @@ public class WeaponTestingPanel extends javax.swing.JPanel {
     private void weaponTest3ComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponTest3ComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_weaponTest3ComboActionPerformed
+
+    private void weaponIdTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponIdTextFocusLost
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_weaponIdTextFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

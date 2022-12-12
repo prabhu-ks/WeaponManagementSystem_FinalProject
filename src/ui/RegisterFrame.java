@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -153,6 +154,11 @@ public class RegisterFrame extends javax.swing.JFrame {
             }
         });
 
+        registerFrameSsnTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                registerFrameSsnTxtFocusLost(evt);
+            }
+        });
         registerFrameSsnTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerFrameSsnTxtActionPerformed(evt);
@@ -207,6 +213,17 @@ public class RegisterFrame extends javax.swing.JFrame {
             }
         });
 
+        registerFrameUsernameTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                registerFrameUsernameTxtFocusLost(evt);
+            }
+        });
+
+        registerFramePasswordTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                registerFramePasswordTxtFocusLost(evt);
+            }
+        });
         registerFramePasswordTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerFramePasswordTxtActionPerformed(evt);
@@ -464,6 +481,8 @@ public class RegisterFrame extends javax.swing.JFrame {
                 registerFrameSsnTxt.setEditable(false);
             }
         }
+      
+        
         
         
         
@@ -554,6 +573,34 @@ public class RegisterFrame extends javax.swing.JFrame {
     private void registerFrameSsnTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFrameSsnTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerFrameSsnTxtActionPerformed
+
+    private void registerFrameSsnTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registerFrameSsnTxtFocusLost
+        // TODO add your handling code here:
+          if(!registerFrameSsnTxt.getText().equals("")){
+            List<Long> ssnList = operatingSystem.getPersonDirectory().stream().map(x -> x.getSsn()).toList();
+            if(ssnList.contains(Long.parseLong(registerFrameSsnTxt.getText()))){
+                JOptionPane.showMessageDialog(this, "SSN already exists.");
+                registerFrameSsnTxt.setText("");
+                
+            }
+        }
+    }//GEN-LAST:event_registerFrameSsnTxtFocusLost
+
+    private void registerFrameUsernameTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registerFrameUsernameTxtFocusLost
+        // TODO add your handling code here:
+         if(!registerFrameUsernameTxt.getText().equals("")){
+            List<String> ssnList = operatingSystem.getPersonDirectory().stream().map(x -> x.getUsername()).toList();
+            if(ssnList.contains(registerFrameUsernameTxt.getText())){
+                JOptionPane.showMessageDialog(this, "Username Already Exists");
+                registerFrameUsernameTxt.setText("");
+                
+            }
+        }
+    }//GEN-LAST:event_registerFrameUsernameTxtFocusLost
+
+    private void registerFramePasswordTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_registerFramePasswordTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerFramePasswordTxtFocusLost
 
     /**
      * @param args the command line arguments
