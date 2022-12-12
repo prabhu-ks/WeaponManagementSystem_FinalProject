@@ -15,7 +15,7 @@ public class SupplierAdmin extends Person {
     private String enterpriseId;
 
     public SupplierAdmin(String enterpriseId, long ssn, String puid, String name, String gender, Date dob, long phoneNo, String email, String address, String username, String password, String role) {
-        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, Person.UserRole.MANUFACTURER_SYSADMIN.toString());
+        super(ssn, puid, name, gender, dob, phoneNo, email, address, username, password, UserRole.SUPPLIER_SYSADMIN.name());
         this.enterpriseId = enterpriseId;
     }
 
