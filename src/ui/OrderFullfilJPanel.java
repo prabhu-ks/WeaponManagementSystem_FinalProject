@@ -8,9 +8,9 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.root.FulfillmentOfficer;
+import model.manufacturer.FulfillmentOfficer;
+import model.manufacturer.Weapon;
 import model.root.Order;
-import model.root.Weapon;
 
 /**
  *
