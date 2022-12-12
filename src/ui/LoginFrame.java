@@ -28,7 +28,7 @@ import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
 import model.root.RegulatorAdmin;
 import model.root.ShippingManager;
-import model.root.StoreManager;
+import model.dealer.StoreManager;
 import model.root.SupplierAdmin;
 import model.root.Tester;
 import model.root.UserTest;

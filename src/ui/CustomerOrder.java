@@ -10,8 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.dealer.Store;
 import model.dealer.Transaction;
-import model.manufacturer.Weapon;
+import model.root.Weapon;
 import model.root.Customer;
 import model.root.Dealer;
 import model.root.Enterprise;
@@ -28,6 +29,7 @@ public class CustomerOrder extends javax.swing.JPanel {
     private List<Weapon> weaponsList;
     private List<Transaction> transactionList;
     Customer customer;
+    
     /**
      * Creates new form CustomerOrder
      */
@@ -40,6 +42,8 @@ public class CustomerOrder extends javax.swing.JPanel {
         weaponsList.forEach(weapon -> System.out.println(weapon.getName()));
         customer = customer;
         populateTransactionTable();
+        populateStoreComboBox();
+      
         
     }
 
@@ -262,5 +266,14 @@ public class CustomerOrder extends javax.swing.JPanel {
             
         }
     }
+
+    private void populateStoreComboBox() {
+        List<Store> stores = operatingSystem.getStoreDirectory();
+        selectStores.removeAllItems();
+        stores.forEach(s -> selectStores.addItem(s.getName()));
+ 
+    }
+    
+ 
     
 }

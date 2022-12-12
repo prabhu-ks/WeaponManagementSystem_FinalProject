@@ -7,7 +7,7 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.root.StoreManager;
+import model.dealer.StoreManager;
 import static ui.MainFrame.mainFrame;
 
 /**
@@ -169,7 +169,7 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
 
     private void storeManStoreManButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManStoreManButtonActionPerformed
         // TODO add your handling code here:
-        InventoryManagement ordcr = new InventoryManagement();
+        InventoryManagement ordcr = new InventoryManagement(dB4OUtility ,operatingSystem , storeManager);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_storeManStoreManButtonActionPerformed
 
