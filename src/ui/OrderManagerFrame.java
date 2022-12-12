@@ -5,6 +5,9 @@
 package ui;
 
 import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.OrderManager;
 import static ui.MainFrame.mainFrame;
 import static ui.ShippingManagerFrame.shipFrame;
 
@@ -15,11 +18,20 @@ import static ui.ShippingManagerFrame.shipFrame;
 public class OrderManagerFrame extends javax.swing.JFrame {
  
     public static JFrame ordFrame;
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    OrderManager orderManager;
     /**
      * Creates new form OrderManagerFrame
      */
-    public OrderManagerFrame() {
+    public OrderManagerFrame(){
+        
+    }
+    public OrderManagerFrame(Db4oUtils db ,OperatingSystem os, OrderManager orderManager) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.orderManager = orderManager;
     }
 
     /**
@@ -140,7 +152,7 @@ public class OrderManagerFrame extends javax.swing.JFrame {
     private void orderManManageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManManageButtonActionPerformed
         // TODO add your handling code here:
 
-        OrderManagerOrders ord1 = new OrderManagerOrders();
+        OrderManagerOrders ord1 = new OrderManagerOrders(dB4OUtility, operatingSystem, orderManager);
         splitPane.setRightComponent(ord1);
     }//GEN-LAST:event_orderManManageButtonActionPerformed
 
