@@ -4,17 +4,40 @@
  */
 package ui;
 
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.dealer.Inventory;
+import model.dealer.Store;
+import model.dealer.StoreManager;
+import model.manufacturer.Weapon;
+import model.root.Dealer;
+import model.root.Enterprise;
+import model.root.Order;
+
 /**
  *
  * @author pho3nix28
  */
 public class InventoryManagement extends javax.swing.JPanel {
-
+    
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    StoreManager storeManager;
+    private List<Weapon> weaponsList;
     /**
      * Creates new form InventoryManagement1
      */
-    public InventoryManagement() {
+    public InventoryManagement(Db4oUtils db ,OperatingSystem os, StoreManager storeManager) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        populateTable();
+        populateWeapons();
     }
 
     /**
@@ -30,8 +53,6 @@ public class InventoryManagement extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         inventoryManInventorySearchTable = new javax.swing.JTable();
-        inventoryManInventoryListSearchText1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -61,20 +82,18 @@ public class InventoryManagement extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "WeaponID", "Name", "Type", "Quantity"
             }
-        ));
-        jScrollPane1.setViewportView(inventoryManInventorySearchTable);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        inventoryManInventoryListSearchText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inventoryManInventoryListSearchText1ActionPerformed(evt);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Search:");
+        jScrollPane1.setViewportView(inventoryManInventorySearchTable);
 
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,38 +134,33 @@ public class InventoryManagement extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inventoryManWeaponNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(inventoryManQuantityText, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 53, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(inventoryManOrderButton)
-                .addGap(287, 287, 287))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator4)
-                    .addComponent(jSeparator3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(inventoryManOrderButton)
+                                .addGap(287, 287, 287))
+                            .addComponent(jSeparator3)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inventoryManInventoryListSearchText1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(78, 78, 78)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(inventoryManWeaponNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(91, 91, 91)
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(inventoryManQuantityText, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel8))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,13 +170,10 @@ public class InventoryManagement extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(inventoryManInventoryListSearchText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
@@ -174,7 +185,7 @@ public class InventoryManagement extends javax.swing.JPanel {
                     .addComponent(inventoryManQuantityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(inventoryManOrderButton)
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,17 +193,32 @@ public class InventoryManagement extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_inventoryManWeaponNameComboActionPerformed
 
-    private void inventoryManInventoryListSearchText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManInventoryListSearchText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inventoryManInventoryListSearchText1ActionPerformed
-
     private void inventoryManOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryManOrderButtonActionPerformed
         // TODO add your handling code here:
+        String selectedWeaponName = (String)inventoryManWeaponNameCombo.getSelectedItem();
+        if(selectedWeaponName == null){
+            JOptionPane.showMessageDialog(inventoryManWeaponNameCombo, "Please eelect a weapon");
+            return;
+        }
+        String weaponId = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null).getWeaponId();
+        int quantity = Integer.parseInt(inventoryManQuantityText.getText());
+        
+        Dealer dealer = (Dealer) operatingSystem.getEnterpriseDirectory().stream()
+                        .filter(e -> Enterprise.EnterpriseType.valueOf(e.getEnterpriseType()).equals(Enterprise.EnterpriseType.DEALER))
+                        .findFirst()
+                        .orElse(null);
+        
+        Order order = new Order(UUID.randomUUID().toString(), storeManager.getManagingStoreId(), dealer.getEnterpriseId(), null, null,weaponId, quantity, Order.OrderStatus.REQUESTED.name());
+        
+        operatingSystem.getOrderDirectory().add(order);
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        inventoryManWeaponNameCombo.setSelectedIndex(-1);
+        inventoryManQuantityText.setText("");
     }//GEN-LAST:event_inventoryManOrderButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField inventoryManInventoryListSearchText1;
     private javax.swing.JTable inventoryManInventorySearchTable;
     private javax.swing.JButton inventoryManOrderButton;
     private javax.swing.JTextField inventoryManQuantityText;
@@ -200,11 +226,45 @@ public class InventoryManagement extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void populateWeapons(){
+        weaponsList.forEach(weapon -> {
+            System.out.println(weapon.getName());
+            inventoryManWeaponNameCombo.addItem(weapon.getName());
+        });
+        
+    }
+    
+private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) inventoryManInventorySearchTable.getModel();
+        model.setRowCount(0);
+        Store store = operatingSystem.getStoreDirectory().stream()
+                .filter(s -> s.getId().equals(storeManager.getManagingStoreId()))
+                .findFirst().orElse(null);
+        Inventory inventory = store.getInventory();
+         
+        for (Map.Entry<Weapon,Integer> entry : inventory.getWeaponsList().entrySet()){
+
+            Object[] row =  new Object[8];
+            row[0] = entry.getKey();
+            row[1] = entry.getKey().getName();
+            row[2] = entry.getKey().getType();
+            row[3] = entry.getValue();
+
+            model.addRow(row);
+
+
+        }
+        
+    }
+
+    
 }
