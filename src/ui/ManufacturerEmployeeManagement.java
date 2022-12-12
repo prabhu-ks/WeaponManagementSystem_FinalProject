@@ -626,23 +626,7 @@ public class ManufacturerEmployeeManagement extends javax.swing.JPanel {
 
     private void manEmpSSNTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_manEmpSSNTextKeyPressed
         // TODO add your handling code here:
-           String phoneNumber = manEmpSSNText.getText();
-        int lengthOfNumber = phoneNumber.length();
-        char checkChar = evt.getKeyChar();
-        if (checkChar >= '0' && checkChar <= '9') {
-            if (lengthOfNumber < 10) {
-                manEmpSSNText.setEditable(true);
-            } else {
-                manEmpSSNText.setEditable(false);
-                JOptionPane.showMessageDialog(this, "Cannot add more than 10 Numbers!");
-            }
-        } else {
-            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
-                manEmpSSNText.setEditable(true);
-            } else {
-                manEmpSSNText.setEditable(false);
-            }
-        }
+     
     }//GEN-LAST:event_manEmpSSNTextKeyPressed
 
     private void manEmpUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manEmpUpdateButtonActionPerformed

@@ -130,7 +130,7 @@ public class OrderManagerFrame extends javax.swing.JFrame {
                 .addComponent(lblTitle)
                 .addGap(28, 28, 28)
                 .addComponent(lblTitle1)
-                .addContainerGap(669, Short.MAX_VALUE))
+                .addContainerGap(668, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(jPanel2);
