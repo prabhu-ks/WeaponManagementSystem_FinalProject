@@ -4,17 +4,47 @@
  */
 package ui;
 
+import java.util.List;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.dealer.Store;
+import model.dealer.Transaction;
+import model.root.Weapon;
+import model.root.Customer;
+import model.root.Dealer;
+import model.root.Enterprise;
+import model.root.Order;
+import model.dealer.Transaction.OrderStatus;
+
 /**
  *
  * @author manavhirey
  */
 public class CustomerOrder extends javax.swing.JPanel {
-
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    private List<Weapon> weaponsList;
+    private List<Transaction> transactionList;
+    Customer customer;
+    
     /**
      * Creates new form CustomerOrder
      */
-    public CustomerOrder() {
+    public CustomerOrder(Db4oUtils db ,OperatingSystem os, Customer customer) {
         initComponents();
+        
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        weaponsList = operatingSystem.getWeaponDirectory(); 
+        weaponsList.forEach(weapon -> System.out.println(weapon.getName()));
+        customer = customer;
+        populateTransactionTable();
+        populateStoreComboBox();
+      
+        
     }
 
     /**
@@ -37,7 +67,7 @@ public class CustomerOrder extends javax.swing.JPanel {
         purchaseSubmit = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         WeaponQuantityCombo = new javax.swing.JComboBox<>();
-        WeaponSelection1 = new javax.swing.JComboBox<>();
+        selectStores = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(32, 33, 35));
@@ -91,9 +121,9 @@ public class CustomerOrder extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Purchase:");
 
-        WeaponQuantityCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        WeaponQuantityCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", " ", " " }));
 
-        WeaponSelection1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        selectStores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,11 +151,10 @@ public class CustomerOrder extends javax.swing.JPanel {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(WeaponSelection1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(selectStores, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(110, 110, 110)
-                                    .addComponent(purchaseSubmit)
-                                    .addGap(114, 114, 114)))
+                                    .addComponent(purchaseSubmit)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -159,19 +188,19 @@ public class CustomerOrder extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(WeaponSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectStores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(WeaponQuantityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(WeaponSelection1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(24, 24, 24)
+                    .addComponent(jLabel3)
+                    .addComponent(WeaponSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(purchaseSubmit)
                 .addContainerGap(337, Short.MAX_VALUE))
         );
@@ -179,13 +208,32 @@ public class CustomerOrder extends javax.swing.JPanel {
 
     private void purchaseSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseSubmitActionPerformed
         // TODO add your handling code here:
+        
+        String selectedWeaponName = (String)WeaponSelection.getSelectedItem();
+        if(selectedWeaponName == null){
+            JOptionPane.showMessageDialog(WeaponSelection, "Please eelect a weapon");
+            return;
+        }
+        String weaponId = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null).getWeaponId();
+        int quantity = Integer.parseInt((String) WeaponQuantityCombo.getSelectedItem());
+        
+        Dealer dealer = (Dealer) operatingSystem.getEnterpriseDirectory().stream()
+                        .filter(e -> Enterprise.EnterpriseType.valueOf(e.getEnterpriseType()).equals(Enterprise.EnterpriseType.DEALER))
+                        .findFirst()
+                        .orElse(null);
+        
+        Transaction transaction = new Transaction(UUID.randomUUID().toString(),OrderStatus.PLACED.name(), dealer.getEnterpriseId(), customer.getPuid(),weaponId, quantity);
+        operatingSystem.getTransactionDirectory().add(transaction);
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        WeaponSelection.setSelectedIndex(-1);
+        populateTransactionTable();
     }//GEN-LAST:event_purchaseSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> WeaponQuantityCombo;
     private javax.swing.JComboBox<String> WeaponSelection;
-    private javax.swing.JComboBox<String> WeaponSelection1;
     private javax.swing.JTable customerOrderTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -196,5 +244,36 @@ public class CustomerOrder extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton purchaseSubmit;
+    private javax.swing.JComboBox<String> selectStores;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTransactionTable(){
+        DefaultTableModel model = (DefaultTableModel) customerOrderTable.getModel();
+        model.setRowCount(0);
+        transactionList = operatingSystem.getTransactionDirectory().stream()
+                            .filter(tran -> tran.getCustomerId().equals(customer.getPuid()))
+                            .toList();
+         
+        for (Transaction transaction : transactionList){
+
+            Object[] row =  new Object[8];
+            row[0] = transaction.getTransactionId();
+            row[1] = transaction.getWeaponId();
+            row[2] = transaction.getQuantity();
+            row[3] = transaction.getOrderStatus();
+
+            model.addRow(row);
+            
+        }
+    }
+
+    private void populateStoreComboBox() {
+        List<Store> stores = operatingSystem.getStoreDirectory();
+        selectStores.removeAllItems();
+        stores.forEach(s -> selectStores.addItem(s.getName()));
+ 
+    }
+    
+ 
+    
 }

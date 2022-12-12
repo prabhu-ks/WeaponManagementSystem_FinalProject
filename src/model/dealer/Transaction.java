@@ -13,27 +13,32 @@ import model.root.Weapon;
  */
 public class Transaction {
     
-    private UUID transactionId;
+    public enum OrderStatus{
+        PLACED,
+        DELIVERED
+    }
+    
+    private String transactionId;
     private String orderStatus;
-    private UUID dealerId;
-    private UUID customerId;
-    private Weapon weaponId;
+    private String dealerId;
+    private String customerId;
+    private String weaponId;
     private int quantity;
 
-    public Transaction(UUID transactionId, String orderStatus, UUID manufacturerId, UUID supplierId, Weapon weaponId, int quantity) {
+    public Transaction(String transactionId, String orderStatus, String dealerId, String customerId, String weaponId, int quantity) {
         this.transactionId = transactionId;
         this.orderStatus = orderStatus;
-        this.dealerId = manufacturerId;
-        this.customerId = supplierId;
+        this.dealerId = dealerId;
+        this.customerId = customerId;
         this.weaponId = weaponId;
         this.quantity = quantity;
     }
 
-    public UUID getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(UUID transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -45,27 +50,27 @@ public class Transaction {
         this.orderStatus = orderStatus;
     }
 
-    public UUID getDealerId() {
+    public String getDealerId() {
         return dealerId;
     }
 
-    public void setDealerId(UUID dealerId) {
+    public void setDealerId(String dealerId) {
         this.dealerId = dealerId;
     }
 
-    public UUID getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(UUID customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
-    public Weapon getWeaponId() {
+    public String getWeaponId() {
         return weaponId;
     }
 
-    public void setWeaponId(Weapon weaponId) {
+    public void setWeaponId(String weaponId) {
         this.weaponId = weaponId;
     }
 
@@ -77,8 +82,5 @@ public class Transaction {
         this.quantity = quantity;
     }
 
-    
-    
-    
-    
+        
 }

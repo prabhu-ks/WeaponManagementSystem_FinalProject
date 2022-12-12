@@ -34,7 +34,7 @@ public class OperatingSystem {
 //    private ArrayList<Shipping> supplierOrderDirectory;
 //    private ArrayList<Order> manufacturerOrderDirectory;
     private ArrayList<Order> orderDirectory;
-    private ArrayList<UserTest> userTestDir;
+    private ArrayList<Transaction> transactionDirectory;
     private ArrayList<Person> personDirectory;
     private ArrayList<Enterprise> enterpriseDirectory;
 
@@ -43,7 +43,6 @@ public class OperatingSystem {
     
     public OperatingSystem(){
         System.out.println("in con");
-        userTestDir = new ArrayList<UserTest>();
         regionDirectory = new ArrayList<Region>();
         weaponDirectory = new ArrayList<Weapon>();
         storeDirectory = new ArrayList<Store>();
@@ -61,7 +60,7 @@ public class OperatingSystem {
 
     @Override
     public String toString() {
-        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", userTestDir=" + userTestDir + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
+        return "OperatingSystem{" + "regionDirectory=" + regionDirectory + ", weaponDirectory=" + weaponDirectory + ", storeDirectory=" + storeDirectory + ", reportDirectory=" + reportDirectory + ", personDirectory=" + personDirectory +", enterpriseDirectory=" + enterpriseDirectory +  '}';
     }
 
     
@@ -72,9 +71,15 @@ public class OperatingSystem {
         return os;
      }
 
-    
-    
-    
+    public ArrayList<Transaction> getTransactionDirectory() {
+        if(transactionDirectory == null)
+            transactionDirectory = new ArrayList<Transaction>();
+        return transactionDirectory;
+    }
+
+    public void setTransactionDirectory(ArrayList<Transaction> transactionDirectory) {
+        this.transactionDirectory = transactionDirectory;
+    }
 
     public ArrayList<Region> getRegionDirectory() {
         return regionDirectory;
@@ -187,14 +192,6 @@ public class OperatingSystem {
         orderDirectory.remove(order);
     }
 
-    public ArrayList<UserTest> getUserTestDir() {
-        return userTestDir;
-    }
-
-    public void setUserTestDir(ArrayList<UserTest> userTestDir) {
-        this.userTestDir = userTestDir;
-    }
-
     public ArrayList<Person> getPersonDirectory() {
         return personDirectory;
     }
@@ -245,6 +242,13 @@ public class OperatingSystem {
             reportDirectory = new ArrayList<Report>();
         }
         reportDirectory.add(report);
+    }
+    
+    public void addTransactionToTransactionDirectory(Transaction transaction){
+        if(transactionDirectory == null){
+            transactionDirectory = new ArrayList<Transaction>();
+        }
+        transactionDirectory.add(transaction);
     }
     
 }
