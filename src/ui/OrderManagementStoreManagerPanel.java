@@ -12,6 +12,8 @@ import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.dealer.Inventory;
 import model.dealer.Store;
+import model.root.Dealer;
+import model.root.Enterprise.EnterpriseType;
 import model.root.Order;
 import model.root.Order.OrderStatus;
 import model.root.Weapon;
@@ -127,7 +129,8 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         addToInventoryButton.setBackground(new java.awt.Color(126, 87, 194));
         addToInventoryButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
         addToInventoryButton.setForeground(new java.awt.Color(255, 255, 255));
-        addToInventoryButton.setText("add to inventory");
+        addToInventoryButton.setText("Add to inventory");
+        addToInventoryButton.setEnabled(false);
         addToInventoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToInventoryButtonActionPerformed(evt);
@@ -212,7 +215,12 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
         String weaponId = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null).getWeaponId();
         int quantity = Integer.parseInt(quantityTxt.getText());
         
-        Order order = new Order(UUID.randomUUID().toString(), storeManager.getManagingStoreId(), null, null, null,weaponId, quantity, OrderStatus.REQUESTED.name());
+        Dealer dealer = (Dealer) operatingSystem.getEnterpriseDirectory().stream()
+                        .filter(e -> EnterpriseType.valueOf(e.getEnterpriseType()).equals(EnterpriseType.DEALER))
+                        .findFirst()
+                        .orElse(null);
+        
+        Order order = new Order(UUID.randomUUID().toString(), storeManager.getManagingStoreId(), dealer.getEnterpriseId(), null, null,weaponId, quantity, OrderStatus.REQUESTED.name());
         
         operatingSystem.getOrderDirectory().add(order);
         dB4OUtility.storeSystem(operatingSystem);
