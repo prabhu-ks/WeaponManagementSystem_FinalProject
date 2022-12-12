@@ -24,6 +24,7 @@ import model.root.RegionalManager;
 import model.root.Regulator;
 import model.root.RegulatorAdmin;
 import model.root.Supplier;
+import model.root.SupplierAdmin;
 import model.root.Weapon;
 
 /**
@@ -89,6 +90,18 @@ public class MainFrame extends javax.swing.JFrame {
 //        Order order = operatingSystem.getOrderDirectory().stream().filter(o -> o.getOrderId().equals("b6c42956-9547-4b6e-b4e3-75cc33989894")).findFirst().orElse(null);
 //        operatingSystem.deleteOrderFromOrderDirectory(order);
 //        dB4OUtility.storeSystem(operatingSystem);
+//          
+//          SupplierAdmin sup = (SupplierAdmin) operatingSystem.getPersonDirectory().stream()
+//                              .filter(p -> p.getUsername().equals("supplieradmin"))
+//                              .findFirst().orElse(null);
+//          operatingSystem.deletePersonFromPersonDirectory(sup);
+//          
+//            Supplier sp = (Supplier) operatingSystem.getEnterpriseDirectory().stream()
+//                            .filter(e -> e.getEnterpriseType().equals(EnterpriseType.SUPPLIER.name()))
+//                            .findFirst().orElse(null);
+//          SupplierAdmin supad = new SupplierAdmin(sp.getEnterpriseId(), 7843578, UUID.randomUUID().toString(),"Supplier Admin","Other", new Date(), 123456789, "supplieradmin123@gmail.com", "Boston", "supplieradmin", "admin123", UserRole.SUPPLIER_SYSADMIN.name());
+//          operatingSystem.addPersonToPersonDirectory(supad);
+//          dB4OUtility.storeSystem(operatingSystem);
     }
 
     /**

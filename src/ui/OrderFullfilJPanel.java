@@ -5,12 +5,14 @@
 package ui;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.manufacturer.FulfillmentOfficer;
 import model.root.Weapon;
+import model.root.FulfillmentOfficer;
 import model.root.Order;
+import model.root.Order.OrderStatus;
 
 /**
  *
@@ -30,8 +32,11 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
         this.dB4OUtility = dB4OUtility;
         this.operatingSystem = operatingSystem;
         this.fo = fo;
+        populaterOrdersList();
+        populaterWeaponsList();
         populateOrdersTable();
         populateInventoryTable();
+        
     }
 
     /**
@@ -46,7 +51,7 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
         lblTitle1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         orderTbl = new javax.swing.JTable();
-        orderManViewOrderButton = new javax.swing.JButton();
+        orderManFulfillOrderButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         invTbl = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
@@ -60,7 +65,6 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Fullfilment Officer Dashboard");
 
-        orderTbl.setBackground(new java.awt.Color(255, 255, 255));
         orderTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -82,30 +86,29 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(orderTbl);
 
-        orderManViewOrderButton.setBackground(new java.awt.Color(126, 87, 194));
-        orderManViewOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        orderManViewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
-        orderManViewOrderButton.setText("Fulfill Order");
-        orderManViewOrderButton.addActionListener(new java.awt.event.ActionListener() {
+        orderManFulfillOrderButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManFulfillOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManFulfillOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManFulfillOrderButton.setText("Fulfill Order");
+        orderManFulfillOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orderManViewOrderButtonActionPerformed(evt);
+                orderManFulfillOrderButtonActionPerformed(evt);
             }
         });
 
-        invTbl.setBackground(new java.awt.Color(255, 255, 255));
         invTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "WeaponID", "Name", "Type", "Quantity"
+                "WeaponID", "Name", "Type"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -138,7 +141,7 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(orderManViewOrderButton))
+                        .addComponent(orderManFulfillOrderButton))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +162,7 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(orderManViewOrderButton)
+                .addComponent(orderManFulfillOrderButton)
                 .addGap(17, 17, 17)
                 .addComponent(lblTitle3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -168,9 +171,29 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void orderManViewOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManViewOrderButtonActionPerformed
+    private void orderManFulfillOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManFulfillOrderButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_orderManViewOrderButtonActionPerformed
+        if(orderTbl.getSelectedRow() < 0){
+            JOptionPane.showMessageDialog(jScrollPane1, "Please select an order to populate");
+            return;
+        }
+        Order order = ordersList.get(orderTbl.getSelectedRow());
+//        if(order.getStatus().equals(OrderStatus.WAITING_FOR_MANUFACTURER)){
+//            JOptionPane.showMessageDialog(jScrollPane1, "You cannot fulfill this order.");
+//            return;
+//        }
+        String weaponId = order.getWeaponID();
+        Weapon weapon = weaponsList.stream().filter(w -> w.getWeaponId().equals(weaponId)).findFirst().orElse(null);
+        weapon.setQuantity(weapon.getQuantity()-order.getQuantity());
+        order.setStatus(OrderStatus.FULFILLED.name());
+        dB4OUtility.storeSystem(operatingSystem);
+        
+        populaterOrdersList();
+        populaterWeaponsList();
+        populateOrdersTable();
+        populateInventoryTable();
+        
+    }//GEN-LAST:event_orderManFulfillOrderButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -181,13 +204,13 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JLabel lblTitle2;
     private javax.swing.JLabel lblTitle3;
-    private javax.swing.JButton orderManViewOrderButton;
+    private javax.swing.JButton orderManFulfillOrderButton;
     private javax.swing.JTable orderTbl;
     // End of variables declaration//GEN-END:variables
 
     private void populaterOrdersList() {
         ordersList = operatingSystem.getOrderDirectory().stream()
-                .filter(order -> order.getDealerId().equals(fo.getEnterpriseId()))
+                .filter(order -> order.getManufacturerId().equals(fo.getEnterpriseId()) && order.getStatus().equals(OrderStatus.WAITING_FOR_MANUFACTURER))
                 .toList();
     }
 
@@ -226,7 +249,6 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
             row[1] = weapon.getName();
             row[2] = weapon.getType();
             row[3] = weapon.getQuantity();
-
             model.addRow(row);
             
         }
