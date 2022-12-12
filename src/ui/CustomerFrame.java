@@ -149,13 +149,13 @@ public class CustomerFrame extends javax.swing.JFrame {
 
     private void fullOffLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffLogoutButtonActionPerformed
         // TODO add your handling code here:
-        ApprovalManagerFrame.apprFrame.setVisible(false);
+        CustomerFrame.customerFrame.setVisible(false);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_fullOffLogoutButtonActionPerformed
 
     private void customerOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerOrderButtonActionPerformed
         // TODO add your handling code here:
-        CustomerOrder ordcust = new CustomerOrder();
+        CustomerOrder ordcust = new CustomerOrder(dB4OUtility,operatingSystem,cust);
         splitPane.setRightComponent(ordcust);
     }//GEN-LAST:event_customerOrderButtonActionPerformed
 

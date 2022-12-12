@@ -72,6 +72,8 @@ public class OperatingSystem {
      }
 
     public ArrayList<Transaction> getTransactionDirectory() {
+        if(transactionDirectory == null)
+            transactionDirectory = new ArrayList<Transaction>();
         return transactionDirectory;
     }
 
