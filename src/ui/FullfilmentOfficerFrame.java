@@ -4,6 +4,10 @@
  */
 package ui;
 
+import javax.swing.JFrame;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.FulfillmentOfficer;
 import static ui.MainFrame.mainFrame;
 
 /**
@@ -15,8 +19,19 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
     /**
      * Creates new form FullfillmentOfficerFrame
      */
-    public FullfilmentOfficerFrame() {
+    private static JFrame ffFrame;
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    FulfillmentOfficer fulfillmentOfficer;
+    
+    public FullfilmentOfficerFrame(){
+        
+    }
+    public FullfilmentOfficerFrame(Db4oUtils db ,OperatingSystem os, FulfillmentOfficer fulf) {
         initComponents();
+        this.operatingSystem = os;
+        this.dB4OUtility = db;
+        this.fulfillmentOfficer = fulf;
     }
 
     /**
@@ -140,7 +155,7 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
 
     private void fullOffOrderFullfillmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffOrderFullfillmentButtonActionPerformed
         // TODO add your handling code here:
-        WeaponApprovalJPanel ordcr = new WeaponApprovalJPanel();
+        OrderFullfilJPanel ordcr = new OrderFullfilJPanel(dB4OUtility, operatingSystem, fulfillmentOfficer);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_fullOffOrderFullfillmentButtonActionPerformed
 

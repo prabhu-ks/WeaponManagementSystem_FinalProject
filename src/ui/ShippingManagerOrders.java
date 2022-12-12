@@ -36,6 +36,7 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
         this.dB4OUtility= db;
         this.operatingSystem = os;
         this.shippingManager = sm;
+        System.out.println("Shipping manager enterprise ID"+sm.getEnterpriseId());
         populaterOrdersList();
         populateOrdersTable();
         orderManUpdateButton.setEnabled(false);

@@ -637,7 +637,7 @@ public class SupplierEmployeeManagement extends javax.swing.JPanel {
                     .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.SUPPLIER))
                     .findFirst()
                     .orElse(null).getEnterpriseId();
-            updatedPerson = new ShippingManager(supplierId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_OFFICER.name());
+            updatedPerson = new ShippingManager(supplierId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.SHIPMENT_MANAGER.name());
             operatingSystem.deletePersonFromPersonDirectory(person1);
             operatingSystem.addPersonToPersonDirectory(updatedPerson);
             
@@ -712,7 +712,7 @@ private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
         model.setRowCount(0);
         List<Person> persons = operatingSystem.getPersonDirectory().stream()
-            .filter( x -> UserRole.valueOf(x.getRole()).equals(UserRole.TESTER) || UserRole.valueOf(x.getRole()).equals(UserRole.APPROVAL_OFFICER))
+            .filter( x -> UserRole.valueOf(x.getRole()).equals(UserRole.ORDER_MANAGER) || UserRole.valueOf(x.getRole()).equals(UserRole.SHIPMENT_MANAGER))
             .toList();
          
         for (Person person : persons){
