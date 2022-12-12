@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.Weapon;
 import model.root.FulfillmentOfficer;
 import model.root.Order;
 import model.root.Order.OrderStatus;
-import model.root.Weapon;
 
 /**
  *
