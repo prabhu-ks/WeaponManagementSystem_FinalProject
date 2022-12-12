@@ -6,7 +6,7 @@ package model.dealer;
 
 import java.util.ArrayList;
 import java.util.Map;
-import model.manufacturer.Weapon;
+import model.root.Weapon;
 
 /**
  *

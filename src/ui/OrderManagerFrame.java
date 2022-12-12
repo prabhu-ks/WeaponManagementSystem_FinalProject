@@ -7,7 +7,7 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.supplier.OrderManager;
+import model.root.OrderManager;
 import static ui.MainFrame.mainFrame;
 import static ui.ShippingManagerFrame.shipFrame;
 

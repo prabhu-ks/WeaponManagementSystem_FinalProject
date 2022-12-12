@@ -10,9 +10,9 @@ import java.util.UUID;
  *
  * @author manavmalavia
  */
-public class Regulator extends Enterprise {
+public class Manufacturer extends Enterprise{
 
-    public Regulator(String enterpriseId, String enterpriseName, String enterpriseType) {
+    public Manufacturer(String enterpriseId, String enterpriseName, String enterpriseType) {
         super(enterpriseId, enterpriseName, enterpriseType);
     }
 

@@ -16,8 +16,8 @@ import model.root.Dealer;
 import model.root.Enterprise.EnterpriseType;
 import model.root.Order;
 import model.root.Order.OrderStatus;
-import model.manufacturer.Weapon;
-import model.dealer.StoreManager;
+import model.root.Weapon;
+import model.root.StoreManager;
 
 
 /**

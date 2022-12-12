@@ -7,6 +7,7 @@ package model.manufacturer;
 import java.util.ArrayList;
 import java.util.UUID;
 import model.root.Department;
+import model.root.Weapon;
 
 /**
  *

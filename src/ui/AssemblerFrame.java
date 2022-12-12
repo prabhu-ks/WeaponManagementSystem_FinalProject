@@ -7,7 +7,7 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.manufacturer.Assembler;
+import model.root.Assembler;
 import model.root.Person;
 import static ui.ApprovalManagerFrame.apprFrame;
 import static ui.MainFrame.mainFrame;

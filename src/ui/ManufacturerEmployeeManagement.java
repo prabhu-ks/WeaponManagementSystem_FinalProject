@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.regulator.ApprovalEmployee;
-import model.manufacturer.Assembler;
+import model.root.ApprovalEmployee;
+import model.root.Assembler;
 import model.root.Enterprise.EnterpriseType;
-import model.manufacturer.FulfillmentOfficer;
+import model.root.FulfillmentOfficer;
 import model.root.Person;
 import model.root.Person.UserRole;
 

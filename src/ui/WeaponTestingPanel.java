@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.regulator.Report;
-import model.manufacturer.Weapon;
+import model.root.Weapon;
 
 /**
  *
