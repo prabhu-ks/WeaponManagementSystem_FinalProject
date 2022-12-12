@@ -132,13 +132,13 @@ public class StoreManagement extends javax.swing.JPanel {
 
         storeManStoreTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Store Name", "Phone Number", "Email", "Address"
             }
         ));
         jScrollPane1.setViewportView(storeManStoreTable);
@@ -459,11 +459,12 @@ public class StoreManagement extends javax.swing.JPanel {
         for (Store store : stores){
 
             Object[] row =  new Object[8];
-            row[0] = store.getId();
             row[1] = store.getName();
-            row[2] = store.getAddress();
+            row[2] = store.getPhoneNumber();
             row[3] = store.getEmail();
-            row[4] = store.getPhoneNumber();
+            row[4] = store.getAddress();
+            
+            
 
             model.addRow(row);
 
