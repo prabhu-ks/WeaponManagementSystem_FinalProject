@@ -38,7 +38,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="splitPane" alignment="1" pref="850" max="32767" attributes="0"/>
+              <Component id="splitPane" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -74,7 +74,7 @@
                               <Component id="regManLogoutButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="regManSalesReportButton" alignment="0" max="32767" attributes="0"/>
                               <Component id="regManStoreManButton" alignment="1" max="32767" attributes="0"/>
-                              <Component id="regManInventoryManButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="regManagerOrders" alignment="0" max="32767" attributes="0"/>
                               <Component id="regManIdCheckerButton" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -89,14 +89,14 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="regManStoreManButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="regManInventoryManButton" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="regManagerOrders" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="regManSalesReportButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="regManIdCheckerButton" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Component id="regManLogoutButton" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace pref="302" max="32767" attributes="0"/>
+                          <EmptySpace pref="315" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -170,7 +170,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManSalesReportButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="regManInventoryManButton">
+                <Component class="javax.swing.JButton" name="regManagerOrders">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="c2" green="57" red="7e" type="rgb"/>
@@ -181,10 +181,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Inventory Management"/>
+                    <Property name="text" type="java.lang.String" value="Manage Orders"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManInventoryManButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regManagerOrdersActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="regManIdCheckerButton">
@@ -238,7 +238,7 @@
                           <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="lblTitle1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="668" max="32767" attributes="0"/>
+                          <EmptySpace pref="681" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

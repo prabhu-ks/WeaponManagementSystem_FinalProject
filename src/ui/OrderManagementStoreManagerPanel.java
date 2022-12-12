@@ -290,8 +290,7 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
             row[3] = order.getQuantity();
 
             model.addRow(row);
-
-
+            
         }
     }
 

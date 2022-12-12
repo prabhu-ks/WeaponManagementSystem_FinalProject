@@ -16,6 +16,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.ApprovalEmployee;
+import model.root.ApprovalOfficer;
 import model.root.Assembler;
 import model.root.Customer;
 import model.root.IdChecker;
@@ -25,6 +27,7 @@ import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
 import model.root.RegulatorAdmin;
 import model.root.StoreManager;
+import model.root.Tester;
 import model.root.UserTest;
         
  public class LoginFrame extends javax.swing.JFrame {
@@ -238,6 +241,13 @@ import model.root.UserTest;
                            RegionalManagerFrame.regFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
+            case TESTER: TesterFrame.testerFrame = new TesterFrame(dB4OUtility,operatingSystem, (Tester) person);
+                         TesterFrame.testerFrame.setVisible(true);
+                         break;
+                         
+            case APPROVAL_OFFICER: ApprovalManagerFrame.apprFrame= new ApprovalManagerFrame(dB4OUtility,operatingSystem, (ApprovalOfficer) person);
+                                   ApprovalManagerFrame.apprFrame.setVisible(true);
+                                   break;
 
             case REGULATOR_SYSADMIN: RegulatorAdminFrame.regAdminFrame = new RegulatorAdminFrame(dB4OUtility, operatingSystem,(RegulatorAdmin) person);
                            RegulatorAdminFrame.regAdminFrame.setVisible(true);
@@ -253,13 +263,18 @@ import model.root.UserTest;
                            loginFrame.setVisible(false);
                                        
                            break;
-            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem,(Assembler) person);
+            case ASSEMBLER: AssemblerFrame.assFrame = new AssemblerFrame(dB4OUtility, operatingSystem, (Assembler) person);
                            AssemblerFrame.assFrame.setVisible(true);
                            loginFrame.setVisible(false);
                            break;
             
             case STORE_MANAGER: StoreManagerJFrame.storeFrame = new StoreManagerJFrame(dB4OUtility, operatingSystem, (StoreManager) person);
                                 StoreManagerJFrame.storeFrame.setVisible(true);
+                                loginFrame.setVisible(false);
+                                break;
+                                
+            case APPROVAL_EMPLOYEE: ApprovalEmployeeFrame.apprEmpFrame = new ApprovalEmployeeFrame(dB4OUtility, operatingSystem, (ApprovalEmployee) person);
+                                ApprovalEmployeeFrame.apprEmpFrame.setVisible(true);
                                 loginFrame.setVisible(false);
                                 break;
                                 
