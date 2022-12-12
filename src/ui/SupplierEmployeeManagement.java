@@ -19,6 +19,7 @@ import model.root.Enterprise.EnterpriseType;
 import model.root.OrderManager;
 import model.root.Person;
 import model.root.Person.UserRole;
+import model.root.ShippingManager;
 import model.root.Tester;
 
 /**
@@ -573,7 +574,7 @@ public class SupplierEmployeeManagement extends javax.swing.JPanel {
                     .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.SUPPLIER))
                     .findFirst()
                     .orElse(null).getEnterpriseId();
-            Person person = new ApprovalOfficer(supplierId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.SHIPMENT_MANAGER.name());
+            Person person = new ShippingManager(supplierId, ssn, uuid, name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.SHIPMENT_MANAGER.name());
             operatingSystem.addPersonToPersonDirectory(person);
             dB4OUtility.storeSystem(operatingSystem);
             OperatingSystem os= dB4OUtility.retrieveSystem();
@@ -636,7 +637,7 @@ public class SupplierEmployeeManagement extends javax.swing.JPanel {
                     .filter(ent -> EnterpriseType.valueOf(ent.getEnterpriseType()).equals(EnterpriseType.SUPPLIER))
                     .findFirst()
                     .orElse(null).getEnterpriseId();
-            updatedPerson = new ApprovalOfficer(supplierId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_OFFICER.name());
+            updatedPerson = new ShippingManager(supplierId, ssn, person1.getPuid(), name, personGender, dob, phoneNumber, email, address, username, password, Person.UserRole.APPROVAL_OFFICER.name());
             operatingSystem.deletePersonFromPersonDirectory(person1);
             operatingSystem.addPersonToPersonDirectory(updatedPerson);
             

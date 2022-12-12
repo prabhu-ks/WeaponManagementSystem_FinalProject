@@ -302,6 +302,8 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         order.setStatus(updatedOrderStatus.name());
         String supplierId = supplierComboBox.getSelectedItem().toString();
         order.setSupplierId(supplierId);
+        
+        dB4OUtility.storeSystem(operatingSystem);
        
         
         regionalManagerOrderId.setText("");
@@ -314,6 +316,9 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         regionalManagerWeaponID.setText("");
         regionalManagerOrderQuantity.setText("");
         regionalManagerUpdateOrder.setEnabled(false);
+        
+        populaterOrdersList();
+        populateOrdersTable();
         
         
     }//GEN-LAST:event_regionalManagerUpdateOrderActionPerformed
@@ -397,6 +402,8 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         ordersList = operatingSystem.getOrderDirectory().stream()
                     .filter(order -> order.getDealerId().equals(regionalManager.getEnterpriseId()))
                     .toList();
+        System.out.println("Orders size: " + ordersList.size());
+        ordersList.forEach(o -> System.out.println(o.getOrderId()));
     }
 
     private void populateOrdersTable() {

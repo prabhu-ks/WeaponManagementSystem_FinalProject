@@ -23,6 +23,14 @@ public class ShippingManager extends Person {
         this.enterpriseId = enterpriseId;
     }
 
+    public String getEnterpriseId() {
+        return enterpriseId;
+    }
+
+    public void setEnterpriseId(String enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
+
     
     
     
