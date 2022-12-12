@@ -4,17 +4,41 @@
  */
 package ui;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.backend.Db4oUtils;
+import model.backend.OperatingSystem;
+import model.root.Enterprise;
+import model.root.Order;
+import model.root.Order.OrderStatus;
+import model.root.RegionalManager;
+import model.root.ShippingManager;
+
 /**
  *
  * @author pho3nix28
  */
 public class ShippingManagerOrders extends javax.swing.JPanel {
-
+    
+    OperatingSystem operatingSystem;
+    Db4oUtils dB4OUtility;
+    ShippingManager shippingManager;
+    List<Order> ordersList;
     /**
      * Creates new form ShippingManagerOrders
      */
-    public ShippingManagerOrders() {
+    public ShippingManagerOrders(){
+        
+    }
+    public ShippingManagerOrders(Db4oUtils db ,OperatingSystem os, ShippingManager sm) {
         initComponents();
+        this.dB4OUtility= db;
+        this.operatingSystem = os;
+        this.shippingManager = sm;
+        populaterOrdersList();
+        populateOrdersTable();
+        orderManUpdateButton.setEnabled(false);
     }
 
     /**
@@ -26,66 +50,224 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle1 = new javax.swing.JLabel();
+        orderStatusComboBox = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        shippingManOrderTable = new javax.swing.JTable();
-        shippingManViewOrderButton = new javax.swing.JButton();
-        shippingManUpdateButton = new javax.swing.JButton();
-        shippingManDeleteButton = new javax.swing.JButton();
+        orderManOrderTable = new javax.swing.JTable();
+        supplierIDTxt = new javax.swing.JTextField();
+        weaponIDTxt = new javax.swing.JTextField();
+        storeIDTxt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        orderManViewOrderButton = new javax.swing.JButton();
+        quantityTxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        dealerIDTxt = new javax.swing.JTextField();
+        orderIDTxt = new javax.swing.JTextField();
+        lblTitle1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        orderManUpdateButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        manufacturerIDTxt = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(32, 33, 35));
         setPreferredSize(new java.awt.Dimension(695, 800));
 
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Supplier ID:");
+
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Dealer ID:");
+
+        orderManOrderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "OrderID", "Order Status", "Store ID", "Dealer ID", "Supplier ID", "Manufacturer ID", "Weapon ID", "Quantity"
+            }
+        ));
+        jScrollPane1.setViewportView(orderManOrderTable);
+
+        supplierIDTxt.setEditable(false);
+        supplierIDTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                supplierIDTxtFocusLost(evt);
+            }
+        });
+        supplierIDTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                supplierIDTxtKeyPressed(evt);
+            }
+        });
+
+        weaponIDTxt.setEditable(false);
+        weaponIDTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                weaponIDTxtFocusLost(evt);
+            }
+        });
+        weaponIDTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                weaponIDTxtKeyPressed(evt);
+            }
+        });
+
+        storeIDTxt.setEditable(false);
+        storeIDTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                storeIDTxtFocusLost(evt);
+            }
+        });
+        storeIDTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                storeIDTxtKeyPressed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Order ID:");
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Order Status:");
+
+        orderManViewOrderButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManViewOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManViewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManViewOrderButton.setText("View Order");
+        orderManViewOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderManViewOrderButtonActionPerformed(evt);
+            }
+        });
+
+        quantityTxt.setEditable(false);
+        quantityTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                quantityTxtFocusLost(evt);
+            }
+        });
+        quantityTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                quantityTxtKeyPressed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Manufacturer ID:");
+
+        dealerIDTxt.setEditable(false);
+        dealerIDTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dealerIDTxtFocusLost(evt);
+            }
+        });
+        dealerIDTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dealerIDTxtKeyPressed(evt);
+            }
+        });
+
+        orderIDTxt.setEditable(false);
+        orderIDTxt.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                orderIDTxtFocusLost(evt);
+            }
+        });
+        orderIDTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                orderIDTxtKeyPressed(evt);
+            }
+        });
+
         lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Supplier-Dealer Order Management");
+        lblTitle1.setText("Supplier Shipping Management");
 
-        shippingManOrderTable.setBackground(new java.awt.Color(255, 255, 255));
-        shippingManOrderTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Store ID:");
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Weapon ID:");
+
+        orderManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManUpdateButton.setText("Update");
+        orderManUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderManUpdateButtonActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(shippingManOrderTable);
+        });
 
-        shippingManViewOrderButton.setBackground(new java.awt.Color(126, 87, 194));
-        shippingManViewOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        shippingManViewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
-        shippingManViewOrderButton.setText("View Order");
-
-        shippingManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
-        shippingManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        shippingManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
-        shippingManUpdateButton.setText("Update");
-
-        shippingManDeleteButton.setBackground(new java.awt.Color(126, 87, 194));
-        shippingManDeleteButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
-        shippingManDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
-        shippingManDeleteButton.setText("Delete");
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Quantity:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(shippingManViewOrderButton)
-                .addGap(300, 300, 300))
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGap(251, 251, 251)
-                .addComponent(shippingManUpdateButton)
-                .addGap(31, 31, 31)
-                .addComponent(shippingManDeleteButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(345, 345, 345)
+                                .addComponent(orderManViewOrderButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(212, 212, 212)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(supplierIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabel5))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(jLabel4)))
+                                        .addGap(26, 26, 26)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(storeIDTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                            .addComponent(dealerIDTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                            .addComponent(orderIDTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                            .addComponent(orderStatusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(manufacturerIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(weaponIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(319, 319, 319)
+                        .addComponent(orderManUpdateButton)))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,23 +276,207 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
                 .addComponent(lblTitle1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(shippingManViewOrderButton)
-                .addGap(235, 235, 235)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(orderManViewOrderButton)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shippingManUpdateButton)
-                    .addComponent(shippingManDeleteButton))
-                .addContainerGap(323, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(orderIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(orderStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(storeIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dealerIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(supplierIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manufacturerIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(weaponIDTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quantityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(orderManUpdateButton)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void supplierIDTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_supplierIDTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplierIDTxtFocusLost
+
+    private void supplierIDTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_supplierIDTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplierIDTxtKeyPressed
+
+    private void weaponIDTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponIDTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weaponIDTxtFocusLost
+
+    private void weaponIDTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponIDTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weaponIDTxtKeyPressed
+
+    private void storeIDTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_storeIDTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storeIDTxtFocusLost
+
+    private void storeIDTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_storeIDTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storeIDTxtKeyPressed
+
+    private void orderManViewOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManViewOrderButtonActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = orderManOrderTable.getSelectedRow();
+        Order order = ordersList.get(selectedRowIndex);
+
+        orderIDTxt.setText(order.getOrderId());
+
+        if(OrderStatus.valueOf(order.getStatus()).equals(OrderStatus.READY_TO_SHIP)){
+            orderStatusComboBox.removeAllItems();
+            orderStatusComboBox.addItem(OrderStatus.READY_TO_SHIP.name());
+            orderStatusComboBox.addItem(OrderStatus.SHIPPED.name());
+            orderStatusComboBox.setEnabled(true);
+            orderStatusComboBox.setSelectedIndex(0);
+            orderManUpdateButton.setEnabled(true);
+
+        }
+        else{
+            orderStatusComboBox.setEnabled(false);
+            orderStatusComboBox.addItem(order.getStatus());
+            orderStatusComboBox.setSelectedIndex(0);
+            orderManUpdateButton.setEnabled(false);
+        }
+
+        storeIDTxt.setText(order.getStoreId());
+        dealerIDTxt.setText(order.getDealerId());
+        supplierIDTxt.setText(order.getSupplierId());
+        manufacturerIDTxt.setText(order.getManufacturerId());
+        weaponIDTxt.setText(order.getWeaponID());
+        quantityTxt.setText(String.valueOf(order.getQuantity()));
+
+    }//GEN-LAST:event_orderManViewOrderButtonActionPerformed
+
+    private void quantityTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTxtFocusLost
+
+    private void quantityTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTxtKeyPressed
+
+    private void dealerIDTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dealerIDTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dealerIDTxtFocusLost
+
+    private void dealerIDTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dealerIDTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dealerIDTxtKeyPressed
+
+    private void orderIDTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_orderIDTxtFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderIDTxtFocusLost
+
+    private void orderIDTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_orderIDTxtKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderIDTxtKeyPressed
+
+    private void orderManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManUpdateButtonActionPerformed
+        // TODO add your handling code here:
+        Order order = ordersList.stream()
+        .filter(o -> o.getOrderId().equals(orderIDTxt.getText().trim()))
+        .findFirst()
+        .orElse(null);
+        if(orderStatusComboBox.getSelectedIndex()== -1){
+            JOptionPane.showMessageDialog(jScrollPane1, "Please select a valid order status");
+            return;
+        }
+
+        OrderStatus updatedOrderStatus = OrderStatus.valueOf(orderStatusComboBox.getSelectedItem().toString());
+        order.setStatus(updatedOrderStatus.name());
+
+        dB4OUtility.storeSystem(operatingSystem);
+
+        orderIDTxt.setText("");
+        orderStatusComboBox.removeAllItems();
+        orderStatusComboBox.setEnabled(false);
+        storeIDTxt.setText("");
+        dealerIDTxt.setText("");
+        supplierIDTxt.setText("");
+        manufacturerIDTxt.setText("");
+        weaponIDTxt.setText("");
+        quantityTxt.setText("");
+        orderManUpdateButton.setEnabled(false);
+
+        populaterOrdersList();
+        populateOrdersTable();
+    }//GEN-LAST:event_orderManUpdateButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField dealerIDTxt;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle1;
-    private javax.swing.JButton shippingManDeleteButton;
-    private javax.swing.JTable shippingManOrderTable;
-    private javax.swing.JButton shippingManUpdateButton;
-    private javax.swing.JButton shippingManViewOrderButton;
+    private javax.swing.JTextField manufacturerIDTxt;
+    private javax.swing.JTextField orderIDTxt;
+    private javax.swing.JTable orderManOrderTable;
+    private javax.swing.JButton orderManUpdateButton;
+    private javax.swing.JButton orderManViewOrderButton;
+    private javax.swing.JComboBox<String> orderStatusComboBox;
+    private javax.swing.JTextField quantityTxt;
+    private javax.swing.JTextField storeIDTxt;
+    private javax.swing.JTextField supplierIDTxt;
+    private javax.swing.JTextField weaponIDTxt;
     // End of variables declaration//GEN-END:variables
+
+    private void populaterOrdersList() {
+        ordersList = operatingSystem.getOrderDirectory().stream()
+                    .filter(order -> order.getDealerId().equals(shippingManager.getEnterpriseId()))
+                    .toList();
+        System.out.println("Orders size: " + ordersList.size());
+        ordersList.forEach(o -> System.out.println(o.getOrderId()));
+    }
+
+    private void populateOrdersTable() {
+        DefaultTableModel model = (DefaultTableModel) orderManOrderTable.getModel();
+        model.setRowCount(0);
+         
+        for (Order order : ordersList){
+
+            Object[] row =  new Object[8];
+            row[0] = order.getOrderId();
+            row[1] = order.getStatus();
+            row[2] = order.getStoreId();
+            row[3] = order.getWeaponID();
+            row[4] = order.getQuantity();
+            row[5] = order.getDealerId();
+            row[6] = order.getSupplierId();
+
+            model.addRow(row);
+            
+        }
+    }
 }
