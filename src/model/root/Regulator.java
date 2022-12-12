@@ -5,6 +5,7 @@
 package model.root;
 
 import java.util.UUID;
+import model.root.Enterprise;
 
 /**
  *

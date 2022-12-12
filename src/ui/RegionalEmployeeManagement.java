@@ -19,10 +19,10 @@ import model.root.Customer;
 import model.root.Employee;
 import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
-import model.root.IdChecker;
+import model.dealer.IdChecker;
 import model.root.Person;
 import model.root.Person.UserRole;
-import model.root.StoreManager;
+import model.dealer.StoreManager;
 
 /**
  *

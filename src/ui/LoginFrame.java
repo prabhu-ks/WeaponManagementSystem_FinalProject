@@ -16,20 +16,20 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.root.ApprovalEmployee;
-import model.root.ApprovalOfficer;
-import model.root.Assembler;
+import model.regulator.ApprovalEmployee;
+import model.manufacturer.ApprovalOfficer;
+import model.manufacturer.Assembler;
 import model.root.Customer;
-import model.root.IdChecker;
-import model.root.ManufacturerAdmin;
-import model.root.OrderManager;
+import model.dealer.IdChecker;
+import model.manufacturer.ManufacturerAdmin;
+import model.supplier.OrderManager;
 import model.root.Person.UserRole;
 import static model.root.Person.UserRole.CUSTOMER;
-import model.root.RegionalManager;
-import model.root.RegulatorAdmin;
-import model.root.StoreManager;
-import model.root.Tester;
-import model.root.UserTest;
+import model.dealer.RegionalManager;
+import model.regulator.RegulatorAdmin;
+import model.dealer.StoreManager;
+import model.regulator.Tester;
+
         
  public class LoginFrame extends javax.swing.JFrame {
     

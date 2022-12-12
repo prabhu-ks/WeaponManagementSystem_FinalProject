@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.Person;
-import model.root.RegionalManager;
+import model.dealer.RegionalManager;
 import static ui.MainFrame.mainFrame;
 import static ui.ShippingManagerFrame.shipFrame;
 

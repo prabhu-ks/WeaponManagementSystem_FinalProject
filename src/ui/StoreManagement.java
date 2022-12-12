@@ -4,13 +4,20 @@
  */
 package ui;
 
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
@@ -18,7 +25,7 @@ import model.backend.OperatingSystem;
 import model.dealer.Inventory;
 import model.dealer.Store;
 import model.root.Person;
-import model.root.Weapon;
+import model.manufacturer.Weapon;
 
 /**
  *
@@ -31,11 +38,13 @@ public class StoreManagement extends javax.swing.JPanel {
     /**
      * Creates new form StoreManagement
      */
-    public StoreManagement(Db4oUtils db ,OperatingSystem os) {
+    public StoreManagement(Db4oUtils db ,OperatingSystem os1) {
         initComponents();
-        this.operatingSystem = os;
+        this.operatingSystem = os1;
         this.dB4OUtility = db;
         populateTable();
+       
+       
     }
 
     /**
@@ -62,6 +71,8 @@ public class StoreManagement extends javax.swing.JPanel {
         storeManViewButton = new javax.swing.JButton();
         storeManUpdateButton = new javax.swing.JButton();
         storeManDeleteButton = new javax.swing.JButton();
+        lblMap = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(32, 33, 35));
 
@@ -172,6 +183,13 @@ public class StoreManagement extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setText("Choose");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,12 +200,22 @@ public class StoreManagement extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(304, 304, 304)
                                 .addComponent(storeManViewButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(185, 185, 185)
+                                .addComponent(storeManCreateButton)
+                                .addGap(30, 30, 30)
+                                .addComponent(storeManUpdateButton)
+                                .addGap(31, 31, 31)
+                                .addComponent(storeManDeleteButton)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(158, 158, 158)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -202,14 +230,14 @@ public class StoreManagement extends javax.swing.JPanel {
                                     .addComponent(storeManEmailText, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(storeManAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(185, 185, 185)
-                                .addComponent(storeManCreateButton)
-                                .addGap(30, 30, 30)
-                                .addComponent(storeManUpdateButton)
-                                .addGap(31, 31, 31)
-                                .addComponent(storeManDeleteButton)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(63, 63, 63)
+                                .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +248,9 @@ public class StoreManagement extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(storeManViewButton)
-                .addGap(99, 99, 99)
+                .addGap(19, 19, 19)
+                .addComponent(jButton1)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(storeManNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -228,7 +258,7 @@ public class StoreManagement extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(storeManNumberText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(storeManEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
@@ -241,7 +271,9 @@ public class StoreManagement extends javax.swing.JPanel {
                     .addComponent(storeManCreateButton)
                     .addComponent(storeManUpdateButton)
                     .addComponent(storeManDeleteButton))
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(lblMap, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -391,13 +423,21 @@ public class StoreManagement extends javax.swing.JPanel {
         
     }//GEN-LAST:event_storeManCreateButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblMap;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JTextField storeManAddressText;
     private javax.swing.JButton storeManCreateButton;

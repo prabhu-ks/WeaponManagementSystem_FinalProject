@@ -15,15 +15,15 @@ import model.dealer.Store;
 import model.root.Dealer;
 import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
-import model.root.Manufacturer;
-import model.root.ManufacturerAdmin;
-import model.root.OrderManager;
+import model.manufacturer.Manufacturer;
+import model.manufacturer.ManufacturerAdmin;
+import model.supplier.OrderManager;
 import model.root.Person.UserRole;
-import model.root.RegionalManager;
+import model.dealer.RegionalManager;
 import model.root.Regulator;
-import model.root.RegulatorAdmin;
+import model.regulator.RegulatorAdmin;
 import model.root.Supplier;
-import model.root.Weapon;
+import model.manufacturer.Weapon;
 
 /**
  *
