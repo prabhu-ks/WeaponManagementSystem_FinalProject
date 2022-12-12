@@ -14,7 +14,7 @@ import model.backend.OperatingSystem;
 import model.dealer.Inventory;
 import model.dealer.Store;
 import model.dealer.StoreManager;
-import model.manufacturer.Weapon;
+import model.root.Weapon;
 import model.root.Dealer;
 import model.root.Enterprise;
 import model.root.Order;
