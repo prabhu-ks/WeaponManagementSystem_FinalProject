@@ -5,9 +5,13 @@
 package ui;
 
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
+import model.root.Enterprise;
 import model.root.Order;
+import model.root.RegionalManager;
 
 /**
  *
@@ -17,6 +21,8 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
 
      OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
+    RegionalManager regionalManager;
+    List<Order> ordersList;
     
     /**
      * Creates new form RegionalManagerOrders
@@ -25,10 +31,14 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         initComponents();
     }
     
-    public RegionalManagerOrders(Db4oUtils db ,OperatingSystem os) {
+    public RegionalManagerOrders(Db4oUtils db ,OperatingSystem os, RegionalManager rm) {
         initComponents();
         this.dB4OUtility= db;
         this.operatingSystem = os;
+        this.regionalManager = rm;
+        populaterOrdersList();
+        populateOrdersTable();
+        regionalManagerUpdateOrder.setEnabled(true);
     }
 
     /**
@@ -46,18 +56,18 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        regionalManagerWeaponType = new javax.swing.JTextField();
+        regionalManagerWeaponID = new javax.swing.JTextField();
         regionalManagerOrderQuantity = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         regionalManagerStoreId = new javax.swing.JTextField();
         regionalManagerOrderStatus = new javax.swing.JComboBox<>();
-        regionalManagerCreateOrder = new javax.swing.JButton();
+        regionalManagerUpdateOrder = new javax.swing.JButton();
         regionalManagerDealerId = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        regionalManagerSupplierId = new javax.swing.JTextField();
         regionalManagerViewOrder = new javax.swing.JButton();
+        supplierComboBox = new javax.swing.JComboBox<>();
 
         regionalManagerOrdersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,7 +77,7 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order Id", "Order Status", "Store Id", "Weapon Type", "Weapon Quantity", "Dealer Id", "Supplier Id"
+                "Order Id", "Order Status", "Store Id", "Weapon ID", "Weapon Quantity", "Dealer Id", "Supplier Id"
             }
         ) {
             Class[] types = new Class [] {
@@ -83,6 +93,7 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
             regionalManagerOrdersTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
+        regionalManagerOrderId.setEditable(false);
         regionalManagerOrderId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regionalManagerOrderIdActionPerformed(evt);
@@ -93,14 +104,16 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
 
         jLabel2.setText("Order Status");
 
-        jLabel3.setText("Weapon Type");
+        jLabel3.setText("Weapon ID");
 
-        regionalManagerWeaponType.addActionListener(new java.awt.event.ActionListener() {
+        regionalManagerWeaponID.setEditable(false);
+        regionalManagerWeaponID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regionalManagerWeaponTypeActionPerformed(evt);
+                regionalManagerWeaponIDActionPerformed(evt);
             }
         });
 
+        regionalManagerOrderQuantity.setEditable(false);
         regionalManagerOrderQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regionalManagerOrderQuantityActionPerformed(evt);
@@ -111,6 +124,7 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
 
         jLabel5.setText("Store Id");
 
+        regionalManagerStoreId.setEditable(false);
         regionalManagerStoreId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regionalManagerStoreIdActionPerformed(evt);
@@ -123,13 +137,14 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
             }
         });
 
-        regionalManagerCreateOrder.setText("Create Order");
-        regionalManagerCreateOrder.addActionListener(new java.awt.event.ActionListener() {
+        regionalManagerUpdateOrder.setText("Update Order");
+        regionalManagerUpdateOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regionalManagerCreateOrderActionPerformed(evt);
+                regionalManagerUpdateOrderActionPerformed(evt);
             }
         });
 
+        regionalManagerDealerId.setEditable(false);
         regionalManagerDealerId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regionalManagerDealerIdActionPerformed(evt);
@@ -140,16 +155,16 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
 
         jLabel7.setText("Supplier Id");
 
-        regionalManagerSupplierId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regionalManagerSupplierIdActionPerformed(evt);
-            }
-        });
-
         regionalManagerViewOrder.setText("View Order");
         regionalManagerViewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regionalManagerViewOrderActionPerformed(evt);
+            }
+        });
+
+        supplierComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplierComboBoxActionPerformed(evt);
             }
         });
 
@@ -180,9 +195,9 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(regionalManagerWeaponType, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(regionalManagerCreateOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                .addComponent(regionalManagerWeaponID, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(regionalManagerUpdateOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -191,12 +206,11 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                                         .addComponent(jLabel6)
                                         .addComponent(jLabel7)))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(regionalManagerDealerId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(regionalManagerStoreId)
-                                        .addComponent(regionalManagerOrderQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(regionalManagerSupplierId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(regionalManagerDealerId, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(regionalManagerStoreId)
+                                    .addComponent(regionalManagerOrderQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(supplierComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(232, 232, 232))
         );
         layout.setVerticalGroup(
@@ -206,7 +220,7 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(regionalManagerViewOrder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -216,11 +230,10 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(regionalManagerOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(regionalManagerWeaponType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(regionalManagerWeaponID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(regionalManagerOrderQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -234,10 +247,10 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(regionalManagerSupplierId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(supplierComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(regionalManagerCreateOrder)
+                .addComponent(regionalManagerUpdateOrder)
                 .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -246,9 +259,9 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_regionalManagerOrderIdActionPerformed
 
-    private void regionalManagerWeaponTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerWeaponTypeActionPerformed
+    private void regionalManagerWeaponIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerWeaponIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_regionalManagerWeaponTypeActionPerformed
+    }//GEN-LAST:event_regionalManagerWeaponIDActionPerformed
 
     private void regionalManagerOrderQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerOrderQuantityActionPerformed
         // TODO add your handling code here:
@@ -262,44 +275,101 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_regionalManagerOrderStatusActionPerformed
 
-    private void regionalManagerCreateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerCreateOrderActionPerformed
+    private void regionalManagerUpdateOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerUpdateOrderActionPerformed
         // TODO add your handling code here:
         //String orderId= regionalManagerOrderId.getText();
-        String orderId = regionalManagerOrderId.getText();
-        String orderStatus = regionalManagerOrderStatus.getSelectedItem().toString();
-        String weaponType= regionalManagerWeaponType.getText();
-        String orderQuantity= regionalManagerOrderQuantity.getText();
-        String storeId =regionalManagerStoreId.getText();
-        String dealerId= regionalManagerDealerId.getText();
-        String supplierId= regionalManagerSupplierId.getText();
+//        String orderId = regionalManagerOrderId.getText();
+//        String orderStatus = regionalManagerOrderStatus.getSelectedItem().toString();
+//        String weaponType= regionalManagerWeaponID.getText();
+//        String orderQuantity= regionalManagerOrderQuantity.getText();
+//        String storeId =regionalManagerStoreId.getText();
+//        String dealerId= regionalManagerDealerId.getText();
+//        String supplierId= regionalManagerSupplierId.getText();
+        Order order = ordersList.stream()
+                        .filter(o -> o.getOrderId().equals(regionalManagerOrderId.getText().trim()))
+                        .findFirst()
+                        .orElse(null);
+        if(regionalManagerOrderStatus.getSelectedIndex()== -1){
+            JOptionPane.showMessageDialog(jScrollPane1, "Please select a valid order status");
+            return;
+        }
+        if(supplierComboBox.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(jScrollPane1, "Please select a supplier ID");
+            return;
+        }
+        
+        Order.OrderStatus updatedOrderStatus = Order.OrderStatus.valueOf(regionalManagerOrderStatus.getSelectedItem().toString());
+        order.setStatus(updatedOrderStatus.name());
+        String supplierId = supplierComboBox.getSelectedItem().toString();
+        order.setSupplierId(supplierId);
+       
+        
+        regionalManagerOrderId.setText("");
+        regionalManagerOrderStatus.removeAllItems();
+        regionalManagerOrderStatus.setEnabled(false);
+        regionalManagerStoreId.setText("");
+        regionalManagerDealerId.setText("");
+        supplierComboBox.removeAllItems();
+        supplierComboBox.setEnabled(false);
+        regionalManagerWeaponID.setText("");
+        regionalManagerOrderQuantity.setText("");
+        regionalManagerUpdateOrder.setEnabled(false);
         
         
-    }//GEN-LAST:event_regionalManagerCreateOrderActionPerformed
+    }//GEN-LAST:event_regionalManagerUpdateOrderActionPerformed
 
     private void regionalManagerDealerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerDealerIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_regionalManagerDealerIdActionPerformed
 
-    private void regionalManagerSupplierIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerSupplierIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_regionalManagerSupplierIdActionPerformed
-
     private void regionalManagerViewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regionalManagerViewOrderActionPerformed
         // TODO add your handling code here:
-        int selected= regionalManagerOrdersTable.getSelectedRow();
-        String orderId =regionalManagerOrdersTable.getModel().getValueAt(selected, 0).toString();
-        List<Order> orders= operatingSystem.getOrderDirectory();
-        Order selectedOrder = orders.stream().filter(order -> order.getOrderId().equals(orderId)).
-                findFirst().orElse(null);
+        int selectedRowIndex = regionalManagerOrdersTable.getSelectedRow();
+        Order order = ordersList.get(selectedRowIndex);
         
-        regionalManagerOrderId.setText(orderId);
-        regionalManagerOrderStatus.setSelectedItem(selectedOrder.getStatus());
-        regionalManagerWeaponType.setText(selectedOrder.getWeaponID());
-        regionalManagerOrderQuantity.setText(selectedOrder.getQuantity());
-        regionalManagerStoreId.setText("");
-        regionalManagerDealerId.setText("");
-        regionalManagerSupplierId.setText("");
+        regionalManagerOrderId.setText(order.getOrderId());
+        
+        if(Order.OrderStatus.valueOf(order.getStatus()).equals(Order.OrderStatus.REQUESTED) || Order.OrderStatus.valueOf(order.getStatus()).equals(Order.OrderStatus.SHIPPED)){
+            regionalManagerOrderStatus.removeAllItems();
+            if(Order.OrderStatus.valueOf(order.getStatus()).equals(Order.OrderStatus.REQUESTED)){
+                regionalManagerOrderStatus.addItem(Order.OrderStatus.REQUESTED.name());
+                regionalManagerOrderStatus.addItem(Order.OrderStatus.CREATED.name());
+            }
+            else{
+                regionalManagerOrderStatus.addItem(Order.OrderStatus.FULFILLED.name());
+                regionalManagerOrderStatus.addItem(Order.OrderStatus.READY_TO_SHIP.name());
+            }
+            regionalManagerOrderStatus.setEnabled(true);
+            regionalManagerOrderStatus.setSelectedIndex(0);
+            regionalManagerUpdateOrder.setEnabled(true);
+            List<Enterprise> supplierList = operatingSystem.getEnterpriseDirectory().stream()
+                                .filter(e -> Enterprise.EnterpriseType.valueOf(e.getEnterpriseType()).equals(Enterprise.EnterpriseType.SUPPLIER))
+                                .toList();
+            supplierList.forEach(m -> supplierComboBox.addItem(m.getEnterpriseId()));
+            supplierComboBox.setSelectedIndex(0);
+            supplierComboBox.setEnabled(true);
+            
+        }
+        else{
+            regionalManagerOrderStatus.setEnabled(false);
+            regionalManagerOrderStatus.addItem(order.getStatus());
+            regionalManagerOrderStatus.setSelectedIndex(0);
+            regionalManagerUpdateOrder.setEnabled(false);
+            supplierComboBox.removeAllItems();
+            supplierComboBox.addItem(order.getManufacturerId());
+            supplierComboBox.setSelectedIndex(0);
+            supplierComboBox.setEnabled(false);
+        }
+        
+        regionalManagerStoreId.setText(order.getStoreId());
+        regionalManagerDealerId.setText(order.getDealerId());
+        regionalManagerWeaponID.setText(order.getWeaponID());
+        regionalManagerOrderQuantity.setText(String.valueOf(order.getQuantity()));
     }//GEN-LAST:event_regionalManagerViewOrderActionPerformed
+
+    private void supplierComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplierComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -311,17 +381,43 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton regionalManagerCreateOrder;
     private javax.swing.JTextField regionalManagerDealerId;
     private javax.swing.JTextField regionalManagerOrderId;
     private javax.swing.JTextField regionalManagerOrderQuantity;
     private javax.swing.JComboBox<String> regionalManagerOrderStatus;
     private javax.swing.JTable regionalManagerOrdersTable;
     private javax.swing.JTextField regionalManagerStoreId;
-    private javax.swing.JTextField regionalManagerSupplierId;
+    private javax.swing.JButton regionalManagerUpdateOrder;
     private javax.swing.JButton regionalManagerViewOrder;
-    private javax.swing.JTextField regionalManagerWeaponType;
+    private javax.swing.JTextField regionalManagerWeaponID;
+    private javax.swing.JComboBox<String> supplierComboBox;
     // End of variables declaration//GEN-END:variables
+
+    private void populaterOrdersList() {
+        ordersList = operatingSystem.getOrderDirectory().stream()
+                    .filter(order -> order.getDealerId().equals(regionalManager.getEnterpriseId()))
+                    .toList();
+    }
+
+    private void populateOrdersTable() {
+        DefaultTableModel model = (DefaultTableModel) regionalManagerOrdersTable.getModel();
+        model.setRowCount(0);
+         
+        for (Order order : ordersList){
+
+            Object[] row =  new Object[8];
+            row[0] = order.getOrderId();
+            row[1] = order.getStatus();
+            row[2] = order.getStoreId();
+            row[3] = order.getWeaponID();
+            row[4] = order.getQuantity();
+            row[5] = order.getDealerId();
+            row[6] = order.getSupplierId();
+
+            model.addRow(row);
+            
+        }
+    }
 
     
 

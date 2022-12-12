@@ -22,6 +22,7 @@ import model.root.Assembler;
 import model.root.Customer;
 import model.root.IdChecker;
 import model.root.ManufacturerAdmin;
+import model.root.OrderManager;
 import model.root.Person.UserRole;
 import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
@@ -274,7 +275,11 @@ import model.root.UserTest;
                                 break;
                                 
             case APPROVAL_EMPLOYEE: ApprovalEmployeeFrame.apprEmpFrame = new ApprovalEmployeeFrame(dB4OUtility, operatingSystem, (ApprovalEmployee) person);
-                                ApprovalEmployeeFrame.apprEmpFrame.setVisible(true);
+                                    ApprovalEmployeeFrame.apprEmpFrame.setVisible(true);
+                                    loginFrame.setVisible(false);
+                                    break;
+            case ORDER_MANAGER: OrderManagerFrame.ordFrame = new OrderManagerFrame(dB4OUtility, operatingSystem, (OrderManager)person);
+                                OrderManagerFrame.ordFrame.setVisible(true);
                                 loginFrame.setVisible(false);
                                 break;
                                 

@@ -17,6 +17,7 @@ import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
 import model.root.Manufacturer;
 import model.root.ManufacturerAdmin;
+import model.root.OrderManager;
 import model.root.Person.UserRole;
 import model.root.RegionalManager;
 import model.root.Regulator;
@@ -72,8 +73,15 @@ public class MainFrame extends javax.swing.JFrame {
 //        ManufacturerAdmin madef = new ManufacturerAdmin("", 7843578, UUID.randomUUID().toString(),"Regulator Admin","Binnary", new Date(), 123456789, "regulatoradmin123@gmail.com", "Boston", "manufadmin", "admin123", UserRole.MANUFACTURER_SYSADMIN.name());
 //        operatingSystem.addPersonToPersonDirectory(madef);
 //        dB4OUtility.storeSystem(operatingSystem);
-            
-        
+//
+//        Supplier sp = (Supplier) operatingSystem.getEnterpriseDirectory().stream()
+//                                  .filter(e -> e.getEnterpriseType().equals(EnterpriseType.SUPPLIER.name()))
+//                                  .findFirst().orElse(null);
+//        OrderManager om = new OrderManager(sp.getEnterpriseId(), 11113242, 
+//                      UUID.randomUUID().toString(), "Order Manager",
+//                      "Female", new Date(), 12345678, "ordermanager123@gmail.com","1189 Boylston Street", "ordermanager123", "admin123", UserRole.ORDER_MANAGER.name());
+//        operatingSystem.addPersonToPersonDirectory(om);
+//        dB4OUtility.storeSystem(operatingSystem);
 
     }
 

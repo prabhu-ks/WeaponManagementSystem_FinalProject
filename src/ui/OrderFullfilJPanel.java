@@ -26,19 +26,182 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        fulfilmentOfficerOrder = new javax.swing.JTable();
+        orderManViewOrderButton = new javax.swing.JButton();
+        orderManUpdateButton = new javax.swing.JButton();
+        orderManDeleteButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        fulfilmentOfficerOrder1 = new javax.swing.JTable();
+        orderManViewOrderButton1 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblTitle2 = new javax.swing.JLabel();
+        lblTitle3 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(32, 33, 35));
+
+        lblTitle1.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        lblTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle1.setText("Fullfilment Officer Dashboard");
+
+        fulfilmentOfficerOrder.setBackground(new java.awt.Color(255, 255, 255));
+        fulfilmentOfficerOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(fulfilmentOfficerOrder);
+
+        orderManViewOrderButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManViewOrderButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManViewOrderButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManViewOrderButton.setText("Fulfill Order");
+        orderManViewOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderManViewOrderButtonActionPerformed(evt);
+            }
+        });
+
+        orderManUpdateButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManUpdateButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManUpdateButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManUpdateButton.setText("Update");
+        orderManUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderManUpdateButtonActionPerformed(evt);
+            }
+        });
+
+        orderManDeleteButton.setBackground(new java.awt.Color(126, 87, 194));
+        orderManDeleteButton.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManDeleteButton.setForeground(new java.awt.Color(255, 255, 255));
+        orderManDeleteButton.setText("Delete");
+
+        fulfilmentOfficerOrder1.setBackground(new java.awt.Color(255, 255, 255));
+        fulfilmentOfficerOrder1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(fulfilmentOfficerOrder1);
+
+        orderManViewOrderButton1.setBackground(new java.awt.Color(126, 87, 194));
+        orderManViewOrderButton1.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        orderManViewOrderButton1.setForeground(new java.awt.Color(255, 255, 255));
+        orderManViewOrderButton1.setText("View Order");
+        orderManViewOrderButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderManViewOrderButton1ActionPerformed(evt);
+            }
+        });
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblTitle2.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        lblTitle2.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitle2.setText("Order Fulfillment:");
+
+        lblTitle3.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        lblTitle3.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblTitle3.setText("Weapon Inventory:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitle1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(orderManViewOrderButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(orderManViewOrderButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitle3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(orderManUpdateButton)
+                .addGap(31, 31, 31)
+                .addComponent(orderManDeleteButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle1)
+                .addGap(1, 1, 1)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTitle2)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(orderManViewOrderButton)
+                .addGap(17, 17, 17)
+                .addComponent(lblTitle3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(orderManViewOrderButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orderManUpdateButton)
+                    .addComponent(orderManDeleteButton))
+                .addGap(53, 53, 53))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void orderManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManUpdateButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderManUpdateButtonActionPerformed
+
+    private void orderManViewOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManViewOrderButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderManViewOrderButtonActionPerformed
+
+    private void orderManViewOrderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderManViewOrderButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderManViewOrderButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable fulfilmentOfficerOrder;
+    private javax.swing.JTable fulfilmentOfficerOrder1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblTitle1;
+    private javax.swing.JLabel lblTitle2;
+    private javax.swing.JLabel lblTitle3;
+    private javax.swing.JButton orderManDeleteButton;
+    private javax.swing.JButton orderManUpdateButton;
+    private javax.swing.JButton orderManViewOrderButton;
+    private javax.swing.JButton orderManViewOrderButton1;
     // End of variables declaration//GEN-END:variables
 }
