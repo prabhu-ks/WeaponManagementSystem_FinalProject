@@ -1,4 +1,4 @@
-# Assignment1_AED
+# Weapon Management System
 *Name* - Manav Sandeep Malavia <br>
 *Name* - Manav Gaurav Hirey <br>
 *Name* - Kshitij Sudheer Prabhu<br>
