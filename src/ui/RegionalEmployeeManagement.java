@@ -197,6 +197,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Role:");
 
+        tblEmployee.setBackground(new java.awt.Color(255, 255, 255));
         tblEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -205,7 +206,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Name", "Employee Role", "Email", "Gender"
+                "Name", "Employee Role", "Email", "Phone Number"
             }
         ));
         jScrollPane1.setViewportView(tblEmployee);
@@ -333,7 +334,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
                 .addComponent(regEmployeeManViewButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(regEmployeeManDeleteButton)
-                .addGap(35, 35, 35))
+                .addGap(54, 54, 54))
             .addGroup(layout.createSequentialGroup()
                 .addGap(324, 324, 324)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -571,6 +572,26 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
 
     private void regEmployeeManUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regEmployeeManUpdateButtonActionPerformed
         // TODO add your handling code here:
+        if(regEmployeeManNameText.getText().equals("") || regEmployeeManSSNText.getText().equals("") 
+                 || regEmployeeManPasswordText.getText().equals("") || regEmployeeManPhoneText.getText().equals("") 
+                 || regEmployeeManEmailText.getText().equals("") || regEmployeeManAddressText.getText().equals("") 
+                 || regEmployeeManUsernameText.getText().equals("") || regEmployeeManBirthText.getDate().equals("")){
+             
+
+              JOptionPane.showMessageDialog(this,"Please View any Data");
+        regEmployeeManNameText.setText("");
+        regEmployeeManSSNText.setText("");
+        regEmployeeManMaleRadioButton.setSelected(false);
+        regEmployeeManFemaleRadioButton.setSelected(false);
+        regEmployeeManOtherRadioButton.setSelected(false);
+        regEmployeeManPhoneText.setText("");
+        regEmployeeManEmailText.setText("");
+        regEmployeeManAddressText.setText("");
+        regEmployeeManUsernameText.setText("");
+        regEmployeeManPasswordText.setText("");
+        regEmployeeManBirthText.setCalendar(null);
+              return;
+         }
         Person updatedPerson;
         String name = regEmployeeManNameText.getText();
         long ssn = Long.parseLong(regEmployeeManSSNText.getText());
@@ -771,7 +792,7 @@ public class RegionalEmployeeManagement extends javax.swing.JPanel {
             row[0] = person.getName();
             row[1] = person.getRole();
             row[2] = person.getEmail();
-            row[3] = person.getGender();
+            row[3] = person.getPhoneNo();
 
             model.addRow(row);
 
