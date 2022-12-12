@@ -236,14 +236,6 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
     private void weaponAssNameTxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponAssNameTxtFocusLost
         // TODO add your handling code here:
 
-        Pattern p = Pattern.compile("[^A-Za-z ]");
-        Matcher m = p.matcher(weaponAssNameTxt.getText());
-        // boolean b = m.matches();
-        boolean b = m.find();
-        if (b){
-            JOptionPane.showMessageDialog(null,"Special Characters are not allowed.");
-            weaponAssNameTxt.setText("");
-        }
     }//GEN-LAST:event_weaponAssNameTxtFocusLost
 
     private void weaponAssNameTxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weaponAssNameTxtKeyPressed
