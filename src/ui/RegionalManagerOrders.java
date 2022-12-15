@@ -367,8 +367,8 @@ public class RegionalManagerOrders extends javax.swing.JPanel {
                 regionalManagerOrderStatus.addItem(Order.OrderStatus.CREATED.name());
             }
             else{
-                regionalManagerOrderStatus.addItem(Order.OrderStatus.FULFILLED.name());
-                regionalManagerOrderStatus.addItem(Order.OrderStatus.READY_TO_SHIP.name());
+                regionalManagerOrderStatus.addItem(Order.OrderStatus.SHIPPED.name());
+                regionalManagerOrderStatus.addItem(Order.OrderStatus.DELIVERED.name());
             }
             regionalManagerOrderStatus.setEnabled(true);
             regionalManagerOrderStatus.setSelectedIndex(0);

@@ -20,7 +20,7 @@ public class Transaction {
     
     private String transactionId;
     private String orderStatus;
-    private String dealerId;
+    private String storeId;
     private String customerId;
     private String weaponId;
     private int quantity;
@@ -28,7 +28,7 @@ public class Transaction {
     public Transaction(String transactionId, String orderStatus, String dealerId, String customerId, String weaponId, int quantity) {
         this.transactionId = transactionId;
         this.orderStatus = orderStatus;
-        this.dealerId = dealerId;
+        this.storeId = dealerId;
         this.customerId = customerId;
         this.weaponId = weaponId;
         this.quantity = quantity;
@@ -50,12 +50,12 @@ public class Transaction {
         this.orderStatus = orderStatus;
     }
 
-    public String getDealerId() {
-        return dealerId;
+    public String getStoreId() {
+        return storeId;
     }
 
-    public void setDealerId(String dealerId) {
-        this.dealerId = dealerId;
+    public void setStoreId(String storeId) {
+        this.storeId = storeId;
     }
 
     public String getCustomerId() {

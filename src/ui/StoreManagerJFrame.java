@@ -7,7 +7,7 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.dealer.StoreManager;
+import model.root.StoreManager;
 import static ui.MainFrame.mainFrame;
 
 /**
@@ -195,6 +195,8 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
 
     private void storeManStoreManButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManStoreManButton1ActionPerformed
         // TODO add your handling code here:
+        TransactionsJPanel transactionsJPanel = new TransactionsJPanel(dB4OUtility, operatingSystem, storeManager);
+        splitPane.setRightComponent(transactionsJPanel);
     }//GEN-LAST:event_storeManStoreManButton1ActionPerformed
 
     /**

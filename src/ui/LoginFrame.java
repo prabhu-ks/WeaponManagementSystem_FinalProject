@@ -20,6 +20,7 @@ import model.root.ApprovalEmployee;
 import model.root.ApprovalOfficer;
 import model.root.Assembler;
 import model.root.Customer;
+import model.root.FulfillmentOfficer;
 import model.root.IdChecker;
 import model.root.ManufacturerAdmin;
 import model.root.OrderManager;
@@ -28,8 +29,7 @@ import static model.root.Person.UserRole.CUSTOMER;
 import model.root.RegionalManager;
 import model.root.RegulatorAdmin;
 import model.root.ShippingManager;
-import model.dealer.StoreManager;
-import model.dealer.StoreManager;
+import model.root.StoreManager;
 import model.root.Supplier;
 import model.root.SupplierAdmin;
 import model.root.Tester;
@@ -295,6 +295,10 @@ import model.root.UserTest;
                                     ShippingManagerFrame.shipFrame.setVisible(true);
                                     loginFrame.setVisible(false);
                                     break;
+            case FULFILMENT_OFFICER: FullfilmentOfficerFrame.ffFrame = new FullfilmentOfficerFrame(dB4OUtility, operatingSystem, (FulfillmentOfficer)person);
+                                    FullfilmentOfficerFrame.ffFrame.setVisible(true);
+                                     loginFrame.setVisible(false);
+                                     break;
                                 
             default: JOptionPane.showMessageDialog(null, "Something went wrong");
                            

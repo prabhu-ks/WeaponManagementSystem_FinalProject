@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.root.FulfillmentOfficer;
+import static ui.CustomerFrame.customerFrame;
 import static ui.MainFrame.mainFrame;
 
 /**
@@ -19,7 +20,7 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
     /**
      * Creates new form FullfillmentOfficerFrame
      */
-    private static JFrame ffFrame;
+    public static JFrame ffFrame;
     OperatingSystem operatingSystem;
     Db4oUtils dB4OUtility;
     FulfillmentOfficer fulfillmentOfficer;
@@ -147,17 +148,17 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fullOffLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffLogoutButtonActionPerformed
-        // TODO add your handling code here:
-        ApprovalManagerFrame.apprFrame.setVisible(false);
-        mainFrame.setVisible(true);
-    }//GEN-LAST:event_fullOffLogoutButtonActionPerformed
-
     private void fullOffOrderFullfillmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffOrderFullfillmentButtonActionPerformed
         // TODO add your handling code here:
         OrderFullfilJPanel ordcr = new OrderFullfilJPanel(dB4OUtility, operatingSystem, fulfillmentOfficer);
         splitPane.setRightComponent(ordcr);
     }//GEN-LAST:event_fullOffOrderFullfillmentButtonActionPerformed
+
+    private void fullOffLogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullOffLogoutButtonActionPerformed
+        // TODO add your handling code here:
+        FullfilmentOfficerFrame.ffFrame.setVisible(false);
+        mainFrame.setVisible(true);
+    }//GEN-LAST:event_fullOffLogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,7 +191,11 @@ public class FullfilmentOfficerFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FullfilmentOfficerFrame().setVisible(true);
+                if(ffFrame == null){
+                    ffFrame = new FullfilmentOfficerFrame();
+                }
+                
+                ffFrame.setVisible(true);
             }
         });
     }

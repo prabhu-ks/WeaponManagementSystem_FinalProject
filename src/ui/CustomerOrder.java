@@ -5,6 +5,8 @@
 package ui;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -40,10 +42,10 @@ public class CustomerOrder extends javax.swing.JPanel {
         this.dB4OUtility = db;
         weaponsList = operatingSystem.getWeaponDirectory(); 
         weaponsList.forEach(weapon -> System.out.println(weapon.getName()));
-        customer = customer;
+        this.customer = customer;
         populateTransactionTable();
         populateStoreComboBox();
-      
+        purchaseSubmit.setEnabled(false);
         
     }
 
@@ -103,6 +105,11 @@ public class CustomerOrder extends javax.swing.JPanel {
         jLabel4.setText("Quantity:");
 
         WeaponSelection.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        WeaponSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WeaponSelectionActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,6 +131,11 @@ public class CustomerOrder extends javax.swing.JPanel {
         WeaponQuantityCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", " ", " " }));
 
         selectStores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        selectStores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectStoresActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,21 +226,49 @@ public class CustomerOrder extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(WeaponSelection, "Please eelect a weapon");
             return;
         }
-        String weaponId = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null).getWeaponId();
+        Weapon weaponObj = weaponsList.stream().filter(weapon -> weapon.getName().equals(selectedWeaponName)).findFirst().orElse(null);
+        String weaponId = weaponObj.getWeaponId();
         int quantity = Integer.parseInt((String) WeaponQuantityCombo.getSelectedItem());
         
-        Dealer dealer = (Dealer) operatingSystem.getEnterpriseDirectory().stream()
-                        .filter(e -> Enterprise.EnterpriseType.valueOf(e.getEnterpriseType()).equals(Enterprise.EnterpriseType.DEALER))
+        String selectedStoreName = selectStores.getSelectedItem().toString();
+        Store store = operatingSystem.getStoreDirectory().stream()
+                        .filter(s -> s.getName().equals(selectedStoreName))
                         .findFirst()
                         .orElse(null);
         
-        Transaction transaction = new Transaction(UUID.randomUUID().toString(),OrderStatus.PLACED.name(), dealer.getEnterpriseId(), customer.getPuid(),weaponId, quantity);
+        Transaction transaction = new Transaction(UUID.randomUUID().toString(),OrderStatus.PLACED.name(), store.getId(), customer.getPuid(),weaponId, quantity);
+        
+//        Map<Weapon,Integer> storeInventory = store.getInventory().getWeaponsList();
+//        storeInventory.put(weaponObj,storeInventory.get(weaponObj)-1);
         operatingSystem.getTransactionDirectory().add(transaction);
         dB4OUtility.storeSystem(operatingSystem);
         
         WeaponSelection.setSelectedIndex(-1);
         populateTransactionTable();
     }//GEN-LAST:event_purchaseSubmitActionPerformed
+
+    private void WeaponSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WeaponSelectionActionPerformed
+        // TODO add your handling code here:
+//        if(WeaponSelection.getSelectedItem().toString().equals("Store Manager"))
+//        {
+//            stores.forEach(store -> WeaponSelection.addItem(store.getName()));
+//            WeaponSelection.setVisible(true);
+//        }
+//        else{
+//            WeaponSelection.removeAllItems();
+//            WeaponSelection.setSelectedIndex(-1);
+//            WeaponSelection.setVisible(false);
+//        }
+        purchaseSubmit.setEnabled(true);
+    }//GEN-LAST:event_WeaponSelectionActionPerformed
+
+    private void selectStoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectStoresActionPerformed
+        // TODO add your handling code here:
+        if(selectStores.getSelectedItem()!=null){
+            String selectedStoreName = selectStores.getSelectedItem().toString();
+            populateWeaponComboBox(selectedStoreName);
+        }
+    }//GEN-LAST:event_selectStoresActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -250,30 +290,51 @@ public class CustomerOrder extends javax.swing.JPanel {
     private void populateTransactionTable(){
         DefaultTableModel model = (DefaultTableModel) customerOrderTable.getModel();
         model.setRowCount(0);
-        transactionList = operatingSystem.getTransactionDirectory().stream()
+        
+        if(operatingSystem.getTransactionDirectory().size() != 0){
+            List<Transaction> tempTransactionsList = operatingSystem.getTransactionDirectory();
+            System.out.println(tempTransactionsList.size());
+            tempTransactionsList.forEach(t -> System.out.println(t));
+            transactionList = operatingSystem.getTransactionDirectory().stream()
                             .filter(tran -> tran.getCustomerId().equals(customer.getPuid()))
                             .toList();
          
-        for (Transaction transaction : transactionList){
+            for (Transaction transaction : transactionList){
 
-            Object[] row =  new Object[8];
-            row[0] = transaction.getTransactionId();
-            row[1] = transaction.getWeaponId();
-            row[2] = transaction.getQuantity();
-            row[3] = transaction.getOrderStatus();
+                Object[] row =  new Object[8];
+                row[0] = transaction.getTransactionId();
+                row[1] = transaction.getWeaponId();
+                row[2] = transaction.getQuantity();
+                row[3] = transaction.getOrderStatus();
 
-            model.addRow(row);
-            
+                model.addRow(row);
+
+            }
         }
+        
     }
 
     private void populateStoreComboBox() {
         List<Store> stores = operatingSystem.getStoreDirectory();
         selectStores.removeAllItems();
         stores.forEach(s -> selectStores.addItem(s.getName()));
+        selectStores.setSelectedIndex(-1);
  
     }
     
+    private void populateWeaponComboBox(String selectedStoreName) {
+        Store store = operatingSystem.getStoreDirectory().stream()
+                        .filter(s -> s.getName().equals(selectedStoreName))
+                        .findFirst()
+                        .orElse(null);
+        Set<Weapon> weapons = store.getInventory().getWeaponsList().keySet();
+        WeaponSelection.removeAllItems();
+        weapons.forEach(w -> WeaponSelection.addItem(w.getName()));
+        WeaponSelection.setSelectedIndex(-1);
+//        List<Weapon> weapons = operatingSystem.getWeaponDirectory();
+//        WeaponQuantityCombo.removeAllItems();
+//        weapons.forEach(w -> WeaponQuantityCombo.addItem(w.getName()));
+    }
  
     
 }
