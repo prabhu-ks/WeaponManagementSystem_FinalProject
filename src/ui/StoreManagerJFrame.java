@@ -7,7 +7,7 @@ package ui;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
-import model.dealer.StoreManager;
+import model.root.StoreManager;
 import static ui.MainFrame.mainFrame;
 
 /**
@@ -48,6 +48,7 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
         storeManLogoutButton = new javax.swing.JButton();
         storeManStoreManButton = new javax.swing.JButton();
         orderManagementButton = new javax.swing.JButton();
+        storeManStoreManButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitle1 = new javax.swing.JLabel();
@@ -86,6 +87,16 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        storeManStoreManButton1.setBackground(new java.awt.Color(126, 87, 194));
+        storeManStoreManButton1.setFont(new java.awt.Font("Copperplate", 1, 13)); // NOI18N
+        storeManStoreManButton1.setForeground(new java.awt.Color(255, 255, 255));
+        storeManStoreManButton1.setText("Transactions");
+        storeManStoreManButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                storeManStoreManButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -95,19 +106,22 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(storeManStoreManButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(storeManLogoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(orderManagementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(orderManagementButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(storeManStoreManButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(219, 219, 219)
+                .addGap(234, 234, 234)
                 .addComponent(orderManagementButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addComponent(storeManStoreManButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addComponent(storeManStoreManButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addComponent(storeManLogoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addContainerGap(355, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel2);
@@ -179,6 +193,12 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(orderManagementStoreManagerPanel);
     }//GEN-LAST:event_orderManagementButtonActionPerformed
 
+    private void storeManStoreManButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_storeManStoreManButton1ActionPerformed
+        // TODO add your handling code here:
+        TransactionsJPanel transactionsJPanel = new TransactionsJPanel(dB4OUtility, operatingSystem, storeManager);
+        splitPane.setRightComponent(transactionsJPanel);
+    }//GEN-LAST:event_storeManStoreManButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,5 +248,6 @@ public class StoreManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JButton storeManLogoutButton;
     private javax.swing.JButton storeManStoreManButton;
+    private javax.swing.JButton storeManStoreManButton1;
     // End of variables declaration//GEN-END:variables
 }

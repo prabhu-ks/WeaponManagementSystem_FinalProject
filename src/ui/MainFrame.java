@@ -6,15 +6,18 @@ package ui;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 import javax.swing.JFrame;
 import model.backend.Db4oUtils;
 import model.backend.OperatingSystem;
 import model.dealer.Inventory;
 import model.dealer.Store;
+import model.dealer.Transaction;
 import model.root.Dealer;
 import model.root.Enterprise;
 import model.root.Enterprise.EnterpriseType;
+import model.root.FulfillmentOfficer;
 import model.root.Manufacturer;
 import model.root.ManufacturerAdmin;
 import model.root.Order;
@@ -102,6 +105,10 @@ public class MainFrame extends javax.swing.JFrame {
 //          SupplierAdmin supad = new SupplierAdmin(sp.getEnterpriseId(), 7843578, UUID.randomUUID().toString(),"Supplier Admin","Other", new Date(), 123456789, "supplieradmin123@gmail.com", "Boston", "supplieradmin", "admin123", UserRole.SUPPLIER_SYSADMIN.name());
 //          operatingSystem.addPersonToPersonDirectory(supad);
 //          dB4OUtility.storeSystem(operatingSystem);
+//            operatingSystem.setTransactionDirectory(new ArrayList<Transaction>());
+//            dB4OUtility.storeSystem(operatingSystem);
+        FulfillmentOfficer full = (FulfillmentOfficer) operatingSystem.getPersonDirectory().stream().filter(p -> p.getUsername().equals("fullofficer123")).findFirst().orElse(null);
+        System.out.println(full.getEnterpriseId());
     }
 
     /**

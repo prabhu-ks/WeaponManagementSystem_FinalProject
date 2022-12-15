@@ -480,7 +480,7 @@ public class OrderManagerOrders extends javax.swing.JPanel {
     private void populateOrderList() {
         
         ordersList = operatingSystem.getOrderDirectory().stream()
-                    .filter(order -> order.getSupplierId().equals(orderManager.getEnterpriseId()))
+                    .filter(order -> order.getSupplierId()!= null && order.getSupplierId().equals(orderManager.getEnterpriseId()))
                     .toList();
     }
     

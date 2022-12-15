@@ -138,7 +138,7 @@ public class WeaponAssemblyJPanel extends javax.swing.JPanel {
             }
         });
 
-        weaponAssTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pistol", "SMG", "Assault Rifle", "Launchers" }));
+        weaponAssTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pistol", "SMG", "Assault Rifle", "Launcher" }));
         weaponAssTypeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 weaponAssTypeComboActionPerformed(evt);

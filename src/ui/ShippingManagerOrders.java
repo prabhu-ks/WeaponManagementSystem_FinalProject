@@ -447,7 +447,7 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
 
     private void populaterOrdersList() {
         ordersList = operatingSystem.getOrderDirectory().stream()
-                    .filter(order -> order.getDealerId().equals(shippingManager.getEnterpriseId()))
+                    .filter(order -> order.getSupplierId() != null && order.getSupplierId().equals(shippingManager.getEnterpriseId()))
                     .toList();
         System.out.println("Orders size: " + ordersList.size());
         ordersList.forEach(o -> System.out.println(o.getOrderId()));
@@ -463,10 +463,11 @@ public class ShippingManagerOrders extends javax.swing.JPanel {
             row[0] = order.getOrderId();
             row[1] = order.getStatus();
             row[2] = order.getStoreId();
-            row[3] = order.getWeaponID();
-            row[4] = order.getQuantity();
-            row[5] = order.getDealerId();
-            row[6] = order.getSupplierId();
+            row[3] = order.getDealerId();
+            row[4] = order.getSupplierId();
+            row[5] = order.getManufacturerId();
+            row[6] = order.getWeaponID();
+            row[7] = order.getQuantity();
 
             model.addRow(row);
             

@@ -210,7 +210,7 @@ public class OrderFullfilJPanel extends javax.swing.JPanel {
 
     private void populaterOrdersList() {
         ordersList = operatingSystem.getOrderDirectory().stream()
-                .filter(order -> order.getManufacturerId().equals(fo.getEnterpriseId()) && order.getStatus().equals(OrderStatus.WAITING_FOR_MANUFACTURER))
+                .filter(order -> order.getManufacturerId()!=null && order.getManufacturerId().equals(fo.getEnterpriseId()) && order.getStatus().equals(OrderStatus.WAITING_FOR_MANUFACTURER.name()))
                 .toList();
     }
 

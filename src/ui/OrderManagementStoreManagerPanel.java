@@ -17,7 +17,7 @@ import model.root.Enterprise.EnterpriseType;
 import model.root.Order;
 import model.root.Order.OrderStatus;
 import model.root.Weapon;
-import model.dealer.StoreManager;
+import model.root.StoreManager;
 
 
 /**
@@ -299,7 +299,8 @@ public class OrderManagementStoreManagerPanel extends javax.swing.JPanel {
             row[0] = order.getOrderId();
             row[1] = order.getStatus();
             row[2] = order.getWeaponID();
-            row[3] = order.getQuantity();
+            row[3] = operatingSystem.getWeaponDirectory().stream().filter(w -> w.getWeaponId().equals(order.getWeaponID())).findFirst().orElse(null).getName();
+            row[4] = order.getQuantity();
 
             model.addRow(row);
             

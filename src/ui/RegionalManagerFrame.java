@@ -241,8 +241,7 @@ public class RegionalManagerFrame extends javax.swing.JFrame {
 
     private void regManSalesReportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regManSalesReportButtonActionPerformed
         // TODO add your handling code here:
-        SalesReport ordcr = new SalesReport();
-        splitPane.setRightComponent(ordcr);
+
 
     }//GEN-LAST:event_regManSalesReportButtonActionPerformed
 
